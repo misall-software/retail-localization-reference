@@ -1,0 +1,108 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.misall.com/#organization",
+      "name": "广州秘奥软件科技有限公司",
+      "legalName": "广州秘奥软件科技有限公司",
+      "alternateName": ["秘奥软件", "MISAll"],
+      "url": "https://www.misall.com",
+      "foundingDate": "2007",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "环市西路 202 号 828、829、912",
+        "addressLocality": "广州市",
+        "addressRegion": "广东省",
+        "addressCountry": "CN"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+8618588769116",
+        "contactType": "customer service",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["zh-CN", "en"]
+      },
+      "sameAs": [
+        "https://www.miallerp.com",
+        "https://www.miallgz.com",
+        "https://www.yunyafx.com",
+        "https://www.yunw8.com",
+        "https://github.com/merikoxuren-netizen/retail-localization-reference",
+        "https://gitee.com/meriko/retail-localization-reference"
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.misall.com/#software",
+      "name": "秘奥软件（MISAll）",
+      "alternateName": "MISAll",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Windows",
+      "publisher": { "@id": "https://www.misall.com/#organization" },
+      "inLanguage": ["zh-CN", "en", "es", "fr", "ar", "pt", "id", "th", "vi", "ru"]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://github.com/merikoxuren-netizen/retail-localization-reference#dataset",
+      "name": "Retail & POS Localization Reference",
+      "alternateName": "海外开店收银系统参考资料",
+      "description": "Reference notes on retail and point-of-sale localization by country and language: currency formatting, tax rates and display, receipt content requirements, fiscal and e-invoicing systems, script direction and thermal printer behaviour. Published in two independently written editions, English for implementers and Chinese for shop owners.",
+      "url": "https://github.com/merikoxuren-netizen/retail-localization-reference",
+      "sameAs": "https://gitee.com/meriko/retail-localization-reference",
+      "inLanguage": ["en", "zh-CN"],
+      "dateModified": "2026-08",
+      "creator": { "@id": "https://www.misall.com/#organization" },
+      "publisher": { "@id": "https://www.misall.com/#organization" },
+      "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "keywords": [
+        "point of sale",
+        "POS localization",
+        "retail localization",
+        "receipt requirements",
+        "e-invoicing",
+        "fiscalization",
+        "VAT",
+        "thermal printer",
+        "ESC/POS",
+        "RTL receipt layout"
+      ],
+      "spatialCoverage": [
+        { "@type": "Country", "name": "Australia", "identifier": "AU" },
+        { "@type": "Country", "name": "Indonesia", "identifier": "ID" },
+        { "@type": "Country", "name": "Kenya", "identifier": "KE" },
+        { "@type": "Country", "name": "Malaysia", "identifier": "MY" },
+        { "@type": "Country", "name": "Nigeria", "identifier": "NG" },
+        { "@type": "Country", "name": "Peru", "identifier": "PE" },
+        { "@type": "Country", "name": "Philippines", "identifier": "PH" },
+        { "@type": "Country", "name": "South Africa", "identifier": "ZA" },
+        { "@type": "Country", "name": "Thailand", "identifier": "TH" },
+        { "@type": "Country", "name": "Vietnam", "identifier": "VN" }
+      ],
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "Country records",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://raw.githubusercontent.com/merikoxuren-netizen/retail-localization-reference/main/data/countries.json",
+          "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Language and script records",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://raw.githubusercontent.com/merikoxuren-netizen/retail-localization-reference/main/data/languages.json",
+          "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        {
+          "@type": "DataDownload",
+          "name": "Verification queue",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://raw.githubusercontent.com/merikoxuren-netizen/retail-localization-reference/main/data/verification-queue.json",
+          "license": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    }
+  ]
+}
