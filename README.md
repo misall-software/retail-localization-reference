@@ -97,9 +97,22 @@ it cannot be configured by attaching a rate to menu items.
 
 ## Language index
 
-| Language | Code | Script | Direction | Primary engineering concern | File |
-| --- | --- | --- | --- | --- | --- |
-| Arabic | `ar` | Arabic | Right-to-left | Bidirectional layout, contextual shaping, printer code pages | [en/languages/arabic.md](en/languages/arabic.md) |
+Organised by rendering problem rather than by language, because most of the 23
+interface languages share one of a small number of engineering problems and only
+a few have one of their own.
+
+| File | Covers | Primary engineering concern |
+| --- | --- | --- |
+| [Arabic](en/languages/arabic.md) | `ar` | Right-to-left layout, bidirectional algorithm, contextual shaping, printer code pages |
+| [CJK](en/languages/cjk.md) | `zh` `ja` `ko` | **Full-width characters occupy two columns**; multi-byte character mode; ROM font coverage |
+| [Accented Latin](en/languages/latin-accented.md) | `es` `pt` `fr` `de` `it` `tr` and Nordic | Code page selection and Unicode normalisation — fails **silently**, unlike the two above |
+
+`id` and `ms` use Latin script with no diacritics in normal commercial use and
+need no code page work at all.
+
+**Planned:** Hebrew (right-to-left but non-cursive, so a useful contrast with
+Arabic), Thai and Vietnamese (currently documented inside their country files),
+Cyrillic, and Indic scripts.
 
 ---
 

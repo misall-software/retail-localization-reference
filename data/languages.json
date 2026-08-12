@@ -24,24 +24,38 @@
         "name": "Arabic",
         "direction": "rtl",
         "requires_contextual_shaping": true,
-        "positional_forms": ["isolated", "initial", "medial", "final"],
+        "positional_forms": [
+          "isolated",
+          "initial",
+          "medial",
+          "final"
+        ],
         "mandatory_ligatures": [
           {
             "name": "lam-alef",
-            "sequence": ["U+0644", "U+0627"],
+            "sequence": [
+              "U+0644",
+              "U+0627"
+            ],
             "note": "Not stylistic. The unligated sequence is wrong.",
             "source": "official-authority"
           }
         ],
         "combining_marks_zero_width": {
           "value": true,
-          "ranges": ["U+064B-U+0652"],
+          "ranges": [
+            "U+064B-U+0652"
+          ],
           "note": "Counted by string length but occupy no printer column. Cause of column drift on real supplier data.",
           "source": "official-authority"
         },
         "mirrored_characters": {
           "value": true,
-          "examples": ["parentheses", "brackets", "angle brackets"],
+          "examples": [
+            "parentheses",
+            "brackets",
+            "angle brackets"
+          ],
           "note": "Mirror once. Doing it in both the renderer and application code cancels out.",
           "source": "official-authority"
         }
@@ -62,23 +76,63 @@
           "padding computed on code point count instead of display width"
         ],
         "control_characters": [
-          { "name": "RLM", "codepoint": "U+200F", "use": "invisible strong RTL; pins a neutral run" },
-          { "name": "LRM", "codepoint": "U+200E", "use": "invisible strong LTR" },
-          { "name": "LRI", "codepoint": "U+2066", "use": "left-to-right isolate" },
-          { "name": "RLI", "codepoint": "U+2067", "use": "right-to-left isolate" },
-          { "name": "FSI", "codepoint": "U+2068", "use": "first-strong isolate" },
-          { "name": "PDI", "codepoint": "U+2069", "use": "terminates an isolate" }
+          {
+            "name": "RLM",
+            "codepoint": "U+200F",
+            "use": "invisible strong RTL; pins a neutral run"
+          },
+          {
+            "name": "LRM",
+            "codepoint": "U+200E",
+            "use": "invisible strong LTR"
+          },
+          {
+            "name": "LRI",
+            "codepoint": "U+2066",
+            "use": "left-to-right isolate"
+          },
+          {
+            "name": "RLI",
+            "codepoint": "U+2067",
+            "use": "right-to-left isolate"
+          },
+          {
+            "name": "FSI",
+            "codepoint": "U+2068",
+            "use": "first-strong isolate"
+          },
+          {
+            "name": "PDI",
+            "codepoint": "U+2069",
+            "use": "terminates an isolate"
+          }
         ],
         "preferred_technique": "isolates over directional marks",
         "storage_rule": "store logical order, render visual order, never store visual order"
       },
       "digits": {
         "forms": [
-          { "name": "Western (ASCII)", "range": "U+0030-U+0039", "note": "Widely used on printed commercial documents across the Arab world." },
-          { "name": "Arabic-Indic", "range": "U+0660-U+0669", "note": "Used in parts of the region." },
-          { "name": "Eastern Arabic-Indic", "range": "U+06F0-U+06F9", "note": "Persian/Urdu context; distinct glyphs for some digits." }
+          {
+            "name": "Western (ASCII)",
+            "range": "U+0030-U+0039",
+            "note": "Widely used on printed commercial documents across the Arab world."
+          },
+          {
+            "name": "Arabic-Indic",
+            "range": "U+0660-U+0669",
+            "note": "Used in parts of the region."
+          },
+          {
+            "name": "Eastern Arabic-Indic",
+            "range": "U+06F0-U+06F9",
+            "note": "Persian/Urdu context; distinct glyphs for some digits."
+          }
         ],
-        "market_expectation": { "value": null, "source": "unverified", "todo_verify": true },
+        "market_expectation": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
         "rules": [
           "make the digit form a template setting, not a code branch",
           "convert at render time only, never in stored data",
@@ -91,16 +145,39 @@
         "printers_accept_utf8": false,
         "shaping_owner": {
           "value": null,
-          "options": ["printer firmware with an Arabic ROM font", "application pre-shaping to presentation forms"],
+          "options": [
+            "printer firmware with an Arabic ROM font",
+            "application pre-shaping to presentation forms"
+          ],
           "note": "Per-model fact, not discoverable at runtime. Wrong assumption prints disconnected isolated letters.",
           "source": "unverified",
           "todo_verify": true
         },
         "code_pages": [
-          { "name": "CP864", "note": "DOS Arabic. Contains presentation forms, so text must be pre-shaped.", "esc_t_value": null, "todo_verify": true },
-          { "name": "CP720", "note": "DOS Arabic, transparent ASMO. Different layout from CP864.", "esc_t_value": null, "todo_verify": true },
-          { "name": "Windows-1256", "note": "Covers the base repertoire; expects the renderer to shape.", "esc_t_value": null, "todo_verify": true },
-          { "name": "ISO-8859-6", "note": "Base Arabic, limited repertoire, uncommon in POS firmware.", "esc_t_value": null, "todo_verify": true }
+          {
+            "name": "CP864",
+            "note": "DOS Arabic. Contains presentation forms, so text must be pre-shaped.",
+            "esc_t_value": null,
+            "todo_verify": true
+          },
+          {
+            "name": "CP720",
+            "note": "DOS Arabic, transparent ASMO. Different layout from CP864.",
+            "esc_t_value": null,
+            "todo_verify": true
+          },
+          {
+            "name": "Windows-1256",
+            "note": "Covers the base repertoire; expects the renderer to shape.",
+            "esc_t_value": null,
+            "todo_verify": true
+          },
+          {
+            "name": "ISO-8859-6",
+            "note": "Base Arabic, limited repertoire, uncommon in POS firmware.",
+            "esc_t_value": null,
+            "todo_verify": true
+          }
         ],
         "code_page_numbers_omitted_deliberately": {
           "value": true,
@@ -112,9 +189,23 @@
         },
         "recommended_print_path": {
           "value": "raster",
-          "commands": ["GS v 0", "ESC * (older firmware)"],
-          "solves": ["shaping", "bidi ordering", "ligatures", "code pages", "glyph coverage", "mixed-script lines"],
-          "costs": ["more data and slower printing", "printer font and size commands no longer apply", "resolution must match printer dot density"]
+          "commands": [
+            "GS v 0",
+            "ESC * (older firmware)"
+          ],
+          "solves": [
+            "shaping",
+            "bidi ordering",
+            "ligatures",
+            "code pages",
+            "glyph coverage",
+            "mixed-script lines"
+          ],
+          "costs": [
+            "more data and slower printing",
+            "printer font and size commands no longer apply",
+            "resolution must match printer dot density"
+          ]
         },
         "currency_glyph_coverage": {
           "value": null,
@@ -133,19 +224,42 @@
         "measure_display_width_not_string_length": true,
         "normalise_before_measuring": true,
         "paper_width_guidance": [
-          { "width_mm": 80, "columns_font_a": [48, 42], "two_column_layout_viable": true },
-          { "width_mm": 58, "columns_font_a": 32, "two_column_layout_viable": false, "note": "Stack the name on its own line with the amount beneath it." }
+          {
+            "width_mm": 80,
+            "columns_font_a": [
+              48,
+              42
+            ],
+            "two_column_layout_viable": true
+          },
+          {
+            "width_mm": 58,
+            "columns_font_a": 32,
+            "two_column_layout_viable": false,
+            "note": "Stack the name on its own line with the amount beneath it."
+          }
         ],
         "line_breaking": {
           "hyphenation": false,
           "break_on": "whitespace only",
           "truncate_mid_word": false,
           "truncation_note": "Cutting a word changes the final letter's positional form, producing a different misspelled word rather than an obviously clipped string.",
-          "do_not_orphan": ["ZWJ", "ZWNJ"]
+          "do_not_orphan": [
+            "ZWJ",
+            "ZWNJ"
+          ]
         }
       },
       "retail_regions": {
-        "primary": ["Gulf states", "Levant", "Iraq", "Egypt", "Sudan", "Libya", "Maghreb"],
+        "primary": [
+          "Gulf states",
+          "Levant",
+          "Iraq",
+          "Egypt",
+          "Sudan",
+          "Libya",
+          "Maghreb"
+        ],
         "qualifications": [
           {
             "region": "Maghreb",
@@ -157,17 +271,242 @@
             "todo_verify": true
           }
         ],
-        "legal_language_requirements": { "value": null, "source": "unverified", "todo_verify": true }
+        "legal_language_requirements": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
       },
       "deployment_pattern": {
-        "independent_language_settings": ["till interface", "back office interface", "print template"],
+        "independent_language_settings": [
+          "till interface",
+          "back office interface",
+          "print template"
+        ],
         "note": "Only the print template drives the rendering concerns in this file."
       },
       "acceptance_test_requires_native_reader": {
         "value": true,
         "note": "Disconnected letters, a flipped line direction and column drift all look plausible to a reviewer who does not read the script."
       },
-      "open_verification_items": { "en": 6, "zh": 5 }
+      "open_verification_items": {
+        "en": 6,
+        "zh": 5
+      }
+    },
+    {
+      "language": "Chinese, Japanese and Korean",
+      "group": "CJK",
+      "iso_639_1": [
+        "zh",
+        "ja",
+        "ko"
+      ],
+      "doc_en": "en/languages/cjk.md",
+      "doc_zh": "zh/languages/cjk.md",
+      "script": {
+        "iso_15924": [
+          "Hani",
+          "Hira",
+          "Kana",
+          "Hang"
+        ],
+        "direction": "ltr",
+        "requires_contextual_shaping": false
+      },
+      "width": {
+        "standard": "Unicode UAX #11 East Asian Width",
+        "source": "official-authority",
+        "columns_per_character": 2,
+        "halfwidth_katakana_columns": 1,
+        "note": "The dominant failure: code measuring with a plain character count under-counts by a factor of two and overflows the line.",
+        "ambiguous_width_characters": {
+          "examples": [
+            "°",
+            "±",
+            "←",
+            "Greek letters"
+          ],
+          "note": "One column in a Western font, two in a CJK font. The printer decides; measure empirically.",
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "line_budget": [
+        {
+          "width_mm": 80,
+          "columns": 48,
+          "description_columns": 35,
+          "cjk_characters": 17
+        },
+        {
+          "width_mm": 58,
+          "columns": 32,
+          "description_columns": 19,
+          "cjk_characters": 9,
+          "note": "Name must go on its own line; this is the only workable layout, not a degraded one."
+        }
+      ],
+      "line_breaking": {
+        "breaks_without_whitespace": true,
+        "kinsoku_rules": {
+          "may_not_start_a_line": [
+            "。",
+            "，",
+            "、",
+            "）",
+            "」",
+            "》"
+          ],
+          "may_not_end_a_line": [
+            "（",
+            "「",
+            "《"
+          ],
+          "source": "official-authority"
+        }
+      },
+      "printing": {
+        "printers_accept_utf8": false,
+        "requires_multibyte_mode": true,
+        "rom_font_present": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true,
+          "note": "Printers sold into Western markets frequently have no CJK font and will print boxes regardless of what is sent. Most common cause of works-on-my-desk failures."
+        },
+        "encodings": {
+          "Simplified Chinese": [
+            "GB18030",
+            "GBK",
+            "GB2312"
+          ],
+          "Traditional Chinese": [
+            "Big5"
+          ],
+          "Japanese": [
+            "Shift_JIS"
+          ],
+          "Korean": [
+            "EUC-KR"
+          ]
+        },
+        "mode_command_values": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "glyph_coverage": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true,
+          "note": "Rare surname characters, Traditional forms and the shop's own name are where coverage runs out."
+        },
+        "recommended_print_path": "raster"
+      },
+      "simplified_traditional": {
+        "interchangeable": false,
+        "note": "Conversion is not one-to-one; one simplified form can map to several traditional ones. Store two name fields rather than converting at runtime."
+      },
+      "deployment_relevance": "Chinese is the back-office language across most deployments in this repository, so this file applies to every country in it, not only where Chinese reaches the customer receipt. Customer-facing in Malaysia and on kitchen tickets in Chinese-owned restaurants.",
+      "open_verification_items": {
+        "en": 4,
+        "zh": 4
+      }
+    },
+    {
+      "language": "Accented Latin scripts",
+      "group": "Latin-accented",
+      "covers": [
+        "es",
+        "pt",
+        "fr",
+        "de",
+        "it",
+        "tr",
+        "nordic"
+      ],
+      "unaffected": {
+        "languages": [
+          "id",
+          "ms"
+        ],
+        "note": "Latin script with no diacritics in normal commercial use; no code page work needed."
+      },
+      "doc_en": "en/languages/latin-accented.md",
+      "doc_zh": "zh/languages/latin-accented.md",
+      "script": {
+        "iso_15924": "Latn",
+        "direction": "ltr",
+        "requires_contextual_shaping": false
+      },
+      "failure_mode": {
+        "value": "silent",
+        "note": "Output stays readable when wrong. Pina for Pina-with-tilde, Sao for Sao-with-tilde. Passes review by anyone testing with clean data, unlike Arabic or Thai which fail loudly."
+      },
+      "special_cases": [
+        {
+          "language": "es",
+          "issue": "inverted punctuation",
+          "chars": [
+            "¿",
+            "¡"
+          ],
+          "note": "Not decorative; outside ASCII and often the first thing to break."
+        },
+        {
+          "language": "tr",
+          "issue": "dotted and dotless i",
+          "note": "i uppercases to I-with-dot, dotless-i uppercases to I. A naive toUpperCase produces a different word.",
+          "severity": "correctness"
+        },
+        {
+          "language": "de",
+          "issue": "sharp s uppercase",
+          "note": "Conventional fallback SS changes string length and therefore column width."
+        }
+      ],
+      "printing": {
+        "printers_accept_utf8": false,
+        "default_code_page_is_usually": "CP437",
+        "default_covers_accents": false,
+        "note": "A printer whose code page was never set mangles every accented character. Most common single cause.",
+        "candidate_code_pages": [
+          "CP850",
+          "CP858",
+          "Windows-1252",
+          "CP860",
+          "ISO-8859-1",
+          "ISO-8859-15",
+          "Windows-1254"
+        ],
+        "code_page_values": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "euro_sign": {
+          "absent_from": [
+            "CP850",
+            "ISO-8859-1"
+          ],
+          "note": "Select CP858, Windows-1252 or ISO-8859-15, or print EUR."
+        }
+      },
+      "normalisation": {
+        "required_form": "NFC",
+        "apply_at": [
+          "import",
+          "before printing"
+        ],
+        "note": "Decomposed input loses the accent entirely through a single-byte code page, and inflates character counts so column maths disagrees with printed width.",
+        "source": "official-authority"
+      },
+      "description_length_vs_english": "roughly a fifth longer for es and pt; longer for fr and de, which also produces unbreakable compounds",
+      "open_verification_items": {
+        "en": 3,
+        "zh": 3
+      }
     }
   ]
 }
