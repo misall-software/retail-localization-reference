@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "last_updated": "2026-08",
-  "note": "Every TODO: verify item across both editions and all ten countries. Each item names what to check and the authority or instrument to check it against. The editions field lists which editions carry the item: most are shared, a few are specific to one. Nothing here has been confirmed against a primary source; items marked confirmed-secondary were researched in 2026-08 and cited in SOURCES.md, which is not the same thing.",
+  "note": "Every TODO: verify item across both editions and all ten countries, covering both retail and food service. Each item names what to check and the authority or instrument to check it against. The editions field lists which editions carry the item: most are shared, a few are specific to one. Nothing here has been confirmed against a primary source; items marked confirmed-secondary were researched in 2026-08 and cited in SOURCES.md, which is not the same thing.",
   "status_values": [
     "open",
     "confirmed-secondary",
@@ -14,22 +14,22 @@
     "low": "Wrong value causes cosmetic or convenience issues."
   },
   "totals": {
-    "items": 96,
+    "items": 186,
     "by_status": {
       "confirmed-secondary": 12,
-      "open": 84
+      "open": 174
     },
     "by_country_or_language": {
-      "AU": 5,
-      "ID": 8,
-      "KE": 13,
-      "MY": 8,
-      "NG": 7,
-      "PE": 14,
-      "PH": 8,
-      "TH": 6,
-      "VN": 14,
-      "ZA": 7,
+      "AU": 14,
+      "ID": 17,
+      "KE": 22,
+      "MY": 18,
+      "NG": 16,
+      "PE": 22,
+      "PH": 17,
+      "TH": 15,
+      "VN": 23,
+      "ZA": 16,
       "ar": 6
     }
   },
@@ -1425,6 +1425,1266 @@
       "current_draft_value": null,
       "verify_against": "ATO",
       "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "AU-FS-01",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether dine-in, takeaway and delivery are taxed differently.",
+      "current_draft_value": null,
+      "verify_against": "ATO and ACCC",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "AU-FS-02",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether a reduced rate or registration threshold applies to small food businesses.",
+      "current_draft_value": null,
+      "verify_against": "ATO and ACCC",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "AU-FS-03",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether alcoholic drinks are taxed separately, and at what rate.",
+      "current_draft_value": null,
+      "verify_against": "ATO and ACCC",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "AU-FS-04",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether a service charge is customary, at what rate, and whether it is mandatory.",
+      "current_draft_value": null,
+      "verify_against": "ATO and ACCC",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "AU-FS-05",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether the service charge is itself taxable.",
+      "current_draft_value": null,
+      "verify_against": "ATO and ACCC",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "AU-FS-06",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether tips must go through the POS and be recorded, and how they are treated for tax and payroll.",
+      "current_draft_value": null,
+      "verify_against": "ATO and ACCC",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "AU-FS-07",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt requirements",
+      "item": "Whether dine-in and takeaway must be distinguished on the document, whether menu items must be itemised, and whether table number and guest count are mandatory.",
+      "current_draft_value": null,
+      "verify_against": "ATO and ACCC",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "AU-FS-08",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "The accounting date rule for a sale rung up after midnight, and typical local trading hours by segment.",
+      "current_draft_value": null,
+      "verify_against": "ATO and ACCC",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "AU-FS-09",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Where the GST-free food boundary falls for a venue selling both prepared and packaged food.",
+      "current_draft_value": null,
+      "verify_against": "ATO and ACCC",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ID-FS-01",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether dine-in, takeaway and delivery are taxed differently.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes and the relevant regional authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ID-FS-02",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether a reduced rate or registration threshold applies to small food businesses.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes and the relevant regional authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ID-FS-03",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether alcoholic drinks are taxed separately, and at what rate.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes and the relevant regional authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ID-FS-04",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether a service charge is customary, at what rate, and whether it is mandatory.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes and the relevant regional authority",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ID-FS-05",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether the service charge is itself taxable.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes and the relevant regional authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ID-FS-06",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether tips must go through the POS and be recorded, and how they are treated for tax and payroll.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes and the relevant regional authority",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ID-FS-07",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt requirements",
+      "item": "Whether dine-in and takeaway must be distinguished on the document, whether menu items must be itemised, and whether table number and guest count are mandatory.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes and the relevant regional authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ID-FS-08",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "The accounting date rule for a sale rung up after midnight, and typical local trading hours by segment.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes and the relevant regional authority",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ID-FS-09",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether food service falls under a regional restaurant tax rather than national VAT, and which authority administers it.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes and the relevant regional authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KE-FS-01",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether dine-in, takeaway and delivery are taxed differently.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KE-FS-02",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether a reduced rate or registration threshold applies to small food businesses.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KE-FS-03",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether alcoholic drinks are taxed separately, and at what rate.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KE-FS-04",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether a service charge is customary, at what rate, and whether it is mandatory.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KE-FS-05",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether the service charge is itself taxable.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KE-FS-06",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether tips must go through the POS and be recorded, and how they are treated for tax and payroll.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KE-FS-07",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt requirements",
+      "item": "Whether dine-in and takeaway must be distinguished on the document, whether menu items must be itemised, and whether table number and guest count are mandatory.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KE-FS-08",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "The accounting date rule for a sale rung up after midnight, and typical local trading hours by segment.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KE-FS-09",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Offline behaviour",
+      "item": "How a table left open across a connectivity outage should be handled under eTIMS.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "MY-FS-01",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether dine-in, takeaway and delivery are taxed differently.",
+      "current_draft_value": null,
+      "verify_against": "Royal Malaysian Customs Department; JAKIM for halal",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "MY-FS-02",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether a reduced rate or registration threshold applies to small food businesses.",
+      "current_draft_value": null,
+      "verify_against": "Royal Malaysian Customs Department; JAKIM for halal",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "MY-FS-03",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether alcoholic drinks are taxed separately, and at what rate.",
+      "current_draft_value": null,
+      "verify_against": "Royal Malaysian Customs Department; JAKIM for halal",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "MY-FS-04",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether a service charge is customary, at what rate, and whether it is mandatory.",
+      "current_draft_value": null,
+      "verify_against": "Royal Malaysian Customs Department; JAKIM for halal",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "MY-FS-05",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether the service charge is itself taxable.",
+      "current_draft_value": null,
+      "verify_against": "Royal Malaysian Customs Department; JAKIM for halal",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "MY-FS-06",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether tips must go through the POS and be recorded, and how they are treated for tax and payroll.",
+      "current_draft_value": null,
+      "verify_against": "Royal Malaysian Customs Department; JAKIM for halal",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "MY-FS-07",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt requirements",
+      "item": "Whether dine-in and takeaway must be distinguished on the document, whether menu items must be itemised, and whether table number and guest count are mandatory.",
+      "current_draft_value": null,
+      "verify_against": "Royal Malaysian Customs Department; JAKIM for halal",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "MY-FS-08",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "The accounting date rule for a sale rung up after midnight, and typical local trading hours by segment.",
+      "current_draft_value": null,
+      "verify_against": "Royal Malaysian Customs Department; JAKIM for halal",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "MY-FS-09",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether the 6% food-service service tax differs from the general service tax rate, and the current rate.",
+      "current_draft_value": null,
+      "verify_against": "Royal Malaysian Customs Department; JAKIM for halal",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "MY-FS-10",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Halal",
+      "item": "JAKIM halal labelling obligations, and what must appear on printed output.",
+      "current_draft_value": null,
+      "verify_against": "Royal Malaysian Customs Department; JAKIM for halal",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "NG-FS-01",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether dine-in, takeaway and delivery are taxed differently.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "NG-FS-02",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether a reduced rate or registration threshold applies to small food businesses.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "NG-FS-03",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether alcoholic drinks are taxed separately, and at what rate.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "NG-FS-04",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether a service charge is customary, at what rate, and whether it is mandatory.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "NG-FS-05",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether the service charge is itself taxable.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "NG-FS-06",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether tips must go through the POS and be recorded, and how they are treated for tax and payroll.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "NG-FS-07",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt requirements",
+      "item": "Whether dine-in and takeaway must be distinguished on the document, whether menu items must be itemised, and whether table number and guest count are mandatory.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "NG-FS-08",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "The accounting date rule for a sale rung up after midnight, and typical local trading hours by segment.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "NG-FS-09",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Integration",
+      "item": "At what point a restaurant invoice must be submitted for clearance: at order, at bill request, or at payment.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PE-FS-01",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether dine-in, takeaway and delivery are taxed differently.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PE-FS-02",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether alcoholic drinks are taxed separately, and at what rate.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PE-FS-03",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether a service charge is customary, at what rate, and whether it is mandatory.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "PE-FS-04",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether the service charge is itself taxable.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PE-FS-05",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether tips must go through the POS and be recorded, and how they are treated for tax and payroll.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "PE-FS-06",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt requirements",
+      "item": "Whether dine-in and takeaway must be distinguished on the document, whether menu items must be itemised, and whether table number and guest count are mandatory.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PE-FS-07",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "The accounting date rule for a sale rung up after midnight, and typical local trading hours by segment.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "PE-FS-08",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "The exact qualifying conditions for the reduced food-service rate, and whether the intended business qualifies.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PH-FS-01",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether dine-in, takeaway and delivery are taxed differently.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PH-FS-02",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether a reduced rate or registration threshold applies to small food businesses.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PH-FS-03",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether alcoholic drinks are taxed separately, and at what rate.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PH-FS-04",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether a service charge is customary, at what rate, and whether it is mandatory.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "PH-FS-05",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether the service charge is itself taxable.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PH-FS-06",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether tips must go through the POS and be recorded, and how they are treated for tax and payroll.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "PH-FS-07",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt requirements",
+      "item": "Whether dine-in and takeaway must be distinguished on the document, whether menu items must be itemised, and whether table number and guest count are mandatory.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PH-FS-08",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "The accounting date rule for a sale rung up after midnight, and typical local trading hours by segment.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "PH-FS-09",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "The SC/PWD apportionment rule on a shared restaurant bill, before the discount and VAT exemption are computed.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "TH-FS-01",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether dine-in, takeaway and delivery are taxed differently.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "TH-FS-02",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether a reduced rate or registration threshold applies to small food businesses.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "TH-FS-03",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether alcoholic drinks are taxed separately, and at what rate.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "TH-FS-04",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether a service charge is customary, at what rate, and whether it is mandatory.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "TH-FS-05",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether the service charge is itself taxable.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "TH-FS-06",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether tips must go through the POS and be recorded, and how they are treated for tax and payroll.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "TH-FS-07",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt requirements",
+      "item": "Whether dine-in and takeaway must be distinguished on the document, whether menu items must be itemised, and whether table number and guest count are mandatory.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "TH-FS-08",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "The accounting date rule for a sale rung up after midnight, and typical local trading hours by segment.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "TH-FS-09",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Printing",
+      "item": "Thai rendering on the kitchen printer specifically, which is frequently a different and cheaper model.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "VN-FS-01",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether dine-in, takeaway and delivery are taxed differently.",
+      "current_draft_value": null,
+      "verify_against": "tax administration under the Ministry of Finance",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "VN-FS-02",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether a reduced rate or registration threshold applies to small food businesses.",
+      "current_draft_value": null,
+      "verify_against": "tax administration under the Ministry of Finance",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "VN-FS-03",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether alcoholic drinks are taxed separately, and at what rate.",
+      "current_draft_value": null,
+      "verify_against": "tax administration under the Ministry of Finance",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "VN-FS-04",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether a service charge is customary, at what rate, and whether it is mandatory.",
+      "current_draft_value": null,
+      "verify_against": "tax administration under the Ministry of Finance",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "VN-FS-05",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether the service charge is itself taxable.",
+      "current_draft_value": null,
+      "verify_against": "tax administration under the Ministry of Finance",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "VN-FS-06",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether tips must go through the POS and be recorded, and how they are treated for tax and payroll.",
+      "current_draft_value": null,
+      "verify_against": "tax administration under the Ministry of Finance",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "VN-FS-07",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt requirements",
+      "item": "Whether dine-in and takeaway must be distinguished on the document, whether menu items must be itemised, and whether table number and guest count are mandatory.",
+      "current_draft_value": null,
+      "verify_against": "tax administration under the Ministry of Finance",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "VN-FS-08",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "The accounting date rule for a sale rung up after midnight, and typical local trading hours by segment.",
+      "current_draft_value": null,
+      "verify_against": "tax administration under the Ministry of Finance",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "VN-FS-09",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt requirements",
+      "item": "Invoice timing rules when a diner requests an invoice after the meal rather than at a counter.",
+      "current_draft_value": null,
+      "verify_against": "tax administration under the Ministry of Finance",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ZA-FS-01",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether dine-in, takeaway and delivery are taxed differently.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ZA-FS-02",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether a reduced rate or registration threshold applies to small food businesses.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ZA-FS-03",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether alcoholic drinks are taxed separately, and at what rate.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ZA-FS-04",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether a service charge is customary, at what rate, and whether it is mandatory.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ZA-FS-05",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether the service charge is itself taxable.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ZA-FS-06",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge and tips",
+      "item": "Whether tips must go through the POS and be recorded, and how they are treated for tax and payroll.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ZA-FS-07",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt requirements",
+      "item": "Whether dine-in and takeaway must be distinguished on the document, whether menu items must be itemised, and whether table number and guest count are mandatory.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ZA-FS-08",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "The accounting date rule for a sale rung up after midnight, and typical local trading hours by segment.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ZA-FS-09",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Connectivity",
+      "item": "Whether open table state survives an abrupt power loss and is restored on recovery.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "high",
       "status": "open"
     }
   ],
