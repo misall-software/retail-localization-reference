@@ -68,9 +68,28 @@ inline `TODO: verify` notes where firmware varies between vendors.
 
 | Country | ISO | Currency | Headline consumption tax | Fiscal / e-invoice system | Open items | File |
 | --- | --- | --- | --- | --- | --- | --- |
-| Kenya | KE | KES — `KSh` | VAT 16% `TODO: verify` | eTIMS (Kenya Revenue Authority) | 12 | [en/countries/kenya.md](en/countries/kenya.md) |
-| Vietnam | VN | VND — `₫` | VAT 10% standard, reduced rate policy in flux `TODO: verify` | E-invoice from cash registers (tax administration under the Ministry of Finance) | 13 | [en/countries/vietnam.md](en/countries/vietnam.md) |
-| Peru | PE | PEN — `S/` | IGV 18% `TODO: verify` | CPE electronic vouchers (SUNAT) | 13 | [en/countries/peru.md](en/countries/peru.md) |
+| Australia | AU | AUD — `$` | GST 10%, flat | None for retail; ATO, tax invoice on request | 5 | [en/countries/australia.md](en/countries/australia.md) |
+| Indonesia | ID | IDR — `Rp` | PPN 12% statutory, **11% effective** via base adjustment | e-Faktur (Directorate General of Taxes) | 8 | [en/countries/indonesia.md](en/countries/indonesia.md) |
+| Kenya | KE | KES — `KSh` | VAT 16% | eTIMS (Kenya Revenue Authority) | 11 | [en/countries/kenya.md](en/countries/kenya.md) |
+| Malaysia | MY | MYR — `RM` | **SST**, not VAT | MyInvois (LHDN), phase 4 live 2026-01 | 8 | [en/countries/malaysia.md](en/countries/malaysia.md) |
+| Nigeria | NG | NGN — `₦` | VAT 7.5% | FIRSMBS clearance model (FIRS), phased | 7 | [en/countries/nigeria.md](en/countries/nigeria.md) |
+| Peru | PE | PEN — `S/` | IGV 18%; 10% for small food service | CPE electronic vouchers (SUNAT) | 11 | [en/countries/peru.md](en/countries/peru.md) |
+| Philippines | PH | PHP — `₱` | VAT 12% | BIR — **device accreditation required**; EIS | 8 | [en/countries/philippines.md](en/countries/philippines.md) |
+| South Africa | ZA | ZAR — `R` | VAT 15% | SARS; no retail clearance mandate identified | 7 | [en/countries/south-africa.md](en/countries/south-africa.md) |
+| Thailand | TH | THB — `฿` | VAT 7% — **expires 2026-09-30** | Voluntary e-Tax Invoice (Revenue Department) | 6 | [en/countries/thailand.md](en/countries/thailand.md) |
+| Vietnam | VN | VND — `₫` | VAT 8% — **expires 2026-12-31** | Cash-register e-invoice (Ministry of Finance) | 10 | [en/countries/vietnam.md](en/countries/vietnam.md) |
+
+### Rates with an expiry date
+
+Three of these are temporary reductions that lapse on a known date. A system with
+the rate compiled in produces silently wrong tax the day after, so they are worth
+tracking separately:
+
+| Country | Rate | Lapses | Reverts to |
+| --- | --- | --- | --- |
+| Thailand | 7% | 2026-09-30 | 10% statutory, unless extended |
+| Vietnam | 8% | 2026-12-31 | 10% standard, unless extended |
+| Peru | 10% (small food service only) | 2026-12-31 | 18%, unless extended |
 
 ## Language index
 

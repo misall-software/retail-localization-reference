@@ -14,18 +14,329 @@
   },
   "countries": [
     {
+      "country": "Australia",
+      "iso_3166_1_alpha_2": "AU",
+      "iso_3166_1_alpha_3": "AUS",
+      "doc_en": "en/countries/australia.md",
+      "doc_zh": "zh/countries/australia.md",
+      "currency": {
+        "iso_4217": {
+          "value": "AUD",
+          "source": "official-authority"
+        },
+        "symbol": {
+          "value": "$",
+          "source": "official-authority"
+        },
+        "symbol_position": {
+          "value": "prefix",
+          "source": "unverified"
+        },
+        "decimal_places": {
+          "value": 2,
+          "source": "official-authority"
+        },
+        "thousands_separator": {
+          "value": ",",
+          "source": "unverified"
+        },
+        "decimal_separator": {
+          "value": ".",
+          "source": "unverified"
+        },
+        "cash_rounding": {
+          "value": "nearest 5 cents",
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "tax": {
+        "standard_gst_rate_percent": {
+          "value": 10,
+          "source": "public-regulation",
+          "has_expiry": false,
+          "note": "Flat, with no scheduled expiry. GST-free and input-taxed categories exist, notably most basic food, defined by schedule."
+        },
+        "gst_free_food": {
+          "value": true,
+          "note": "Basic food is generally GST-free, prepared and packaged food generally not. Per-product tax categories are unavoidable for grocery catalogues.",
+          "source": "public-regulation",
+          "todo_verify": true
+        },
+        "price_display": {
+          "value": "tax-inclusive",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "fiscal_system": {
+          "value": "ATO",
+          "clearance_mandate": false,
+          "device_accreditation": false,
+          "note": "No fiscalisation for retail. Peppol e-invoicing exists for B2B and B2G contexts.",
+          "source": "official-authority",
+          "todo_verify": true
+        }
+      },
+      "receipt": {
+        "obligation": "on request",
+        "must_provide_within_days": 28,
+        "exempt_at_or_below": {
+          "amount": 82.5,
+          "includes_gst": true
+        },
+        "required_fields_under_1000": [
+          "that the document is intended to be a tax invoice",
+          "seller identity",
+          "seller ABN",
+          "date of issue",
+          "brief description including quantity and price"
+        ],
+        "requirements_at_or_above_1000": {
+          "value": null,
+          "todo_verify": true
+        },
+        "note": "The POS must be able to produce a compliant tax invoice on demand, including after the fact.",
+        "common_paper_widths_mm": [
+          80,
+          58
+        ],
+        "source": "public-regulation",
+        "verified_secondary": "2026-08"
+      },
+      "layby": {
+        "regulated": true,
+        "instrument": "Australian Consumer Law",
+        "source": "public-regulation",
+        "verified_secondary": "2026-08",
+        "definition": [
+          "sale of goods",
+          "three or more instalments including any deposit",
+          "goods not supplied until paid in full",
+          "no interest charged"
+        ],
+        "written_agreement_required": true,
+        "copy_to_customer": true,
+        "electronic_delivery_acceptable": true,
+        "agreement_terms": [
+          "goods",
+          "total price",
+          "deposit",
+          "payment schedule",
+          "termination rights",
+          "any termination fee"
+        ],
+        "stock_reserved_not_sold": true,
+        "gst_attribution_timing": {
+          "value": null,
+          "todo_verify": true,
+          "note": "Determines what the business activity statement reports. Cannot be guessed."
+        },
+        "termination_fee_cap": {
+          "value": null,
+          "todo_verify": true
+        }
+      },
+      "languages": {
+        "official": [
+          "en"
+        ],
+        "retail_print_default": "en",
+        "common_split_deployment": {
+          "back_office": "zh",
+          "till": "en"
+        },
+        "script": "Latin",
+        "printer_encoding_risk": "low"
+      },
+      "payment_methods": [
+        "cards",
+        "account-to-account",
+        "cash",
+        "bnpl"
+      ],
+      "payment_notes": {
+        "dominant": "cards",
+        "contactless_default": true,
+        "rails": [
+          "PayID",
+          "Osko"
+        ],
+        "bnpl_note": "Each provider settles and reconciles on its own terms; treat each as a distinct tender type."
+      },
+      "connectivity": {
+        "offline_selling_required": true
+      },
+      "timezone": "multiple",
+      "utc_offset": "varies",
+      "multiple_timezones": true,
+      "observes_dst": true,
+      "dst_note": "Some states observe daylight saving and others do not. A multi-store deployment cannot assume one offset; the business-day boundary must be per-store.",
+      "open_verification_items": {
+        "en": 5,
+        "zh": 5
+      }
+    },
+    {
+      "country": "Indonesia",
+      "iso_3166_1_alpha_2": "ID",
+      "iso_3166_1_alpha_3": "IDN",
+      "doc_en": "en/countries/indonesia.md",
+      "doc_zh": "zh/countries/indonesia.md",
+      "currency": {
+        "iso_4217": {
+          "value": "IDR",
+          "source": "official-authority"
+        },
+        "symbol": {
+          "value": "Rp",
+          "source": "official-authority"
+        },
+        "symbol_position": {
+          "value": "prefix",
+          "source": "unverified"
+        },
+        "decimal_places": {
+          "value": 0,
+          "source": "unverified"
+        },
+        "thousands_separator": {
+          "value": ".",
+          "source": "unverified"
+        },
+        "decimal_separator": {
+          "value": ",",
+          "source": "unverified"
+        },
+        "typical_price_magnitude": {
+          "value": "5000 - 5000000",
+          "note": "Order of magnitude only.",
+          "source": "unverified"
+        }
+      },
+      "tax": {
+        "statutory_vat_rate_percent": {
+          "value": 12,
+          "source": "public-regulation",
+          "verified_secondary": "2026-08"
+        },
+        "effective_vat_rate_percent": {
+          "value": 11,
+          "mechanism": "tax base of 11/12 of selling price",
+          "instrument": "PMK No. 131 of 2024",
+          "note": "Implement the base adjustment, not a flat 11 percent. Rounding differs on some amounts.",
+          "source": "public-regulation",
+          "verified_secondary": "2026-08"
+        },
+        "luxury_goods": {
+          "value": 12,
+          "base": "unadjusted",
+          "scheme": "PPnBM",
+          "source": "public-regulation",
+          "todo_verify": true
+        },
+        "price_display": {
+          "value": "tax-inclusive",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "fiscal_system": {
+          "value": "e-Faktur",
+          "authority": "Directorate General of Taxes",
+          "retail_b2c_scope": null,
+          "source": "official-authority",
+          "todo_verify": true
+        }
+      },
+      "receipt": {
+        "mandatory_fields_confirmed": false,
+        "common_paper_widths_mm": [
+          80,
+          58
+        ]
+      },
+      "languages": {
+        "official": [
+          "id"
+        ],
+        "retail_print_default": "id",
+        "common_split_deployment": {
+          "back_office": "zh",
+          "till": "id"
+        },
+        "script": "Latin",
+        "diacritics_in_commercial_use": false,
+        "printer_encoding_risk": "low"
+      },
+      "payment_methods": [
+        "qris",
+        "e-wallet",
+        "cash",
+        "cards",
+        "bank-transfer"
+      ],
+      "payment_notes": {
+        "national_qr_standard": "QRIS",
+        "interoperable": true,
+        "note": "One merchant QR accepts participating wallets and banks; no per-wallet integration needed.",
+        "confirmation_is_visual_at_counter": true,
+        "tender_reference_required": true
+      },
+      "connectivity": {
+        "offline_selling_required": true,
+        "local_conditions": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "timezone": [
+        "Asia/Jakarta",
+        "Asia/Makassar",
+        "Asia/Jayapura"
+      ],
+      "utc_offset": [
+        "+07:00",
+        "+08:00",
+        "+09:00"
+      ],
+      "multiple_timezones": true,
+      "observes_dst": false,
+      "open_verification_items": {
+        "en": 8,
+        "zh": 8
+      }
+    },
+    {
       "country": "Kenya",
       "iso_3166_1_alpha_2": "KE",
       "iso_3166_1_alpha_3": "KEN",
       "doc_en": "en/countries/kenya.md",
       "doc_zh": "zh/countries/kenya.md",
       "currency": {
-        "iso_4217": { "value": "KES", "source": "official-authority" },
-        "symbol": { "value": "KSh", "source": "official-authority" },
-        "symbol_position": { "value": "prefix", "source": "unverified" },
-        "decimal_places": { "value": 2, "source": "official-authority" },
-        "thousands_separator": { "value": ",", "source": "unverified" },
-        "decimal_separator": { "value": ".", "source": "unverified" },
+        "iso_4217": {
+          "value": "KES",
+          "source": "official-authority"
+        },
+        "symbol": {
+          "value": "KSh",
+          "source": "official-authority"
+        },
+        "symbol_position": {
+          "value": "prefix",
+          "source": "unverified"
+        },
+        "decimal_places": {
+          "value": 2,
+          "source": "official-authority"
+        },
+        "thousands_separator": {
+          "value": ",",
+          "source": "unverified"
+        },
+        "decimal_separator": {
+          "value": ".",
+          "source": "unverified"
+        },
         "typical_price_magnitude": {
           "value": "10 - 10000",
           "note": "Order of magnitude only, for field sizing. Not price data.",
@@ -34,19 +345,44 @@
         "authority_to_confirm": "Central Bank of Kenya"
       },
       "tax": {
-        "standard_vat_rate_percent": { "value": 16, "source": "public-regulation", "verified_secondary": "2026-08" },
-        "active_rates_percent": { "value": [16, 0], "note": "Exempt supplies are a separate category from zero-rated.", "source": "public-regulation", "verified_secondary": "2026-08" },
-        "price_display": { "value": "tax-inclusive", "source": "unverified", "todo_verify": true },
+        "standard_vat_rate_percent": {
+          "value": 16,
+          "source": "public-regulation",
+          "verified_secondary": "2026-08"
+        },
+        "active_rates_percent": {
+          "value": [
+            16,
+            0
+          ],
+          "note": "Exempt supplies are a separate category from zero-rated.",
+          "source": "public-regulation",
+          "verified_secondary": "2026-08"
+        },
+        "price_display": {
+          "value": "tax-inclusive",
+          "source": "unverified",
+          "todo_verify": true
+        },
         "fiscal_system": {
           "value": "eTIMS",
           "long_name": "electronic Tax Invoice Management System",
           "authority": "Kenya Revenue Authority (KRA)",
           "predecessor": "register-based regime using ETR devices and control units",
           "mandatory_since": "2022-11-30",
-          "scope_extended": { "date": "2024-01", "note": "Obligation extended beyond VAT-registered businesses to taxpayers generally, including small traders and professionals." },
+          "scope_extended": {
+            "date": "2024-01",
+            "note": "Obligation extended beyond VAT-registered businesses to taxpayers generally, including small traders and professionals."
+          },
           "invoice_without_etims_reference_is_invalid": true,
-          "electronic_signature_required": { "value": true, "todo_verify": true },
-          "retention_years": { "value": 5, "todo_verify": true },
+          "electronic_signature_required": {
+            "value": true,
+            "todo_verify": true
+          },
+          "retention_years": {
+            "value": 5,
+            "todo_verify": true
+          },
           "source": "official-authority",
           "verified_secondary": "2026-08"
         },
@@ -73,24 +409,53 @@
           "source": "public-regulation",
           "todo_verify": true
         },
-        "qr_code_required": { "value": true, "source": "public-regulation", "todo_verify": true },
-        "qr_code_payload": { "value": null, "source": "unverified", "todo_verify": true },
-        "common_paper_widths_mm": [80, 58]
+        "qr_code_required": {
+          "value": true,
+          "source": "public-regulation",
+          "todo_verify": true
+        },
+        "qr_code_payload": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "common_paper_widths_mm": [
+          80,
+          58
+        ]
       },
       "languages": {
-        "official": ["en", "sw"],
+        "official": [
+          "en",
+          "sw"
+        ],
         "retail_print_default": "en",
-        "common_split_deployment": { "back_office": "zh", "till": "en" },
+        "common_split_deployment": {
+          "back_office": "zh",
+          "till": "en"
+        },
         "script": "Latin",
         "diacritics_in_commercial_use": false,
         "printer_encoding_risk": "low"
       },
-      "payment_methods": ["mobile-money", "cash", "cards", "bank-transfer"],
+      "payment_methods": [
+        "mobile-money",
+        "cash",
+        "cards",
+        "bank-transfer"
+      ],
       "payment_notes": {
         "dominant_non_cash": "mobile-money",
         "primary_service": "M-Pesa",
-        "merchant_collection_forms": ["till-style (Buy Goods)", "bill-style (Paybill)"],
-        "merchant_collection_differences": { "value": null, "source": "unverified", "todo_verify": true },
+        "merchant_collection_forms": [
+          "till-style (Buy Goods)",
+          "bill-style (Paybill)"
+        ],
+        "merchant_collection_differences": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
         "split_tender_common": true,
         "tender_reference_required": true,
         "tender_reference_is_reconciliation_key": true,
@@ -98,123 +463,291 @@
       },
       "connectivity": {
         "offline_selling_required": true,
-        "local_conditions": { "value": null, "source": "unverified", "todo_verify": true }
+        "local_conditions": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
       },
       "timezone": "Africa/Nairobi",
       "utc_offset": "+03:00",
       "observes_dst": false,
-      "open_verification_items": { "en": 12, "zh": 13 }
+      "open_verification_items": {
+        "en": 12,
+        "zh": 13
+      }
     },
     {
-      "country": "Vietnam",
-      "iso_3166_1_alpha_2": "VN",
-      "iso_3166_1_alpha_3": "VNM",
-      "doc_en": "en/countries/vietnam.md",
-      "doc_zh": "zh/countries/vietnam.md",
+      "country": "Malaysia",
+      "iso_3166_1_alpha_2": "MY",
+      "iso_3166_1_alpha_3": "MYS",
+      "doc_en": "en/countries/malaysia.md",
+      "doc_zh": "zh/countries/malaysia.md",
       "currency": {
-        "iso_4217": { "value": "VND", "source": "official-authority" },
-        "symbol": { "value": "₫", "source": "official-authority" },
-        "symbol_position": { "value": "suffix", "source": "unverified" },
-        "decimal_places": { "value": 0, "source": "unverified", "todo_verify": true },
-        "thousands_separator": { "value": ".", "source": "unverified" },
-        "decimal_separator": { "value": ",", "source": "unverified" },
-        "typical_price_magnitude": {
-          "value": "10000 - 10000000",
-          "note": "Order of magnitude only, for field sizing. Not price data.",
+        "iso_4217": {
+          "value": "MYR",
+          "source": "official-authority"
+        },
+        "symbol": {
+          "value": "RM",
+          "source": "official-authority"
+        },
+        "symbol_position": {
+          "value": "prefix",
           "source": "unverified"
         },
-        "authority_to_confirm": "State Bank of Vietnam"
+        "decimal_places": {
+          "value": 2,
+          "source": "official-authority"
+        },
+        "thousands_separator": {
+          "value": ",",
+          "source": "unverified"
+        },
+        "decimal_separator": {
+          "value": ".",
+          "source": "unverified"
+        },
+        "cash_rounding": {
+          "value": "nearest 5 sen",
+          "note": "Record as its own amount, not a price adjustment.",
+          "source": "unverified",
+          "todo_verify": true
+        }
       },
       "tax": {
-        "standard_vat_rate_percent": { "value": 10, "source": "public-regulation", "verified_secondary": "2026-08" },
-        "reduced_rates_percent": { "value": [5, 0], "source": "public-regulation", "todo_verify": true },
-        "temporary_rate_reduction": {
-          "value": 8,
-          "in_force": true,
-          "effective_from": "2025-07-01",
-          "expires": "2026-12-31",
-          "instrument": "Resolution 204/2025/QH15",
-          "implementing_decree": "Decree 174/2025/ND-CP",
-          "excluded_sectors": ["telecommunications", "real estate", "finance", "banking", "securities", "insurance"],
-          "note": "Lapses 31 December 2026 unless extended again. A hardcoded 8% produces silently wrong tax from 1 January 2027. Exact goods-level coverage still open.",
-          "source": "public-regulation",
-          "verified_secondary": "2026-08",
+        "model": {
+          "value": "SST",
+          "long_name": "Sales Tax and Service Tax",
+          "is_vat": false,
+          "note": "No input-tax credit chain. Sales tax typically levied at manufacture or import rather than at each sale. Do not reuse a VAT data model.",
+          "source": "public-regulation"
+        },
+        "rates": {
+          "value": null,
+          "source": "unverified",
           "todo_verify": true
         },
-        "rates_must_be_date_effective": true,
-        "price_display": { "value": "tax-inclusive", "source": "unverified", "todo_verify": true },
         "fiscal_system": {
-          "value": "electronic invoicing (hoa don dien tu)",
-          "retail_variant": "e-invoice generated from cash registers",
-          "authority": "tax administration under the Ministry of Finance",
-          "framework": "Decree 123/2020/ND-CP as amended by Decree 70/2025/ND-CP, effective 2025-06-01",
-          "cash_register_obligation": {
-            "revenue_threshold_vnd": 1000000000,
-            "applies_to": ["household and individual businesses at or above the threshold", "retail stores, shopping centres, supermarkets", "restaurants and catering", "hotels", "passenger transport", "entertainment"],
-            "real_time_transmission_required": true,
-            "digital_signature_mandatory": false
+          "value": "MyInvois",
+          "authority": "LHDN (Inland Revenue Board)",
+          "source": "official-authority",
+          "verified_secondary": "2026-08",
+          "phases": [
+            {
+              "phase": 1,
+              "start": "2024-08-01",
+              "turnover": "above RM100m"
+            },
+            {
+              "phase": 2,
+              "start": "2025-01-01",
+              "turnover": "RM25m-RM100m"
+            },
+            {
+              "phase": 3,
+              "start": "2025-07-01",
+              "turnover": "RM5m-RM25m"
+            },
+            {
+              "phase": 4,
+              "start": "2026-01-01",
+              "turnover": "RM1m-RM5m",
+              "relaxation_until": "2027-12-31",
+              "relaxation_todo_verify": true
+            }
+          ],
+          "exemption_threshold_myr": {
+            "value": 1000000,
+            "effective": "2026-01-01",
+            "previous": 500000
           },
-          "source": "public-regulation",
-          "verified_secondary": "2026-08"
+          "individual_invoice_required_above_myr": {
+            "value": 10000,
+            "effective": "2026-01-01",
+            "note": "Consolidation no longer permitted above this value. Reaches the till: the cashier may need a TIN mid-transaction."
+          }
         }
       },
       "receipt": {
         "mandatory_fields_confirmed": false,
-        "mandatory_fields_draft": [
-          "seller name, address and tax code",
-          "buyer name and tax code where an invoice is requested",
-          "invoice form and serial symbol, invoice number",
-          "date of issue",
-          "item name, unit, quantity, unit price, line amount",
-          "VAT rate and VAT amount",
-          "total payable",
-          "seller digital signature",
-          "tax authority code where applicable"
-        ],
-        "counter_slip_and_einvoice_are_separate_documents": {
-          "value": true,
-          "note": "The slip handed to the customer and the registered e-invoice are distinct artefacts with independent numbering and lifecycles.",
-          "source": "public-regulation",
-          "todo_verify": true
-        },
-        "qr_code_required": { "value": null, "source": "unverified", "todo_verify": true },
-        "common_paper_widths_mm": [80, 58]
+        "common_paper_widths_mm": [
+          80,
+          58
+        ]
       },
       "languages": {
-        "official": ["vi"],
-        "retail_print_default": "vi",
-        "common_split_deployment": { "back_office": "zh", "till": "vi" },
+        "official": [
+          "ms"
+        ],
+        "widely_used": [
+          "en",
+          "zh",
+          "ta"
+        ],
+        "retail_print_default": "ms",
+        "note": "Chinese is in genuine commercial use here, unlike most markets in this repository. Per-user language selection across ms/en/zh rather than a fixed back-office/till split.",
         "script": "Latin",
-        "diacritics_in_commercial_use": true,
-        "printer_encoding_risk": "high",
-        "encoding_notes": {
-          "stacked_diacritics": "Vowel-quality diacritic plus tone mark on the same letter.",
-          "cp1258_covers_full_repertoire": false,
-          "legacy_encodings_in_supplier_data": ["TCVN3", "VNI"],
-          "recommended_print_path": "raster"
-        },
-        "product_needs_dual_name_field": true
+        "printer_encoding_risk": "low",
+        "cjk_on_receipt_needs_raster": true
       },
-      "payment_methods": ["bank-transfer-qr", "e-wallet", "cash", "cards"],
+      "payment_methods": [
+        "duitnow-qr",
+        "e-wallet",
+        "cards",
+        "cash",
+        "bank-transfer"
+      ],
       "payment_notes": {
-        "dominant_non_cash": "bank-transfer-qr",
-        "qr_standard": "VietQR over NAPAS 247",
-        "e_wallets": ["MoMo", "ZaloPay", "Viettel Money"],
-        "treat_each_wallet_as_distinct_tender": true,
+        "national_qr_standard": "DuitNow QR",
+        "interoperable": true
+      },
+      "connectivity": {
+        "offline_selling_required": true
+      },
+      "timezone": "Asia/Kuala_Lumpur",
+      "utc_offset": "+08:00",
+      "observes_dst": false,
+      "open_verification_items": {
+        "en": 8,
+        "zh": 8
+      }
+    },
+    {
+      "country": "Nigeria",
+      "iso_3166_1_alpha_2": "NG",
+      "iso_3166_1_alpha_3": "NGA",
+      "doc_en": "en/countries/nigeria.md",
+      "doc_zh": "zh/countries/nigeria.md",
+      "currency": {
+        "iso_4217": {
+          "value": "NGN",
+          "source": "official-authority"
+        },
+        "symbol": {
+          "value": "₦",
+          "source": "official-authority"
+        },
+        "symbol_position": {
+          "value": "prefix",
+          "source": "unverified"
+        },
+        "decimal_places": {
+          "value": 2,
+          "source": "unverified"
+        },
+        "thousands_separator": {
+          "value": ",",
+          "source": "unverified"
+        },
+        "decimal_separator": {
+          "value": ".",
+          "source": "unverified"
+        },
+        "symbol_outside_default_codepage": true,
+        "price_volatility": {
+          "value": "high",
+          "note": "Bulk repricing, effective-dated prices and change history are worth more here than a static catalogue import."
+        }
+      },
+      "tax": {
+        "standard_vat_rate_percent": {
+          "value": 7.5,
+          "source": "public-regulation",
+          "verified_secondary": "2026-08"
+        },
+        "price_display": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "fiscal_system": {
+          "value": "FIRSMBS",
+          "long_name": "FIRS Merchant-Buyer Solution",
+          "authority": "Federal Inland Revenue Service",
+          "model": "clearance",
+          "returns": [
+            "Invoice Reference Number (IRN)",
+            "cryptographic stamp"
+          ],
+          "note": "Invoice submitted for validation before being provided to the buyer.",
+          "phases": {
+            "large_taxpayers": "2025-11-01",
+            "later_phases_conflicting": true,
+            "reported_variants": [
+              "all remaining VAT-registered businesses from 2026-01-01",
+              "medium businesses by July 2026, small businesses by July 2027"
+            ],
+            "resolution": "Must be confirmed with FIRS directly. Do not rely on either variant."
+          },
+          "b2c_in_scope": {
+            "value": null,
+            "todo_verify": true,
+            "note": "Most important open question. A clearance model at a retail counter, where waiting is unacceptable, requires a different design."
+          },
+          "source": "official-authority",
+          "verified_secondary": "2026-08",
+          "todo_verify": true
+        }
+      },
+      "receipt": {
+        "mandatory_fields_confirmed": false,
+        "irn_must_be_printed": {
+          "value": null,
+          "todo_verify": true
+        },
+        "common_paper_widths_mm": [
+          80,
+          58
+        ]
+      },
+      "languages": {
+        "official": [
+          "en"
+        ],
+        "widely_spoken": [
+          "ha",
+          "yo",
+          "ig"
+        ],
+        "retail_print_default": "en",
+        "common_split_deployment": {
+          "back_office": "zh",
+          "till": "en"
+        },
+        "script": "Latin",
+        "printer_encoding_risk": "low"
+      },
+      "payment_methods": [
+        "bank-transfer",
+        "ussd",
+        "cards",
+        "cash"
+      ],
+      "payment_notes": {
+        "dominant_non_cash": "bank-transfer",
         "confirmation_is_visual_at_counter": true,
         "tender_reference_required": true,
+        "reference_should_be_mandatory": true,
         "reference_must_be_editable_after_sale": true,
-        "card_terminal_integration_universal": false
+        "note": "A day of takings arrives as many small transfers. Matching them to sales depends entirely on references captured at the till."
       },
       "connectivity": {
         "offline_selling_required": true,
-        "issuance_deadline_constrains_offline_design": true,
-        "local_conditions": { "value": null, "source": "unverified", "todo_verify": true }
+        "note": "In a clearance model the permitted catch-up behaviour is a compliance question, not an engineering choice.",
+        "local_conditions": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
       },
-      "timezone": "Asia/Ho_Chi_Minh",
-      "utc_offset": "+07:00",
+      "timezone": "Africa/Lagos",
+      "utc_offset": "+01:00",
       "observes_dst": false,
-      "open_verification_items": { "en": 13, "zh": 14 }
+      "open_verification_items": {
+        "en": 7,
+        "zh": 7
+      }
     },
     {
       "country": "Peru",
@@ -223,12 +756,31 @@
       "doc_en": "en/countries/peru.md",
       "doc_zh": "zh/countries/peru.md",
       "currency": {
-        "iso_4217": { "value": "PEN", "source": "official-authority" },
-        "symbol": { "value": "S/", "source": "official-authority", "legacy_form": "S/." },
-        "symbol_position": { "value": "prefix", "source": "unverified" },
-        "decimal_places": { "value": 2, "source": "official-authority" },
-        "thousands_separator": { "value": ",", "source": "unverified" },
-        "decimal_separator": { "value": ".", "source": "unverified" },
+        "iso_4217": {
+          "value": "PEN",
+          "source": "official-authority"
+        },
+        "symbol": {
+          "value": "S/",
+          "source": "official-authority",
+          "legacy_form": "S/."
+        },
+        "symbol_position": {
+          "value": "prefix",
+          "source": "unverified"
+        },
+        "decimal_places": {
+          "value": 2,
+          "source": "official-authority"
+        },
+        "thousands_separator": {
+          "value": ",",
+          "source": "unverified"
+        },
+        "decimal_separator": {
+          "value": ".",
+          "source": "unverified"
+        },
         "typical_price_magnitude": {
           "value": "1 - 500",
           "note": "Order of magnitude only, for field sizing. Not price data.",
@@ -260,7 +812,11 @@
           "verified_secondary": "2026-08",
           "todo_verify": true
         },
-        "price_display": { "value": "tax-inclusive for consumers", "source": "unverified", "todo_verify": true },
+        "price_display": {
+          "value": "tax-inclusive for consumers",
+          "source": "unverified",
+          "todo_verify": true
+        },
         "fiscal_system": {
           "value": "CPE",
           "long_name": "Comprobantes de Pago Electronicos",
@@ -274,7 +830,7 @@
             "name": "plastic bag tax (ICBPER)",
             "per_unit": true,
             "appears_as_own_receipt_line": true,
-            "amount": 0.50,
+            "amount": 0.5,
             "currency": "PEN",
             "rate_in_force_since": "2023",
             "declared_and_paid": "monthly by the establishment",
@@ -283,7 +839,12 @@
           },
           {
             "name": "selective consumption tax",
-            "applies_to": ["alcohol", "tobacco", "fuel", "sugary drinks"],
+            "applies_to": [
+              "alcohol",
+              "tobacco",
+              "fuel",
+              "sugary drinks"
+            ],
             "computed_before_vat": true,
             "note": "Forms part of the base for IGV. A flat percentage-per-line tax model cannot express this.",
             "source": "public-regulation",
@@ -304,7 +865,11 @@
             "customer_id_required_above_threshold": true,
             "threshold_amount": 700,
             "threshold_currency": "PEN",
-            "accepted_documents": ["DNI", "carne de extranjeria", "passport"],
+            "accepted_documents": [
+              "DNI",
+              "carne de extranjeria",
+              "passport"
+            ],
             "below_threshold": "customer fields optional",
             "source": "public-regulation",
             "verified_secondary": "2026-08"
@@ -343,13 +908,34 @@
           "source": "public-regulation",
           "todo_verify": true
         },
-        "qr_code_required": { "value": true, "mandatory_since": "2019-01-01", "scope_note": "Attaches to the taxpayer's own emission system (SEE-Del contribuyente); reportedly not to SUNAT's web and free-facturador routes. Confirm scope.", "source": "public-regulation", "verified_secondary": "2026-08", "todo_verify": true },
+        "qr_code_required": {
+          "value": true,
+          "mandatory_since": "2019-01-01",
+          "scope_note": "Attaches to the taxpayer's own emission system (SEE-Del contribuyente); reportedly not to SUNAT's web and free-facturador routes. Confirm scope.",
+          "source": "public-regulation",
+          "verified_secondary": "2026-08",
+          "todo_verify": true
+        },
         "qr_code_payload": {
           "field_separator": "|",
-          "fields_in_order": ["RUC", "document type", "series", "number", "total IGV", "total amount", "issue date", "acquirer document type", "acquirer document number", "hash value"],
+          "fields_in_order": [
+            "RUC",
+            "document type",
+            "series",
+            "number",
+            "total IGV",
+            "total amount",
+            "issue date",
+            "acquirer document type",
+            "acquirer document number",
+            "hash value"
+          ],
           "print_constraints": {
             "position": "lower part of the printed representation",
-            "max_size_cm": { "height": 2, "width": 6 },
+            "max_size_cm": {
+              "height": 2,
+              "width": 6
+            },
             "quiet_zone_mm": 1,
             "colour": "black",
             "symbology": "QR Code 2005 per ISO/IEC 18004:2006"
@@ -358,27 +944,60 @@
           "verified_secondary": "2026-08",
           "todo_verify": true
         },
-        "common_paper_widths_mm": [80, 58]
+        "common_paper_widths_mm": [
+          80,
+          58
+        ]
       },
       "languages": {
-        "official": ["es", "qu", "ay"],
+        "official": [
+          "es",
+          "qu",
+          "ay"
+        ],
         "official_note": "Quechua and Aymara hold official status where they predominate. Commercial documents and POS interfaces are in Spanish.",
         "retail_print_default": "es",
-        "common_split_deployment": { "back_office": "zh", "till": "es" },
+        "common_split_deployment": {
+          "back_office": "zh",
+          "till": "es"
+        },
         "script": "Latin",
         "diacritics_in_commercial_use": true,
         "printer_encoding_risk": "medium",
         "encoding_notes": {
-          "required_characters": ["ñ", "á", "é", "í", "ó", "ú", "ü", "¿", "¡"],
+          "required_characters": [
+            "ñ",
+            "á",
+            "é",
+            "í",
+            "ó",
+            "ú",
+            "ü",
+            "¿",
+            "¡"
+          ],
           "requires_western_european_code_page": true,
           "failure_is_subtle": "Symptoms are mild enough to reach production unnoticed. Test with deliberately accented data."
         },
         "description_length_vs_english": "longer, commonly by a fifth or more"
       },
-      "payment_methods": ["mobile-wallet-qr", "cash", "cards", "bank-transfer"],
+      "payment_methods": [
+        "mobile-wallet-qr",
+        "cash",
+        "cards",
+        "bank-transfer"
+      ],
       "payment_notes": {
-        "wallets": ["Yape", "Plin"],
-        "wallet_interoperability": { "value": true, "scope": null, "source": "unverified", "todo_verify": true },
+        "wallets": [
+          "Yape",
+          "Plin"
+        ],
+        "wallet_interoperability": {
+          "value": true,
+          "scope": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
         "confirmation_is_visual_at_counter": true,
         "tender_reference_required": true,
         "multiple_card_acquirers_in_common_use": true
@@ -386,12 +1005,598 @@
       "connectivity": {
         "offline_selling_required": true,
         "rejected_documents_need_a_visible_queue": true,
-        "local_conditions": { "value": null, "source": "unverified", "todo_verify": true }
+        "local_conditions": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
       },
       "timezone": "America/Lima",
       "utc_offset": "-05:00",
       "observes_dst": false,
-      "open_verification_items": { "en": 13, "zh": 14 }
+      "open_verification_items": {
+        "en": 13,
+        "zh": 14
+      }
+    },
+    {
+      "country": "Philippines",
+      "iso_3166_1_alpha_2": "PH",
+      "iso_3166_1_alpha_3": "PHL",
+      "doc_en": "en/countries/philippines.md",
+      "doc_zh": "zh/countries/philippines.md",
+      "currency": {
+        "iso_4217": {
+          "value": "PHP",
+          "source": "official-authority"
+        },
+        "symbol": {
+          "value": "₱",
+          "source": "official-authority"
+        },
+        "symbol_position": {
+          "value": "prefix",
+          "source": "unverified"
+        },
+        "decimal_places": {
+          "value": 2,
+          "source": "official-authority"
+        },
+        "thousands_separator": {
+          "value": ",",
+          "source": "unverified"
+        },
+        "decimal_separator": {
+          "value": ".",
+          "source": "unverified"
+        },
+        "symbol_outside_default_codepage": true
+      },
+      "tax": {
+        "standard_vat_rate_percent": {
+          "value": 12,
+          "source": "public-regulation",
+          "todo_verify": true
+        },
+        "price_display": {
+          "value": "tax-inclusive",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "fiscal_system": {
+          "value": "BIR",
+          "long_name": "Bureau of Internal Revenue",
+          "source": "official-authority",
+          "verified_secondary": "2026-08",
+          "device_accreditation_required": true,
+          "accreditation": {
+            "document": "Acknowledgement Certificate",
+            "replaced": "Permit to Use (PTU)",
+            "system": "eAccReg",
+            "form": "BIR Form 1907",
+            "note": "Gating dependency with lead time. The machine must be registered before it may issue receipts."
+          },
+          "eis": {
+            "name": "Electronic Invoicing System",
+            "group_1": "taxpayers using CAS or invoicing software",
+            "group_1_deadline": "2026-12-31",
+            "instrument": "RR 26-2025 issued 2025-09-05, extending RR 11-2025",
+            "group_2": "POS users",
+            "group_2_deadline": null,
+            "separate_from_cas_accreditation": true
+          }
+        },
+        "statutory_discounts": {
+          "name": "Senior Citizen and PWD discount",
+          "is_promotional_discount": false,
+          "removes_qualifying_portion_from_vat_base": true,
+          "note": "Model in the tax engine, not the discount engine. Most common way to get the Philippines wrong; surfaces at audit rather than at the till.",
+          "computation": null,
+          "source": "public-regulation",
+          "todo_verify": true
+        }
+      },
+      "receipt": {
+        "mandatory_fields_confirmed": false,
+        "required_machine_behaviours": [
+          "sequential numbering that cannot be reset or reused",
+          "Z-reading with accumulated totals retained",
+          "SC/PWD discount handling and reporting",
+          "machine registration details printed on the receipt"
+        ],
+        "common_paper_widths_mm": [
+          80,
+          58
+        ]
+      },
+      "languages": {
+        "official": [
+          "fil",
+          "en"
+        ],
+        "retail_print_default": "en",
+        "common_split_deployment": {
+          "back_office": "zh",
+          "till": "en"
+        },
+        "script": "Latin",
+        "printer_encoding_risk": "low",
+        "note": "An English till needs no translation and creates no hiring barrier."
+      },
+      "payment_methods": [
+        "e-wallet",
+        "cash",
+        "cards",
+        "bank-transfer"
+      ],
+      "payment_notes": {
+        "wallets": [
+          "GCash",
+          "Maya"
+        ],
+        "transfer_rails": [
+          "InstaPay",
+          "PESONet"
+        ],
+        "confirmation_is_visual_at_counter": true
+      },
+      "connectivity": {
+        "offline_selling_required": true
+      },
+      "timezone": "Asia/Manila",
+      "utc_offset": "+08:00",
+      "observes_dst": false,
+      "open_verification_items": {
+        "en": 8,
+        "zh": 8
+      }
+    },
+    {
+      "country": "South Africa",
+      "iso_3166_1_alpha_2": "ZA",
+      "iso_3166_1_alpha_3": "ZAF",
+      "doc_en": "en/countries/south-africa.md",
+      "doc_zh": "zh/countries/south-africa.md",
+      "currency": {
+        "iso_4217": {
+          "value": "ZAR",
+          "source": "official-authority"
+        },
+        "symbol": {
+          "value": "R",
+          "source": "official-authority"
+        },
+        "symbol_position": {
+          "value": "prefix",
+          "source": "unverified"
+        },
+        "decimal_places": {
+          "value": 2,
+          "source": "official-authority"
+        },
+        "separator_convention": {
+          "formal": "space thousands, comma decimal",
+          "also_seen": "comma thousands, period decimal",
+          "note": "The two conventions invert each other. Set explicitly; do not inherit a locale default.",
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "tax": {
+        "standard_vat_rate_percent": {
+          "value": 15,
+          "source": "public-regulation",
+          "verified_secondary": "2026-08",
+          "note": "Proposed rises to 15.5 percent (2025-05-01) and 16 percent (2026-04-01) were reversed; the 2026 Budget confirmed 15 percent for 2026/27."
+        },
+        "registration_threshold_zar": {
+          "value": 2300000,
+          "previous": 1000000,
+          "effective": "2026-04-01",
+          "source": "public-regulation",
+          "verified_secondary": "2026-08"
+        },
+        "price_display": {
+          "value": "tax-inclusive",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "fiscal_system": {
+          "value": "SARS",
+          "clearance_mandate_identified": false,
+          "note": "Modernisation programme under way.",
+          "source": "official-authority",
+          "todo_verify": true
+        }
+      },
+      "receipt": {
+        "invoice_types": [
+          "full tax invoice",
+          "abridged tax invoice"
+        ],
+        "threshold_between_them": null,
+        "note": "Same shape of problem as Peru: the cashier must know which document the customer needs.",
+        "mandatory_fields_confirmed": false,
+        "common_paper_widths_mm": [
+          80,
+          58
+        ]
+      },
+      "layby": {
+        "regulated": true,
+        "instrument": "Consumer Protection Act",
+        "requirements_confirmed": false,
+        "software_must_support": [
+          "stock reserved, not sold, until paid in full",
+          "instalments recorded against an open agreement, each receipted",
+          "cancellation and refund handling",
+          "a customer-facing document stating the terms"
+        ],
+        "note": "Modelling as unrelated part-payments loses the agreement, the reservation and the audit trail.",
+        "todo_verify": true
+      },
+      "languages": {
+        "official_count": 12,
+        "commercial_default": "en",
+        "retail_print_default": "en",
+        "common_split_deployment": {
+          "back_office": "zh",
+          "till": "en"
+        },
+        "script": "Latin",
+        "printer_encoding_risk": "low"
+      },
+      "payment_methods": [
+        "cards",
+        "cash",
+        "qr-wallet",
+        "eft"
+      ],
+      "payment_notes": {
+        "dominant": "cards",
+        "note": "Card-heavy by regional standards; terminal integration matters more than in mobile-money markets."
+      },
+      "connectivity": {
+        "offline_selling_required": true,
+        "power_outages_structural": true,
+        "note": "Scheduled and unscheduled outages are a defining local constraint. Test abrupt power loss mid-transaction, not just network loss. Battery-backed hardware is baseline.",
+        "local_conditions": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "timezone": "Africa/Johannesburg",
+      "utc_offset": "+02:00",
+      "observes_dst": false,
+      "open_verification_items": {
+        "en": 7,
+        "zh": 7
+      }
+    },
+    {
+      "country": "Thailand",
+      "iso_3166_1_alpha_2": "TH",
+      "iso_3166_1_alpha_3": "THA",
+      "doc_en": "en/countries/thailand.md",
+      "doc_zh": "zh/countries/thailand.md",
+      "currency": {
+        "iso_4217": {
+          "value": "THB",
+          "source": "official-authority"
+        },
+        "symbol": {
+          "value": "฿",
+          "source": "official-authority"
+        },
+        "symbol_position": {
+          "value": "prefix",
+          "source": "unverified"
+        },
+        "decimal_places": {
+          "value": 2,
+          "source": "official-authority"
+        },
+        "thousands_separator": {
+          "value": ",",
+          "source": "unverified"
+        },
+        "decimal_separator": {
+          "value": ".",
+          "source": "unverified"
+        },
+        "symbol_outside_default_codepage": true
+      },
+      "tax": {
+        "standard_vat_rate_percent": {
+          "value": 7,
+          "statutory": 10,
+          "source": "public-regulation",
+          "verified_secondary": "2026-08",
+          "expires": "2026-09-30",
+          "note": "Nearest expiry in this repository. Reverts to the 10 percent statutory rate unless extended.",
+          "todo_verify": true
+        },
+        "price_display": {
+          "value": "tax-inclusive",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "fiscal_system": {
+          "value": "e-Tax Invoice and e-Receipt",
+          "authority": "Revenue Department",
+          "mandatory": false,
+          "note": "Voluntary; no legislated B2B mandate reported for 2026 or 2027. Tax incentives for adoption.",
+          "formats": [
+            "XML",
+            "PDF/A-3"
+          ],
+          "standard": "RD STD 03-2566",
+          "security": [
+            "qualified digital signature",
+            "ETDA time stamp"
+          ],
+          "transmission": "monthly by the 15th of the following month",
+          "source": "official-authority",
+          "verified_secondary": "2026-08"
+        }
+      },
+      "receipt": {
+        "tax_invoice_required_fields": [
+          "seller TIN (13 digits)",
+          "buyer TIN (13 digits)",
+          "date",
+          "description of goods or services",
+          "VAT as a separate line"
+        ],
+        "note": "Omitting any of these blocks the buyer's input VAT claim.",
+        "retail_receipt_fields_confirmed": false,
+        "calendar": {
+          "buddhist_era_common": true,
+          "offset_years": 543,
+          "example": "2026 CE = 2569 BE",
+          "rule": "Store one canonical form and convert at render time.",
+          "todo_verify": true
+        },
+        "common_paper_widths_mm": [
+          80,
+          58
+        ]
+      },
+      "languages": {
+        "official": [
+          "th"
+        ],
+        "retail_print_default": "th",
+        "common_split_deployment": {
+          "back_office": "zh",
+          "till": "th"
+        },
+        "script": "Thai",
+        "printer_encoding_risk": "high",
+        "encoding_notes": {
+          "no_word_spaces": true,
+          "line_breaking": "requires a dictionary-based or ICU-style algorithm; cannot split on whitespace",
+          "stacked_marks": "vowel signs above and below the consonant plus tone marks; measure display width, not codepoint count",
+          "line_height": "tight leading clips the upper tone marks",
+          "code_pages": [
+            "TIS-620",
+            "CP874"
+          ],
+          "recommended_print_path": "raster"
+        },
+        "acceptance_test_requires_native_reader": true
+      },
+      "payment_methods": [
+        "promptpay",
+        "cash",
+        "cards",
+        "e-wallet"
+      ],
+      "payment_notes": {
+        "national_rail": "PromptPay",
+        "confirmation_is_visual_at_counter": true
+      },
+      "connectivity": {
+        "offline_selling_required": true
+      },
+      "timezone": "Asia/Bangkok",
+      "utc_offset": "+07:00",
+      "observes_dst": false,
+      "open_verification_items": {
+        "en": 6,
+        "zh": 6
+      }
+    },
+    {
+      "country": "Vietnam",
+      "iso_3166_1_alpha_2": "VN",
+      "iso_3166_1_alpha_3": "VNM",
+      "doc_en": "en/countries/vietnam.md",
+      "doc_zh": "zh/countries/vietnam.md",
+      "currency": {
+        "iso_4217": {
+          "value": "VND",
+          "source": "official-authority"
+        },
+        "symbol": {
+          "value": "₫",
+          "source": "official-authority"
+        },
+        "symbol_position": {
+          "value": "suffix",
+          "source": "unverified"
+        },
+        "decimal_places": {
+          "value": 0,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "thousands_separator": {
+          "value": ".",
+          "source": "unverified"
+        },
+        "decimal_separator": {
+          "value": ",",
+          "source": "unverified"
+        },
+        "typical_price_magnitude": {
+          "value": "10000 - 10000000",
+          "note": "Order of magnitude only, for field sizing. Not price data.",
+          "source": "unverified"
+        },
+        "authority_to_confirm": "State Bank of Vietnam"
+      },
+      "tax": {
+        "standard_vat_rate_percent": {
+          "value": 10,
+          "source": "public-regulation",
+          "verified_secondary": "2026-08"
+        },
+        "reduced_rates_percent": {
+          "value": [
+            5,
+            0
+          ],
+          "source": "public-regulation",
+          "todo_verify": true
+        },
+        "temporary_rate_reduction": {
+          "value": 8,
+          "in_force": true,
+          "effective_from": "2025-07-01",
+          "expires": "2026-12-31",
+          "instrument": "Resolution 204/2025/QH15",
+          "implementing_decree": "Decree 174/2025/ND-CP",
+          "excluded_sectors": [
+            "telecommunications",
+            "real estate",
+            "finance",
+            "banking",
+            "securities",
+            "insurance"
+          ],
+          "note": "Lapses 31 December 2026 unless extended again. A hardcoded 8% produces silently wrong tax from 1 January 2027. Exact goods-level coverage still open.",
+          "source": "public-regulation",
+          "verified_secondary": "2026-08",
+          "todo_verify": true
+        },
+        "rates_must_be_date_effective": true,
+        "price_display": {
+          "value": "tax-inclusive",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "fiscal_system": {
+          "value": "electronic invoicing (hoa don dien tu)",
+          "retail_variant": "e-invoice generated from cash registers",
+          "authority": "tax administration under the Ministry of Finance",
+          "framework": "Decree 123/2020/ND-CP as amended by Decree 70/2025/ND-CP, effective 2025-06-01",
+          "cash_register_obligation": {
+            "revenue_threshold_vnd": 1000000000,
+            "applies_to": [
+              "household and individual businesses at or above the threshold",
+              "retail stores, shopping centres, supermarkets",
+              "restaurants and catering",
+              "hotels",
+              "passenger transport",
+              "entertainment"
+            ],
+            "real_time_transmission_required": true,
+            "digital_signature_mandatory": false
+          },
+          "source": "public-regulation",
+          "verified_secondary": "2026-08"
+        }
+      },
+      "receipt": {
+        "mandatory_fields_confirmed": false,
+        "mandatory_fields_draft": [
+          "seller name, address and tax code",
+          "buyer name and tax code where an invoice is requested",
+          "invoice form and serial symbol, invoice number",
+          "date of issue",
+          "item name, unit, quantity, unit price, line amount",
+          "VAT rate and VAT amount",
+          "total payable",
+          "seller digital signature",
+          "tax authority code where applicable"
+        ],
+        "counter_slip_and_einvoice_are_separate_documents": {
+          "value": true,
+          "note": "The slip handed to the customer and the registered e-invoice are distinct artefacts with independent numbering and lifecycles.",
+          "source": "public-regulation",
+          "todo_verify": true
+        },
+        "qr_code_required": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "common_paper_widths_mm": [
+          80,
+          58
+        ]
+      },
+      "languages": {
+        "official": [
+          "vi"
+        ],
+        "retail_print_default": "vi",
+        "common_split_deployment": {
+          "back_office": "zh",
+          "till": "vi"
+        },
+        "script": "Latin",
+        "diacritics_in_commercial_use": true,
+        "printer_encoding_risk": "high",
+        "encoding_notes": {
+          "stacked_diacritics": "Vowel-quality diacritic plus tone mark on the same letter.",
+          "cp1258_covers_full_repertoire": false,
+          "legacy_encodings_in_supplier_data": [
+            "TCVN3",
+            "VNI"
+          ],
+          "recommended_print_path": "raster"
+        },
+        "product_needs_dual_name_field": true
+      },
+      "payment_methods": [
+        "bank-transfer-qr",
+        "e-wallet",
+        "cash",
+        "cards"
+      ],
+      "payment_notes": {
+        "dominant_non_cash": "bank-transfer-qr",
+        "qr_standard": "VietQR over NAPAS 247",
+        "e_wallets": [
+          "MoMo",
+          "ZaloPay",
+          "Viettel Money"
+        ],
+        "treat_each_wallet_as_distinct_tender": true,
+        "confirmation_is_visual_at_counter": true,
+        "tender_reference_required": true,
+        "reference_must_be_editable_after_sale": true,
+        "card_terminal_integration_universal": false
+      },
+      "connectivity": {
+        "offline_selling_required": true,
+        "issuance_deadline_constrains_offline_design": true,
+        "local_conditions": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "timezone": "Asia/Ho_Chi_Minh",
+      "utc_offset": "+07:00",
+      "observes_dst": false,
+      "open_verification_items": {
+        "en": 13,
+        "zh": 14
+      }
     }
   ]
 }

@@ -107,6 +107,115 @@ scheduled ramp from 2019. Declared and paid monthly.
 SUNAT-hosted and are the closest thing here to a primary source; the QR field
 order should be read from them directly rather than from this summary.
 
+## Indonesia
+
+**Statutory PPN 12%; effective 11% on non-luxury** via a tax base of 11/12 of the
+selling price under PMK No. 131 of 2024. Luxury goods under PPnBM taxed at a full
+12% on the unadjusted base.
+
+- [Cabinet Secretariat — 12% VAT imposed only on luxury goods and services](https://setkab.go.id/en/president-prabowo-12-vat-imposed-only-on-luxury-goods-services/)
+- [MUC — Effective now: 12% VAT for luxury, 11% for non-luxury](https://muc.co.id/en/article/effective-now-12-vat-for-luxury-goods-11-for-non-luxury-goods)
+- [ASEAN Briefing — Value Added Tax in Indonesia](https://www.aseanbriefing.com/doing-business-guide/indonesia/taxation-and-accounting/value-added-tax-in-indonesia)
+
+→ **Confirm against:** PMK No. 131 of 2024 and the Directorate General of Taxes.
+
+## Malaysia
+
+**MyInvois phases:** Phase 1 from 2024-08-01 (turnover above RM100m); Phase 2 from
+2025-01-01 (RM25m–RM100m); Phase 3 from 2025-07-01 (RM5m–RM25m); Phase 4 from
+2026-01-01 (RM1m–RM5m) with a relaxation period reported to 2027-12-31. Exemption
+threshold raised from RM500,000 to RM1,000,000 effective 2026-01-01. From
+2026-01-01 individual e-invoices required above RM10,000.
+
+- [ClearTax MY — Implementation phases and timelines](https://www.cleartax.com/my/en/different-phases-implementation-timelines-einvoicing-malaysia)
+- [ClearTax MY — e-Invoicing in Malaysia: guidelines and exemption](https://www.cleartax.com/my/en/e-invoicing-malaysia)
+- [Malaysia4u — RM1m threshold, 55 fields, penalties](https://malaysia4u.com/einvoicing-guide)
+
+→ **Confirm against:** LHDN's e-Invoice guidelines. SST rates were **not**
+researched and remain open.
+
+## Philippines
+
+**POS registration via Acknowledgement Certificate** (replaced the Permit to Use),
+through eAccReg; BIR Form 1907. Machines must support sequential numbering,
+Z-reading and SC/PWD discount handling. **EIS compliance for Group 1 due
+2026-12-31** under RR 26-2025 (issued 2025-09-05), extending RR 11-2025. CAS
+accreditation and EIS compliance are separate. POS users described as Group 2 with
+no confirmed deadline.
+
+- [HashMicro — BIR POS accreditation guide](https://www.hashmicro.com/ph/blog/bir-pos/)
+- [HashMicro — BIR Electronic Invoicing System (EIS)](https://www.hashmicro.com/ph/blog/bir-eis/)
+- [RTC Suite — BIR e-invoicing scope, stages, technical compliance](https://rtcsuite.com/bir-e-invoicing-philippines-eis-by-2026-a-comprehensive-guide-to-scope-stages-and-technical-compliance/)
+- [ClearTax PH — e-Invoicing timeline and requirements](https://www.cleartax.com/ph/philippines-e-invoicing)
+
+→ **Confirm against:** BIR. The SC/PWD computation was **not** resolved and must
+not be implemented from inference.
+
+## Thailand
+
+**VAT 7%** against a statutory 10%, reported extended to **2026-09-30**.
+**E-Tax Invoice and e-Receipt is voluntary**, no B2B mandate reported for
+2026–2027; XML with PDF/A-3 under RD STD 03-2566, qualified digital signature or
+ETDA time stamp, monthly transmission by the 15th. Tax invoices require the
+13-digit TIN of both buyer and seller, date, description and VAT as a separate
+line.
+
+- [VATupdate — Thai Cabinet extends 7% VAT rate until September 2026](https://www.vatupdate.com/2025/09/23/thai-cabinet-extends-7-vat-rate-until-september-2026-to-support-economic-growth/)
+- [VATupdate — Thailand e-invoicing remains voluntary, 2026/2027 updates](https://www.vatupdate.com/2026/07/15/e-invoicing-remains-voluntary-2026-2027-updates-and-tax-incentives/)
+- [Forvis Mazars — Complete guide to VAT in Thailand](https://www.forvismazars.com/th/en/insights/doing-business-in-thailand/tax/value-added-tax-vat-in-thailand)
+- [Pagero / Thomson Reuters — Thailand e-invoicing compliance](https://www.pagero.com/us/compliance/regulatory-updates/thailand)
+
+→ **Confirm against:** the Revenue Department, especially the post-2026-09-30
+position.
+
+## South Africa
+
+**VAT remains 15%.** Proposed increases to 15.5% (2025-05-01) and 16% (2026-04-01)
+were reversed by the Rates and Monetary Amounts Bill introduced 2025-04-24; the
+2026 Budget confirmed 15% for 2026/27. Compulsory registration threshold rising
+from R1m to **R2.3m**, reported effective 2026-04-01.
+
+- [SARS — Value-Added Tax](https://www.sars.gov.za/types-of-tax/value-added-tax/)
+- [SAIT — VAT in 2026: navigating stability and the legacy of the 2025 reversals](https://thesait.org.za/vat-in-2026-navigating-stability-and-the-legacy-of-the-2025-reversals/)
+- [vatcalc — South Africa 2026 Budget ducks VAT rise](https://www.vatcalc.com/south-africa/south-africa-vat-rise/)
+
+→ **Confirm against:** SARS. Invoice thresholds and lay-by rules under the
+Consumer Protection Act were **not** researched.
+
+## Nigeria
+
+**VAT 7.5%.** E-invoicing via the FIRS **Merchant-Buyer Solution (FIRSMBS)**, a
+clearance model returning an **Invoice Reference Number** and cryptographic stamp.
+Large taxpayers from 2025-11-01.
+
+**Sources conflict on the later phases** — one describes mandatory compliance for
+all remaining VAT-registered businesses from 2026-01-01; another describes medium
+businesses by July 2026 and small businesses by July 2027. This is recorded as
+open rather than resolved.
+
+- [EY — Nigeria's FIRS rolls out e-Invoicing platform](https://www.ey.com/en_gl/technical/tax-alerts/nigerias-federal-inland-revenue-service-rolls-out-e-invoicing-platform)
+- [Global VAT Compliance — Nigeria e-invoicing rollout, 2026 updates](https://www.globalvatcompliance.com/globalvatnews/nigeria-e-invoicing-rollout-key-updates-2026/)
+- [vatcalc — Nigeria FIRS B2B e-invoice and B2C e-reporting](https://www.vatcalc.com/nigeria/nigeria-automated-tax-administration-system-april-2021/)
+
+→ **Confirm against:** FIRS directly. Do not rely on the phase dates above.
+
+## Australia
+
+**Tax invoice within 28 days of request**, except for sales of **$82.50 including
+GST or less**. Under $1,000 a tax invoice must show that it is a tax invoice, the
+seller's identity, the seller's ABN, the date, and a description including
+quantity and price. **Lay-by under the ACL:** three or more instalments including
+deposit, goods withheld until paid in full, no interest; agreement must be in
+writing with a copy to the customer, covering goods, total price, deposit,
+payment schedule, termination rights and any termination fee.
+
+- [ATO — Tax invoices](https://www.ato.gov.au/businesses-and-organisations/gst-excise-and-indirect-taxes/gst/tax-invoices)
+- [Hobart Community Legal Service — Lay-by agreements under the ACL](https://www.hobartlegal.org.au/handbook/consumers-money-and-debts/australian-consumer-law/lay-by-agreements-under-the-acl/)
+- [Sprintlaw — Lay-by agreements: consumer law rules](https://sprintlaw.com.au/articles/lay-by-agreements-essential-guide-for-australian-businesses/)
+
+→ **Confirm against:** ATO and ACCC. GST attribution timing on lay-by was **not**
+resolved.
+
 ---
 
 ## Still unsourced

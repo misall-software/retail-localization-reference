@@ -1,7 +1,8 @@
 {
   "schema_version": "1.1.0",
   "last_updated": "2026-08",
-  "note": "Every open TODO: verify item across both editions. Each item names what to check and the authority or instrument to check it against. status is 'open' until confirmed against a primary source, at which point record the source and change the field's tag in the Markdown files. The editions field lists which editions carry the item: most are shared, a few are specific to one.",
+  "scope": "Itemised queue for the first batch only: Kenya, Vietnam, Peru and Arabic. The seven countries added subsequently (Australia, Indonesia, Malaysia, Nigeria, Philippines, South Africa, Thailand) carry their open items in the verification block at the top of each Markdown file and as todo_verify flags in countries.json; they have not yet been broken out here. Expanding this file to cover them is itself an open task.",
+  "note": "Each item names what to check and the authority or instrument to check it against. status is 'open' until confirmed against a primary source, at which point record the source and change the field's tag in the Markdown files. The editions field lists which editions carry the item: most are shared, a few are specific to one.",
   "status_values": ["open", "confirmed", "corrected"],
   "priority_values": {
     "high": "Wrong value causes an incorrect legal document, a wrong tax amount, or a failed integration.",

@@ -46,11 +46,32 @@
 
 ## 国家索引
 
-| 国家 | 货币 | 消费税 | 发票制度 | 待核实项 | 文章 |
-| --- | --- | --- | --- | --- | --- |
-| 肯尼亚 | 肯尼亚先令（KES） | 增值税 16%，`TODO: verify` | 电子税务发票（eTIMS），税务局管理 | 13 | [countries/kenya.md](countries/kenya.md) |
-| 越南 | 越南盾（VND） | 增值税标准 10%，另有临时优惠税率，`TODO: verify` | 收银机开具的电子发票 | 14 | [countries/vietnam.md](countries/vietnam.md) |
-| 秘鲁 | 秘鲁索尔（PEN） | 一般销售税（IGV）18%，`TODO: verify` | 电子票据（CPE），税务海关总署管理 | 14 | [countries/peru.md](countries/peru.md) |
+| 国家 | 货币 | 消费税 | 这个国家最要命的一件事 | 文章 |
+| --- | --- | --- | --- | --- |
+| 肯尼亚 | 先令（KES） | 增值税 16% | 电子税务发票强制，且已扩大到一般纳税人 | [countries/kenya.md](countries/kenya.md) |
+| 越南 | 越南盾（VND） | **8%，2026-12-31 到期** | 小票和发票是两回事；越南文小票容易乱码 | [countries/vietnam.md](countries/vietnam.md) |
+| 秘鲁 | 索尔（PEN） | 18%；小餐馆旅馆 10% | 开哪种单据取决于顾客是谁，结账时就要选 | [countries/peru.md](countries/peru.md) |
+| 印尼 | 印尼盾（IDR） | 法定 12%，**实际 11%** | 税是按 11/12 基数折算的，不是直接乘 11% | [countries/indonesia.md](countries/indonesia.md) |
+| 马来西亚 | 林吉特（MYR） | **SST，不是增值税** | 电子发票分批推进，2026-01 轮到第四批 | [countries/malaysia.md](countries/malaysia.md) |
+| 菲律宾 | 比索（PHP） | 增值税 12% | **收银机要先登记才能营业**；老人残障折扣是免税的 | [countries/philippines.md](countries/philippines.md) |
+| 泰国 | 泰铢（THB） | **7%，2026-09-30 到期** | 泰文不空格、符号叠加，排版最难 | [countries/thailand.md](countries/thailand.md) |
+| 南非 | 兰特（ZAR） | 增值税 15% | **停电是常态**，收银必须能离线；Layby 受法律约束 | [countries/south-africa.md](countries/south-africa.md) |
+| 尼日利亚 | 奈拉（NGN） | 增值税 7.5% | 先审核后开票；对账全靠转账参考号 | [countries/nigeria.md](countries/nigeria.md) |
+| 澳洲 | 澳元（AUD） | 商品服务税 10% | **Layby 必须有书面协议**；跨时区且有夏令时 | [countries/australia.md](countries/australia.md) |
+
+### 三个快到期的税率
+
+这三个是临时优惠，到期就变。**系统里写死了，到期那天开始每一单税都算错，
+而且不会报错。**
+
+| 国家 | 现在 | 到期日 | 到期后 |
+| --- | --- | --- | --- |
+| 泰国 | 7% | **2026-09-30** | 回到法定 10%，除非再延 |
+| 越南 | 8% | **2026-12-31** | 回到 10%，除非再延 |
+| 秘鲁 | 10%（仅小餐馆旅馆） | **2026-12-31** | 回到 18%，除非再延 |
+
+选系统时统一问这一句：**税率我自己能不能改？能不能设生效日期？
+历史单据重打用的是当时的税率还是现在的？**
 
 ## 语言索引
 
