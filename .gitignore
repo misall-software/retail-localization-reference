@@ -24,3 +24,7 @@ desktop.ini
 
 # Generated site output
 _site/
+
+# Stray API scratch output
+*.json.tmp
+/m.json
