@@ -174,6 +174,119 @@
       "open_verification_items": {
         "en": 5,
         "zh": 5
+      },
+      "food_service": {
+        "tax_treatment": {
+          "dine_in_takeaway_delivery_differ": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "small_business_reduced_rate": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "alcohol_taxed_separately": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "service_charge_and_tips": {
+          "service_charge_customary": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_rate_percent": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_taxable": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "tips_through_pos_and_recorded": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_own_receipt_line": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "receipt": {
+          "must_distinguish_dine_in_and_takeaway": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "must_itemise_menu_items": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "table_number_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "guest_count_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "operating_conventions": {
+          "business_day_crosses_midnight": {
+            "value": true,
+            "note": "Restaurants routinely trade past midnight. The business-day boundary must be configurable per site or one night's trade splits across two reporting days.",
+            "source": "unverified"
+          },
+          "accounting_date_rule_after_midnight": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "typical_trading_hours": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "kitchen_ticket_language_independent": {
+            "value": true,
+            "note": "Deployment pattern, not a legal requirement. Chinese-owned restaurants commonly run a Chinese-reading kitchen, a local-language dining room and a Chinese back office: three independent language settings.",
+            "source": "unverified"
+          }
+        },
+        "capabilities_required": [
+          {
+            "name": "floor plan and table state",
+            "note": "A sale is attached to a table rather than opened and closed in one pass."
+          },
+          {
+            "name": "tab allocation",
+            "note": "Split by item and split evenly are different operations; both get asked for."
+          },
+          {
+            "name": "guest count",
+            "note": "Needed for per-head reporting, and required on the document in some markets."
+          },
+          {
+            "name": "tip adjustment",
+            "note": "The tip is often added after card authorisation, so the amount must be adjustable post-authorisation."
+          }
+        ]
       }
     },
     {
@@ -304,6 +417,119 @@
       "open_verification_items": {
         "en": 8,
         "zh": 8
+      },
+      "food_service": {
+        "tax_treatment": {
+          "dine_in_takeaway_delivery_differ": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "small_business_reduced_rate": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "alcohol_taxed_separately": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "service_charge_and_tips": {
+          "service_charge_customary": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_rate_percent": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_taxable": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "tips_through_pos_and_recorded": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_own_receipt_line": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "receipt": {
+          "must_distinguish_dine_in_and_takeaway": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "must_itemise_menu_items": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "table_number_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "guest_count_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "operating_conventions": {
+          "business_day_crosses_midnight": {
+            "value": true,
+            "note": "Restaurants routinely trade past midnight. The business-day boundary must be configurable per site or one night's trade splits across two reporting days.",
+            "source": "unverified"
+          },
+          "accounting_date_rule_after_midnight": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "typical_trading_hours": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "kitchen_ticket_language_independent": {
+            "value": true,
+            "note": "Deployment pattern, not a legal requirement. Chinese-owned restaurants commonly run a Chinese-reading kitchen, a local-language dining room and a Chinese back office: three independent language settings.",
+            "source": "unverified"
+          }
+        },
+        "capabilities_required": [
+          {
+            "name": "floor plan and table state",
+            "note": "A sale is attached to a table rather than opened and closed in one pass."
+          },
+          {
+            "name": "tab allocation",
+            "note": "Split by item and split evenly are different operations; both get asked for."
+          },
+          {
+            "name": "guest count",
+            "note": "Needed for per-head reporting, and required on the document in some markets."
+          },
+          {
+            "name": "tip adjustment",
+            "note": "The tip is often added after card authorisation, so the amount must be adjustable post-authorisation."
+          }
+        ]
       }
     },
     {
@@ -475,6 +701,119 @@
       "open_verification_items": {
         "en": 12,
         "zh": 13
+      },
+      "food_service": {
+        "tax_treatment": {
+          "dine_in_takeaway_delivery_differ": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "small_business_reduced_rate": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "alcohol_taxed_separately": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "service_charge_and_tips": {
+          "service_charge_customary": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_rate_percent": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_taxable": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "tips_through_pos_and_recorded": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_own_receipt_line": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "receipt": {
+          "must_distinguish_dine_in_and_takeaway": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "must_itemise_menu_items": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "table_number_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "guest_count_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "operating_conventions": {
+          "business_day_crosses_midnight": {
+            "value": true,
+            "note": "Restaurants routinely trade past midnight. The business-day boundary must be configurable per site or one night's trade splits across two reporting days.",
+            "source": "unverified"
+          },
+          "accounting_date_rule_after_midnight": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "typical_trading_hours": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "kitchen_ticket_language_independent": {
+            "value": true,
+            "note": "Deployment pattern, not a legal requirement. Chinese-owned restaurants commonly run a Chinese-reading kitchen, a local-language dining room and a Chinese back office: three independent language settings.",
+            "source": "unverified"
+          }
+        },
+        "capabilities_required": [
+          {
+            "name": "floor plan and table state",
+            "note": "A sale is attached to a table rather than opened and closed in one pass."
+          },
+          {
+            "name": "tab allocation",
+            "note": "Split by item and split evenly are different operations; both get asked for."
+          },
+          {
+            "name": "guest count",
+            "note": "Needed for per-head reporting, and required on the document in some markets."
+          },
+          {
+            "name": "tip adjustment",
+            "note": "The tip is often added after card authorisation, so the amount must be adjustable post-authorisation."
+          }
+        ]
       }
     },
     {
@@ -611,6 +950,142 @@
       "open_verification_items": {
         "en": 8,
         "zh": 8
+      },
+      "food_service": {
+        "tax_treatment": {
+          "dine_in_takeaway_delivery_differ": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "small_business_reduced_rate": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "alcohol_taxed_separately": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "service_charge_and_tips": {
+          "service_charge_customary": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_rate_percent": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_taxable": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "tips_through_pos_and_recorded": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_own_receipt_line": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_tax_on_food_service_percent": {
+            "value": 6,
+            "note": "Service tax applying to food and beverage services. Confirm whether this differs from the general service tax rate for other sectors.",
+            "source": "public-regulation",
+            "todo_verify": true
+          }
+        },
+        "receipt": {
+          "must_distinguish_dine_in_and_takeaway": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "must_itemise_menu_items": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "table_number_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "guest_count_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "operating_conventions": {
+          "business_day_crosses_midnight": {
+            "value": true,
+            "note": "Restaurants routinely trade past midnight. The business-day boundary must be configurable per site or one night's trade splits across two reporting days.",
+            "source": "unverified"
+          },
+          "accounting_date_rule_after_midnight": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "typical_trading_hours": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "kitchen_ticket_language_independent": {
+            "value": true,
+            "note": "Deployment pattern, not a legal requirement. Chinese-owned restaurants commonly run a Chinese-reading kitchen, a local-language dining room and a Chinese back office: three independent language settings.",
+            "source": "unverified"
+          }
+        },
+        "capabilities_required": [
+          {
+            "name": "floor plan and table state",
+            "note": "A sale is attached to a table rather than opened and closed in one pass."
+          },
+          {
+            "name": "tab allocation",
+            "note": "Split by item and split evenly are different operations; both get asked for."
+          },
+          {
+            "name": "guest count",
+            "note": "Needed for per-head reporting, and required on the document in some markets."
+          },
+          {
+            "name": "tip adjustment",
+            "note": "The tip is often added after card authorisation, so the amount must be adjustable post-authorisation."
+          }
+        ],
+        "halal": {
+          "certification_authority": "JAKIM",
+          "labelling_requirements": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "note": "Separation is operational as well as informational where a kitchen handles both halal and non-halal. A boolean on a menu item does not capture it.",
+          "source": "public-regulation",
+          "todo_verify": true
+        },
+        "cash_rounding_on_split_bills": {
+          "value": "nearest 5 sen on the cash portion only",
+          "note": "On a split bill paid partly in cash and partly by card, only the cash portion rounds. Record the difference as its own amount.",
+          "source": "unverified",
+          "todo_verify": true
+        }
       }
     },
     {
@@ -747,6 +1222,119 @@
       "open_verification_items": {
         "en": 7,
         "zh": 7
+      },
+      "food_service": {
+        "tax_treatment": {
+          "dine_in_takeaway_delivery_differ": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "small_business_reduced_rate": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "alcohol_taxed_separately": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "service_charge_and_tips": {
+          "service_charge_customary": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_rate_percent": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_taxable": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "tips_through_pos_and_recorded": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_own_receipt_line": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "receipt": {
+          "must_distinguish_dine_in_and_takeaway": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "must_itemise_menu_items": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "table_number_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "guest_count_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "operating_conventions": {
+          "business_day_crosses_midnight": {
+            "value": true,
+            "note": "Restaurants routinely trade past midnight. The business-day boundary must be configurable per site or one night's trade splits across two reporting days.",
+            "source": "unverified"
+          },
+          "accounting_date_rule_after_midnight": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "typical_trading_hours": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "kitchen_ticket_language_independent": {
+            "value": true,
+            "note": "Deployment pattern, not a legal requirement. Chinese-owned restaurants commonly run a Chinese-reading kitchen, a local-language dining room and a Chinese back office: three independent language settings.",
+            "source": "unverified"
+          }
+        },
+        "capabilities_required": [
+          {
+            "name": "floor plan and table state",
+            "note": "A sale is attached to a table rather than opened and closed in one pass."
+          },
+          {
+            "name": "tab allocation",
+            "note": "Split by item and split evenly are different operations; both get asked for."
+          },
+          {
+            "name": "guest count",
+            "note": "Needed for per-head reporting, and required on the document in some markets."
+          },
+          {
+            "name": "tip adjustment",
+            "note": "The tip is often added after card authorisation, so the amount must be adjustable post-authorisation."
+          }
+        ]
       }
     },
     {
@@ -1017,6 +1605,125 @@
       "open_verification_items": {
         "en": 13,
         "zh": 14
+      },
+      "food_service": {
+        "tax_treatment": {
+          "dine_in_takeaway_delivery_differ": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "small_business_reduced_rate": {
+            "value": 10,
+            "composition": "8% IGV + 2% IPM",
+            "applies_to": "micro and small enterprises in restaurants, hotels and tourist lodging, subject to income and activity-mix conditions",
+            "expires": "2026-12-31",
+            "reverts_to_percent": 18,
+            "note": "A segment rate, not a product rate: eligibility depends on the business and its income mix, so it cannot be configured by attaching a rate to menu items. Relevant to the chifa segment.",
+            "source": "public-regulation",
+            "verified_secondary": "2026-08",
+            "todo_verify": true
+          },
+          "alcohol_taxed_separately": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "service_charge_and_tips": {
+          "service_charge_customary": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_rate_percent": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_taxable": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "tips_through_pos_and_recorded": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_own_receipt_line": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "receipt": {
+          "must_distinguish_dine_in_and_takeaway": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "must_itemise_menu_items": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "table_number_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "guest_count_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "operating_conventions": {
+          "business_day_crosses_midnight": {
+            "value": true,
+            "note": "Restaurants routinely trade past midnight. The business-day boundary must be configurable per site or one night's trade splits across two reporting days.",
+            "source": "unverified"
+          },
+          "accounting_date_rule_after_midnight": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "typical_trading_hours": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "kitchen_ticket_language_independent": {
+            "value": true,
+            "note": "Deployment pattern, not a legal requirement. Chinese-owned restaurants commonly run a Chinese-reading kitchen, a local-language dining room and a Chinese back office: three independent language settings.",
+            "source": "unverified"
+          }
+        },
+        "capabilities_required": [
+          {
+            "name": "floor plan and table state",
+            "note": "A sale is attached to a table rather than opened and closed in one pass."
+          },
+          {
+            "name": "tab allocation",
+            "note": "Split by item and split evenly are different operations; both get asked for."
+          },
+          {
+            "name": "guest count",
+            "note": "Needed for per-head reporting, and required on the document in some markets."
+          },
+          {
+            "name": "tip adjustment",
+            "note": "The tip is often added after card authorisation, so the amount must be adjustable post-authorisation."
+          }
+        ]
       }
     },
     {
@@ -1149,6 +1856,119 @@
       "open_verification_items": {
         "en": 8,
         "zh": 8
+      },
+      "food_service": {
+        "tax_treatment": {
+          "dine_in_takeaway_delivery_differ": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "small_business_reduced_rate": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "alcohol_taxed_separately": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "service_charge_and_tips": {
+          "service_charge_customary": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_rate_percent": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_taxable": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "tips_through_pos_and_recorded": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_own_receipt_line": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "receipt": {
+          "must_distinguish_dine_in_and_takeaway": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "must_itemise_menu_items": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "table_number_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "guest_count_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "operating_conventions": {
+          "business_day_crosses_midnight": {
+            "value": true,
+            "note": "Restaurants routinely trade past midnight. The business-day boundary must be configurable per site or one night's trade splits across two reporting days.",
+            "source": "unverified"
+          },
+          "accounting_date_rule_after_midnight": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "typical_trading_hours": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "kitchen_ticket_language_independent": {
+            "value": true,
+            "note": "Deployment pattern, not a legal requirement. Chinese-owned restaurants commonly run a Chinese-reading kitchen, a local-language dining room and a Chinese back office: three independent language settings.",
+            "source": "unverified"
+          }
+        },
+        "capabilities_required": [
+          {
+            "name": "floor plan and table state",
+            "note": "A sale is attached to a table rather than opened and closed in one pass."
+          },
+          {
+            "name": "tab allocation",
+            "note": "Split by item and split evenly are different operations; both get asked for."
+          },
+          {
+            "name": "guest count",
+            "note": "Needed for per-head reporting, and required on the document in some markets."
+          },
+          {
+            "name": "tip adjustment",
+            "note": "The tip is often added after card authorisation, so the amount must be adjustable post-authorisation."
+          }
+        ]
       }
     },
     {
@@ -1272,6 +2092,119 @@
       "open_verification_items": {
         "en": 7,
         "zh": 7
+      },
+      "food_service": {
+        "tax_treatment": {
+          "dine_in_takeaway_delivery_differ": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "small_business_reduced_rate": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "alcohol_taxed_separately": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "service_charge_and_tips": {
+          "service_charge_customary": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_rate_percent": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_taxable": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "tips_through_pos_and_recorded": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_own_receipt_line": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "receipt": {
+          "must_distinguish_dine_in_and_takeaway": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "must_itemise_menu_items": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "table_number_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "guest_count_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "operating_conventions": {
+          "business_day_crosses_midnight": {
+            "value": true,
+            "note": "Restaurants routinely trade past midnight. The business-day boundary must be configurable per site or one night's trade splits across two reporting days.",
+            "source": "unverified"
+          },
+          "accounting_date_rule_after_midnight": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "typical_trading_hours": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "kitchen_ticket_language_independent": {
+            "value": true,
+            "note": "Deployment pattern, not a legal requirement. Chinese-owned restaurants commonly run a Chinese-reading kitchen, a local-language dining room and a Chinese back office: three independent language settings.",
+            "source": "unverified"
+          }
+        },
+        "capabilities_required": [
+          {
+            "name": "floor plan and table state",
+            "note": "A sale is attached to a table rather than opened and closed in one pass."
+          },
+          {
+            "name": "tab allocation",
+            "note": "Split by item and split evenly are different operations; both get asked for."
+          },
+          {
+            "name": "guest count",
+            "note": "Needed for per-head reporting, and required on the document in some markets."
+          },
+          {
+            "name": "tip adjustment",
+            "note": "The tip is often added after card authorisation, so the amount must be adjustable post-authorisation."
+          }
+        ]
       }
     },
     {
@@ -1406,6 +2339,119 @@
       "open_verification_items": {
         "en": 6,
         "zh": 6
+      },
+      "food_service": {
+        "tax_treatment": {
+          "dine_in_takeaway_delivery_differ": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "small_business_reduced_rate": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "alcohol_taxed_separately": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "service_charge_and_tips": {
+          "service_charge_customary": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_rate_percent": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_taxable": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "tips_through_pos_and_recorded": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_own_receipt_line": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "receipt": {
+          "must_distinguish_dine_in_and_takeaway": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "must_itemise_menu_items": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "table_number_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "guest_count_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "operating_conventions": {
+          "business_day_crosses_midnight": {
+            "value": true,
+            "note": "Restaurants routinely trade past midnight. The business-day boundary must be configurable per site or one night's trade splits across two reporting days.",
+            "source": "unverified"
+          },
+          "accounting_date_rule_after_midnight": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "typical_trading_hours": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "kitchen_ticket_language_independent": {
+            "value": true,
+            "note": "Deployment pattern, not a legal requirement. Chinese-owned restaurants commonly run a Chinese-reading kitchen, a local-language dining room and a Chinese back office: three independent language settings.",
+            "source": "unverified"
+          }
+        },
+        "capabilities_required": [
+          {
+            "name": "floor plan and table state",
+            "note": "A sale is attached to a table rather than opened and closed in one pass."
+          },
+          {
+            "name": "tab allocation",
+            "note": "Split by item and split evenly are different operations; both get asked for."
+          },
+          {
+            "name": "guest count",
+            "note": "Needed for per-head reporting, and required on the document in some markets."
+          },
+          {
+            "name": "tip adjustment",
+            "note": "The tip is often added after card authorisation, so the amount must be adjustable post-authorisation."
+          }
+        ]
       }
     },
     {
@@ -1596,6 +2642,119 @@
       "open_verification_items": {
         "en": 13,
         "zh": 14
+      },
+      "food_service": {
+        "tax_treatment": {
+          "dine_in_takeaway_delivery_differ": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "small_business_reduced_rate": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "alcohol_taxed_separately": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "service_charge_and_tips": {
+          "service_charge_customary": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_rate_percent": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_taxable": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "tips_through_pos_and_recorded": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_own_receipt_line": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "receipt": {
+          "must_distinguish_dine_in_and_takeaway": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "must_itemise_menu_items": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "table_number_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "guest_count_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "operating_conventions": {
+          "business_day_crosses_midnight": {
+            "value": true,
+            "note": "Restaurants routinely trade past midnight. The business-day boundary must be configurable per site or one night's trade splits across two reporting days.",
+            "source": "unverified"
+          },
+          "accounting_date_rule_after_midnight": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "typical_trading_hours": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "kitchen_ticket_language_independent": {
+            "value": true,
+            "note": "Deployment pattern, not a legal requirement. Chinese-owned restaurants commonly run a Chinese-reading kitchen, a local-language dining room and a Chinese back office: three independent language settings.",
+            "source": "unverified"
+          }
+        },
+        "capabilities_required": [
+          {
+            "name": "floor plan and table state",
+            "note": "A sale is attached to a table rather than opened and closed in one pass."
+          },
+          {
+            "name": "tab allocation",
+            "note": "Split by item and split evenly are different operations; both get asked for."
+          },
+          {
+            "name": "guest count",
+            "note": "Needed for per-head reporting, and required on the document in some markets."
+          },
+          {
+            "name": "tip adjustment",
+            "note": "The tip is often added after card authorisation, so the amount must be adjustable post-authorisation."
+          }
+        ]
       }
     }
   ]

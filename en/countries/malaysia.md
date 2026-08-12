@@ -133,6 +133,81 @@ cashier will discover it after the customer has left.
 
 **Rounding as data.** Record the 5 sen rounding as its own amount, as above.
 
+
+## Food service
+
+Restaurants diverge from retail at the till, not just in the menu. Three things
+change: the tax treatment can depend on where the food is eaten, service charge
+and tips carry their own rules and their own tax questions, and the trading day
+routinely runs past midnight. Malaysia adds two things retail does not have to think about: a service tax that lands specifically on food service, and halal labelling.
+
+### Tax treatment
+
+| Question | Answer | Source type |
+| --- | --- | --- |
+| Dine-in, takeaway and delivery taxed differently? | `TODO: verify` | unverified |
+| Reduced rate or registration threshold for small food businesses? | `TODO: verify` | unverified |
+| Alcoholic drinks taxed separately? | `TODO: verify` | unverified |
+
+### Service charge and tips
+
+| Question | Answer | Source type |
+| --- | --- | --- |
+| Service charge customary? At what rate? Mandatory? | Service tax at **6%** applies to food and beverage services. `TODO: verify` whether this differs from the general service tax rate for other sectors, and confirm the current rate. | public-regulation |
+| Is the service charge itself taxable? | `TODO: verify` | unverified |
+| Do tips go through the POS, and are they recorded? | `TODO: verify` | unverified |
+| Must the service charge be shown as its own receipt line? | `TODO: verify` | unverified |
+
+### Receipt requirements specific to food service
+
+| Question | Answer | Source type |
+| --- | --- | --- |
+| Must dine-in and takeaway be distinguished on the document? | `TODO: verify` | unverified |
+| Must individual menu items be itemised? | `TODO: verify` | unverified |
+| Are table number and guest count mandatory fields? | `TODO: verify` | unverified |
+
+### Operating conventions
+
+**Trading day and the midnight boundary.** `TODO: verify`. Make the boundary configurable per site.
+
+**Trading hours.** `TODO: verify` typical local hours for the intended segment;
+they drive shift handover, Z-report timing and staffing, and they differ sharply
+between a bakery and a bar.
+
+**Kitchen ticket language.** Malay, English and Chinese are all in genuine commercial use, so the kitchen, the floor and the back office may legitimately run three different languages. This is the market where per-user and per-output language selection matters most.
+
+### Notes for POS implementers
+
+Four capabilities separate a food-service till from a retail one. They are worth
+naming because a retail POS typically has none of them, and retrofitting them is
+expensive:
+
+- **Floor plan and table state** — a sale is attached to a table, not opened and
+  closed in one pass.
+- **Tab allocation** — one table's bill split across several payers, or one payer
+  covering several tables. Splitting by item and splitting evenly are different
+  operations and both get asked for.
+- **Guest count** — needed for per-head reporting, and in some markets it appears
+  on the document. See the receipt table above.
+- **Tip adjustment** — the tip is frequently added *after* the card is
+  authorised, so the recorded amount must be adjustable post-authorisation
+  without reopening the sale.
+
+**Halal is a labelling and separation requirement, not a menu flag.** Certification is administered by JAKIM, and the requirements reach what may be displayed and stated about a dish — `TODO: verify` the specific labelling obligations and what, if anything, must appear on printed output. Where a kitchen handles both halal and non-halal, the separation is operational as well as informational; a single boolean on a menu item does not capture it.
+
+**Cash rounding reaches the food-service receipt too.** The nearest 5 sen rule applies to cash totals while card and wallet settle exactly, so a split bill paid partly in cash and partly by card produces a rounding difference on the cash portion only. Record it as its own amount, as in the retail sections — on split bills this is where it most often goes wrong.
+
+**Order modifiers are not discounts.** "No coriander", "extra spicy", "sauce on
+the side" attach to a line and must reach the kitchen ticket, sometimes with a
+price delta and sometimes without. Modelling them as discounts or as separate
+products both fail — the first corrupts the tax base, the second corrupts stock.
+
+**Void before and after firing are different events.** Cancelling an item that
+has not reached the kitchen is an edit; cancelling one already cooked is a loss
+that has to be recorded as such, or waste and theft become indistinguishable.
+
+_Last updated: 2026-08_
+
 ---
 
 _Maintained by the MISAll team. Last updated: 2026-08_

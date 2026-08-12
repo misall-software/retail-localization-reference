@@ -234,6 +234,79 @@ name rather than with clean ASCII test data. As with Vietnamese, raster renderin
 avoids the problem entirely and is worth defaulting to where a Chinese-language
 back office is also in play.
 
+
+## Food service
+
+Restaurants diverge from retail at the till, not just in the menu. Three things
+change: the tax treatment can depend on where the food is eaten, service charge
+and tips carry their own rules and their own tax questions, and the trading day
+routinely runs past midnight. Peru is also the one country in this repository with a confirmed food-service tax rate of its own, which makes getting the segment right worth real money.
+
+### Tax treatment
+
+| Question | Answer | Source type |
+| --- | --- | --- |
+| Dine-in, takeaway and delivery taxed differently? | `TODO: verify` | unverified |
+| Reduced rate or registration threshold for small food businesses? | **Yes — a reduced rate applies.** A temporary 10% rate (8% IGV + 2% IPM) applies to micro and small enterprises in restaurants, hotels and tourist lodging, subject to income and activity-mix conditions, **through 31 December 2026**, after which it reverts to 18%. | public-regulation |
+| Alcoholic drinks taxed separately? | `TODO: verify` | unverified |
+
+### Service charge and tips
+
+| Question | Answer | Source type |
+| --- | --- | --- |
+| Service charge customary? At what rate? Mandatory? | `TODO: verify` | unverified |
+| Is the service charge itself taxable? | `TODO: verify` | unverified |
+| Do tips go through the POS, and are they recorded? | `TODO: verify` | unverified |
+| Must the service charge be shown as its own receipt line? | `TODO: verify` | unverified |
+
+### Receipt requirements specific to food service
+
+| Question | Answer | Source type |
+| --- | --- | --- |
+| Must dine-in and takeaway be distinguished on the document? | `TODO: verify` | unverified |
+| Must individual menu items be itemised? | `TODO: verify` | unverified |
+| Are table number and guest count mandatory fields? | `TODO: verify` | unverified |
+
+### Operating conventions
+
+**Trading day and the midnight boundary.** `TODO: verify` whether any rule governs the accounting date of a sale rung up after midnight. Regardless of the answer, make the business-day boundary configurable per site — see the retail sections above.
+
+**Trading hours.** `TODO: verify` typical local hours for the intended segment;
+they drive shift handover, Z-report timing and staffing, and they differ sharply
+between a bakery and a bar.
+
+**Kitchen ticket language.** Chinese-owned restaurants are long established in Peru, and the chifa segment is the clearest case in this repository of a kitchen that reads one language while the dining room reads another. The kitchen ticket language must be settable independently of both the till language and the customer-facing document language.
+
+### Notes for POS implementers
+
+Four capabilities separate a food-service till from a retail one. They are worth
+naming because a retail POS typically has none of them, and retrofitting them is
+expensive:
+
+- **Floor plan and table state** — a sale is attached to a table, not opened and
+  closed in one pass.
+- **Tab allocation** — one table's bill split across several payers, or one payer
+  covering several tables. Splitting by item and splitting evenly are different
+  operations and both get asked for.
+- **Guest count** — needed for per-head reporting, and in some markets it appears
+  on the document. See the receipt table above.
+- **Tip adjustment** — the tip is frequently added *after* the card is
+  authorised, so the recorded amount must be adjustable post-authorisation
+  without reopening the sale.
+
+**The reduced rate is a segment boundary, not a product boundary.** Qualification depends on the business and its income mix, not on what is being sold, so the rate cannot be attached to menu items alone. It also expires — a system carrying 10% into 2027 will be wrong on every line. Confirm eligibility with an accountant before configuring it.
+
+**Order modifiers are not discounts.** "No coriander", "extra spicy", "sauce on
+the side" attach to a line and must reach the kitchen ticket, sometimes with a
+price delta and sometimes without. Modelling them as discounts or as separate
+products both fail — the first corrupts the tax base, the second corrupts stock.
+
+**Void before and after firing are different events.** Cancelling an item that
+has not reached the kitchen is an edit; cancelling one already cooked is a loss
+that has to be recorded as such, or waste and theft become indistinguishable.
+
+_Last updated: 2026-08_
+
 ---
 
 _Maintained by the MISAll team. Last updated: 2026-08_

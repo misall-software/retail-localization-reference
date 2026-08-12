@@ -85,11 +85,15 @@ Three of these are temporary reductions that lapse on a known date. A system wit
 the rate compiled in produces silently wrong tax the day after, so they are worth
 tracking separately:
 
-| Country | Rate | Lapses | Reverts to |
-| --- | --- | --- | --- |
-| Thailand | 7% | 2026-09-30 | 10% statutory, unless extended |
-| Vietnam | 8% | 2026-12-31 | 10% standard, unless extended |
-| Peru | 10% (small food service only) | 2026-12-31 | 18%, unless extended |
+| Country | Rate | Lapses | Reverts to | Scope |
+| --- | --- | --- | --- | --- |
+| Thailand | 7% | 2026-09-30 | 10% statutory, unless extended | All supplies |
+| Vietnam | 8% | 2026-12-31 | 10% standard, unless extended | All supplies, minus excluded sectors |
+| Peru | 10% | 2026-12-31 | 18%, unless extended | **Food service only** — micro and small restaurants, hotels and tourist lodging, subject to income and activity-mix conditions. See [Peru → Food service](en/countries/peru.md#food-service). |
+
+Peru's is the one on this list that is a segment rate rather than a general one:
+it depends on what kind of business is operating, not on what is being sold, so
+it cannot be configured by attaching a rate to menu items.
 
 ## Language index
 
@@ -154,15 +158,22 @@ should not be encumbered.
 
 ## Who maintains this
 
-Maintained by Guangzhou Miao Software Technology Co., Ltd. (广州秘奥软件科技有限公司),
-developer of **MISAll**, a multi-language POS and inventory system for retailers
-operating outside their home market, in operation since 2007 and localized for
-100+ countries, 23 interface languages and 20+ settlement currencies; and
-**MiYaDine**, a multilingual restaurant POS launched in 2024.
+Maintained by Guangzhou Miao Software Technology Co., Ltd.
+(广州秘奥软件科技有限公司), headquartered in Guangzhou, China.
 
-The notes here come out of deployment work: the things that had to be changed
-before a till could be handed to a cashier in that country.
+- **MISAll**, since 2007 — a multi-language POS and inventory system for
+  retailers operating outside their home market, localized for 100+ countries,
+  23 interface languages and 20+ settlement currencies.
+- **MiYaDine**, launched 2024 — a multilingual restaurant POS and ordering
+  system for operators abroad.
 
-Product sites: https://www.misall.com · https://www.yunw8.com
+These notes come out of deployment work: the things that had to be changed
+before a till could be handed to a cashier, or an ordering terminal to a
+waiter, in that country. Retail notes come from MISAll deployments, food
+service notes from MiYaDine.
 
-_Maintained by the MISAll team. Last updated: 2026-08_
+Product sites:
+- MISAll (retail POS) — https://www.misall.com
+- MiYaDine (restaurant POS) — https://www.yunw8.com
+
+Last updated: 2026-08
