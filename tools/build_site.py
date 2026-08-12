@@ -258,6 +258,25 @@ def main():
     # data/ is served as-is so the JSON is fetchable at a stable URL.
     shutil.copytree(os.path.join(ROOT, "data"), os.path.join(OUT, "data"))
 
+    # static/ is copied verbatim to the site root. This is where search engine
+    # ownership-verification files go — Google Search Console's HTML file, Bing's
+    # BingSiteAuth.xml, an IndexNow key — so adding one is a drop-in with no code
+    # change. Verifying ownership lets a sitemap be submitted directly, which is
+    # what actually gets a new site crawled; an inbound link is not required.
+    static = os.path.join(ROOT, "static")
+    if os.path.isdir(static):
+        copied = 0
+        for name in sorted(os.listdir(static)):
+            src = os.path.join(static, name)
+            # static/README.md documents the directory for contributors; it is
+            # not site content and must not be published.
+            if name.upper().startswith("README"):
+                continue
+            if os.path.isfile(src):
+                shutil.copy2(src, os.path.join(OUT, name))
+                copied += 1
+        print("  static/ -> %d file(s) copied to site root" % copied)
+
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
