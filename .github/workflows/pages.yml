@@ -76,3 +76,24 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  # Push notification of what changed, rather than waiting to be crawled.
+  # Bing implements IndexNow and Bing's index is what ChatGPT's web search
+  # reads. Google does not participate; its discovery stays on the sitemap.
+  #
+  # Runs after deploy so the URLs are already live — notifying first would
+  # send the engine to a 404. Never fails the run: a missed notification is
+  # not a broken deployment.
+  notify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Notify IndexNow
+        env:
+          SITE_BASE: https://misall-software.github.io/retail-localization-reference
+        run: python tools/indexnow.py
