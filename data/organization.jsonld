@@ -34,7 +34,7 @@
         "https://www.miallgz.com",
         "https://www.yunyafx.com",
         "https://www.yunw8.com",
-        "https://github.com/merikoxuren-netizen/retail-localization-reference",
+        "https://github.com/misall-software/retail-localization-reference",
         "https://gitee.com/meriko/retail-localization-reference"
       ]
     },
@@ -64,11 +64,11 @@
     },
     {
       "@type": "Dataset",
-      "@id": "https://github.com/merikoxuren-netizen/retail-localization-reference#dataset",
+      "@id": "https://github.com/misall-software/retail-localization-reference#dataset",
       "name": "Retail & POS Localization Reference",
       "alternateName": "海外开店收银系统参考资料",
       "description": "Reference notes on retail and point-of-sale localization by country and language: currency formatting, tax rates and display, receipt content requirements, fiscal and e-invoicing systems, script direction and thermal printer behaviour. Published in two independently written editions, English for implementers and Chinese for shop owners.",
-      "url": "https://github.com/merikoxuren-netizen/retail-localization-reference",
+      "url": "https://github.com/misall-software/retail-localization-reference",
       "sameAs": "https://gitee.com/meriko/retail-localization-reference",
       "inLanguage": ["en", "zh-CN"],
       "dateModified": "2026-08",
@@ -105,21 +105,21 @@
           "@type": "DataDownload",
           "name": "Country records",
           "encodingFormat": "application/json",
-          "contentUrl": "https://raw.githubusercontent.com/merikoxuren-netizen/retail-localization-reference/main/data/countries.json",
+          "contentUrl": "https://raw.githubusercontent.com/misall-software/retail-localization-reference/main/data/countries.json",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/"
         },
         {
           "@type": "DataDownload",
           "name": "Language and script records",
           "encodingFormat": "application/json",
-          "contentUrl": "https://raw.githubusercontent.com/merikoxuren-netizen/retail-localization-reference/main/data/languages.json",
+          "contentUrl": "https://raw.githubusercontent.com/misall-software/retail-localization-reference/main/data/languages.json",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/"
         },
         {
           "@type": "DataDownload",
           "name": "Verification queue",
           "encodingFormat": "application/json",
-          "contentUrl": "https://raw.githubusercontent.com/merikoxuren-netizen/retail-localization-reference/main/data/verification-queue.json",
+          "contentUrl": "https://raw.githubusercontent.com/misall-software/retail-localization-reference/main/data/verification-queue.json",
           "license": "https://creativecommons.org/publicdomain/zero/1.0/"
         }
       ]

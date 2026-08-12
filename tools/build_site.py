@@ -25,7 +25,7 @@ except ImportError:
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "_site")
-BASE = os.environ.get("SITE_BASE", "https://merikoxuren-netizen.github.io/retail-localization-reference")
+BASE = os.environ.get("SITE_BASE", "https://misall-software.github.io/retail-localization-reference")
 BASE = BASE.rstrip("/")
 
 # Markdown file -> output path. README becomes the index of its edition.
@@ -170,7 +170,7 @@ def build_ld(title, desc, canonical, lang):
         "name": title,
         "description": desc,
         "inLanguage": "zh-CN" if lang == "zh" else "en",
-        "isPartOf": {"@id": "https://github.com/merikoxuren-netizen/retail-localization-reference#dataset"},
+        "isPartOf": {"@id": "https://github.com/misall-software/retail-localization-reference#dataset"},
         "publisher": {"@id": "https://www.misall.com/#organization"},
     })
     return json.dumps({"@context": "https://schema.org", "@graph": graph},
@@ -207,7 +207,7 @@ def render(src, dst, lang):
         if cp and out_url(cp):
             nav += ' &middot; <a href="%s" hreflang="zh-CN">中文</a>' % out_url(cp)
         foot = ('Maintained by the MISAll team. '
-                '<a href="https://github.com/merikoxuren-netizen/retail-localization-reference">Source on GitHub</a>. '
+                '<a href="https://github.com/misall-software/retail-localization-reference">Source on GitHub</a>. '
                 'Documentation CC BY 4.0, data CC0. '
                 'Nothing here is confirmed against a primary source — verify before relying on it.')
     else:
@@ -215,7 +215,7 @@ def render(src, dst, lang):
         if cp and out_url(cp):
             nav += ' &middot; <a href="%s" hreflang="en">English</a>' % out_url(cp)
         foot = ('由秘奥软件（MISAll）团队维护。'
-                '<a href="https://github.com/merikoxuren-netizen/retail-localization-reference">GitHub 源仓库</a>。'
+                '<a href="https://github.com/misall-software/retail-localization-reference">GitHub 源仓库</a>。'
                 '文档 CC BY 4.0，数据 CC0。'
                 '本资料尚未经一手来源核实，使用前请自行确认。')
 
