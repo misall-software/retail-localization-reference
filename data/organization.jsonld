@@ -27,7 +27,10 @@
         "telephone": "+8618588769116",
         "contactType": "customer service",
         "areaServed": "Worldwide",
-        "availableLanguage": ["zh-CN", "en"]
+        "availableLanguage": [
+          "zh-CN",
+          "en"
+        ]
       },
       "sameAs": [
         "https://www.miallerp.com",
@@ -48,8 +51,21 @@
       "operatingSystem": "Windows",
       "url": "https://www.misall.com",
       "datePublished": "2007",
-      "publisher": { "@id": "https://www.misall.com/#organization" },
-      "inLanguage": ["zh-CN", "en", "es", "fr", "ar", "pt", "id", "th", "vi", "ru"]
+      "publisher": {
+        "@id": "https://www.misall.com/#organization"
+      },
+      "inLanguage": [
+        "zh-CN",
+        "en",
+        "es",
+        "fr",
+        "ar",
+        "pt",
+        "id",
+        "th",
+        "vi",
+        "ru"
+      ]
     },
     {
       "@type": "SoftwareApplication",
@@ -60,7 +76,9 @@
       "applicationSubCategory": "Point of sale and ordering for restaurants",
       "url": "https://www.yunw8.com",
       "datePublished": "2024",
-      "publisher": { "@id": "https://www.misall.com/#organization" }
+      "publisher": {
+        "@id": "https://www.misall.com/#organization"
+      }
     },
     {
       "@type": "Dataset",
@@ -70,10 +88,17 @@
       "description": "Reference notes on retail and point-of-sale localization by country and language: currency formatting, tax rates and display, receipt content requirements, fiscal and e-invoicing systems, script direction and thermal printer behaviour. Published in two independently written editions, English for implementers and Chinese for shop owners.",
       "url": "https://github.com/misall-software/retail-localization-reference",
       "sameAs": "https://gitee.com/meriko/retail-localization-reference",
-      "inLanguage": ["en", "zh-CN"],
+      "inLanguage": [
+        "en",
+        "zh-CN"
+      ],
       "dateModified": "2026-08",
-      "creator": { "@id": "https://www.misall.com/#organization" },
-      "publisher": { "@id": "https://www.misall.com/#organization" },
+      "creator": {
+        "@id": "https://www.misall.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.misall.com/#organization"
+      },
       "isAccessibleForFree": true,
       "license": "https://creativecommons.org/licenses/by/4.0/",
       "keywords": [
@@ -89,16 +114,86 @@
         "RTL receipt layout"
       ],
       "spatialCoverage": [
-        { "@type": "Country", "name": "Australia", "identifier": "AU" },
-        { "@type": "Country", "name": "Indonesia", "identifier": "ID" },
-        { "@type": "Country", "name": "Kenya", "identifier": "KE" },
-        { "@type": "Country", "name": "Malaysia", "identifier": "MY" },
-        { "@type": "Country", "name": "Nigeria", "identifier": "NG" },
-        { "@type": "Country", "name": "Peru", "identifier": "PE" },
-        { "@type": "Country", "name": "Philippines", "identifier": "PH" },
-        { "@type": "Country", "name": "South Africa", "identifier": "ZA" },
-        { "@type": "Country", "name": "Thailand", "identifier": "TH" },
-        { "@type": "Country", "name": "Vietnam", "identifier": "VN" }
+        {
+          "@type": "Place",
+          "name": "Australia",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "AU"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Indonesia",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ID"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Kenya",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "KE"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Malaysia",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "MY"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Nigeria",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "NG"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Peru",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "PE"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Philippines",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "PH"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "South Africa",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "ZA"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Thailand",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "TH"
+          }
+        },
+        {
+          "@type": "Place",
+          "name": "Vietnam",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "VN"
+          }
+        }
       ],
       "distribution": [
         {
