@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0.0",
+  "last_updated": "2026-08",
+  "verification_state": "unverified-draft",
+  "note": "Shared by both editions. Unicode behaviour recorded here is specified in the standard and stable. Printer-specific values are vendor-dependent and carry todo_verify.",
+  "editions": {
+    "en": "Implementer-facing. Bidi algorithm, shaping, code pages, raster rendering. Path in doc_en.",
+    "zh": "Shop-owner-facing. How to recognise a bad sample print and what to ask a vendor before paying. Written separately, not a translation. Path in doc_zh."
+  },
+  "source_types": {
+    "official-authority": "Published or administered by a named body, including standards bodies where identified.",
+    "public-regulation": "Derives from published law, decree or regulation.",
+    "unverified": "Not attributable to either of the above as written. Treat as unknown."
+  },
+  "languages": [
+    {
+      "language": "Arabic",
+      "iso_639_1": "ar",
+      "iso_639_3": "ara",
+      "doc_en": "en/languages/arabic.md",
+      "doc_zh": "zh/languages/arabic.md",
+      "script": {
+        "iso_15924": "Arab",
+        "name": "Arabic",
+        "direction": "rtl",
+        "requires_contextual_shaping": true,
+        "positional_forms": ["isolated", "initial", "medial", "final"],
+        "mandatory_ligatures": [
+          {
+            "name": "lam-alef",
+            "sequence": ["U+0644", "U+0627"],
+            "note": "Not stylistic. The unligated sequence is wrong.",
+            "source": "official-authority"
+          }
+        ],
+        "combining_marks_zero_width": {
+          "value": true,
+          "ranges": ["U+064B-U+0652"],
+          "note": "Counted by string length but occupy no printer column. Cause of column drift on real supplier data.",
+          "source": "official-authority"
+        },
+        "mirrored_characters": {
+          "value": true,
+          "examples": ["parentheses", "brackets", "angle brackets"],
+          "note": "Mirror once. Doing it in both the renderer and application code cancels out.",
+          "source": "official-authority"
+        }
+      },
+      "bidirectional": {
+        "algorithm": "Unicode UAX #9",
+        "source": "official-authority",
+        "base_direction_must_be_explicit_per_line": {
+          "value": true,
+          "note": "The first-strong default takes paragraph direction from the first strongly directional character, so an item name beginning with a Latin brand or SKU lays out mirrored relative to surrounding lines."
+        },
+        "each_line_is_its_own_paragraph": true,
+        "numbers_form_ltr_runs_within_rtl_text": true,
+        "known_failure_modes": [
+          "numeric separators detach from the number and jump to the opposite end of the run",
+          "signs and percent marks migrate to the wrong side",
+          "a line's base direction flips when the name starts with Latin text",
+          "padding computed on code point count instead of display width"
+        ],
+        "control_characters": [
+          { "name": "RLM", "codepoint": "U+200F", "use": "invisible strong RTL; pins a neutral run" },
+          { "name": "LRM", "codepoint": "U+200E", "use": "invisible strong LTR" },
+          { "name": "LRI", "codepoint": "U+2066", "use": "left-to-right isolate" },
+          { "name": "RLI", "codepoint": "U+2067", "use": "right-to-left isolate" },
+          { "name": "FSI", "codepoint": "U+2068", "use": "first-strong isolate" },
+          { "name": "PDI", "codepoint": "U+2069", "use": "terminates an isolate" }
+        ],
+        "preferred_technique": "isolates over directional marks",
+        "storage_rule": "store logical order, render visual order, never store visual order"
+      },
+      "digits": {
+        "forms": [
+          { "name": "Western (ASCII)", "range": "U+0030-U+0039", "note": "Widely used on printed commercial documents across the Arab world." },
+          { "name": "Arabic-Indic", "range": "U+0660-U+0669", "note": "Used in parts of the region." },
+          { "name": "Eastern Arabic-Indic", "range": "U+06F0-U+06F9", "note": "Persian/Urdu context; distinct glyphs for some digits." }
+        ],
+        "market_expectation": { "value": null, "source": "unverified", "todo_verify": true },
+        "rules": [
+          "make the digit form a template setting, not a code branch",
+          "convert at render time only, never in stored data",
+          "never mix forms on one document",
+          "switching digit form does not change ordering behaviour, only glyphs"
+        ]
+      },
+      "printing": {
+        "printers_implement_bidi": false,
+        "printers_accept_utf8": false,
+        "shaping_owner": {
+          "value": null,
+          "options": ["printer firmware with an Arabic ROM font", "application pre-shaping to presentation forms"],
+          "note": "Per-model fact, not discoverable at runtime. Wrong assumption prints disconnected isolated letters.",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "code_pages": [
+          { "name": "CP864", "note": "DOS Arabic. Contains presentation forms, so text must be pre-shaped.", "esc_t_value": null, "todo_verify": true },
+          { "name": "CP720", "note": "DOS Arabic, transparent ASMO. Different layout from CP864.", "esc_t_value": null, "todo_verify": true },
+          { "name": "Windows-1256", "note": "Covers the base repertoire; expects the renderer to shape.", "esc_t_value": null, "todo_verify": true },
+          { "name": "ISO-8859-6", "note": "Base Arabic, limited repertoire, uncommon in POS firmware.", "esc_t_value": null, "todo_verify": true }
+        ],
+        "code_page_numbers_omitted_deliberately": {
+          "value": true,
+          "reason": "Vendors renumber the code page table and clone firmware diverges from documented ordering while claiming compatibility. Read the value from the target printer's command reference and confirm by printing."
+        },
+        "single_byte_pages_insufficient_for_mixed_lines": {
+          "value": true,
+          "note": "Arabic plus a Latin brand name plus a currency symbol on one line exceeds any single-byte page."
+        },
+        "recommended_print_path": {
+          "value": "raster",
+          "commands": ["GS v 0", "ESC * (older firmware)"],
+          "solves": ["shaping", "bidi ordering", "ligatures", "code pages", "glyph coverage", "mixed-script lines"],
+          "costs": ["more data and slower printing", "printer font and size commands no longer apply", "resolution must match printer dot density"]
+        },
+        "currency_glyph_coverage": {
+          "value": null,
+          "note": "ROM fonts lag Unicode by years. Where coverage is uncertain print the ISO code instead of the symbol.",
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "layout": {
+        "amount_column_side": {
+          "value": "conventionally mirrored from LTR layouts: description at the right edge, amount at the left",
+          "note": "Consistency between header, item lines, totals block and tax breakdown matters more than the choice itself.",
+          "source": "unverified"
+        },
+        "padding_must_be_outside_isolates": true,
+        "measure_display_width_not_string_length": true,
+        "normalise_before_measuring": true,
+        "paper_width_guidance": [
+          { "width_mm": 80, "columns_font_a": [48, 42], "two_column_layout_viable": true },
+          { "width_mm": 58, "columns_font_a": 32, "two_column_layout_viable": false, "note": "Stack the name on its own line with the amount beneath it." }
+        ],
+        "line_breaking": {
+          "hyphenation": false,
+          "break_on": "whitespace only",
+          "truncate_mid_word": false,
+          "truncation_note": "Cutting a word changes the final letter's positional form, producing a different misspelled word rather than an obviously clipped string.",
+          "do_not_orphan": ["ZWJ", "ZWNJ"]
+        }
+      },
+      "retail_regions": {
+        "primary": ["Gulf states", "Levant", "Iraq", "Egypt", "Sudan", "Libya", "Maghreb"],
+        "qualifications": [
+          {
+            "region": "Maghreb",
+            "note": "French is widely used in retail documentation in Morocco, Algeria and Tunisia, often alongside Arabic on the same document, making mixed-direction layout the normal case."
+          },
+          {
+            "region": "Gulf",
+            "note": "Arabic and English routinely appear on the same receipt. Some markets may have expectations about the language of tax figures.",
+            "todo_verify": true
+          }
+        ],
+        "legal_language_requirements": { "value": null, "source": "unverified", "todo_verify": true }
+      },
+      "deployment_pattern": {
+        "independent_language_settings": ["till interface", "back office interface", "print template"],
+        "note": "Only the print template drives the rendering concerns in this file."
+      },
+      "acceptance_test_requires_native_reader": {
+        "value": true,
+        "note": "Disconnected letters, a flipped line direction and column drift all look plausible to a reviewer who does not read the script."
+      },
+      "open_verification_items": { "en": 6, "zh": 5 }
+    }
+  ]
+}

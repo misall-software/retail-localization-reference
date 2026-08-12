@@ -1,0 +1,23 @@
+# Internal source material — never publish
+*.docx
+*.doc
+*.pdf
+*.xlsx
+*.pptx
+
+# Credentials
+.env
+.env.*
+*.pem
+*.key
+*_token*
+*credentials*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*~
+*.swp
