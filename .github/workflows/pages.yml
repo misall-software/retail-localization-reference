@@ -1,0 +1,71 @@
+name: Build and deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it mid-publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install markdown
+
+      # Must come before the build: the build bakes absolute canonical URLs and
+      # sitemap entries, so it needs the real base URL, not a guess.
+      - uses: actions/configure-pages@v5
+        id: pages
+
+      - name: Build site
+        env:
+          SITE_BASE: ${{ steps.pages.outputs.base_url }}
+        run: python tools/build_site.py
+
+      - name: Check output
+        run: |
+          test -f _site/index.html
+          test -f _site/zh/index.html
+          test -f _site/sitemap.xml
+          test -f _site/robots.txt
+          pages=$(find _site -name '*.html' | wc -l)
+          echo "built $pages pages"
+          test "$pages" -ge 25
+          # Every page must carry a canonical URL and the JSON-LD graph, since
+          # that is the whole reason this site is generated rather than served
+          # as raw Markdown.
+          for f in $(find _site -name '*.html'); do
+            grep -q 'rel="canonical"' "$f" || { echo "missing canonical: $f"; exit 1; }
+            grep -q 'application/ld+json' "$f" || { echo "missing JSON-LD: $f"; exit 1; }
+          done
+          echo "all pages carry canonical + JSON-LD"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
