@@ -507,6 +507,180 @@
         "en": 3,
         "zh": 3
       }
+    },
+    {
+      "language": "Thai",
+      "iso_639_1": "th",
+      "iso_639_3": "tha",
+      "doc_en": "en/languages/thai.md",
+      "doc_zh": "zh/languages/thai.md",
+      "script": {
+        "iso_15924": "Thai",
+        "direction": "ltr",
+        "has_case": false,
+        "requires_contextual_shaping": false
+      },
+      "line_breaking": {
+        "word_separating_spaces": false,
+        "space_role": "separates phrases and sentences, roughly where English uses a comma or full stop",
+        "requires_dictionary_algorithm": true,
+        "standard": "UAX #14, which handles Thai by dictionary lookup rather than character properties alone",
+        "note": "Wrapping on whitespace breaks inside words, producing a different string rather than a clipped one.",
+        "raster_does_not_solve_this": true,
+        "source": "official-authority"
+      },
+      "mark_stack": {
+        "levels": [
+          "base consonant",
+          "above or below vowel",
+          "tone mark",
+          "thanthakhat"
+        ],
+        "columns_occupied": 1,
+        "combining_marks_zero_width": true,
+        "clipping_risk": "Tight leading clips upper tone marks. Legible to a non-reader, wrong to a Thai reader.",
+        "sara_am": {
+          "codepoint": "U+0E33",
+          "note": "Single codepoint rendering as a mark plus a trailing tail; can split across a line break if decomposed."
+        },
+        "source": "official-authority"
+      },
+      "collation": {
+        "codepoint_order_is_wrong": true,
+        "leading_vowels": [
+          "เ",
+          "แ",
+          "โ",
+          "ใ",
+          "ไ"
+        ],
+        "note": "These five vowels are written before the consonant they follow phonetically, so dictionary order files the word under the consonant. Affects product lists and search, not printing.",
+        "recommended": "ICU th locale",
+        "source": "official-authority"
+      },
+      "digits": {
+        "thai_digits_range": "U+0E50-U+0E59",
+        "western_usual_on_commercial_documents": true,
+        "rule": "template setting, never mix forms on one document"
+      },
+      "calendar": {
+        "buddhist_era_common": true,
+        "offset_years": 543,
+        "example": "2026 CE = 2569 BE",
+        "rule": "store one canonical form, convert at render time",
+        "todo_verify": true
+      },
+      "printing": {
+        "printers_accept_utf8": false,
+        "code_pages": [
+          "TIS-620",
+          "CP874"
+        ],
+        "code_page_values": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "recommended_print_path": "raster",
+        "raster_caveat": "Resolves stacking, glyph coverage and code page, but NOT line breaking, which happens upstream.",
+        "kitchen_printer_separate_test": {
+          "value": true,
+          "note": "Frequently a different and cheaper model than front of house."
+        }
+      },
+      "acceptance_test_requires_native_reader": true,
+      "open_verification_items": {
+        "en": 4,
+        "zh": 4
+      }
+    },
+    {
+      "language": "Vietnamese",
+      "iso_639_1": "vi",
+      "iso_639_3": "vie",
+      "doc_en": "en/languages/vietnamese.md",
+      "doc_zh": "zh/languages/vietnamese.md",
+      "script": {
+        "iso_15924": "Latn",
+        "direction": "ltr",
+        "note": "Latin script that behaves like a non-Latin one."
+      },
+      "diacritics": {
+        "layers": [
+          "base vowel",
+          "quality diacritic (circumflex, breve, horn)",
+          "tone mark"
+        ],
+        "both_can_stack": true,
+        "letters_beyond_ascii": 134,
+        "d_with_stroke": {
+          "letter": "đ",
+          "note": "A distinct letter, not a d to be normalised away."
+        },
+        "source": "official-authority"
+      },
+      "printing": {
+        "printers_accept_utf8": false,
+        "no_single_byte_page_covers_it_fully": {
+          "value": true,
+          "note": "Including CP1258, the page nominally designed for Vietnamese."
+        },
+        "encodings": [
+          {
+            "name": "Windows-1258",
+            "problem": "Encodes some syllables as base letter plus combining tone mark, so a naive transcode drops or mangles tones even when the page is nominally correct."
+          },
+          {
+            "name": "TCVN3 (ABC)",
+            "problem": "Legacy; splits Vietnamese across two fonts, one lowercase one uppercase."
+          },
+          {
+            "name": "VNI",
+            "problem": "Legacy, a different split again."
+          },
+          {
+            "name": "VISCII",
+            "problem": "Legacy, rarely in printer ROM."
+          }
+        ],
+        "code_page_selection_is_insufficient": {
+          "value": true,
+          "note": "Selecting CP1258 is not evidence Vietnamese will print correctly. Print and look."
+        },
+        "recommended_print_path": "raster",
+        "line_breaking": "ordinary whitespace wrapping is correct; unlike Thai, no dictionary needed"
+      },
+      "supplier_data_risk": {
+        "legacy_encodings_common": [
+          "TCVN3",
+          "VNI"
+        ],
+        "note": "Catalogues from long-established suppliers frequently arrive in legacy encodings. Import a small batch first and have a Vietnamese reader check it; correcting a corrupted catalogue after prices and stock are attached is expensive.",
+        "normalise_to": "NFC",
+        "source": "unverified",
+        "todo_verify": true
+      },
+      "collation": {
+        "codepoint_order_is_wrong": true,
+        "rules": [
+          "đ sorts after d",
+          "quality-marked vowels sort after their base vowels"
+        ],
+        "recommended": "ICU vi locale",
+        "source": "official-authority"
+      },
+      "currency_symbol": {
+        "char": "₫",
+        "codepoint": "U+20AB",
+        "often_absent_from_rom": true,
+        "fallback": "VND"
+      },
+      "description_length": "words are short but numerous, so names wrap across more lines than English; budget two-line item names at 58 mm",
+      "acceptance_test_requires_native_reader": true,
+      "open_verification_items": {
+        "en": 3,
+        "zh": 3
+      }
     }
   ]
 }

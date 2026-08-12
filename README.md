@@ -105,14 +105,19 @@ a few have one of their own.
 | --- | --- | --- |
 | [Arabic](en/languages/arabic.md) | `ar` | Right-to-left layout, bidirectional algorithm, contextual shaping, printer code pages |
 | [CJK](en/languages/cjk.md) | `zh` `ja` `ko` | **Full-width characters occupy two columns**; multi-byte character mode; ROM font coverage |
-| [Accented Latin](en/languages/latin-accented.md) | `es` `pt` `fr` `de` `it` `tr` and Nordic | Code page selection and Unicode normalisation — fails **silently**, unlike the two above |
+| [Thai](en/languages/thai.md) | `th` | **No spaces between words**, so wrapping needs a dictionary; marks stack up to four levels; collation is not codepoint order |
+| [Vietnamese](en/languages/vietnamese.md) | `vi` | Two diacritics on one vowel; **no single-byte code page covers it fully**, including CP1258 |
+| [Accented Latin](en/languages/latin-accented.md) | `es` `pt` `fr` `de` `it` `tr` and Nordic | Code page selection and Unicode normalisation — fails **silently**, unlike the others |
 
 `id` and `ms` use Latin script with no diacritics in normal commercial use and
 need no code page work at all.
 
-**Planned:** Hebrew (right-to-left but non-cursive, so a useful contrast with
-Arabic), Thai and Vietnamese (currently documented inside their country files),
-Cyrillic, and Indic scripts.
+Three of these files sort the same way on the underlying problem: **measure
+display width, not character count**. Arabic, Thai and CJK each break column
+alignment for a different reason and are fixed by the same change.
+
+**Planned:** Hebrew (right-to-left but non-cursive, a useful contrast with
+Arabic), Cyrillic, and Indic scripts.
 
 ---
 
