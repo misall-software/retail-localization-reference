@@ -28,3 +28,6 @@ _site/
 # Stray API scratch output
 *.json.tmp
 /m.json
+
+# Build manifest, regenerated each build
+build-manifest.txt

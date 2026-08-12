@@ -291,6 +291,14 @@ def main():
 
     io.open(os.path.join(OUT, ".nojekyll"), "w", encoding="utf-8").write("")
 
+    # Manifest of pages this script generated, for the CI check to read.
+    # Written outside _site so it is never published. It exists because
+    # static/ passthrough files can also be .html — a search engine
+    # verification file, for instance — and those legitimately carry no
+    # canonical link or JSON-LD. Checking by file extension flagged them.
+    io.open(os.path.join(ROOT, "build-manifest.txt"), "w", encoding="utf-8",
+            newline="\n").write("\n".join(d for _, d, _ in PAGES) + "\n")
+
     print("built %d pages -> %s" % (len(urls), OUT))
     for u in urls:
         print("  ", u)

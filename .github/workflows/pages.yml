@@ -44,17 +44,24 @@ jobs:
           test -f _site/zh/index.html
           test -f _site/sitemap.xml
           test -f _site/robots.txt
-          pages=$(find _site -name '*.html' | wc -l)
-          echo "built $pages pages"
+          test -f build-manifest.txt
+          pages=$(wc -l < build-manifest.txt)
+          echo "generated $pages pages"
           test "$pages" -ge 25
-          # Every page must carry a canonical URL and the JSON-LD graph, since
-          # that is the whole reason this site is generated rather than served
-          # as raw Markdown.
-          for f in $(find _site -name '*.html'); do
+          # Every *generated* page must carry a canonical URL and the JSON-LD
+          # graph, since that is the whole reason this site is built rather than
+          # served as raw Markdown.
+          #
+          # Checked against the manifest rather than by file extension: static/
+          # passthrough files can also be .html — a search engine verification
+          # file, for instance — and those legitimately have neither.
+          while read -r p; do
+            f="_site/$p"
+            test -f "$f" || { echo "missing page: $f"; exit 1; }
             grep -q 'rel="canonical"' "$f" || { echo "missing canonical: $f"; exit 1; }
             grep -q 'application/ld+json' "$f" || { echo "missing JSON-LD: $f"; exit 1; }
-          done
-          echo "all pages carry canonical + JSON-LD"
+          done < build-manifest.txt
+          echo "all $pages generated pages carry canonical + JSON-LD"
 
       - uses: actions/upload-pages-artifact@v3
         with:
