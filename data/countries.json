@@ -34,16 +34,21 @@
         "authority_to_confirm": "Central Bank of Kenya"
       },
       "tax": {
-        "standard_vat_rate_percent": { "value": 16, "source": "public-regulation", "todo_verify": true },
-        "reduced_rates_percent": { "value": null, "source": "unverified", "todo_verify": true },
+        "standard_vat_rate_percent": { "value": 16, "source": "public-regulation", "verified_secondary": "2026-08" },
+        "active_rates_percent": { "value": [16, 0], "note": "Exempt supplies are a separate category from zero-rated.", "source": "public-regulation", "verified_secondary": "2026-08" },
         "price_display": { "value": "tax-inclusive", "source": "unverified", "todo_verify": true },
         "fiscal_system": {
           "value": "eTIMS",
           "long_name": "electronic Tax Invoice Management System",
           "authority": "Kenya Revenue Authority (KRA)",
           "predecessor": "register-based regime using ETR devices and control units",
+          "mandatory_since": "2022-11-30",
+          "scope_extended": { "date": "2024-01", "note": "Obligation extended beyond VAT-registered businesses to taxpayers generally, including small traders and professionals." },
+          "invoice_without_etims_reference_is_invalid": true,
+          "electronic_signature_required": { "value": true, "todo_verify": true },
+          "retention_years": { "value": 5, "todo_verify": true },
           "source": "official-authority",
-          "todo_verify": true
+          "verified_secondary": "2026-08"
         },
         "per_line_tax_categories_required": true,
         "distinguishes_zero_rated_and_exempt": true
@@ -121,12 +126,19 @@
         "authority_to_confirm": "State Bank of Vietnam"
       },
       "tax": {
-        "standard_vat_rate_percent": { "value": 10, "source": "public-regulation", "todo_verify": true },
+        "standard_vat_rate_percent": { "value": 10, "source": "public-regulation", "verified_secondary": "2026-08" },
         "reduced_rates_percent": { "value": [5, 0], "source": "public-regulation", "todo_verify": true },
         "temporary_rate_reduction": {
           "value": 8,
-          "note": "A temporary reduction of the standard rate has been enacted repeatedly by period since 2022, covering an enumerated set of goods and services. Time-sensitive: confirm whether it is in force for the current period, what it covers, and when it expires.",
+          "in_force": true,
+          "effective_from": "2025-07-01",
+          "expires": "2026-12-31",
+          "instrument": "Resolution 204/2025/QH15",
+          "implementing_decree": "Decree 174/2025/ND-CP",
+          "excluded_sectors": ["telecommunications", "real estate", "finance", "banking", "securities", "insurance"],
+          "note": "Lapses 31 December 2026 unless extended again. A hardcoded 8% produces silently wrong tax from 1 January 2027. Exact goods-level coverage still open.",
           "source": "public-regulation",
+          "verified_secondary": "2026-08",
           "todo_verify": true
         },
         "rates_must_be_date_effective": true,
@@ -135,9 +147,15 @@
           "value": "electronic invoicing (hoa don dien tu)",
           "retail_variant": "e-invoice generated from cash registers",
           "authority": "tax administration under the Ministry of Finance",
-          "framework": "Decree 123/2020/ND-CP with implementing circular guidance, as subsequently amended",
+          "framework": "Decree 123/2020/ND-CP as amended by Decree 70/2025/ND-CP, effective 2025-06-01",
+          "cash_register_obligation": {
+            "revenue_threshold_vnd": 1000000000,
+            "applies_to": ["household and individual businesses at or above the threshold", "retail stores, shopping centres, supermarkets", "restaurants and catering", "hotels", "passenger transport", "entertainment"],
+            "real_time_transmission_required": true,
+            "digital_signature_mandatory": false
+          },
           "source": "public-regulation",
-          "todo_verify": true
+          "verified_secondary": "2026-08"
         }
       },
       "receipt": {
@@ -228,8 +246,18 @@
         "standard_vat_rate_percent": {
           "value": 18,
           "name": "IGV",
-          "composition_note": "Conventionally understood as a 16% IGV component plus a 2% municipal promotion component, quoted and printed as a single figure.",
+          "composition_note": "16% IGV component plus a 2% municipal promotion component (IPM), quoted and printed as a single figure.",
           "source": "public-regulation",
+          "verified_secondary": "2026-08"
+        },
+        "reduced_rate_percent": {
+          "value": 10,
+          "composition": "8% IGV + 2% IPM",
+          "applies_to": "micro and small enterprises in restaurants, hotels and tourist lodging, subject to income and activity-mix conditions",
+          "expires": "2026-12-31",
+          "note": "Directly relevant to food-service operators. Do not assume a single 18% rate covers the catalogue.",
+          "source": "public-regulation",
+          "verified_secondary": "2026-08",
           "todo_verify": true
         },
         "price_display": { "value": "tax-inclusive for consumers", "source": "unverified", "todo_verify": true },
@@ -243,12 +271,15 @@
         },
         "additional_levies": [
           {
-            "name": "plastic bag tax",
+            "name": "plastic bag tax (ICBPER)",
             "per_unit": true,
             "appears_as_own_receipt_line": true,
-            "amount": null,
+            "amount": 0.50,
+            "currency": "PEN",
+            "rate_in_force_since": "2023",
+            "declared_and_paid": "monthly by the establishment",
             "source": "public-regulation",
-            "todo_verify": true
+            "verified_secondary": "2026-08"
           },
           {
             "name": "selective consumption tax",
@@ -271,9 +302,12 @@
             "name": "Boleta de venta electronica",
             "issued_to": "consumers",
             "customer_id_required_above_threshold": true,
-            "threshold_amount": null,
+            "threshold_amount": 700,
+            "threshold_currency": "PEN",
+            "accepted_documents": ["DNI", "carne de extranjeria", "passport"],
+            "below_threshold": "customer fields optional",
             "source": "public-regulation",
-            "todo_verify": true
+            "verified_secondary": "2026-08"
           },
           {
             "name": "Factura electronica",
@@ -309,8 +343,21 @@
           "source": "public-regulation",
           "todo_verify": true
         },
-        "qr_code_required": { "value": true, "source": "public-regulation", "todo_verify": true },
-        "qr_code_payload": { "value": null, "source": "unverified", "todo_verify": true },
+        "qr_code_required": { "value": true, "mandatory_since": "2019-01-01", "scope_note": "Attaches to the taxpayer's own emission system (SEE-Del contribuyente); reportedly not to SUNAT's web and free-facturador routes. Confirm scope.", "source": "public-regulation", "verified_secondary": "2026-08", "todo_verify": true },
+        "qr_code_payload": {
+          "field_separator": "|",
+          "fields_in_order": ["RUC", "document type", "series", "number", "total IGV", "total amount", "issue date", "acquirer document type", "acquirer document number", "hash value"],
+          "print_constraints": {
+            "position": "lower part of the printed representation",
+            "max_size_cm": { "height": 2, "width": 6 },
+            "quiet_zone_mm": 1,
+            "colour": "black",
+            "symbology": "QR Code 2005 per ISO/IEC 18004:2006"
+          },
+          "source": "public-regulation",
+          "verified_secondary": "2026-08",
+          "todo_verify": true
+        },
         "common_paper_widths_mm": [80, 58]
       },
       "languages": {

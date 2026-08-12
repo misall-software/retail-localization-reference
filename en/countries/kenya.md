@@ -6,29 +6,39 @@ originate from a control unit registered with the tax authority, not from the PO
 software's own sequence. Currency is the Kenyan shilling (KES), printed receipts
 are predominantly English, and mobile money is the dominant non-cash tender.
 
-> ### Verification status — unverified draft
+> ### Verification status — partially verified, 2026-08
 >
-> Confirm every item below against a primary source before relying on this file.
+> Several items have been checked against secondary sources and are recorded in
+> the body. **Secondary sources are not primary sources**: confirm against the
+> regulation text or KRA before relying on any of it.
 >
-> **Open items — `TODO: verify`**
+> **Resolved this pass — reconfirm before publishing**
 >
-> 1. Current standard VAT rate, and whether any reduced rate applies to retail goods.
-> 2. Whether displayed consumer prices are legally required to be VAT-inclusive.
-> 3. The full mandatory field list for an electronic tax invoice, against the
->    current text of the electronic tax invoice regulations.
-> 4. What the receipt QR code must encode, and whether a verification URL is prescribed.
-> 5. Whether the QR requirement applies to all sales or only to VAT-registered sellers.
-> 6. The current name and status of the electronic invoicing system, and whether the
->    older register-based regime is still accepted anywhere.
-> 7. The integration modes available for transmitting invoices to the authority.
-> 8. The behaviour required when the connection to the tax authority is unavailable
+> - Standard VAT rate **16%**; active rates are 16% and 0%.
+> - eTIMS is the current system; e-invoicing mandatory since 30 November 2022,
+>   extended in **January 2024** beyond VAT-registered businesses to taxpayers
+>   generally.
+> - Mandatory field list expanded below, including the KRA **item classification
+>   code** and the **Control Unit Invoice Number**.
+> - QR code is system-generated and verifiable on KRA's portal.
+>
+> **Still open — `TODO: verify`**
+>
+> 1. Whether displayed consumer prices are legally required to be VAT-inclusive.
+> 2. The mandatory field list against the current regulation text — the list below
+>    is assembled from secondary sources and the labelling may differ.
+> 3. The exact QR payload and whether a verification URL format is prescribed.
+> 4. Electronic signature and five-year retention requirements, against the text.
+> 5. Current penalty amounts for non-compliance.
+> 6. The integration modes available for transmitting invoices to the authority.
+> 7. The behaviour required when the connection to the tax authority is unavailable
 >    at the moment of sale, and the permitted catch-up window.
-> 9. Taxpayer PIN format and validation rules.
-> 10. Whether small-denomination rounding at the till has any legal basis or is
->     purely a trade practice.
-> 11. The operational differences between till-style and bill-style mobile money
+> 8. Taxpayer PIN format and validation rules.
+> 9. Whether small-denomination rounding at the till has any legal basis or is
+>    purely a trade practice.
+> 10. The operational differences between till-style and bill-style mobile money
 >     merchant collection, including settlement timing and transaction costs.
-> 12. The authority's current portal URL for each of the above.
+> 11. The authority's current portal URL for each of the above.
 
 ---
 
@@ -55,9 +65,10 @@ practice — see open item 10 before implementing any automatic rounding.
 
 | Field | Value | Source type |
 | --- | --- | --- |
-| VAT rate | Standard rate 16%. Zero-rated and exempt categories exist and are defined by schedule, not by product name. `TODO: verify` current standard rate and whether any reduced rate currently applies. | public-regulation |
+| VAT rate | Standard rate **16%**. The two active rates are 16% and 0% for zero-rated supplies; exempt categories are separate again. Zero-rated and exempt are defined by schedule, not by product name. | public-regulation |
 | Tax-inclusive or exclusive display | Consumer-facing prices are quoted VAT-inclusive in ordinary retail practice. `TODO: verify` whether this is a legal display requirement or convention. | unverified |
-| Fiscal system name | eTIMS — the electronic Tax Invoice Management System, administered by the Kenya Revenue Authority (KRA). It succeeded an earlier register-based regime built on ETR devices and control units. `TODO: verify` current system name, scope, and whether the predecessor remains valid anywhere. | official-authority |
+| Fiscal system name | **eTIMS** — the electronic Tax Invoice Management System, administered by the Kenya Revenue Authority (KRA), succeeding a register-based regime built on ETR control units. Electronic invoicing has been mandatory since 30 November 2022, and **since January 2024 the obligation extends beyond VAT-registered businesses to taxpayers generally**, including small traders and professionals. | official-authority |
+| Consequence of non-compliance | An invoice issued without an eTIMS reference is not valid for tax purposes: the buyer cannot claim the expense and KRA can disallow the transaction on audit. `TODO: verify` current penalty amounts. | public-regulation |
 
 **What this means for the POS.** VAT is calculated per line against a tax
 category, not applied as a single rate to the basket total. A product record
@@ -76,15 +87,25 @@ point for verification, **not a confirmed specification** — `TODO: verify` the
 complete list, the exact labelling, and which fields are conditional.
 
 - Seller name and taxpayer PIN — `public-regulation`
-- Invoice serial number — `public-regulation`
-- Date and time of the transaction — `public-regulation`
-- Buyer PIN, where the buyer intends to claim input tax — `public-regulation`
-- Item description, quantity, unit price — `public-regulation`
-- Taxable value, broken out per tax rate — `public-regulation`
+- Invoice serial or reference number — `public-regulation`
+- Date and time of issue — `public-regulation`
+- Buyer PIN, where the buyer intends to claim the expense or input VAT — `public-regulation`
+- **Item code per KRA's classification** — `public-regulation`. This one is easy to
+  miss: it is a mandated classification code, not your own SKU, so the product
+  record needs a field for it and someone has to populate it for every line.
+- Description of goods or services, quantity and unit of measure, unit price — `public-regulation`
+- Taxable amount, broken out per tax rate — `public-regulation`
 - Tax rate and tax amount — `public-regulation`
-- Gross total — `public-regulation`
+- Total amount — `public-regulation`
 - Control unit serial number — `public-regulation`
-- Control unit invoice number — `public-regulation`
+- Control Unit Invoice Number (CUIN), returned by KRA — `public-regulation`
+- QR code — `public-regulation`
+
+Two further obligations attach to the document rather than the print: invoices
+must be **electronically signed**, and retained in digital form for **at least
+five years** — `public-regulation`, `TODO: verify` both against the regulation
+text. Retention is an archive requirement, not a print requirement, but it
+constrains how the POS stores and exports transaction history.
 
 The control unit invoice number is the point implementers most often get wrong.
 It is issued by the control unit, not by the POS. The POS may keep its own
@@ -93,12 +114,16 @@ comes back from the control unit and must be printed as returned.
 
 ### QR code
 
-Required on the electronic tax invoice — `public-regulation`.
-`TODO: verify` what the code must encode, whether the authority prescribes a
-verification URL format, and whether the requirement extends to non-VAT-registered
-sellers. Size the print area from the encoded payload, not from a fixed pixel
-count; a URL carrying an invoice signature needs meaningfully more modules than a
-short reference string, and an over-compressed QR on 58 mm paper fails to scan.
+Required on the electronic tax invoice — `public-regulation`. It is generated by
+the system and encodes the invoice details; customers scan it to verify
+authenticity against KRA's portal. Since the eTIMS obligation now reaches
+taxpayers generally rather than only VAT-registered sellers, assume the QR
+applies to your sales unless a specific exclusion is confirmed.
+
+`TODO: verify` the exact encoded payload and whether a verification URL format is
+prescribed. Size the print area from the payload, not from a fixed pixel count; a
+URL carrying an invoice signature needs meaningfully more modules than a short
+reference string, and an over-compressed QR on 58 mm paper fails to scan.
 
 ### Common paper widths
 

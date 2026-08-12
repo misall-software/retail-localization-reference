@@ -8,32 +8,41 @@ minor unit in practice and produces very large printed numbers. The interface
 language is Vietnamese, whose diacritics break more thermal printers than any
 other Latin-script language.
 
-> ### Verification status — unverified draft
+> ### Verification status — partially verified, 2026-08
 >
-> Confirm every item below against a primary source before relying on this file.
+> Items 1, 2, 5, 6 and 8 below have been checked against secondary sources and are
+> recorded in the body with their governing instruments. **Secondary sources are
+> not primary sources**: confirm against the instrument text or the tax
+> administration before relying on any of it.
 >
-> **Open items — `TODO: verify`**
+> **Resolved this pass — reconfirm before publishing**
 >
-> 1. Current standard VAT rate.
-> 2. Whether the temporary reduced rate is in force for the current period, which
->    goods and services it covers, and its expiry date. This has been extended
->    repeatedly and by period; a hardcoded rate will silently go wrong.
-> 3. Which reduced and zero rates apply, and how retail goods map to them.
+> - Standard rate 10%; temporary reduction to 8% in force **to 31 December 2026**
+>   under Resolution 204/2025/QH15, implemented by Decree 174/2025/ND-CP.
+> - Decree 123/2020/ND-CP as amended by **Decree 70/2025/ND-CP, effective
+>   1 June 2025**.
+> - Cash-register e-invoice obligation extends to household and individual
+>   businesses with annual revenue at or above **VND 1 billion**, plus named
+>   retail, restaurant, hotel, transport and entertainment sectors.
+> - A digital signature is **not** mandatory on cash-register e-invoices.
+>
+> **Still open — `TODO: verify`**
+>
+> 1. Exactly which goods and services fall inside the 8% reduction, and how a
+>    retail catalogue maps onto that list. The exclusions are sector-based and
+>    the boundary is where the errors live.
+> 2. What happens on 1 January 2027 when the reduction lapses, and whether a
+>    further extension has been enacted by then.
+> 3. Which reduced (5%) and zero rates apply to specific retail goods.
 > 4. Whether displayed consumer prices are legally required to be VAT-inclusive.
-> 5. The decree currently in force governing e-invoices, including which
->    instrument amended it and the effective date of the amendment.
-> 6. Which businesses are required to issue e-invoices generated from cash
->    registers, including any revenue threshold that triggers the obligation.
-> 7. The full mandatory field list for a cash-register e-invoice.
-> 8. Whether a tax authority code is required on cash-register e-invoices, and how
->    it is obtained.
-> 9. Whether a QR or lookup code is mandatory on the printed representation, and
+> 5. The full mandatory field list for a cash-register e-invoice.
+> 6. Whether a QR or lookup code is mandatory on the printed representation, and
 >    what it must encode.
-> 10. Timing rules — when the invoice must be issued relative to the sale, and what
->     is permitted when the connection is unavailable.
-> 11. Tax code (MST) format and validation rules.
-> 12. Whether the printed counter slip is itself regulated, or only the e-invoice.
-> 13. The authority's current portal URL for each of the above.
+> 7. Timing rules — when the invoice must be issued relative to the sale, and what
+>    is permitted when the connection is unavailable.
+> 8. Tax code (MST) format and validation rules.
+> 9. Whether the printed counter slip is itself regulated, or only the e-invoice.
+> 10. The authority's current portal URL for each of the above.
 
 ---
 
@@ -66,16 +75,22 @@ decimals rather than rendering `150.000,00`.
 
 | Field | Value | Source type |
 | --- | --- | --- |
-| VAT rate | Standard rate 10%. A 5% reduced rate and a 0% export rate exist. A temporary reduction of the standard rate to 8% for a broad set of goods and services has been enacted repeatedly by period since 2022. `TODO: verify` the rate in force for the current period, its coverage, and its expiry — this is the single most time-sensitive value in this file. | public-regulation |
+| VAT rate | Standard rate 10%, **temporarily reduced to 8% through 31 December 2026** under Resolution 204/2025/QH15, implemented by Decree 174/2025/ND-CP, running from 1 July 2025. A 5% reduced rate and a 0% export rate also exist. The reduction excludes named sectors — telecommunications, real estate, finance, banking, securities and insurance among them — so it is not a blanket 8%. | public-regulation |
 | Tax-inclusive or exclusive display | Consumer-facing retail prices are quoted VAT-inclusive in ordinary practice. `TODO: verify` whether this is a legal display requirement. | unverified |
-| Fiscal system name | Electronic invoicing (hóa đơn điện tử), administered by the tax administration under the Ministry of Finance. Retail and food service fall under e-invoices generated from cash registers (hóa đơn điện tử khởi tạo từ máy tính tiền). The governing framework is Decree 123/2020/ND-CP with implementing circular guidance, **as subsequently amended** — `TODO: verify` which amending instrument is currently in force. | public-regulation |
+| Fiscal system name | Electronic invoicing (hóa đơn điện tử), administered by the tax administration under the Ministry of Finance. Retail and food service fall under e-invoices generated from cash registers (hóa đơn điện tử khởi tạo từ máy tính tiền). Governing framework: **Decree 123/2020/ND-CP as amended by Decree 70/2025/ND-CP, effective 1 June 2025**. | public-regulation |
+| Who must issue cash-register e-invoices | Household and individual businesses with annual revenue of **VND 1 billion or more**, plus enterprises in retail (shopping centres, supermarkets, retail stores), restaurants and catering, hotels, passenger transport, and entertainment. Registers must be connected to the tax authority's system for per-invoice transmission. | public-regulation |
+| Digital signature | **Not mandatory** on e-invoices generated from cash registers, unlike standard e-invoices. | public-regulation |
 
-**Do not hardcode the rate.** The temporary reduction has been extended by
+**Do not hardcode the rate, and note the date.** The reduction has been extended by
 successive instruments, each covering a defined period and an enumerated set of
-goods. A deployment that survives a rate change needs VAT rates as dated,
-editable records with effective-from and effective-to dates, and needs historical
-sales to keep the rate that applied on their own transaction date. Reprinting a
-receipt from last year at this year's rate is a defect, not a rounding difference.
+goods. The current one **lapses on 31 December 2026** — a system deployed in 2026
+with 8% written into it produces wrong tax from 1 January 2027 unless a further
+extension is enacted, and it will do so silently.
+
+A deployment that survives a rate change needs VAT rates as dated, editable
+records with effective-from and effective-to dates, and needs historical sales to
+keep the rate that applied on their own transaction date. Reprinting a receipt
+from last year at this year's rate is a defect, not a rounding difference.
 
 The same structure handles the coverage problem: because the reduction applies to
 some categories and not others, the rate has to attach to the product's tax

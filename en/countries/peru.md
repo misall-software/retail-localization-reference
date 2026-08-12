@@ -6,33 +6,41 @@ documents with different required data, and the cashier has to know which one to
 issue at the moment of sale. Currency is the sol (PEN), the consumption tax is
 IGV, and the tax authority is SUNAT.
 
-> ### Verification status — unverified draft
+> ### Verification status — partially verified, 2026-08
 >
-> Confirm every item below against a primary source before relying on this file.
+> Several items have been checked against secondary sources and are recorded in
+> the body. **Secondary sources are not primary sources**: confirm against SUNAT
+> or the governing resolution before relying on any of it.
 >
-> **Open items — `TODO: verify`**
+> **Resolved this pass — reconfirm before publishing**
 >
-> 1. Current IGV rate and its composition.
+> - IGV **18%** (16% IGV + 2% IPM), unchanged for 2026.
+> - A temporary **10%** rate for micro and small restaurants, hotels and tourist
+>   lodging, through 31 December 2026.
+> - Boleta requires customer identity document above **S/ 700**.
+> - Plastic bag tax (ICBPER) at **S/ 0.50** per bag, the rate since 2023.
+> - QR payload, field order, separator and print size constraints — see below.
+>
+> **Still open — `TODO: verify`**
+>
+> 1. The exact qualifying conditions for the reduced restaurant/hotel rate, and
+>    whether it applies to the intended business.
 > 2. Whether displayed consumer prices are legally required to be tax-inclusive.
-> 3. The amount threshold above which a consumer receipt must carry the customer's
->    identity document number, and the exact rule for which document types are
->    accepted.
-> 4. The full mandatory field list for each electronic document type.
-> 5. What the QR code on the printed representation must encode.
-> 6. Which transmission routes are currently available for registering documents,
+> 3. The full mandatory field list for each electronic document type.
+> 4. The current scope of the QR obligation across emission routes, and the print
+>    constraints, against the governing resolution.
+> 5. Which transmission routes are currently available for registering documents,
 >    and any obligation to use an authorised intermediary.
-> 7. The deadline for transmitting a document after the sale, and what is permitted
+> 6. The deadline for transmitting a document after the sale, and what is permitted
 >    when the connection is unavailable.
-> 8. Whether the plastic bag tax is currently levied, its per-unit amount for the
->    current year, and how it must appear on the receipt.
-> 9. Whether selective consumption tax applies to any goods in the intended
+> 7. Whether selective consumption tax applies to any goods in the intended
 >    catalogue, and at what rates.
-> 10. Taxpayer identifier (RUC) and consumer identity document formats and
->     validation rules.
-> 11. Whether cash rounding to the nearest ten céntimos has a legal basis.
-> 12. The current scope of interoperability between the major mobile wallet
+> 8. Taxpayer identifier (RUC) and consumer identity document formats and
+>    validation rules.
+> 9. Whether cash rounding to the nearest ten céntimos has a legal basis.
+> 10. The current scope of interoperability between the major mobile wallet
 >     services, and what each requires of a merchant.
-> 13. The authority's current portal URL for each of the above.
+> 11. The authority's current portal URL for each of the above.
 
 ---
 
@@ -63,17 +71,19 @@ implementing it.
 
 | Field | Value | Source type |
 | --- | --- | --- |
-| VAT rate | IGV at 18%, conventionally understood as a 16% IGV component plus a 2% municipal promotion component, quoted and printed as a single 18% figure. `TODO: verify` the current rate and composition. | public-regulation |
+| VAT rate | IGV at **18%** — a 16% IGV component plus a 2% municipal promotion component (IPM), quoted and printed as a single 18% figure. | public-regulation |
+| Reduced rate | A temporary **10%** rate (8% IGV + 2% IPM) applies to micro and small enterprises in restaurants, hotels and tourist lodging, subject to income and activity-mix conditions, **through 31 December 2026**. `TODO: verify` the exact qualifying conditions and current status. Directly relevant to food-service operators — do not assume a single 18% rate covers the catalogue. | public-regulation |
 | Tax-inclusive or exclusive display | Consumer-facing retail prices are quoted tax-inclusive in ordinary practice; business-to-business documents commonly show the net amount and IGV separately. `TODO: verify` whether inclusive display is a legal requirement. | unverified |
 | Fiscal system name | Electronic payment vouchers — Comprobantes de Pago Electrónicos (CPE) — administered by SUNAT (Superintendencia Nacional de Aduanas y de Administración Tributaria). Documents are generated as structured XML and registered with SUNAT, which returns an acceptance response. `TODO: verify` current system naming, document catalogue, and transmission routes. | official-authority |
 
 **Additional levies that reach the receipt.** Two are worth checking against the
 intended product catalogue before assuming a single tax rate is enough:
 
-- A per-unit tax on plastic bags, which appears as its own line rather than being
-  folded into the item price — `public-regulation` `TODO: verify` current status
-  and amount. Where levied it is charged per bag, so the till needs a bag as a
-  sellable line item with its own tax treatment.
+- A per-unit tax on plastic bags (ICBPER) at **S/ 0.50 per bag**, the rate in
+  force since 2023 after a scheduled ramp from 2019 — `public-regulation`. It
+  appears as its own line rather than being folded into the item price, so the
+  till needs a bag as a sellable line item with its own tax treatment. Declared
+  and paid monthly by the establishment.
 - Selective consumption tax on specific categories such as alcohol, tobacco,
   fuel and sugary drinks — `public-regulation` `TODO: verify` applicability and
   rates. Where it applies it is computed before IGV, so the tax engine must
@@ -88,7 +98,7 @@ The distinction drives the whole flow and has no equivalent in many markets:
 
 | Document | Issued to | Key consequence |
 | --- | --- | --- |
-| Boleta de venta electrónica | Consumers | Customer identity document required above an amount threshold — `TODO: verify` the threshold. |
+| Boleta de venta electrónica | Consumers | Customer identity document (DNI, foreigner's card, or passport) and full name required when the total exceeds **S/ 700**. Below that, customer fields are optional. |
 | Factura electrónica | Businesses | Requires the buyer's taxpayer identifier (RUC). Enables the buyer's tax credit. |
 | Nota de crédito / Nota de débito | Either | Adjustments and reversals. Must reference the original document. |
 
@@ -117,11 +127,32 @@ per document type.
 
 ### QR code
 
-Required on the printed representation of an electronic voucher —
-`public-regulation`. `TODO: verify` the exact encoded content and field
-separator format. Reserve the print area on the template from the start; a QR
-added late to a finished 80 mm layout tends to push the total off the visible
-area or shrink below reliable scanning size.
+Required on the printed representation since 1 January 2019 —
+`public-regulation`. Note the scope: the obligation attaches to vouchers issued
+through the taxpayer's own emission system (SEE-Del contribuyente); it has been
+described as not applying to SUNAT's own web-based and free-facturador routes —
+`TODO: verify` the current scope against the governing resolution.
+
+**Encoded payload.** Fields in fixed order, separated by the pipe character `|`:
+
+```
+RUC | document type | series | number | total IGV | total amount |
+issue date | acquirer document type | acquirer document number | hash value
+```
+
+**Print constraints** — `public-regulation`, `TODO: verify` against the current
+resolution before building the template:
+
+- Position: lower part of the printed representation
+- Maximum size: 2 cm high by 6 cm wide
+- Quiet zone: at least 1 mm
+- Printed in black
+- Symbology: QR Code 2005, per ISO/IEC 18004:2006
+
+The size ceiling is the constraint that bites. A payload carrying a hash plus ten
+pipe-separated fields inside 2 cm at 203 dpi is roughly 160 dots — verify the
+module size scans reliably on your printer before committing the layout, and
+reserve the area from the start rather than fitting it in at the end.
 
 ### Common paper widths
 
