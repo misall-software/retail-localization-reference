@@ -216,4 +216,4 @@ Vietnam and Arabic files.
 
 ---
 
-_Last updated: 2026-08_
+_Maintained by the MISAll team. Last updated: 2026-08_

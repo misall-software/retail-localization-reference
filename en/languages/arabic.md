@@ -299,4 +299,4 @@ an emulator, and several are invisible to a reviewer who does not read the scrip
 
 ---
 
-_Last updated: 2026-08_
+_Maintained by the MISAll team. Last updated: 2026-08_

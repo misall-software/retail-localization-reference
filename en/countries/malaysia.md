@@ -135,4 +135,4 @@ cashier will discover it after the customer has left.
 
 ---
 
-_Last updated: 2026-08_
+_Maintained by the MISAll team. Last updated: 2026-08_

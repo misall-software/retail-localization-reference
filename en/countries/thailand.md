@@ -138,4 +138,4 @@ not read the script — the same trap documented in the Arabic file.
 
 ---
 
-_Last updated: 2026-08_
+_Maintained by the MISAll team. Last updated: 2026-08_

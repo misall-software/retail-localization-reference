@@ -1,77 +1,1437 @@
 {
   "schema_version": "1.1.0",
   "last_updated": "2026-08",
-  "scope": "Itemised queue for the first batch only: Kenya, Vietnam, Peru and Arabic. The seven countries added subsequently (Australia, Indonesia, Malaysia, Nigeria, Philippines, South Africa, Thailand) carry their open items in the verification block at the top of each Markdown file and as todo_verify flags in countries.json; they have not yet been broken out here. Expanding this file to cover them is itself an open task.",
-  "note": "Each item names what to check and the authority or instrument to check it against. status is 'open' until confirmed against a primary source, at which point record the source and change the field's tag in the Markdown files. The editions field lists which editions carry the item: most are shared, a few are specific to one.",
-  "status_values": ["open", "confirmed", "corrected"],
+  "note": "Every TODO: verify item across both editions and all ten countries. Each item names what to check and the authority or instrument to check it against. The editions field lists which editions carry the item: most are shared, a few are specific to one. Nothing here has been confirmed against a primary source; items marked confirmed-secondary were researched in 2026-08 and cited in SOURCES.md, which is not the same thing.",
+  "status_values": [
+    "open",
+    "confirmed-secondary",
+    "confirmed",
+    "corrected"
+  ],
   "priority_values": {
     "high": "Wrong value causes an incorrect legal document, a wrong tax amount, or a failed integration.",
     "medium": "Wrong value causes visible defects or rework but not an invalid document.",
     "low": "Wrong value causes cosmetic or convenience issues."
   },
   "totals": {
-    "distinct_open_items": 47,
-    "by_file": {
-      "en/countries/kenya.md": 12,
-      "en/countries/vietnam.md": 13,
-      "en/countries/peru.md": 13,
-      "en/languages/arabic.md": 6,
-      "zh/countries/kenya.md": 13,
-      "zh/countries/vietnam.md": 14,
-      "zh/countries/peru.md": 14,
-      "zh/languages/arabic.md": 5
+    "items": 96,
+    "by_status": {
+      "confirmed-secondary": 12,
+      "open": 84
+    },
+    "by_country_or_language": {
+      "AU": 5,
+      "ID": 8,
+      "KE": 13,
+      "MY": 8,
+      "NG": 7,
+      "PE": 14,
+      "PH": 8,
+      "TH": 6,
+      "VN": 14,
+      "ZA": 7,
+      "ar": 6
     }
   },
   "items": [
-    { "id": "KE-01", "country": "KE", "editions": ["en", "zh"], "section": "Tax", "item": "Current standard VAT rate, and whether any reduced rate applies to retail goods.", "current_draft_value": "16%", "verify_against": "Kenya Revenue Authority; VAT Act and schedules", "priority": "high", "status": "open" },
-    { "id": "KE-02", "country": "KE", "editions": ["en", "zh"], "section": "Tax", "item": "Whether displayed consumer prices are legally required to be VAT-inclusive.", "current_draft_value": "tax-inclusive by practice", "verify_against": "VAT Act; consumer protection legislation", "priority": "medium", "status": "open" },
-    { "id": "KE-03", "country": "KE", "editions": ["en", "zh"], "section": "Receipt requirements", "item": "Full mandatory field list for an electronic tax invoice.", "current_draft_value": "10-field draft list", "verify_against": "current text of the electronic tax invoice regulations", "priority": "high", "status": "open" },
-    { "id": "KE-04", "country": "KE", "editions": ["en", "zh"], "section": "Receipt requirements", "item": "What the receipt QR code must encode, and whether a verification URL format is prescribed.", "current_draft_value": null, "verify_against": "Kenya Revenue Authority technical specification", "priority": "high", "status": "open" },
-    { "id": "KE-05", "country": "KE", "editions": ["en", "zh"], "section": "Receipt requirements", "item": "Whether the QR requirement applies to all sales or only to VAT-registered sellers.", "current_draft_value": null, "verify_against": "electronic tax invoice regulations", "priority": "medium", "status": "open" },
-    { "id": "KE-06", "country": "KE", "editions": ["en", "zh"], "section": "Tax", "item": "Current name and status of the electronic invoicing system, and whether the older register-based regime is still accepted anywhere.", "current_draft_value": "eTIMS, succeeding a TIMS/ETR regime", "verify_against": "Kenya Revenue Authority", "priority": "high", "status": "open" },
-    { "id": "KE-07", "country": "KE", "editions": ["en", "zh"], "section": "Integration", "item": "Integration modes available for transmitting invoices to the authority.", "current_draft_value": null, "verify_against": "Kenya Revenue Authority integration documentation", "priority": "high", "status": "open" },
-    { "id": "KE-08", "country": "KE", "editions": ["en", "zh"], "section": "Offline behaviour", "item": "Required behaviour when the connection to the tax authority is unavailable at the moment of sale, and the permitted catch-up window.", "current_draft_value": null, "verify_against": "electronic tax invoice regulations", "priority": "high", "status": "open", "note": "Determines the offline design. Must be resolved from the regulation, not by engineering preference." },
-    { "id": "KE-09", "country": "KE", "editions": ["en", "zh"], "section": "Identifiers", "item": "Taxpayer PIN format and validation rules.", "current_draft_value": null, "verify_against": "Kenya Revenue Authority", "priority": "medium", "status": "open", "note": "Do not add client-side validation before this is confirmed." },
-    { "id": "KE-10", "country": "KE", "editions": ["en", "zh"], "section": "Currency", "item": "Whether small-denomination rounding at the till has any legal basis or is purely trade practice.", "current_draft_value": "practice only", "verify_against": "Central Bank of Kenya; consumer protection legislation", "priority": "medium", "status": "open" },
-    { "id": "KE-11", "country": "KE", "editions": ["en", "zh"], "section": "Payment methods", "item": "Operational differences between till-style and bill-style mobile money merchant collection, including settlement timing and transaction costs.", "current_draft_value": null, "verify_against": "the mobile money provider's merchant documentation", "priority": "medium", "status": "open" },
-    { "id": "KE-12", "country": "KE", "editions": ["zh"], "section": "Connectivity", "item": "Actual network stability and power outage frequency at the intended shop location.", "current_draft_value": null, "verify_against": "local operators already trading in the area", "priority": "medium", "status": "open", "note": "Varies widely by location. Present in the shop-owner edition only." },
-    { "id": "KE-13", "country": "KE", "editions": ["en", "zh"], "section": "all", "item": "Current official portal URL for each authority named in the file.", "current_draft_value": null, "verify_against": "the authorities themselves", "priority": "low", "status": "open" },
-
-    { "id": "VN-01", "country": "VN", "editions": ["en", "zh"], "section": "Tax", "item": "Current standard VAT rate.", "current_draft_value": "10%", "verify_against": "VAT law; tax administration under the Ministry of Finance", "priority": "high", "status": "open" },
-    { "id": "VN-02", "country": "VN", "editions": ["en", "zh"], "section": "Tax", "item": "Whether the temporary reduced rate is in force for the current period, which goods and services it covers, and its expiry date.", "current_draft_value": "8% temporary reduction, status unknown", "verify_against": "the National Assembly resolution or decree covering the current period", "priority": "high", "status": "open", "note": "Most time-sensitive value in the repository. Extended repeatedly by period; a hardcoded rate will silently go wrong." },
-    { "id": "VN-03", "country": "VN", "editions": ["en", "zh"], "section": "Tax", "item": "Which reduced and zero rates apply, and how retail goods map to them.", "current_draft_value": "5% and 0%", "verify_against": "VAT law and schedules", "priority": "high", "status": "open" },
-    { "id": "VN-04", "country": "VN", "editions": ["en", "zh"], "section": "Tax", "item": "Whether displayed consumer prices are legally required to be VAT-inclusive.", "current_draft_value": "tax-inclusive by practice", "verify_against": "price legislation", "priority": "medium", "status": "open" },
-    { "id": "VN-05", "country": "VN", "editions": ["en", "zh"], "section": "Tax", "item": "Which decree is currently in force governing e-invoices, including the amending instrument and its effective date.", "current_draft_value": "Decree 123/2020/ND-CP as amended", "verify_against": "tax administration under the Ministry of Finance", "priority": "high", "status": "open" },
-    { "id": "VN-06", "country": "VN", "editions": ["en", "zh"], "section": "Scope", "item": "Which businesses must issue e-invoices generated from cash registers, including any revenue threshold triggering the obligation.", "current_draft_value": null, "verify_against": "the e-invoice decree currently in force", "priority": "high", "status": "open" },
-    { "id": "VN-07", "country": "VN", "editions": ["en", "zh"], "section": "Receipt requirements", "item": "Full mandatory field list for a cash-register e-invoice.", "current_draft_value": "9-field draft list", "verify_against": "the e-invoice decree and implementing circular", "priority": "high", "status": "open" },
-    { "id": "VN-08", "country": "VN", "editions": ["en", "zh"], "section": "Receipt requirements", "item": "Whether a tax authority code is required on cash-register e-invoices, and how it is obtained.", "current_draft_value": null, "verify_against": "the e-invoice decree and implementing circular", "priority": "high", "status": "open" },
-    { "id": "VN-09", "country": "VN", "editions": ["en", "zh"], "section": "Receipt requirements", "item": "Whether a QR or lookup code is mandatory on the printed representation, and what it must encode.", "current_draft_value": null, "verify_against": "tax administration technical specification", "priority": "medium", "status": "open" },
-    { "id": "VN-10", "country": "VN", "editions": ["en", "zh"], "section": "Offline behaviour", "item": "Timing rules: when the invoice must be issued relative to the sale, and what is permitted when the connection is unavailable.", "current_draft_value": null, "verify_against": "the e-invoice decree currently in force", "priority": "high", "status": "open" },
-    { "id": "VN-11", "country": "VN", "editions": ["en", "zh"], "section": "Identifiers", "item": "Tax code (MST) format and validation rules.", "current_draft_value": null, "verify_against": "tax administration", "priority": "medium", "status": "open", "note": "Do not add client-side validation before this is confirmed." },
-    { "id": "VN-12", "country": "VN", "editions": ["en", "zh"], "section": "Receipt requirements", "item": "Whether the printed counter slip is itself regulated, or only the e-invoice.", "current_draft_value": null, "verify_against": "the e-invoice decree currently in force", "priority": "high", "status": "open", "note": "Determines whether the counter slip needs its own compliance treatment." },
-    { "id": "VN-13", "country": "VN", "editions": ["en", "zh"], "section": "Currency", "item": "Whether a minor unit remains defined for VND but unused in practice.", "current_draft_value": "0 decimal places", "verify_against": "State Bank of Vietnam; ISO 4217", "priority": "low", "status": "open" },
-    { "id": "VN-14", "country": "VN", "editions": ["zh"], "section": "Connectivity", "item": "Actual network stability and power outage frequency at the intended shop location.", "current_draft_value": null, "verify_against": "local operators already trading in the area", "priority": "medium", "status": "open", "note": "Present in the shop-owner edition only." },
-
-    { "id": "PE-01", "country": "PE", "editions": ["en", "zh"], "section": "Tax", "item": "Current IGV rate and its composition.", "current_draft_value": "18% (16% + 2%)", "verify_against": "SUNAT; IGV law", "priority": "high", "status": "open" },
-    { "id": "PE-02", "country": "PE", "editions": ["en", "zh"], "section": "Tax", "item": "Whether displayed consumer prices are legally required to be tax-inclusive.", "current_draft_value": "tax-inclusive by practice", "verify_against": "consumer protection code", "priority": "medium", "status": "open" },
-    { "id": "PE-03", "country": "PE", "editions": ["en", "zh"], "section": "Receipt requirements", "item": "Amount threshold above which a consumer receipt must carry the customer's identity document number, and which document types are accepted.", "current_draft_value": null, "verify_against": "SUNAT resolution governing electronic vouchers", "priority": "high", "status": "open" },
-    { "id": "PE-04", "country": "PE", "editions": ["en", "zh"], "section": "Receipt requirements", "item": "Full mandatory field list for each electronic document type.", "current_draft_value": "10-field draft list, not split by type", "verify_against": "SUNAT electronic voucher specification", "priority": "high", "status": "open" },
-    { "id": "PE-05", "country": "PE", "editions": ["en", "zh"], "section": "Receipt requirements", "item": "What the QR code on the printed representation must encode, including field separator format.", "current_draft_value": null, "verify_against": "SUNAT technical specification", "priority": "high", "status": "open" },
-    { "id": "PE-06", "country": "PE", "editions": ["en", "zh"], "section": "Integration", "item": "Which transmission routes are currently available for registering documents, and any obligation to use an authorised intermediary.", "current_draft_value": null, "verify_against": "SUNAT", "priority": "high", "status": "open" },
-    { "id": "PE-07", "country": "PE", "editions": ["en", "zh"], "section": "Offline behaviour", "item": "Deadline for transmitting a document after the sale, and what is permitted when the connection is unavailable.", "current_draft_value": null, "verify_against": "SUNAT resolution", "priority": "high", "status": "open" },
-    { "id": "PE-08", "country": "PE", "editions": ["en", "zh"], "section": "Tax", "item": "Whether the plastic bag tax is currently levied, its per-unit amount for the current year, and how it must appear on the receipt.", "current_draft_value": "levied, amount unknown", "verify_against": "SUNAT; the instrument establishing the levy", "priority": "medium", "status": "open", "note": "Amount has been scheduled to change by year." },
-    { "id": "PE-09", "country": "PE", "editions": ["en", "zh"], "section": "Tax", "item": "Whether selective consumption tax applies to any goods in the intended catalogue, and at what rates.", "current_draft_value": null, "verify_against": "SUNAT; ISC schedules", "priority": "medium", "status": "open", "note": "Where it applies it forms part of the base for IGV, which a flat per-line tax model cannot express." },
-    { "id": "PE-10", "country": "PE", "editions": ["en", "zh"], "section": "Identifiers", "item": "RUC and consumer identity document formats and validation rules.", "current_draft_value": null, "verify_against": "SUNAT; national identity registry", "priority": "medium", "status": "open" },
-    { "id": "PE-11", "country": "PE", "editions": ["en", "zh"], "section": "Currency", "item": "Whether cash rounding to the nearest ten centimos has a legal basis.", "current_draft_value": "trade practice", "verify_against": "Banco Central de Reserva del Peru; consumer protection code", "priority": "medium", "status": "open" },
-    { "id": "PE-12", "country": "PE", "editions": ["en", "zh"], "section": "Payment methods", "item": "Current scope of interoperability between the major mobile wallet services, and what each requires of a merchant.", "current_draft_value": "interoperable", "verify_against": "the wallet operators' merchant documentation", "priority": "medium", "status": "open" },
-    { "id": "PE-13", "country": "PE", "editions": ["zh"], "section": "Connectivity", "item": "Actual network stability and power outage frequency at the intended shop location.", "current_draft_value": null, "verify_against": "local operators already trading in the area", "priority": "medium", "status": "open", "note": "Present in the shop-owner edition only." },
-    { "id": "PE-14", "country": "PE", "editions": ["en", "zh"], "section": "all", "item": "Current official portal URL for each authority named in the file.", "current_draft_value": null, "verify_against": "the authorities themselves", "priority": "low", "status": "open" },
-
-    { "id": "AR-01", "language": "ar", "editions": ["en"], "section": "Encoding on the wire", "item": "Every ESC t code page number, against the specific printer's own command reference.", "current_draft_value": "deliberately omitted", "verify_against": "target printer command reference, confirmed by printing", "priority": "high", "status": "open", "note": "Vendors renumber the code page table; clone firmware diverges while claiming compatibility." },
-    { "id": "AR-02", "language": "ar", "editions": ["en", "zh"], "section": "Shaping", "item": "Whether the target printer performs contextual shaping in firmware or expects pre-shaped presentation forms.", "current_draft_value": null, "verify_against": "target printer command reference and a print test", "priority": "high", "status": "open", "note": "Per-model fact, not discoverable at runtime. Wrong assumption prints disconnected isolated letters." },
-    { "id": "AR-03", "language": "ar", "editions": ["en", "zh"], "section": "Shaping", "item": "Whether the target printer's ROM font covers the required repertoire, including the lam-alef ligature.", "current_draft_value": null, "verify_against": "print test on target hardware", "priority": "high", "status": "open" },
-    { "id": "AR-04", "language": "ar", "editions": ["en", "zh"], "section": "Digits", "item": "Which digit form is expected on receipts in each target market.", "current_draft_value": null, "verify_against": "market convention; sample receipts from the target market", "priority": "medium", "status": "open", "note": "Market convention, not a technical constraint. Varies by country." },
-    { "id": "AR-05", "language": "ar", "editions": ["en", "zh"], "section": "Currency", "item": "Currency symbol glyph coverage per market, particularly for symbols added to Unicode recently.", "current_draft_value": null, "verify_against": "print test on target hardware", "priority": "medium", "status": "open", "note": "ROM fonts lag the standard by years. Fall back to the ISO code where coverage is absent." },
-    { "id": "AR-06", "language": "ar", "editions": ["en", "zh"], "section": "Regional", "item": "Whether any target market imposes legal requirements on receipt language, or on which script tax figures must appear in.", "current_draft_value": null, "verify_against": "the tax authority of each target market", "priority": "high", "status": "open" }
-  ]
+    {
+      "id": "KE-01",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Current standard VAT rate, and whether any reduced rate applies to retail goods.",
+      "current_draft_value": "16%",
+      "verify_against": "Kenya Revenue Authority; VAT Act and schedules",
+      "priority": "high",
+      "status": "confirmed-secondary",
+      "finding": "Standard rate 16%; active rates 16% and 0%. Exempt is a separate category.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "KE-02",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether displayed consumer prices are legally required to be VAT-inclusive.",
+      "current_draft_value": "tax-inclusive by practice",
+      "verify_against": "VAT Act; consumer protection legislation",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KE-03",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Full mandatory field list for an electronic tax invoice.",
+      "current_draft_value": "10-field draft list",
+      "verify_against": "current text of the electronic tax invoice regulations",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KE-04",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "What the receipt QR code must encode, and whether a verification URL format is prescribed.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority technical specification",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KE-05",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Whether the QR requirement applies to all sales or only to VAT-registered sellers.",
+      "current_draft_value": null,
+      "verify_against": "electronic tax invoice regulations",
+      "priority": "medium",
+      "status": "confirmed-secondary",
+      "finding": "eTIMS obligation extended in 2024-01 beyond VAT-registered businesses to taxpayers generally, so assume in scope unless a specific exclusion is confirmed.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "KE-06",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Current name and status of the electronic invoicing system, and whether the older register-based regime is still accepted anywhere.",
+      "current_draft_value": "eTIMS, succeeding a TIMS/ETR regime",
+      "verify_against": "Kenya Revenue Authority",
+      "priority": "high",
+      "status": "confirmed-secondary",
+      "finding": "eTIMS is current. E-invoicing mandatory since 2022-11-30.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "KE-07",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Integration",
+      "item": "Integration modes available for transmitting invoices to the authority.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority integration documentation",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KE-08",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Offline behaviour",
+      "item": "Required behaviour when the connection to the tax authority is unavailable at the moment of sale, and the permitted catch-up window.",
+      "current_draft_value": null,
+      "verify_against": "electronic tax invoice regulations",
+      "priority": "high",
+      "status": "open",
+      "note": "Determines the offline design. Must be resolved from the regulation, not by engineering preference."
+    },
+    {
+      "id": "KE-09",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Identifiers",
+      "item": "Taxpayer PIN format and validation rules.",
+      "current_draft_value": null,
+      "verify_against": "Kenya Revenue Authority",
+      "priority": "medium",
+      "status": "open",
+      "note": "Do not add client-side validation before this is confirmed."
+    },
+    {
+      "id": "KE-10",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Whether small-denomination rounding at the till has any legal basis or is purely trade practice.",
+      "current_draft_value": "practice only",
+      "verify_against": "Central Bank of Kenya; consumer protection legislation",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KE-11",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Payment methods",
+      "item": "Operational differences between till-style and bill-style mobile money merchant collection, including settlement timing and transaction costs.",
+      "current_draft_value": null,
+      "verify_against": "the mobile money provider's merchant documentation",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KE-12",
+      "country": "KE",
+      "editions": [
+        "zh"
+      ],
+      "section": "Connectivity",
+      "item": "Actual network stability and power outage frequency at the intended shop location.",
+      "current_draft_value": null,
+      "verify_against": "local operators already trading in the area",
+      "priority": "medium",
+      "status": "open",
+      "note": "Varies widely by location. Present in the shop-owner edition only."
+    },
+    {
+      "id": "KE-13",
+      "country": "KE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "all",
+      "item": "Current official portal URL for each authority named in the file.",
+      "current_draft_value": null,
+      "verify_against": "the authorities themselves",
+      "priority": "low",
+      "status": "open"
+    },
+    {
+      "id": "VN-01",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Current standard VAT rate.",
+      "current_draft_value": "10%",
+      "verify_against": "VAT law; tax administration under the Ministry of Finance",
+      "priority": "high",
+      "status": "confirmed-secondary",
+      "finding": "Standard rate 10%.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "VN-02",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether the temporary reduced rate is in force for the current period, which goods and services it covers, and its expiry date.",
+      "current_draft_value": "8% temporary reduction, status unknown",
+      "verify_against": "the National Assembly resolution or decree covering the current period",
+      "priority": "high",
+      "status": "confirmed-secondary",
+      "note": "Most time-sensitive value in the repository. Extended repeatedly by period; a hardcoded rate will silently go wrong.",
+      "finding": "8% in force 2025-07-01 to 2026-12-31 under Resolution 204/2025/QH15, implemented by Decree 174/2025/ND-CP. Excludes telecoms, real estate, finance, banking, securities, insurance.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "VN-03",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Which reduced and zero rates apply, and how retail goods map to them.",
+      "current_draft_value": "5% and 0%",
+      "verify_against": "VAT law and schedules",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "VN-04",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether displayed consumer prices are legally required to be VAT-inclusive.",
+      "current_draft_value": "tax-inclusive by practice",
+      "verify_against": "price legislation",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "VN-05",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Which decree is currently in force governing e-invoices, including the amending instrument and its effective date.",
+      "current_draft_value": "Decree 123/2020/ND-CP as amended",
+      "verify_against": "tax administration under the Ministry of Finance",
+      "priority": "high",
+      "status": "confirmed-secondary",
+      "finding": "Decree 123/2020/ND-CP as amended by Decree 70/2025/ND-CP, effective 2025-06-01.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "VN-06",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Scope",
+      "item": "Which businesses must issue e-invoices generated from cash registers, including any revenue threshold triggering the obligation.",
+      "current_draft_value": null,
+      "verify_against": "the e-invoice decree currently in force",
+      "priority": "high",
+      "status": "confirmed-secondary",
+      "finding": "Household and individual businesses at or above VND 1 billion annual revenue, plus retail, restaurants and catering, hotels, passenger transport and entertainment.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "VN-07",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Full mandatory field list for a cash-register e-invoice.",
+      "current_draft_value": "9-field draft list",
+      "verify_against": "the e-invoice decree and implementing circular",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "VN-08",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Whether a tax authority code is required on cash-register e-invoices, and how it is obtained.",
+      "current_draft_value": null,
+      "verify_against": "the e-invoice decree and implementing circular",
+      "priority": "high",
+      "status": "confirmed-secondary",
+      "finding": "A digital signature is not mandatory on cash-register e-invoices.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "VN-09",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Whether a QR or lookup code is mandatory on the printed representation, and what it must encode.",
+      "current_draft_value": null,
+      "verify_against": "tax administration technical specification",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "VN-10",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Offline behaviour",
+      "item": "Timing rules: when the invoice must be issued relative to the sale, and what is permitted when the connection is unavailable.",
+      "current_draft_value": null,
+      "verify_against": "the e-invoice decree currently in force",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "VN-11",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Identifiers",
+      "item": "Tax code (MST) format and validation rules.",
+      "current_draft_value": null,
+      "verify_against": "tax administration",
+      "priority": "medium",
+      "status": "open",
+      "note": "Do not add client-side validation before this is confirmed."
+    },
+    {
+      "id": "VN-12",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Whether the printed counter slip is itself regulated, or only the e-invoice.",
+      "current_draft_value": null,
+      "verify_against": "the e-invoice decree currently in force",
+      "priority": "high",
+      "status": "open",
+      "note": "Determines whether the counter slip needs its own compliance treatment."
+    },
+    {
+      "id": "VN-13",
+      "country": "VN",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Whether a minor unit remains defined for VND but unused in practice.",
+      "current_draft_value": "0 decimal places",
+      "verify_against": "State Bank of Vietnam; ISO 4217",
+      "priority": "low",
+      "status": "open"
+    },
+    {
+      "id": "VN-14",
+      "country": "VN",
+      "editions": [
+        "zh"
+      ],
+      "section": "Connectivity",
+      "item": "Actual network stability and power outage frequency at the intended shop location.",
+      "current_draft_value": null,
+      "verify_against": "local operators already trading in the area",
+      "priority": "medium",
+      "status": "open",
+      "note": "Present in the shop-owner edition only."
+    },
+    {
+      "id": "PE-01",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Current IGV rate and its composition.",
+      "current_draft_value": "18% (16% + 2%)",
+      "verify_against": "SUNAT; IGV law",
+      "priority": "high",
+      "status": "confirmed-secondary",
+      "finding": "IGV 18% (16% IGV + 2% IPM), unchanged for 2026.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "PE-02",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether displayed consumer prices are legally required to be tax-inclusive.",
+      "current_draft_value": "tax-inclusive by practice",
+      "verify_against": "consumer protection code",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "PE-03",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Amount threshold above which a consumer receipt must carry the customer's identity document number, and which document types are accepted.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT resolution governing electronic vouchers",
+      "priority": "high",
+      "status": "confirmed-secondary",
+      "finding": "S/ 700. Above it, DNI, carne de extranjeria or passport plus full name required. Below it, customer fields optional.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "PE-04",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Full mandatory field list for each electronic document type.",
+      "current_draft_value": "10-field draft list, not split by type",
+      "verify_against": "SUNAT electronic voucher specification",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PE-05",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "What the QR code on the printed representation must encode, including field separator format.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT technical specification",
+      "priority": "high",
+      "status": "confirmed-secondary",
+      "finding": "Pipe-separated: RUC | doc type | series | number | total IGV | total amount | issue date | acquirer doc type | acquirer doc number | hash. Lower part of document, max 2cm x 6cm, quiet zone >=1mm, black, QR Code 2005 per ISO/IEC 18004:2006.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "PE-06",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Integration",
+      "item": "Which transmission routes are currently available for registering documents, and any obligation to use an authorised intermediary.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PE-07",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Offline behaviour",
+      "item": "Deadline for transmitting a document after the sale, and what is permitted when the connection is unavailable.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT resolution",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PE-08",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether the plastic bag tax is currently levied, its per-unit amount for the current year, and how it must appear on the receipt.",
+      "current_draft_value": "levied, amount unknown",
+      "verify_against": "SUNAT; the instrument establishing the levy",
+      "priority": "medium",
+      "status": "confirmed-secondary",
+      "note": "Amount has been scheduled to change by year.",
+      "finding": "ICBPER at S/ 0.50 per bag, the rate since 2023. Declared and paid monthly.",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "PE-09",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether selective consumption tax applies to any goods in the intended catalogue, and at what rates.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT; ISC schedules",
+      "priority": "medium",
+      "status": "open",
+      "note": "Where it applies it forms part of the base for IGV, which a flat per-line tax model cannot express."
+    },
+    {
+      "id": "PE-10",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Identifiers",
+      "item": "RUC and consumer identity document formats and validation rules.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT; national identity registry",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "PE-11",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Whether cash rounding to the nearest ten centimos has a legal basis.",
+      "current_draft_value": "trade practice",
+      "verify_against": "Banco Central de Reserva del Peru; consumer protection code",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "PE-12",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Payment methods",
+      "item": "Current scope of interoperability between the major mobile wallet services, and what each requires of a merchant.",
+      "current_draft_value": "interoperable",
+      "verify_against": "the wallet operators' merchant documentation",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "PE-13",
+      "country": "PE",
+      "editions": [
+        "zh"
+      ],
+      "section": "Connectivity",
+      "item": "Actual network stability and power outage frequency at the intended shop location.",
+      "current_draft_value": null,
+      "verify_against": "local operators already trading in the area",
+      "priority": "medium",
+      "status": "open",
+      "note": "Present in the shop-owner edition only."
+    },
+    {
+      "id": "PE-14",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "all",
+      "item": "Current official portal URL for each authority named in the file.",
+      "current_draft_value": null,
+      "verify_against": "the authorities themselves",
+      "priority": "low",
+      "status": "open"
+    },
+    {
+      "id": "AR-01",
+      "language": "ar",
+      "editions": [
+        "en"
+      ],
+      "section": "Encoding on the wire",
+      "item": "Every ESC t code page number, against the specific printer's own command reference.",
+      "current_draft_value": "deliberately omitted",
+      "verify_against": "target printer command reference, confirmed by printing",
+      "priority": "high",
+      "status": "open",
+      "note": "Vendors renumber the code page table; clone firmware diverges while claiming compatibility."
+    },
+    {
+      "id": "AR-02",
+      "language": "ar",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Shaping",
+      "item": "Whether the target printer performs contextual shaping in firmware or expects pre-shaped presentation forms.",
+      "current_draft_value": null,
+      "verify_against": "target printer command reference and a print test",
+      "priority": "high",
+      "status": "open",
+      "note": "Per-model fact, not discoverable at runtime. Wrong assumption prints disconnected isolated letters."
+    },
+    {
+      "id": "AR-03",
+      "language": "ar",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Shaping",
+      "item": "Whether the target printer's ROM font covers the required repertoire, including the lam-alef ligature.",
+      "current_draft_value": null,
+      "verify_against": "print test on target hardware",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "AR-04",
+      "language": "ar",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Digits",
+      "item": "Which digit form is expected on receipts in each target market.",
+      "current_draft_value": null,
+      "verify_against": "market convention; sample receipts from the target market",
+      "priority": "medium",
+      "status": "open",
+      "note": "Market convention, not a technical constraint. Varies by country."
+    },
+    {
+      "id": "AR-05",
+      "language": "ar",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Currency symbol glyph coverage per market, particularly for symbols added to Unicode recently.",
+      "current_draft_value": null,
+      "verify_against": "print test on target hardware",
+      "priority": "medium",
+      "status": "open",
+      "note": "ROM fonts lag the standard by years. Fall back to the ISO code where coverage is absent."
+    },
+    {
+      "id": "AR-06",
+      "language": "ar",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Regional",
+      "item": "Whether any target market imposes legal requirements on receipt language, or on which script tax figures must appear in.",
+      "current_draft_value": null,
+      "verify_against": "the tax authority of each target market",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ID-01",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether the receipt must show the adjusted base, the 12% rate, or the effective 11%, and the rounding rule that applies.",
+      "current_draft_value": "effective 11%",
+      "verify_against": "Directorate General of Taxes; PMK No. 131 of 2024",
+      "priority": "high",
+      "status": "open",
+      "note": "The base adjustment is the mechanism; a flat 11% is not arithmetically identical on every amount."
+    },
+    {
+      "id": "ID-02",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Which goods in an ordinary retail catalogue fall under luxury (PPnBM) treatment at a full 12%.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes; PPnBM schedules",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ID-03",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether e-Faktur obligations reach retail B2C sales or only B2B.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ID-04",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Integration",
+      "item": "Current status of the tax administration's system modernisation and what it requires of a POS.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ID-05",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether displayed consumer prices are legally required to be tax-inclusive.",
+      "current_draft_value": null,
+      "verify_against": "price and consumer protection legislation",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ID-06",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Mandatory receipt fields for a B2C retail sale.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes",
+      "priority": "high",
+      "status": "open",
+      "note": "B2B e-Faktur rules do not describe what a shop must hand a walk-in customer."
+    },
+    {
+      "id": "ID-07",
+      "country": "ID",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Identifiers",
+      "item": "Taxpayer identifier (NPWP) format and validation rules.",
+      "current_draft_value": null,
+      "verify_against": "Directorate General of Taxes",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ID-08",
+      "country": "ID",
+      "editions": [
+        "zh"
+      ],
+      "section": "Connectivity",
+      "item": "Local network stability and outage frequency at the intended location.",
+      "current_draft_value": null,
+      "verify_against": "local operators already trading in the area",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "MY-01",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Current sales tax and service tax rates, and which apply to the intended catalogue.",
+      "current_draft_value": null,
+      "verify_against": "Royal Malaysian Customs Department",
+      "priority": "high",
+      "status": "open",
+      "note": "SST is not a single rate."
+    },
+    {
+      "id": "MY-02",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether the business is registered for sales tax, service tax, both or neither, and what that requires on the receipt.",
+      "current_draft_value": null,
+      "verify_against": "the business's own registration and its accountant",
+      "priority": "high",
+      "status": "open",
+      "note": "A fact about the business, not about Malaysia, but it changes what the software must do."
+    },
+    {
+      "id": "MY-03",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "What a consolidated e-invoice must contain and how often it must be submitted.",
+      "current_draft_value": null,
+      "verify_against": "LHDN e-Invoice guidelines",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "MY-04",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Treatment of a walk-in retail sale below RM10,000 where the customer does not request an invoice.",
+      "current_draft_value": null,
+      "verify_against": "LHDN e-Invoice guidelines",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "MY-05",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Scope",
+      "item": "What the relaxation period permits in practice and its precise end date.",
+      "current_draft_value": "reported to 2027-12-31",
+      "verify_against": "LHDN",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "MY-06",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Mandatory receipt fields, and whether a QR or validation link is required on the printed slip.",
+      "current_draft_value": null,
+      "verify_against": "LHDN",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "MY-07",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Whether cash rounding to the nearest 5 sen is mandatory or optional.",
+      "current_draft_value": null,
+      "verify_against": "Bank Negara Malaysia",
+      "priority": "low",
+      "status": "open"
+    },
+    {
+      "id": "MY-08",
+      "country": "MY",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Identifiers",
+      "item": "Taxpayer identifier (TIN) format and validation rules.",
+      "current_draft_value": null,
+      "verify_against": "LHDN",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "PH-01",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Scope",
+      "item": "Whether the deployment falls in Group 1 or Group 2, which determines whether the 2026-12-31 EIS deadline applies.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PH-02",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Integration",
+      "item": "Complete documentary requirements and current processing time for an Acknowledgement Certificate.",
+      "current_draft_value": null,
+      "verify_against": "BIR; eAccReg",
+      "priority": "high",
+      "status": "open",
+      "note": "Gating dependency with a lead time; it must be in the project timeline."
+    },
+    {
+      "id": "PH-03",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "The exact SC/PWD computation, its interaction with VAT, order of operations and rounding.",
+      "current_draft_value": null,
+      "verify_against": "BIR; the governing statutes",
+      "priority": "high",
+      "status": "open",
+      "note": "Must not be implemented from inference. Audited, and a common source of assessments."
+    },
+    {
+      "id": "PH-04",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "What identifying details must be captured and printed for an SC/PWD sale.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PH-05",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Full mandatory receipt field list.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PH-06",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Current VAT rate and registration threshold, and the percentage tax alternative for non-VAT taxpayers.",
+      "current_draft_value": "VAT 12%",
+      "verify_against": "BIR",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "PH-07",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Integration",
+      "item": "Whether reaccreditation is required after a software version change.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "high",
+      "status": "open",
+      "note": "Determines how updates can be shipped to a live site."
+    },
+    {
+      "id": "PH-08",
+      "country": "PH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Identifiers",
+      "item": "TIN format and validation rules.",
+      "current_draft_value": null,
+      "verify_against": "BIR",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "TH-01",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether the 7% rate has been extended beyond 2026-09-30, and what applies from 1 October 2026.",
+      "current_draft_value": "7% to 2026-09-30",
+      "verify_against": "Revenue Department",
+      "priority": "high",
+      "status": "open",
+      "note": "Nearest expiry in the repository. A system going live now will cross it."
+    },
+    {
+      "id": "TH-02",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether displayed consumer prices are legally required to be tax-inclusive.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department; consumer protection legislation",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "TH-03",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Mandatory fields for a simple retail receipt as distinct from a full tax invoice.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "TH-04",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Whether the Buddhist Era calendar is required, permitted or merely customary on receipts.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "medium",
+      "status": "open",
+      "note": "Regardless of the answer, store one canonical form and convert at render time."
+    },
+    {
+      "id": "TH-05",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Printing",
+      "item": "Thai code page support and the ESC t value on the target printer.",
+      "current_draft_value": "TIS-620 / CP874 candidates",
+      "verify_against": "target printer command reference, confirmed by printing",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "TH-06",
+      "country": "TH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "VAT registration threshold.",
+      "current_draft_value": null,
+      "verify_against": "Revenue Department",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ZA-01",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Full versus abridged tax invoice: the value threshold separating them and the fields each requires.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "high",
+      "status": "open",
+      "note": "Same shape as Peru's boleta/factura split; the cashier must choose at the counter."
+    },
+    {
+      "id": "ZA-02",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Integration",
+      "item": "Whether any mandatory e-invoicing or fiscalisation obligation now applies, and the state of SARS's modernisation programme.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ZA-03",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Lay-by",
+      "item": "Lay-by requirements under the Consumer Protection Act: deposit handling, cancellation and refund rules, and what the customer document must state.",
+      "current_draft_value": null,
+      "verify_against": "Consumer Protection Act; National Consumer Commission",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "ZA-04",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether displayed consumer prices are legally required to be VAT-inclusive.",
+      "current_draft_value": null,
+      "verify_against": "SARS; Consumer Protection Act",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ZA-05",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Number formatting convention for commercial documents: separator and decimal marker.",
+      "current_draft_value": null,
+      "verify_against": "SARS; South African government style guidance",
+      "priority": "medium",
+      "status": "open",
+      "note": "The two conventions in use invert each other's meaning."
+    },
+    {
+      "id": "ZA-06",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Identifiers",
+      "item": "VAT vendor number format and validation rules.",
+      "current_draft_value": null,
+      "verify_against": "SARS",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "ZA-07",
+      "country": "ZA",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Connectivity",
+      "item": "Local outage schedule and connectivity at the intended location.",
+      "current_draft_value": null,
+      "verify_against": "the local distributor and operators already trading in the area",
+      "priority": "high",
+      "status": "open",
+      "note": "Defining local constraint. Test abrupt power loss mid-transaction, not just network loss."
+    },
+    {
+      "id": "NG-01",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Scope",
+      "item": "The e-invoicing phase dates and which one applies to the business in question.",
+      "current_draft_value": null,
+      "verify_against": "FIRS directly",
+      "priority": "high",
+      "status": "open",
+      "note": "Sources conflict: one reports all remaining VAT-registered businesses from 2026-01-01, another reports medium by July 2026 and small by July 2027. Do not rely on either."
+    },
+    {
+      "id": "NG-02",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Scope",
+      "item": "Whether the obligation covers B2C retail sales or only B2B and B2G, and whether B2C is handled by reporting rather than clearance.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "high",
+      "status": "open",
+      "note": "Most important open question. A clearance model at a counter, where waiting is unacceptable, needs a different design."
+    },
+    {
+      "id": "NG-03",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "What must be printed on a customer receipt, and whether the IRN and cryptographic stamp must appear on it.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "NG-04",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Offline behaviour",
+      "item": "Behaviour permitted when clearance is unavailable at the moment of sale.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "high",
+      "status": "open",
+      "note": "A compliance question, not an engineering choice."
+    },
+    {
+      "id": "NG-05",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether displayed consumer prices are legally required to be VAT-inclusive.",
+      "current_draft_value": null,
+      "verify_against": "FIRS; consumer protection legislation",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "NG-06",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Identifiers",
+      "item": "TIN format and validation rules.",
+      "current_draft_value": null,
+      "verify_against": "FIRS",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "NG-07",
+      "country": "NG",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Connectivity",
+      "item": "Local power and connectivity conditions at the intended location.",
+      "current_draft_value": null,
+      "verify_against": "operators already trading in the area",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "AU-01",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Additional tax invoice requirements for sales of $1,000 or more, including buyer identity.",
+      "current_draft_value": null,
+      "verify_against": "ATO",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "AU-02",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Lay-by",
+      "item": "When GST is attributable on a lay-by sale: at deposit, at each instalment, or on delivery.",
+      "current_draft_value": null,
+      "verify_against": "ATO",
+      "priority": "high",
+      "status": "open",
+      "note": "Determines what the BAS reports. Getting it wrong produces a misstated return, not a cosmetic defect."
+    },
+    {
+      "id": "AU-03",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Lay-by",
+      "item": "The permitted basis and cap for a lay-by termination fee.",
+      "current_draft_value": null,
+      "verify_against": "ACCC; Australian Consumer Law",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "AU-04",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Integration",
+      "item": "Whether e-invoicing obligations apply to the business in question.",
+      "current_draft_value": null,
+      "verify_against": "ATO; Peppol authority",
+      "priority": "low",
+      "status": "open"
+    },
+    {
+      "id": "AU-05",
+      "country": "AU",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "GST registration threshold.",
+      "current_draft_value": null,
+      "verify_against": "ATO",
+      "priority": "medium",
+      "status": "open"
+    }
+  ],
+  "status_notes": {
+    "open": "Not checked.",
+    "confirmed-secondary": "Checked against a secondary source and recorded in SOURCES.md. Still requires primary confirmation before use.",
+    "confirmed": "Confirmed against the primary source named in verify_against.",
+    "corrected": "Was wrong; the corrected value and its source are recorded."
+  }
 }

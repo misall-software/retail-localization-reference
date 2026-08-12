@@ -1,0 +1,54 @@
+This repository is released under two licences, one for the prose and one for
+the data.
+
+--------------------------------------------------------------------------------
+DOCUMENTATION — Creative Commons Attribution 4.0 International (CC BY 4.0)
+--------------------------------------------------------------------------------
+
+Applies to: all Markdown files, including README.md, SOURCES.md, and everything
+under en/ and zh/.
+
+You are free to share and adapt this material for any purpose, including
+commercially, provided you give appropriate credit, link to the licence, and
+indicate whether changes were made.
+
+Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:           https://creativecommons.org/licenses/by/4.0/
+
+Suggested attribution:
+
+    "Retail & POS Localization Reference", maintained by the MISAll team,
+    licensed under CC BY 4.0.
+
+--------------------------------------------------------------------------------
+DATA — CC0 1.0 Universal (Public Domain Dedication)
+--------------------------------------------------------------------------------
+
+Applies to: all files under data/.
+
+These are factual records — currency codes, tax rates, statutory field lists and
+the verification queue. Facts are not copyrightable in most jurisdictions, and
+placing the structured data in the public domain removes any doubt about reuse.
+No attribution is required, though it is appreciated.
+
+Full text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+--------------------------------------------------------------------------------
+NO WARRANTY, AND A SPECIFIC CAUTION
+--------------------------------------------------------------------------------
+
+This material is provided "as is", without warranty of any kind, express or
+implied, including but not limited to the warranties of merchantability, fitness
+for a particular purpose and noninfringement.
+
+Beyond the usual disclaimer, one thing is worth stating plainly:
+
+This repository is not tax advice, legal advice, or a compliance certification.
+Tax rates, invoice thresholds and mandatory receipt fields change, and they
+change without notice to software vendors. As of the last update, no entry here
+has been confirmed against a primary source; items researched against secondary
+sources are marked "confirmed-secondary" in data/verification-queue.json, which
+is not the same as verified.
+
+Confirm every figure against the authority named in the file before relying on
+it. Several rates carry known expiry dates and will be wrong after them.

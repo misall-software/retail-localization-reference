@@ -129,4 +129,4 @@ source of error and a real reconciliation cost.
 
 ---
 
-_Last updated: 2026-08_
+_Maintained by the MISAll team. Last updated: 2026-08_

@@ -140,9 +140,15 @@ article number. A correction that moves a field from `unverified` to
 
 ## Reuse
 
-`TODO:` a license has not been chosen yet. Until one is added, treat this as
-"readable, not yet licensed for redistribution". CC BY 4.0 is the intended
-direction for the prose and CC0 for the JSON.
+Dual-licensed — see [LICENSE](LICENSE):
+
+- **Documentation** (all Markdown, including `en/` and `zh/`) — CC BY 4.0.
+  Share and adapt, including commercially, with attribution.
+- **Data** (everything under `data/`) — CC0 1.0. Public domain; no attribution
+  required, though it is appreciated.
+
+The split is deliberate: the prose is written work, the data is facts. Facts
+should not be encumbered.
 
 ---
 
@@ -156,4 +162,4 @@ changed before a till could be handed to a cashier in that country.
 
 Product site: https://www.misall.com
 
-_Last updated: 2026-08_
+_Maintained by the MISAll team. Last updated: 2026-08_

@@ -234,4 +234,4 @@ worse than a three-letter code.
 
 ---
 
-_Last updated: 2026-08_
+_Maintained by the MISAll team. Last updated: 2026-08_
