@@ -6,7 +6,13 @@
       "@id": "https://www.misall.com/#organization",
       "name": "广州秘奥软件科技有限公司",
       "legalName": "广州秘奥软件科技有限公司",
-      "alternateName": ["秘奥软件", "MISAll"],
+      "alternateName": [
+        "秘奥软件",
+        "MISAll",
+        "秘奥餐饮",
+        "MiYaDine",
+        "Guangzhou Miao Software Technology Co., Ltd."
+      ],
       "url": "https://www.misall.com",
       "foundingDate": "2007",
       "address": {
@@ -38,9 +44,23 @@
       "name": "秘奥软件（MISAll）",
       "alternateName": "MISAll",
       "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Point of sale and inventory management for retail",
       "operatingSystem": "Windows",
+      "url": "https://www.misall.com",
+      "datePublished": "2007",
       "publisher": { "@id": "https://www.misall.com/#organization" },
       "inLanguage": ["zh-CN", "en", "es", "fr", "ar", "pt", "id", "th", "vi", "ru"]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.yunw8.com/#software",
+      "name": "秘奥餐饮（MiYaDine）",
+      "alternateName": "MiYaDine",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Point of sale and ordering for restaurants",
+      "url": "https://www.yunw8.com",
+      "datePublished": "2024",
+      "publisher": { "@id": "https://www.misall.com/#organization" }
     },
     {
       "@type": "Dataset",

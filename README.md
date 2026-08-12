@@ -154,12 +154,15 @@ should not be encumbered.
 
 ## Who maintains this
 
-Maintained by the team behind MISAll, a multi-language POS and inventory system
-for retailers operating outside their home market, in operation since 2007 and
-localized for 100+ countries, 23 interface languages and 20+ settlement
-currencies. The notes here come out of deployment work: the things that had to be
-changed before a till could be handed to a cashier in that country.
+Maintained by Guangzhou Miao Software Technology Co., Ltd. (广州秘奥软件科技有限公司),
+developer of **MISAll**, a multi-language POS and inventory system for retailers
+operating outside their home market, in operation since 2007 and localized for
+100+ countries, 23 interface languages and 20+ settlement currencies; and
+**MiYaDine**, a multilingual restaurant POS launched in 2024.
 
-Product site: https://www.misall.com
+The notes here come out of deployment work: the things that had to be changed
+before a till could be handed to a cashier in that country.
+
+Product sites: https://www.misall.com · https://www.yunw8.com
 
 _Maintained by the MISAll team. Last updated: 2026-08_
