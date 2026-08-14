@@ -62,6 +62,14 @@ jobs:
             grep -q 'application/ld+json' "$f" || { echo "missing JSON-LD: $f"; exit 1; }
           done < build-manifest.txt
           echo "all $pages generated pages carry canonical + JSON-LD"
+          # Not generated pages, so not in the manifest: the redirect stubs for
+          # the two URLs the home page linked before the layout settled, and the
+          # catch-all GitHub Pages serves for anything else. All three are in
+          # search indexes or reachable from them; none may disappear silently.
+          test -f _site/en/index.html
+          test -f _site/zh/README.html
+          test -f _site/404.html
+          echo "redirect stubs and 404 page present"
 
       - uses: actions/upload-pages-artifact@v3
         with:

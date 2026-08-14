@@ -14,12 +14,14 @@ this script needs it derives from the file path and the first heading.
 import io
 import json
 import os
+import posixpath
 import re
 import shutil
 import sys
 
 try:
     import markdown
+    from markdown.extensions.toc import slugify_unicode
 except ImportError:
     sys.exit("markdown package required: pip install markdown")
 
@@ -30,6 +32,23 @@ BASE = BASE.rstrip("/")
 
 # Markdown file -> output path. README becomes the index of its edition.
 PAGES = []
+
+# A link to a directory in the Markdown means "the index of that edition".
+# The English edition's index is the site root, because README.md is it.
+DIR_INDEX = {"en": "index.html", "zh": "zh/index.html"}
+
+# Repository files that are not pages but are linked from them. Copied to the
+# site root under a name a browser will display rather than download.
+ASSETS = {"LICENSE": "LICENSE.txt"}
+
+# URLs that were linked from a published page before the site layout settled,
+# and so may already be in a search index. GitHub Pages serves static files and
+# cannot issue a 301, so each gets a stub that canonicalises to the real page
+# and bounces the reader there. Kept out of the sitemap deliberately.
+REDIRECTS = {
+    "en/index.html": "index.html",      # the English edition index is the site root
+    "zh/README.html": "zh/index.html",  # zh/README.md builds to zh/index.html
+}
 
 
 def discover():
@@ -97,6 +116,68 @@ def out_url(src):
         if s == src:
             return BASE + "/" + d
     return None
+
+
+def out_path(src):
+    for s, d, _ in PAGES:
+        if s == src:
+            return d
+    return None
+
+
+def rewrite_links(html, src, dst):
+    """Point every relative link at the file the build actually produced.
+
+    The Markdown is read on GitHub as well as here, so its links are written
+    against the repository: `zh/README.md`, `en/`, `LICENSE`. On the site those
+    are `zh/index.html`, `index.html` and `LICENSE.txt`. Resolving each link
+    against the repository tree and mapping it through the page table keeps one
+    set of links correct in both places.
+
+    The substitution this replaced only turned `.md` into `.html`, which quietly
+    produced `zh/README.html` and left `en/` pointing at a directory with no
+    index — two 404s linked from the home page, which is the page search engines
+    crawl first.
+    """
+    srcdir = posixpath.dirname(src)
+    outdir = posixpath.dirname(dst)
+
+    def resolve(path):
+        """Repository-relative target of a link, or None if it leaves the repo."""
+        joined = posixpath.join(srcdir, path) if srcdir else path
+        target = posixpath.normpath(joined).lstrip("/")
+        return None if target == ".." or target.startswith("../") else target
+
+    def repl(m):
+        attr, href = m.group(1), m.group(2)
+        # Absolute URLs, protocol-relative URLs and bare fragments are left alone.
+        if re.match(r"^(?:[a-z][a-z0-9+.-]*:|//|#)", href, re.I):
+            return m.group(0)
+        path, hash_, frag = href.partition("#")
+        if not path:
+            return m.group(0)
+        target = resolve(path)
+        if target is None:
+            return m.group(0)
+
+        if target in ASSETS:
+            out = ASSETS[target]
+        elif path.endswith("/") or os.path.isdir(os.path.join(ROOT, target)):
+            out = DIR_INDEX.get(target) or out_path(target + "/README.md")
+        else:
+            out = out_path(target)
+            # data/*.json and anything else copied verbatim keeps its own path.
+            if out is None and os.path.isfile(os.path.join(ROOT, target)):
+                out = target
+        if out is None:
+            return m.group(0)  # left for check_links() to report
+
+        # The fragment comes back out of already-escaped attribute text, so it
+        # is written through unchanged rather than escaped a second time.
+        rel = posixpath.relpath(out, outdir) if outdir else out
+        return '%s="%s"' % (attr, rel + hash_ + frag)
+
+    return re.sub(r'\b(href|src)="([^"]*)"', repl, html)
 
 
 CSS = """
@@ -185,9 +266,16 @@ def render(src, dst, lang):
     depth = dst.count("/")
     up = "../" * depth
 
-    html = markdown.markdown(text, extensions=["tables", "fenced_code", "attr_list", "sane_lists"])
+    # toc gives every heading an id, so a deep link such as
+    # `peru.md#food-service` lands on the section it names instead of the top of
+    # the page. slugify_unicode keeps Chinese headings addressable — the default
+    # slugifier strips non-ASCII and would leave every zh/ heading with an empty
+    # id, colliding with each other.
+    html = markdown.markdown(text, extensions=["tables", "fenced_code", "attr_list",
+                                               "sane_lists", "toc"],
+                             extension_configs={"toc": {"slugify": slugify_unicode}})
     # Point internal links at the built pages, and wrap tables so they scroll.
-    html = re.sub(r'(href="[^"]*?)\.md(["#])', r"\1.html\2", html)
+    html = rewrite_links(html, src, dst)
     html = html.replace("<table>", '<div class="tw"><table>').replace("</table>", "</table></div>")
 
     cp = counterpart(src, lang)
@@ -231,6 +319,100 @@ def render(src, dst, lang):
     return canonical
 
 
+REDIRECT_TPL = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Moved &mdash; {title}</title>
+<link rel="canonical" href="{canonical}">
+<meta http-equiv="refresh" content="0; url={rel}">
+</head>
+<body>
+<p>This page has moved to <a href="{rel}">{canonical}</a>.</p>
+</body>
+</html>
+"""
+
+NOT_FOUND_TPL = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found &mdash; Retail &amp; POS Localization Reference</title>
+<meta name="robots" content="noindex">
+<style>{css}</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Page not found</h1>
+<p>That address does not exist on this site. The two edition indexes are:</p>
+<ul>
+<li><a href="{base}/index.html">Retail &amp; POS Localization Reference</a> &mdash; English edition</li>
+<li><a href="{base}/zh/index.html" hreflang="zh-CN">海外开店收银系统参考资料</a> &mdash; 中文版</li>
+</ul>
+<p>页面不存在。请从上面两个入口进入。</p>
+<p><a href="{base}/sitemap.xml">sitemap.xml</a> lists every page on the site.</p>
+</div>
+</body>
+</html>
+"""
+
+
+def write_redirects():
+    """Stubs for URLs that were published before the layout settled."""
+    for frm, to in sorted(REDIRECTS.items()):
+        rel = posixpath.relpath(to, posixpath.dirname(frm)) if posixpath.dirname(frm) else to
+        built = io.open(os.path.join(OUT, to), encoding="utf-8").read()
+        m = re.search(r"<title>(.*?)</title>", built, re.S)
+        page = REDIRECT_TPL.format(canonical=BASE + "/" + to, rel=rel,
+                                   title=m.group(1).strip() if m else to)
+        path = os.path.join(OUT, frm)
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        io.open(path, "w", encoding="utf-8", newline="\n").write(page)
+    print("  redirects -> %d stub(s)" % len(REDIRECTS))
+
+
+def check_links():
+    """Fail the build on a relative link that does not resolve in _site.
+
+    Every link here is written for GitHub first and rewritten for the site
+    second, so a mismatch between the two layouts shows up as a 404 on a live
+    page rather than as an error at build time. This is the error at build time.
+    """
+    bad = []
+    for dirpath, _, filenames in os.walk(OUT):
+        for fn in sorted(filenames):
+            if not fn.endswith(".html"):
+                continue
+            path = os.path.join(dirpath, fn)
+            page = os.path.relpath(path, OUT).replace(os.sep, "/")
+            html = io.open(path, encoding="utf-8").read()
+            ids = set(re.findall(r'\bid="([^"]+)"', html))
+            for href in re.findall(r'\bhref="([^"]*)"', html):
+                if re.match(r"^(?:[a-z][a-z0-9+.-]*:|//)", href, re.I):
+                    continue
+                target, _, frag = href.partition("#")
+                if not target:
+                    if frag and frag not in ids:
+                        bad.append("%s -> #%s (no such heading)" % (page, frag))
+                    continue
+                resolved = os.path.normpath(os.path.join(dirpath, target))
+                if os.path.isdir(resolved):
+                    resolved = os.path.join(resolved, "index.html")
+                if not os.path.isfile(resolved):
+                    bad.append("%s -> %s" % (page, href))
+                elif frag:
+                    other = io.open(resolved, encoding="utf-8").read()
+                    if frag not in set(re.findall(r'\bid="([^"]+)"', other)):
+                        bad.append("%s -> %s (no such heading)" % (page, href))
+    if bad:
+        print("broken links:")
+        for b in bad:
+            print("  " + b)
+        sys.exit("%d broken link(s)" % len(bad))
+    print("  links: all relative links resolve")
+
+
 def clean_out():
     """Empty the output directory without removing it.
 
@@ -257,6 +439,17 @@ def main():
 
     # data/ is served as-is so the JSON is fetchable at a stable URL.
     shutil.copytree(os.path.join(ROOT, "data"), os.path.join(OUT, "data"))
+
+    # Files linked from the pages that are not pages. .txt rather than the bare
+    # repository name so a browser shows the licence instead of downloading it.
+    for name, dest in sorted(ASSETS.items()):
+        shutil.copy2(os.path.join(ROOT, name), os.path.join(OUT, dest))
+
+    write_redirects()
+
+    # GitHub Pages serves this for any unmatched path under the project.
+    io.open(os.path.join(OUT, "404.html"), "w", encoding="utf-8", newline="\n").write(
+        NOT_FOUND_TPL.format(css=CSS, base=BASE))
 
     # static/ is copied verbatim to the site root. This is where search engine
     # ownership-verification files go — Google Search Console's HTML file, Bing's
@@ -298,6 +491,8 @@ def main():
     # canonical link or JSON-LD. Checking by file extension flagged them.
     io.open(os.path.join(ROOT, "build-manifest.txt"), "w", encoding="utf-8",
             newline="\n").write("\n".join(d for _, d, _ in PAGES) + "\n")
+
+    check_links()
 
     print("built %d pages -> %s" % (len(urls), OUT))
     for u in urls:
