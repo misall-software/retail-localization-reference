@@ -1391,14 +1391,25 @@
           "verified_secondary": "2026-08"
         },
         "reduced_rate_percent": {
-          "value": 10,
-          "composition": "8% IGV + 2% IPM",
-          "applies_to": "micro and small enterprises in restaurants, hotels and tourist lodging, subject to income and activity-mix conditions",
-          "expires": "2026-12-31",
-          "note": "Directly relevant to food-service operators. Do not assume a single 18% rate covers the catalogue.",
-          "source": "public-regulation",
-          "verified_secondary": "2026-08",
-          "todo_verify": true
+          "value": 10.5,
+          "composition": "8% IGV + 2.5% IPM",
+          "applies_to": "micro and small enterprises whose main activity is restaurants, hotels or tourist lodging",
+          "eligibility": {
+            "max_annual_sales_uit": 1700,
+            "min_share_of_income_percent": 70
+          },
+          "applies_through": "2026-12-31",
+          "next_scheduled": {
+            "value": 15,
+            "composition": "12% IGV + 3% IPM",
+            "from": "2027-01-01",
+            "through": "2027-12-31"
+          },
+          "note": "Steps rather than expires. The common error is to treat 2027 as a return to the standard 18%; the scheduled 2027 value is 15%. Corrected 2026-08-14 from an earlier value of 10 (8% + 2%) with reverts_to 18.",
+          "source": "official-authority",
+          "authority_to_confirm": "SUNAT",
+          "verified_against": "SUNAT orientation page, read 2026-08-14",
+          "todo_verify": false
         },
         "price_display": {
           "value": "tax-inclusive for consumers",
@@ -1614,15 +1625,25 @@
             "todo_verify": true
           },
           "small_business_reduced_rate": {
-            "value": 10,
-            "composition": "8% IGV + 2% IPM",
-            "applies_to": "micro and small enterprises in restaurants, hotels and tourist lodging, subject to income and activity-mix conditions",
-            "expires": "2026-12-31",
-            "reverts_to_percent": 18,
-            "note": "A segment rate, not a product rate: eligibility depends on the business and its income mix, so it cannot be configured by attaching a rate to menu items. Relevant to the chifa segment.",
-            "source": "public-regulation",
-            "verified_secondary": "2026-08",
-            "todo_verify": true
+            "value": 10.5,
+            "composition": "8% IGV + 2.5% IPM",
+            "applies_to": "micro and small enterprises whose main activity is restaurants, hotels or tourist lodging",
+            "eligibility": {
+              "max_annual_sales_uit": 1700,
+              "min_share_of_income_percent": 70
+            },
+            "applies_through": "2026-12-31",
+            "next_scheduled": {
+              "value": 15,
+              "composition": "12% IGV + 3% IPM",
+              "from": "2027-01-01",
+              "through": "2027-12-31"
+            },
+            "note": "A segment rate, not a product rate: eligibility depends on the business and its income mix, so it cannot be configured by attaching a rate to menu items. Relevant to the chifa segment. Two components change together — updating only the IGV part yields 10 instead of 10.5.",
+            "source": "official-authority",
+            "authority_to_confirm": "SUNAT",
+            "verified_against": "SUNAT orientation page, read 2026-08-14",
+            "todo_verify": false
           },
           "alcohol_taxed_separately": {
             "value": null,
@@ -2245,9 +2266,22 @@
           "value": 7,
           "statutory": 10,
           "source": "public-regulation",
-          "verified_secondary": "2026-08",
+          "instrument": "Royal Decree No. 799 B.E. 2568, gazetted 2025-09-14",
+          "verified_secondary": "2026-08-14",
           "expires": "2026-09-30",
-          "note": "Nearest expiry in this repository. Reverts to the 10 percent statutory rate unless extended.",
+          "note": "Nearest expiry in this repository. The statute prescribes 10 percent and permits reduction by royal decree; each decree runs one year.",
+          "decree_history": [
+            { "decree": "No. 790 B.E. 2567", "gazetted": "2024-09-20", "reduced_rate_through": "2025-09-30" },
+            { "decree": "No. 799 B.E. 2568", "gazetted": "2025-09-14", "reduced_rate_through": "2026-09-30" }
+          ],
+          "pending_extension": {
+            "reduced_rate_through": "2027-09-30",
+            "cabinet_approved": "2026-07-27",
+            "revenue_department_notice": "2026-08-02",
+            "gazetted": null,
+            "source": "unverified",
+            "note": "Cabinet approval and a Revenue Department notice are not the operative instrument. Until a royal decree covering 2026-10-01 onward is gazetted, the statutory 10 percent is the legal fallback. Preceding decrees were gazetted in the second half of September, so expect an answer by mid-September 2026."
+          },
           "todo_verify": true
         },
         "price_display": {

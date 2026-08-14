@@ -2,15 +2,26 @@
 
 Where each verified claim came from, and what still has no source behind it.
 
-**Read this first.** Everything below is a **secondary** source — tax advisories,
-compliance vendors, trade press. None of it is the authority's own publication or
-the text of the instrument. Secondary sources are useful for finding out *what to
-look for* and *which instrument governs it*; they are not sufficient for
-compliance. Every claim below still needs confirmation against the primary source
-named alongside it.
+**Read this first.** Almost everything below is a **secondary** source — tax
+advisories, compliance vendors, trade press. Secondary sources are useful for
+finding out *what to look for* and *which instrument governs it*; they are not
+sufficient for compliance. Assume a claim needs confirmation against the primary
+source named alongside it unless it is marked otherwise.
 
-Checked 2026-08. Rates and thresholds change; a source list with a date on it is
-worth more than one without.
+**The exceptions**, where the link goes to the authority's own publication:
+
+- **Peru** — the SUNAT-hosted Anexo PDFs for the QR payload, and SUNAT's own
+  orientation pages for the reduced restaurant and hotel rate.
+- **Hebrew and the other language files** — character encoding behaviour, which
+  is governed by published standards rather than by an authority's discretion.
+
+Note the difference in kind. A tax rate is somebody's current decision and can
+change next month; a code page definition is a fixed standard. The language files
+carry `TODO: verify` on printer-specific values for the opposite reason — those
+are vendor behaviour, which no standard binds.
+
+Checked 2026-08, with the expiring rates re-checked 2026-08-14. Rates and
+thresholds change; a source list with a date on it is worth more than one without.
 
 ---
 
@@ -71,12 +82,35 @@ guides and the labelling may differ from the regulation.
 
 ## Peru
 
-**IGV 18%** (16% IGV + 2% IPM), unchanged for 2026. A temporary 10% rate
-(8% + 2% IPM) applies to micro and small restaurants, hotels and tourist lodging
-through 31 December 2026, subject to income and activity-mix conditions.
+**IGV 18%** (16% IGV + 2% IPM), unchanged for 2026.
 
 - [SUNAT / gob.pe — Impuesto General a las Ventas](https://www.gob.pe/7910-impuesto-general-a-las-ventas-igv)
 - [Intifact — IGV 2026 guía completa](https://intifact.com/blog/igv-2026-guia-completa-impuesto-general-ventas-peru)
+
+**Reduced rate for micro and small restaurants, hotels and tourist lodging —
+10.5% for 2026 (8% IGV + 2.5% IPM), stepping to 15% for 2027 (12% IGV + 3% IPM).**
+Eligibility: annual sales at or below 1,700 UIT over the preceding 12 months, with
+the qualifying activity at least 70% of income.
+
+Read on 2026-08-14 from SUNAT's own orientation site, which is the authority's
+publication rather than a commentary — the strongest source in this file for a
+rate. It states the composition and both years' figures but does **not** cite the
+enacting instrument.
+
+- [SUNAT Orientación — Reducción del IGV para restaurantes, hoteles y alojamientos turísticos](https://orientacion.sunat.gob.pe/reduccion-del-igv-para-restaurantes-hoteles-y-alojamiento-turisticos-1)
+- [SUNAT Emprender — Reducción del IGV para restaurantes y hoteles](https://emprender.sunat.gob.pe/principales-impuestos/imp-general-las-ventas-igv/reduccion-igv-para-restaurantes-hoteles)
+
+Secondary, and the only place the instrument numbers appear (Ley 31556 as amended
+by Ley 32219, published 2024-12-29) — **not confirmed against the published law**:
+
+- [Acepta Perú — IGV restaurantes: nueva tasa de 10,5% en 2026](https://acepta.com/pe/blog/2026/03/17/igv-restaurantes/)
+- [NubeCont — IGV e IPM en MYPES de restaurantes, hoteles y alojamientos turísticos 2026](https://nubecont.com/blog/noticias-tributarias/igv-e-ipm-en-mypes-de-los-rubros-de-restaurantes-hoteles-y-alojamientos-turisticos-2026)
+- [Gosocket — Amplían el plazo y modifican la tasa especial del IGV para 2025, 2026 y 2027](https://gosocket.net/centro-de-recursos/amplian-el-plazo-y-modifican-la-tasa-especial-del-igv-del-sector-de-turismo-para-los-anos-2025-2026-y-2027/)
+
+> **Correction, 2026-08-14.** Earlier revisions of this repository gave this rate
+> as 10% (8% IGV + 2% IPM) reverting to 18% on 1 January 2027. Both halves were
+> wrong. The IPM component moving from 2% to 2.5% within this regime is unusual
+> enough to be worth re-confirming against the amending law itself.
 
 **Boleta de venta electrónica — customer identity document mandatory above
 S/ 700** (DNI, carné de extranjería or passport, with full name). Below that,
@@ -153,7 +187,28 @@ not be implemented from inference.
 
 ## Thailand
 
-**VAT 7%** against a statutory 10%, reported extended to **2026-09-30**.
+**VAT 7%** against a statutory 10%. The statute prescribes 10% and permits
+reduction by royal decree; each decree runs one year.
+
+| Decree | Gazetted | Reduced rate through |
+| --- | --- | --- |
+| No. 790 B.E. 2567 | 2024-09-20 | 2025-09-30 |
+| No. 799 B.E. 2568 | 2025-09-14 | 2026-09-30 |
+
+- [Sherrings — Thailand VAT rates, decree numbers and validity periods](https://sherrings.com/value-added-tax-rates-thailand.html)
+- [Nishimura & Asahi — Thailand extends VAT rate reduction to 7% through September 2026](https://www.nishimura.com/en/knowledge/publications/20251022-116401)
+- [Bangkok Global Law — Thailand continues 7% VAT until 30 September 2026](https://www.bgloballaw.com/2025/10/07/thailand-continues-7-vat-rate-until-30-september-2026-from-legal-and-economic-perspective/)
+- [HLB Thailand — Cabinet approves extension of the 7% VAT until 30 September 2026](https://www.hlbthai.com/cabinet-approves-extension-of-the-7-vat-until-30-september-2026/)
+
+**A further extension to 2027-09-30 is approved but not confirmed enacted.**
+Cabinet approved it on **2026-07-27**; a Revenue Department notice dated
+**2026-08-02** confirms the decision. No gazetted royal decree covering
+2026-10-01 onward was found on 2026-08-14, and the Revenue Department's English
+site carried no announcement of one. Secondary sources only.
+
+- [Forvis Mazars — Thailand cabinet approves extension of 7% VAT rate for one year](https://www.forvismazars.com/th/en/insights/doing-business-in-thailand/tax/thailand-extends-7-vat-rate-for-one-year)
+- [Bloomberg Tax — Thailand tax agency announces cabinet approval to extend reduced VAT rate](https://news.bloombergtax.com/daily-tax-report-state/thailand-tax-agency-announces-cabinet-approval-to-extend-reduced-vat-rate-2)
+
 **E-Tax Invoice and e-Receipt is voluntary**, no B2B mandate reported for
 2026–2027; XML with PDF/A-3 under RD STD 03-2566, qualified digital signature or
 ETDA time stamp, monthly transmission by the 15th. Tax invoices require the
@@ -165,8 +220,10 @@ line.
 - [Forvis Mazars — Complete guide to VAT in Thailand](https://www.forvismazars.com/th/en/insights/doing-business-in-thailand/tax/value-added-tax-vat-in-thailand)
 - [Pagero / Thomson Reuters — Thailand e-invoicing compliance](https://www.pagero.com/us/compliance/regulatory-updates/thailand)
 
-→ **Confirm against:** the Revenue Department, especially the post-2026-09-30
-position.
+→ **Confirm against:** the Royal Gazette for the decree covering 2026-10-01
+onward — this is the single open question in this file, and it should be
+answerable by mid-September 2026. The Revenue Department is the authority for
+everything else here.
 
 ## South Africa
 
@@ -218,6 +275,39 @@ resolved.
 
 ---
 
+## Hebrew
+
+Character encoding behaviour, which is standards-governed rather than
+authority-governed. This is the one section here that does not need confirming
+against a regulator — but every printer-specific value in the Hebrew file still
+does, and those are marked `TODO: verify` rather than sourced here.
+
+**Windows-1255 is a near-superset of ISO-8859-8 and carries the shekel sign
+`₪` (U+20AA) at byte 0xA4, where ISO-8859-8 has a generic currency sign.
+Windows-1255 is in logical order and supports vowel points.**
+
+- [Windows-1255 — encoding layout and relationship to ISO-8859-8](https://en.wikipedia.org/wiki/Windows-1255)
+- [Shekel sign — U+20AA NEW SHEQEL SIGN](https://en.wikipedia.org/wiki/Shekel_sign)
+
+**CP862 (DOS Hebrew) text was normally stored in visual order**, because DOS had
+no bidirectional support. The encoding survives in thermal printer firmware, which
+is why byte order is a live question for a POS rather than a historical footnote.
+
+- [Code page 862](https://en.wikipedia.org/wiki/Code_page_862)
+
+**ISO-8859-8 is visual order; ISO-8859-8-I is logical order.** The two are
+byte-identical — the suffix declares the order and nothing else, so the
+distinction cannot be recovered from the data.
+
+The five final forms, the bidirectional algorithm (UAX #9) and the zero-width
+behaviour of nikud are specified in the Unicode Standard.
+
+→ **Confirm against:** the Unicode Standard and the code page definitions
+themselves. The encyclopaedia links above are convenience references for
+tabulated byte values, not the normative text.
+
+---
+
 ## Still unsourced
 
 Nothing below has been checked. These remain open in
@@ -232,12 +322,23 @@ Nothing below has been checked. These remain open in
 - **Vietnam:** goods-level coverage of the 8% reduction; whether a QR or lookup
   code is mandatory on the printed slip; whether the counter slip is itself
   regulated; issuance timing rules.
-- **Peru:** qualifying conditions for the reduced restaurant/hotel rate;
-  full mandatory field list per document type; transmission routes and
-  intermediary obligations; selective consumption tax applicability and rates;
-  wallet interoperability scope.
+- **Peru:** the instrument numbers behind the reduced restaurant/hotel rate
+  (secondary reporting gives Ley 31556 as amended by Ley 32219, unconfirmed
+  against the published law); full mandatory field list per document type;
+  transmission routes and intermediary obligations; selective consumption tax
+  applicability and rates; wallet interoperability scope.
+- **Thailand:** whether a royal decree extending the 7% VAT rate beyond
+  2026-09-30 has been gazetted. Cabinet approval and a Revenue Department notice
+  are confirmed by secondary reporting; the operative instrument is not. Re-check
+  the Royal Gazette in mid-September 2026.
 - **Arabic:** every printer-dependent value. These cannot be resolved by research
   — they need a sample print on the target hardware, read by someone who reads
   Arabic.
+- **Hebrew:** every printer-dependent value, and the same caveat applies — with
+  one difference. The visual-versus-logical byte order question can be settled by
+  a non-reader using the final-form position check documented in the file, so a
+  sample print is still required but a Hebrew reader is not needed for that one
+  test. Everything else about Israel — tax, invoicing, receipt content, payment
+  habits — is entirely unresearched; there is no Israel country file.
 
 _Last updated: 2026-08_

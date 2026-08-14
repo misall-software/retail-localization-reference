@@ -727,6 +727,108 @@
       "status": "open"
     },
     {
+      "id": "HE-01",
+      "language": "he",
+      "editions": [
+        "en"
+      ],
+      "section": "Encoding on the wire",
+      "item": "Every ESC t code page number, against the specific printer's own command reference.",
+      "current_draft_value": "deliberately omitted",
+      "verify_against": "target printer command reference, confirmed by printing",
+      "priority": "high",
+      "status": "open",
+      "note": "Same reason as AR-01. Vendors renumber the code page table."
+    },
+    {
+      "id": "HE-02",
+      "language": "he",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Encoding on the wire",
+      "item": "Whether the target printer has a Hebrew ROM font at all, and which code page reaches it.",
+      "current_draft_value": null,
+      "verify_against": "print test on target hardware",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "HE-03",
+      "language": "he",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Byte order",
+      "item": "Whether the target printer's Hebrew mode expects bytes in visual order or logical order.",
+      "current_draft_value": null,
+      "verify_against": "print test on target hardware, reading the position of a word-final form",
+      "priority": "high",
+      "status": "open",
+      "note": "The single most important fact about a Hebrew printer, and the distinctive Hebrew problem. Per-model, not discoverable at runtime. Getting it wrong prints every word reversed while still looking like Hebrew to a non-reader. The shop-owner edition documents a final-form position check that a non-reader can perform."
+    },
+    {
+      "id": "HE-04",
+      "language": "he",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Whether the shekel sign U+20AA prints from the target printer's ROM font.",
+      "current_draft_value": null,
+      "verify_against": "print test on target hardware",
+      "priority": "medium",
+      "status": "open",
+      "note": "Present in Windows-1255 at 0xA4, absent from ISO-8859-8. Code page definition and ROM coverage are separate questions. Fall back to printing ILS."
+    },
+    {
+      "id": "HE-05",
+      "language": "he",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Conventional position of the shekel symbol relative to the amount on Israeli retail documents.",
+      "current_draft_value": null,
+      "verify_against": "sample receipts from the target market; a local accountant",
+      "priority": "medium",
+      "status": "open",
+      "note": "Market convention, not a technical constraint. Do not let a system default to the implementer's home convention."
+    },
+    {
+      "id": "HE-06",
+      "language": "he",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Regional",
+      "item": "Whether Israel imposes legal requirements on receipt language, or on which script tax figures must appear in.",
+      "current_draft_value": null,
+      "verify_against": "the Israeli tax authority",
+      "priority": "high",
+      "status": "open",
+      "note": "Israel has no country file in this repository. Tax, invoicing and receipt-content requirements are undocumented, and the language file states this explicitly so it is not mistaken for coverage."
+    },
+    {
+      "id": "HE-07",
+      "language": "he",
+      "editions": [
+        "zh"
+      ],
+      "section": "Regional",
+      "item": "Payment methods and counter payment habits in Israel.",
+      "current_draft_value": null,
+      "verify_against": "local operators already trading in the market; a local accountant",
+      "priority": "medium",
+      "status": "open",
+      "note": "Present in the shop-owner edition only, and stated there as an open question rather than answered. Belongs in an Israel country file once one exists."
+    },
+    {
       "id": "ID-01",
       "country": "ID",
       "editions": [
@@ -1076,12 +1178,15 @@
         "zh"
       ],
       "section": "Tax",
-      "item": "Whether the 7% rate has been extended beyond 2026-09-30, and what applies from 1 October 2026.",
-      "current_draft_value": "7% to 2026-09-30",
-      "verify_against": "Revenue Department",
+      "item": "Whether a royal decree extending the 7% rate beyond 2026-09-30 has been gazetted, and its number.",
+      "current_draft_value": "7% to 2026-09-30 under Royal Decree No. 799 B.E. 2568",
+      "verify_against": "Royal Gazette; Revenue Department",
       "priority": "high",
-      "status": "open",
-      "note": "Nearest expiry in the repository. A system going live now will cross it."
+      "status": "partially-resolved",
+      "finding": "Cabinet approved a one-year extension to 2027-09-30 on 2026-07-27; a Revenue Department notice dated 2026-08-02 confirms it. No gazetted decree covering 2026-10-01 onward found as of 2026-08-14. Secondary sources only.",
+      "still_needs_primary_source": true,
+      "note": "Nearest expiry in the repository. A system going live now will cross it. Cabinet approval is not the operative instrument — the royal decree is, and until it is gazetted the statutory 10 percent is the legal fallback. The two preceding decrees were gazetted 2024-09-20 and 2025-09-14, so re-check in mid-September 2026.",
+      "recheck_after": "2026-09-10"
     },
     {
       "id": "TH-02",
@@ -2084,6 +2189,24 @@
       "verify_against": "SUNAT",
       "priority": "high",
       "status": "open"
+    },
+    {
+      "id": "PE-FS-04",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "The reduced rate for micro and small restaurants, hotels and tourist lodging: its value, composition, eligibility conditions and the scheduled 2027 value.",
+      "current_draft_value": "10.5% (8% IGV + 2.5% IPM) through 2026-12-31; 15% (12% IGV + 3% IPM) for 2027",
+      "verify_against": "SUNAT",
+      "priority": "high",
+      "status": "confirmed-authority",
+      "finding": "Read from SUNAT's own orientation page on 2026-08-14: 2026 rate is IGV 8% plus IPM 2.5%, combined 10.50%; 2027 rate is IGV 12% plus IPM 3%, combined 15%. Eligibility: micro or small enterprise, annual sales at or below 1,700 UIT over the preceding 12 months, qualifying activity at least 70% of income.",
+      "still_needs_primary_source": false,
+      "note": "This entry records a CORRECTION. Earlier revisions stated 10% (8% IGV + 2% IPM) reverting to 18% on 2027-01-01. Both the rate and the reversion were wrong. The IPM component moving from 2% to 2.5% inside this regime is unusual and worth re-confirming against the amending law; SUNAT's orientation page does not cite the instrument number, and the law numbers seen in secondary reporting (Ley 31556 as amended by Ley 32219) are not confirmed here.",
+      "secondary_only_detail": "instrument numbers Ley 31556 / Ley 32219"
     },
     {
       "id": "PE-FS-02",

@@ -73,27 +73,40 @@ inline `TODO: verify` notes where firmware varies between vendors.
 | Kenya | KE | KES — `KSh` | VAT 16% | eTIMS (Kenya Revenue Authority) | 11 | [en/countries/kenya.md](en/countries/kenya.md) |
 | Malaysia | MY | MYR — `RM` | **SST**, not VAT | MyInvois (LHDN), phase 4 live 2026-01 | 8 | [en/countries/malaysia.md](en/countries/malaysia.md) |
 | Nigeria | NG | NGN — `₦` | VAT 7.5% | FIRSMBS clearance model (FIRS), phased | 7 | [en/countries/nigeria.md](en/countries/nigeria.md) |
-| Peru | PE | PEN — `S/` | IGV 18%; 10% for small food service | CPE electronic vouchers (SUNAT) | 11 | [en/countries/peru.md](en/countries/peru.md) |
+| Peru | PE | PEN — `S/` | IGV 18%; **10.5%** for small food service, stepping to 15% in 2027 | CPE electronic vouchers (SUNAT) | 11 | [en/countries/peru.md](en/countries/peru.md) |
 | Philippines | PH | PHP — `₱` | VAT 12% | BIR — **device accreditation required**; EIS | 8 | [en/countries/philippines.md](en/countries/philippines.md) |
 | South Africa | ZA | ZAR — `R` | VAT 15% | SARS; no retail clearance mandate identified | 7 | [en/countries/south-africa.md](en/countries/south-africa.md) |
-| Thailand | TH | THB — `฿` | VAT 7% — **expires 2026-09-30** | Voluntary e-Tax Invoice (Revenue Department) | 6 | [en/countries/thailand.md](en/countries/thailand.md) |
+| Thailand | TH | THB — `฿` | VAT 7% — **decree expires 2026-09-30**, extension approved but not confirmed gazetted | Voluntary e-Tax Invoice (Revenue Department) | 6 | [en/countries/thailand.md](en/countries/thailand.md) |
 | Vietnam | VN | VND — `₫` | VAT 8% — **expires 2026-12-31** | Cash-register e-invoice (Ministry of Finance) | 10 | [en/countries/vietnam.md](en/countries/vietnam.md) |
 
 ### Rates with an expiry date
 
-Three of these are temporary reductions that lapse on a known date. A system with
-the rate compiled in produces silently wrong tax the day after, so they are worth
-tracking separately:
+Three of these are temporary rates with a known change date. A system with the
+rate compiled in produces silently wrong tax the day after, so they are worth
+tracking separately.
 
-| Country | Rate | Lapses | Reverts to | Scope |
+**Last re-checked: 2026-08-14.** Two of the three moved since the previous pass.
+
+| Country | Rate | Changes on | Becomes | Scope |
 | --- | --- | --- | --- | --- |
-| Thailand | 7% | 2026-09-30 | 10% statutory, unless extended | All supplies |
+| Thailand | 7% | 2026-09-30 | **7% to 2027-09-30 if the decree is gazetted; otherwise 10% statutory** | All supplies |
 | Vietnam | 8% | 2026-12-31 | 10% standard, unless extended | All supplies, minus excluded sectors |
-| Peru | 10% | 2026-12-31 | 18%, unless extended | **Food service only** — micro and small restaurants, hotels and tourist lodging, subject to income and activity-mix conditions. See [Peru → Food service](en/countries/peru.md#food-service). |
+| Peru | 10.5% | 2026-12-31 | **15%** — a scheduled step, *not* a return to 18% | **Food service only** — micro and small restaurants, hotels and tourist lodging. See [Peru → Food service](en/countries/peru.md#food-service). |
 
-Peru's is the one on this list that is a segment rate rather than a general one:
-it depends on what kind of business is operating, not on what is being sold, so
-it cannot be configured by attaching a rate to menu items.
+Two cautions this table exists to carry:
+
+**Thailand's extension is approved but not enacted.** Cabinet approved a further
+year on 2026-07-27 and the Revenue Department issued a confirming notice on
+2026-08-02, but the operative instrument is a royal decree and no gazetted decree
+covering 2026-10-01 onward has been confirmed here. The two preceding decrees
+were gazetted on 2024-09-20 and 2025-09-14, so the answer should exist by
+mid-September 2026. Treat the extension as expected, not as in force.
+
+**Peru's rate steps rather than lapses.** The common failure is to treat 2027 as
+a return to the standard 18%. It is not — the scheduled 2027 value is 15%
+(12% IGV + 3% IPM). Peru's is also the only segment rate on this list: it depends
+on what kind of business is operating, not on what is being sold, so it cannot be
+configured by attaching a rate to menu items.
 
 ## Language index
 
@@ -104,6 +117,7 @@ a few have one of their own.
 | File | Covers | Primary engineering concern |
 | --- | --- | --- |
 | [Arabic](en/languages/arabic.md) | `ar` | Right-to-left layout, bidirectional algorithm, contextual shaping, printer code pages |
+| [Hebrew](en/languages/hebrew.md) | `he` | Right-to-left **without** shaping; **legacy encodings disagree on visual versus logical byte order**, so text prints reversed rather than garbled |
 | [CJK](en/languages/cjk.md) | `zh` `ja` `ko` | **Full-width characters occupy two columns**; multi-byte character mode; ROM font coverage |
 | [Thai](en/languages/thai.md) | `th` | **No spaces between words**, so wrapping needs a dictionary; marks stack up to four levels; collation is not codepoint order |
 | [Vietnamese](en/languages/vietnamese.md) | `vi` | Two diacritics on one vowel; **no single-byte code page covers it fully**, including CP1258 |
@@ -112,12 +126,21 @@ a few have one of their own.
 `id` and `ms` use Latin script with no diacritics in normal commercial use and
 need no code page work at all.
 
-Three of these files sort the same way on the underlying problem: **measure
-display width, not character count**. Arabic, Thai and CJK each break column
-alignment for a different reason and are fixed by the same change.
+Four of these files sort the same way on the underlying problem: **measure
+display width, not character count**. Arabic, Hebrew, Thai and CJK each break
+column alignment for a different reason and are fixed by the same change.
 
-**Planned:** Hebrew (right-to-left but non-cursive, a useful contrast with
-Arabic), Cyrillic, and Indic scripts.
+**Arabic and Hebrew are the pair worth reading together.** Both are right-to-left
+and share the whole bidirectional-algorithm section, but Hebrew is non-cursive —
+no shaping, no positional forms, no mandatory ligature — which makes plain
+code-page printing viable where Arabic effectively requires raster rendering. A
+team porting from an Arabic deployment reliably carries over machinery Hebrew
+does not need, and misses the one problem Arabic does not have: Hebrew's legacy
+encodings disagree about whether bytes are stored in reading order or printing
+order, so the failure mode is text that is *reversed* rather than garbled, and
+reversed Hebrew still looks like Hebrew to a reviewer who cannot read it.
+
+**Planned:** Cyrillic and Indic scripts.
 
 ---
 

@@ -2,8 +2,11 @@
 
 **Two things define a Thai deployment: a VAT rate with an expiry date, and a
 script that breaks naive text layout.** VAT sits at 7% against a statutory 10%,
-extended by cabinet decision and currently reported as running to 30 September
-2026 — the nearest expiry of any rate in this repository. Separately, Thai is
+reduced one year at a time by royal decree. The decree in force expires on 30
+September 2026; a further extension to 30 September 2027 was approved by cabinet
+in July 2026, but as of this update **no gazetted decree enacting it has been
+confirmed here** — see [Tax](#tax). This is the nearest expiry of any rate in
+this repository. Separately, Thai is
 written without spaces between words and stacks vowel and tone marks above and
 below the base letter, which defeats both line-breaking and column alignment code
 written for European scripts. E-tax invoicing, by contrast, remains voluntary.
@@ -15,8 +18,13 @@ written for European scripts. E-tax invoicing, by contrast, remains voluntary.
 >
 > **Resolved this pass**
 >
-> - VAT **7%** against a statutory 10%, reported as extended to **30 September
->   2026**. Nearest expiry in this repository — see below.
+> - VAT **7%** against a statutory 10%, enacted by **Royal Decree No. 799 B.E.
+>   2568**, gazetted 14 September 2025, running to **30 September 2026**.
+>   Nearest expiry in this repository — see below.
+> - A further one-year extension to **30 September 2027** was approved by cabinet
+>   on **27 July 2026** and confirmed by a Revenue Department notice dated
+>   **2 August 2026**. Secondary sources only; the enacting decree is not
+>   confirmed gazetted as of 2026-08-14.
 > - E-Tax Invoice and e-Receipt is **voluntary**; no legislated B2B mandate
 >   reported for 2026 or 2027.
 > - Where used, the system works in XML with PDF/A-3, under RD STD 03-2566,
@@ -28,8 +36,12 @@ written for European scripts. E-tax invoicing, by contrast, remains voluntary.
 >
 > **Still open — `TODO: verify`**
 >
-> 1. Whether the 7% rate has been extended beyond 2026-09-30, and what applies
->    from 1 October 2026. **This is the most urgent item in this file.**
+> 1. Whether the decree extending 7% to 2026-10-01 → 2027-09-30 has been
+>    **gazetted**, and its number. Cabinet approval and a Revenue Department
+>    notice are not the operative instrument; the royal decree is.
+>    **This is the most urgent item in this file.** The two preceding decrees
+>    were gazetted on 20 September 2024 and 14 September 2025, so the answer
+>    should exist by roughly mid-September 2026.
 > 2. Whether displayed consumer prices are legally required to be tax-inclusive.
 > 3. Mandatory fields for a simple retail receipt as distinct from a full tax
 >    invoice.
@@ -55,7 +67,8 @@ written for European scripts. E-tax invoicing, by contrast, remains voluntary.
 
 | Field | Value | Source type |
 | --- | --- | --- |
-| VAT rate | **7%**, a reduction from the statutory 10%, reported as extended **to 30 September 2026**. | public-regulation |
+| VAT rate | **7%**, a reduction from the statutory 10%, enacted by **Royal Decree No. 799 B.E. 2568** (gazetted 2025-09-14) and running **to 30 September 2026**. | public-regulation |
+| VAT rate from 2026-10-01 | Expected to remain **7% to 30 September 2027**. Cabinet approved the extension on 2026-07-27; a Revenue Department notice of 2026-08-02 confirms it. **The enacting royal decree is not confirmed gazetted** — until it is, the operative fallback is the statutory 10%. | unverified |
 | Tax-inclusive or exclusive display | Consumer prices quoted VAT-inclusive in ordinary practice. `TODO: verify` legal basis. | unverified |
 | Fiscal system name | Revenue Department. **e-Tax Invoice & e-Receipt — voluntary**, with tax incentives for adoption rather than a mandate. | official-authority |
 
@@ -65,6 +78,23 @@ this repository. Any system deployed in Thailand needs VAT as a dated, editable
 record with effective-from and effective-to dates, and historical transactions must
 retain the rate that applied on their own date. If 7% is compiled in, the failure
 mode after 30 September 2026 is silently wrong tax on every sale.
+
+**How the renewal actually works, and why the date keeps moving.** The 7% is not
+the rate in the statute. The statute says 10%, and permits a reduction by royal
+decree; each decree buys one year. Recent decrees:
+
+| Decree | Gazetted | Reduced rate runs to |
+| --- | --- | --- |
+| No. 790 B.E. 2567 | 2024-09-20 | 2025-09-30 |
+| No. 799 B.E. 2568 | 2025-09-14 | 2026-09-30 |
+| Not confirmed | — | 2027-09-30 (cabinet-approved 2026-07-27) |
+
+The pattern is a gazette date in the second half of September, roughly two weeks
+before the old decree lapses. **Cabinet approval is not the instrument.** Press
+reporting of an approved extension is a reliable signal of intent and not a legal
+basis, so a deployment crossing 1 October 2026 should carry the extension as a
+*scheduled, editable* rate change that someone confirms against the Royal Gazette
+before it takes effect — not as a hardcoded assumption in either direction.
 
 **Tax invoice versus receipt.** The 13-digit TIN of *both* parties is required on a
 tax invoice. That means a business customer's TIN has to be capturable at the
@@ -128,7 +158,9 @@ for the customer-facing output, an internal one the owner can read.
 ## Notes for POS implementers
 
 **Put the rate expiry in the deployment checklist.** 30 September 2026 is close
-enough that a system going live now will cross it.
+enough that a system going live now will cross it. Check the Royal Gazette in
+mid-September 2026 for the decree covering 2026-10-01 onward, and configure the
+rate change ahead of time rather than on the morning it applies.
 
 **Test Thai rendering on hardware, with a Thai reader.** Clipped tone marks and
 mid-word breaks are exactly the failures that survive a review by someone who does
@@ -142,7 +174,7 @@ not read the script — the same trap documented in the Arabic file.
 Restaurants diverge from retail at the till, not just in the menu. Three things
 change: the tax treatment can depend on where the food is eaten, service charge
 and tips carry their own rules and their own tax questions, and the trading day
-routinely runs past midnight. Thailand's food-service questions sit on top of a VAT rate that expires on 30 September 2026 and a script that is hard to set on a kitchen ticket.
+routinely runs past midnight. Thailand's food-service questions sit on top of a VAT rate whose enacting decree expires on 30 September 2026 and a script that is hard to set on a kitchen ticket.
 
 ### Tax treatment
 

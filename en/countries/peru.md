@@ -15,8 +15,12 @@ IGV, and the tax authority is SUNAT.
 > **Resolved this pass — reconfirm before publishing**
 >
 > - IGV **18%** (16% IGV + 2% IPM), unchanged for 2026.
-> - A temporary **10%** rate for micro and small restaurants, hotels and tourist
->   lodging, through 31 December 2026.
+> - A temporary **10.5%** combined rate (8% IGV + 2.5% IPM) for micro and small
+>   restaurants, hotels and tourist lodging, through 31 December 2026.
+>   **Corrected 2026-08** — earlier revisions of this file gave 10% (8% + 2%)
+>   and said it reverts to 18%. Both were wrong; see [Tax](#tax).
+> - The step after it is **15%** (12% IGV + 3% IPM) for calendar year 2027,
+>   not a return to 18%.
 > - Boleta requires customer identity document above **S/ 700**.
 > - Plastic bag tax (ICBPER) at **S/ 0.50** per bag, the rate since 2023.
 > - QR payload, field order, separator and print size constraints — see below.
@@ -72,7 +76,8 @@ implementing it.
 | Field | Value | Source type |
 | --- | --- | --- |
 | VAT rate | IGV at **18%** — a 16% IGV component plus a 2% municipal promotion component (IPM), quoted and printed as a single 18% figure. | public-regulation |
-| Reduced rate | A temporary **10%** rate (8% IGV + 2% IPM) applies to micro and small enterprises in restaurants, hotels and tourist lodging, subject to income and activity-mix conditions, **through 31 December 2026**. `TODO: verify` the exact qualifying conditions and current status. Directly relevant to food-service operators — do not assume a single 18% rate covers the catalogue. | public-regulation |
+| Reduced rate | A temporary **10.5%** combined rate (**8% IGV + 2.5% IPM**) applies to micro and small enterprises in restaurants, hotels and tourist lodging, **through 31 December 2026**. Qualifying conditions: annual sales at or below **1,700 UIT** over the preceding 12 months, and the qualifying activity must be at least **70% of income**. Directly relevant to food-service operators — do not assume a single 18% rate covers the catalogue. | official-authority |
+| Reduced rate, 2027 | **15%** combined (**12% IGV + 3% IPM**) for calendar year 2027. This is a step, not an expiry — the rate does **not** return to 18% on 1 January 2027. | official-authority |
 | Tax-inclusive or exclusive display | Consumer-facing retail prices are quoted tax-inclusive in ordinary practice; business-to-business documents commonly show the net amount and IGV separately. `TODO: verify` whether inclusive display is a legal requirement. | unverified |
 | Fiscal system name | Electronic payment vouchers — Comprobantes de Pago Electrónicos (CPE) — administered by SUNAT (Superintendencia Nacional de Aduanas y de Administración Tributaria). Documents are generated as structured XML and registered with SUNAT, which returns an acceptance response. `TODO: verify` current system naming, document catalogue, and transmission routes. | official-authority |
 
@@ -247,7 +252,7 @@ routinely runs past midnight. Peru is also the one country in this repository wi
 | Question | Answer | Source type |
 | --- | --- | --- |
 | Dine-in, takeaway and delivery taxed differently? | `TODO: verify` | unverified |
-| Reduced rate or registration threshold for small food businesses? | **Yes — a reduced rate applies.** A temporary 10% rate (8% IGV + 2% IPM) applies to micro and small enterprises in restaurants, hotels and tourist lodging, subject to income and activity-mix conditions, **through 31 December 2026**, after which it reverts to 18%. | public-regulation |
+| Reduced rate or registration threshold for small food businesses? | **Yes — a reduced rate applies, and it steps rather than expires.** **10.5%** (8% IGV + 2.5% IPM) through **31 December 2026**, then **15%** (12% IGV + 3% IPM) for calendar year 2027. Eligibility: micro and small enterprises whose main activity is restaurants, hotels or tourist lodging, at or below 1,700 UIT in annual sales, with that activity at least 70% of income. | official-authority |
 | Alcoholic drinks taxed separately? | `TODO: verify` | unverified |
 
 ### Service charge and tips
@@ -294,7 +299,11 @@ expensive:
   authorised, so the recorded amount must be adjustable post-authorisation
   without reopening the sale.
 
-**The reduced rate is a segment boundary, not a product boundary.** Qualification depends on the business and its income mix, not on what is being sold, so the rate cannot be attached to menu items alone. It also expires — a system carrying 10% into 2027 will be wrong on every line. Confirm eligibility with an accountant before configuring it.
+**The reduced rate is a segment boundary, not a product boundary.** Qualification depends on the business and its income mix, not on what is being sold, so the rate cannot be attached to menu items alone. Confirm eligibility with an accountant before configuring it.
+
+**It steps on 1 January 2027; it does not expire.** A system carrying 10.5% into 2027 will be wrong on every line — and so will one that falls back to the standard 18%, which is the more likely mistake because "temporary reduced rate" invites the assumption that the standard rate resumes. It does not. The scheduled value for 2027 is 15%. Configure the change as a dated rate record now, while the number is known.
+
+**Two rate components, one printed figure.** The 8% + 2.5% split is IGV and IPM, and the electronic voucher carries a single combined figure the same way the standard 18% does. If the tax engine models IGV and IPM as separate taxes, the reduced regime changes *both* percentages, not just the IGV one — a partial update produces 10% instead of 10.5%, which is close enough to survive a casual review and wrong on every transaction.
 
 **Order modifiers are not discounts.** "No coriander", "extra spicy", "sauce on
 the side" attach to a line and must reach the kitchen ticket, sometimes with a
