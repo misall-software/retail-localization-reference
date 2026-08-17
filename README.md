@@ -85,7 +85,10 @@ Three of these are temporary rates with a known change date. A system with the
 rate compiled in produces silently wrong tax the day after, so they are worth
 tracking separately.
 
-**Last re-checked: 2026-08-14.** Two of the three moved since the previous pass.
+**Last re-checked: 2026-08-17.** No change since the 2026-08-14 pass — Thailand's
+decree is still unenacted, Vietnam's resolution still ends on 2026-12-31 with no
+successor reported, and Peru's figures are unchanged. Two of the three had moved
+in the pass before that.
 
 | Country | Rate | Changes on | Becomes | Scope |
 | --- | --- | --- | --- | --- |
@@ -121,6 +124,7 @@ a few have one of their own.
 | [CJK](en/languages/cjk.md) | `zh` `ja` `ko` | **Full-width characters occupy two columns**; multi-byte character mode; ROM font coverage |
 | [Thai](en/languages/thai.md) | `th` | **No spaces between words**, so wrapping needs a dictionary; marks stack up to four levels; collation is not codepoint order |
 | [Vietnamese](en/languages/vietnamese.md) | `vi` | Two diacritics on one vowel; **no single-byte code page covers it fully**, including CP1258 |
+| [Cyrillic](en/languages/cyrillic.md) | `ru` `uk` `be` `bg` `sr` `mk` `kk` `ky` `tg` `uz` `mn` | **Two live code page traditions and no default**; a dozen letters **visually identical to Latin ones**, so correct-looking data compares unequal |
 | [Accented Latin](en/languages/latin-accented.md) | `es` `pt` `fr` `de` `it` `tr` and Nordic | Code page selection and Unicode normalisation — fails **silently**, unlike the others |
 
 `id` and `ms` use Latin script with no diacritics in normal commercial use and
@@ -140,7 +144,16 @@ encodings disagree about whether bytes are stored in reading order or printing
 order, so the failure mode is text that is *reversed* rather than garbled, and
 reversed Hebrew still looks like Hebrew to a reviewer who cannot read it.
 
-**Planned:** Cyrillic and Indic scripts.
+**Cyrillic is the one whose failures are not in the print path.** Two of the three
+problems in that file — letters that are homoglyphs of Latin ones, and a codepoint
+order that files `Ё` first and `ё` last in a Russian product list — happen in the
+database and in the back office, and a sample receipt looks perfect while both are
+present. It is also the only file here where the printer can be *encoding*
+correctly and still be wrong: UAX #11 classes exactly the 33 Russian letters as
+Ambiguous width, so a CJK-derived ROM font may print them double-width while the
+Ukrainian and Kazakh letters beside them stay single-width.
+
+**Planned:** Indic scripts.
 
 ---
 

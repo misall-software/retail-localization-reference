@@ -941,6 +941,423 @@
         "en": 3,
         "zh": 3
       }
+    },
+    {
+      "language": "Cyrillic script",
+      "group": "Cyrillic",
+      "covers": [
+        "ru",
+        "uk",
+        "be",
+        "bg",
+        "sr",
+        "mk",
+        "kk",
+        "ky",
+        "tg",
+        "uz",
+        "mn"
+      ],
+      "doc_en": "en/languages/cyrillic.md",
+      "doc_zh": "zh/languages/cyrillic.md",
+      "script": {
+        "iso_15924": "Cyrl",
+        "direction": "ltr",
+        "has_case": true,
+        "requires_contextual_shaping": false,
+        "note": "Non-cursive, left to right, whitespace-separated, no stacking marks. The rendering concerns that dominate the Arabic, Thai and CJK files are all absent. The problems are in the data and in code page selection."
+      },
+      "homoglyphs": {
+        "is_the_distinctive_cyrillic_problem": true,
+        "note": "A group of Cyrillic letters is visually identical to Latin letters with different codepoints. Strings render and print correctly and compare unequal, so search returns nothing, imports create duplicate records and stock splits across them.",
+        "source_of_entry": "keyboard layout switching during manual data entry; the Latin and Cyrillic forms share a physical key",
+        "pairs_uppercase": [
+          { "cyrillic": "U+0410", "latin": "U+0041" },
+          { "cyrillic": "U+0412", "latin": "U+0042" },
+          { "cyrillic": "U+0415", "latin": "U+0045" },
+          { "cyrillic": "U+041A", "latin": "U+004B" },
+          { "cyrillic": "U+041C", "latin": "U+004D" },
+          { "cyrillic": "U+041D", "latin": "U+0048" },
+          { "cyrillic": "U+041E", "latin": "U+004F" },
+          { "cyrillic": "U+0420", "latin": "U+0050" },
+          { "cyrillic": "U+0421", "latin": "U+0043" },
+          { "cyrillic": "U+0422", "latin": "U+0054" },
+          { "cyrillic": "U+0423", "latin": "U+0059" },
+          { "cyrillic": "U+0425", "latin": "U+0058" },
+          { "cyrillic": "U+0406", "latin": "U+0049" },
+          { "cyrillic": "U+0408", "latin": "U+004A" },
+          { "cyrillic": "U+0405", "latin": "U+0053" }
+        ],
+        "pairs_lowercase": [
+          { "cyrillic": "U+0430", "latin": "U+0061" },
+          { "cyrillic": "U+0435", "latin": "U+0065" },
+          { "cyrillic": "U+043E", "latin": "U+006F" },
+          { "cyrillic": "U+0440", "latin": "U+0070" },
+          { "cyrillic": "U+0441", "latin": "U+0063" },
+          { "cyrillic": "U+0443", "latin": "U+0079" },
+          { "cyrillic": "U+0445", "latin": "U+0078" },
+          { "cyrillic": "U+0456", "latin": "U+0069" },
+          { "cyrillic": "U+0458", "latin": "U+006A" },
+          { "cyrillic": "U+0455", "latin": "U+0073" }
+        ],
+        "detection_unit": "one whitespace-delimited token, not the whole line; a Cyrillic name beside a Latin brand is ordinary data",
+        "rules": [
+          "validate at entry and at import permanently, not once as a migration",
+          "flag for a human, never auto-convert; a mixed-script record may already carry stock movements and sales history",
+          "forbid Cyrillic letters, or letters entirely, in article codes and SKU fields"
+        ],
+        "source": "official-authority"
+      },
+      "normalisation": {
+        "required_form": "NFC",
+        "apply_at": [
+          "import",
+          "before printing"
+        ],
+        "decompositions": [
+          { "composed": "U+0401", "decomposes_to": ["U+0415", "U+0308"], "letter": "Io" },
+          { "composed": "U+0451", "decomposes_to": ["U+0435", "U+0308"], "letter": "io" },
+          { "composed": "U+0419", "decomposes_to": ["U+0418", "U+0306"], "letter": "Short I" },
+          { "composed": "U+0439", "decomposes_to": ["U+0438", "U+0306"], "letter": "short i" },
+          { "composed": "U+040E", "decomposes_to": ["U+0423", "U+0306"], "letter": "Short U, Belarusian" },
+          { "composed": "U+045E", "decomposes_to": ["U+0443", "U+0306"], "letter": "short u, Belarusian" },
+          { "composed": "U+0407", "decomposes_to": ["U+0406", "U+0308"], "letter": "Yi, Ukrainian" },
+          { "composed": "U+0457", "decomposes_to": ["U+0456", "U+0308"], "letter": "yi, Ukrainian" }
+        ],
+        "failure_mode": "silent",
+        "note": "Through a single-byte code page the combining mark is dropped and the short i becomes plain i, leaving a different but still plausible word rather than a box or a question mark. Also inflates character counts and breaks equality against a composed copy.",
+        "source": "official-authority"
+      },
+      "yo_folding": {
+        "letters": ["U+0401", "U+0451"],
+        "note": "Russian printed matter routinely substitutes e for io. Both spellings occur in real catalogues.",
+        "rule": "fold in search input on both sides of the comparison; do not fold stored data",
+        "legal_name_requirement": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "collation": {
+        "codepoint_order_is_wrong": true,
+        "russian": {
+          "note": "The alphabet places io immediately after e, but U+0401 sorts before U+0410 and U+0451 sorts after U+044F, so codepoint order files one at the very top of a product list and the other at the very bottom.",
+          "source": "official-authority"
+        },
+        "ukrainian": "Ghe-with-upturn after Ghe, and Ie, Byelorussian-Ukrainian I and Yi inside the alphabet, while their codepoints U+0490, U+0404, U+0406 and U+0407 sit outside the contiguous run",
+        "serbian": "Dje, Je, Lje, Nje, Tshe and Dzhe order inside the alphabet, while their codepoints U+0402 to U+040F all fall before U+0410",
+        "koi8_byte_order": {
+          "alphabetical": false,
+          "note": "KOI8-R orders its letters in a pseudo-Latin transliteration sequence inherited from teletype practice, so sorting on stored 8-bit bytes from a KOI8 source is wrong in a third way, distinct from codepoint order."
+        },
+        "recommended": "ICU with the specific locale (ru, uk, sr, bg, kk, mn); a generic Cyrillic collation is not sufficient",
+        "source": "official-authority"
+      },
+      "printing": {
+        "printers_accept_utf8": false,
+        "printers_implement_bidi": "not applicable",
+        "no_default_code_page": {
+          "value": true,
+          "note": "Two live traditions, DOS and Windows, disagree across the whole range above 0x7F. Unlike a CP437 printer facing English, an unconfigured Cyrillic printer is not approximately right; it is either right or completely wrong, and which one is not discoverable at runtime."
+        },
+        "rom_font_present": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "code_page_family": {
+          "value": null,
+          "options": [
+            "DOS tradition (CP866 and variants)",
+            "Windows tradition (Windows-1251)"
+          ],
+          "note": "Per-model fact and the first question for a Cyrillic printer. Settled cheaply by one sample print.",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "code_pages": [
+          {
+            "name": "Windows-1251",
+            "covers": "Russian, Ukrainian, Belarusian, Bulgarian, Serbian, Macedonian",
+            "uppercase_range": "0xC0-0xDF",
+            "lowercase_range": "0xE0-0xFF",
+            "contains_ruble_sign": false,
+            "esc_t_value": null,
+            "todo_verify": true
+          },
+          {
+            "name": "CP866",
+            "covers": "Russian and Bulgarian fully; Ukrainian partially, carrying Ie and Yi but not Ghe-with-upturn or Byelorussian-Ukrainian I",
+            "letter_ranges": ["0x80-0xAF", "0xE0-0xEF"],
+            "box_drawing_range": "0xB0-0xDF",
+            "note": "The box-drawing block is what makes its mojibake recognisable when Windows-1251 bytes are sent to it.",
+            "esc_t_value": null,
+            "todo_verify": true
+          },
+          {
+            "name": "CP1125",
+            "covers": "CP866 plus the missing Ukrainian letters",
+            "esc_t_value": null,
+            "todo_verify": true
+          },
+          {
+            "name": "CP1131",
+            "covers": "CP866 variant carrying Belarusian short u alongside Ukrainian letters",
+            "esc_t_value": null,
+            "todo_verify": true
+          },
+          {
+            "name": "KOI8-R",
+            "covers": "Russian and Bulgarian",
+            "note": "Letters in pseudo-Latin order. Stripping the high bit yields a rough Latin transliteration, which is the design intent and a useful fingerprint.",
+            "esc_t_value": null,
+            "todo_verify": true
+          },
+          {
+            "name": "KOI8-U",
+            "covers": "KOI8-R plus Ukrainian",
+            "esc_t_value": null,
+            "todo_verify": true
+          },
+          {
+            "name": "ISO-8859-5",
+            "covers": "Slavic Cyrillic set",
+            "note": "Rare in POS firmware; appears in data feeds.",
+            "esc_t_value": null,
+            "todo_verify": true
+          },
+          {
+            "name": "Mac Cyrillic",
+            "covers": "Slavic Cyrillic set",
+            "note": "Rare; turns up in files from older Mac systems.",
+            "esc_t_value": null,
+            "todo_verify": true
+          }
+        ],
+        "code_page_numbers_omitted_deliberately": {
+          "value": true,
+          "reason": "Same reason as Arabic and Hebrew: vendors renumber the code page table and clone firmware diverges from documented ordering while claiming compatibility."
+        },
+        "single_byte_pages_insufficient_beyond_slavic_set": {
+          "value": true,
+          "languages_not_covered": [
+            "kk",
+            "tt",
+            "ba",
+            "tg",
+            "uz",
+            "mn"
+          ],
+          "note": "Kazakhstan standardised an altered Windows-1251 variant (STRK1048) for this reason. For these markets the single-byte path is a dead end rather than a compromise.",
+          "source": "official-authority"
+        },
+        "recommended_print_path": {
+          "value": "code page is viable for the Slavic set once the family is confirmed; raster beyond it",
+          "commands": [
+            "GS v 0"
+          ],
+          "solves": [
+            "code pages",
+            "glyph coverage",
+            "repertoire beyond the Slavic set",
+            "ambiguous width"
+          ],
+          "costs": [
+            "more data and slower printing",
+            "printer font and size commands no longer apply",
+            "resolution must match printer dot density"
+          ]
+        },
+        "mojibake_signatures": [
+          {
+            "symptom": "box-drawing characters where capitals should be, wrong Cyrillic lowercase, stray numero, currency and square symbols",
+            "cause": "Windows-1251 bytes into a CP866 printer",
+            "recoverable_at_printer": true
+          },
+          {
+            "symptom": "curly quotes, dashes, euro and per-mille where capitals should be",
+            "cause": "CP866 bytes read as Windows-1251",
+            "recoverable_at_printer": true
+          },
+          {
+            "symptom": "two Latin-ish characters per intended letter",
+            "cause": "UTF-8 bytes sent as single-byte",
+            "recoverable_at_printer": true
+          },
+          {
+            "symptom": "one question mark or blank per letter, ASCII unaffected",
+            "cause": "transcoded to a page with no Cyrillic; the letters were destroyed at the encoder",
+            "recoverable_at_printer": false
+          },
+          {
+            "symptom": "one evenly spaced box per letter",
+            "cause": "no Cyrillic ROM font; the code page is irrelevant",
+            "recoverable_at_printer": false
+          },
+          {
+            "symptom": "correct Russian but wrong or missing Ukrainian or Kazakh letters",
+            "cause": "right code page family, wrong variant",
+            "recoverable_at_printer": true
+          }
+        ],
+        "fiscal_device_may_own_the_receipt": {
+          "value": null,
+          "note": "Several Cyrillic-script markets are understood to operate mandatory fiscal-device regimes in which the device, not the application, produces the receipt and therefore decides the code page, template and field order. Unresearched.",
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "currency": {
+        "signs": [
+          { "sign": "U+20BD", "iso_4217": "RUB", "note": "Added in Unicode 7.0 (2014), later than every code page listed above, so it is absent from all of them by construction rather than by chance." },
+          { "sign": "U+20B8", "iso_4217": "KZT" },
+          { "sign": "U+20B4", "iso_4217": "UAH" },
+          { "sign": "U+20C0", "iso_4217": "KGS", "note": "Absent from Unicode 13.0; assume no ROM font carries it." },
+          { "sign": "U+20AE", "iso_4217": "MNT" }
+        ],
+        "no_dedicated_sign": [
+          { "iso_4217": "RSD", "written_as": "abbreviation or ISO code" }
+        ],
+        "traditional_abbreviations_still_common": {
+          "value": true,
+          "note": "Written abbreviations predate the signs, remain common in print, and are encodable in every code page above.",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "fallback": "print the ISO code where the sign cannot be rendered",
+        "symbol_position": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "number_format": {
+          "decimal_separator": ",",
+          "group_separator": "space",
+          "example": "1 234,56",
+          "locales_checked": ["ru", "uk", "kk"],
+          "source": "official-authority",
+          "authority": "Unicode CLDR",
+          "note": "The group separator is a space character, which is a line-breaking hazard as well as a formatting one. Use a no-break space and confirm it survives the print path."
+        },
+        "market_currency_changes": [
+          {
+            "market": "BG",
+            "change": "euro adopted 2026-01-01 at 1.95583 BGN to 1 EUR; lev ceased to be legal tender 2026-02-01",
+            "dual_display_period": "from 2025-08-08 to 2026-08-08 per secondary reporting, with one source giving 2026-06-30 instead",
+            "source": "unverified",
+            "todo_verify": true,
+            "note": "Secondary reporting only, not confirmed against the Bulgarian authorities. There is no Bulgaria country file in this repository."
+          }
+        ]
+      },
+      "layout": {
+        "measure_display_width_not_string_length": true,
+        "wide_characters": false,
+        "width_rule": "one column per character in a Western font context",
+        "east_asian_width": {
+          "standard": "Unicode UAX #11",
+          "ambiguous_ranges": [
+            "U+0401",
+            "U+0410-U+044F",
+            "U+0451"
+          ],
+          "narrow_or_neutral": "the rest of the Cyrillic block, including Ukrainian, Belarusian, Serbian, Kazakh and Mongolian letters",
+          "note": "The Ambiguous set is exactly the 33-letter Russian alphabet. A printer with a CJK-derived ROM font may render those letters at two columns while the letters beside them stay at one, producing mixed widths inside a single word with an entirely correct encoding.",
+          "source": "official-authority",
+          "todo_verify": true
+        },
+        "paper_width_guidance": [
+          {
+            "width_mm": 80,
+            "columns_font_a": 48,
+            "description_columns": 35,
+            "two_column_layout_viable": true
+          },
+          {
+            "width_mm": 58,
+            "columns_font_a": 32,
+            "two_column_layout_viable": false,
+            "note": "Cyrillic retail names run long with no compensating density, unlike CJK. Budget two lines for the name."
+          }
+        ],
+        "line_breaking": {
+          "hyphenation": false,
+          "break_on": "whitespace only",
+          "truncate_mid_word": true,
+          "truncation_note": "Truncation changes no glyph, as in Hebrew; it is merely ugly."
+        }
+      },
+      "digraphia": {
+        "serbian": {
+          "both_scripts_in_use": true,
+          "note": "Cyrillic and Latin are both used for the same language and readers use both. Transliteration is close to letter-for-letter but not length-preserving: three Cyrillic letters map to Latin digraphs, so a round trip is not guaranteed.",
+          "rule": "store what the customer is meant to see; do not convert silently at print time"
+        },
+        "localized_letterforms": {
+          "value": true,
+          "letters": ["be", "ghe", "de", "pe", "te"],
+          "note": "Drawn differently in the Bulgarian and Serbian traditions from the Russian ones, handled in real fonts by language-tagged alternates. A thermal printer ROM font carries one set, normally the Russian shapes. Affects labels and signage rather than receipt legibility.",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "kazakhstan_latin_transition": {
+          "value": null,
+          "note": "Timetable has moved more than once. The POS implication does not depend on the date: both scripts will be present in real data for years, the same product will exist under two names, and search has to cross the scripts. Plan for two name fields rather than a conversion.",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "uzbekistan": "Latin official, Cyrillic still widely read",
+        "mongolia": "Cyrillic with two letters outside Windows-1251"
+      },
+      "retail_regions": {
+        "primary": [
+          "Russia",
+          "Belarus",
+          "Ukraine",
+          "Kazakhstan",
+          "Kyrgyzstan",
+          "Tajikistan",
+          "Mongolia",
+          "Serbia",
+          "North Macedonia",
+          "Montenegro",
+          "Bulgaria",
+          "Uzbekistan"
+        ],
+        "qualifications": [
+          {
+            "region": "all of the above",
+            "note": "None is covered by a country file in this repository. Tax rates, fiscal device requirements, invoicing rules and mandatory receipt content are undocumented here.",
+            "todo_verify": true
+          },
+          {
+            "region": "Bulgaria",
+            "note": "Changed currency in 2026; see currency.market_currency_changes.",
+            "todo_verify": true
+          }
+        ],
+        "legal_language_requirements": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "deployment_pattern": {
+        "independent_language_settings": [
+          "till interface",
+          "back office interface",
+          "print template"
+        ],
+        "note": "Only the print template drives the code page and width concerns. The homoglyph, normalisation and collation concerns apply to the back office as well, and hardest there, because that is where product data is created. Chinese-owned businesses in these markets typically pair a Chinese back office with a local-language till and local-language receipts; a market in script transition may need three name fields."
+      },
+      "acceptance_test_requires_native_reader": {
+        "value": true,
+        "note": "A dropped breve leaves a different but still plausible word, and a mixed-script product name looks correct to everyone. Two of the tests in the file are data tests rather than print tests, and those are the ones a native reader looking at a sample receipt will pass without noticing."
+      },
+      "open_verification_items": {
+        "en": 12,
+        "zh": 8
+      }
     }
   ]
 }

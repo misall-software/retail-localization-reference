@@ -20,8 +20,9 @@ change next month; a code page definition is a fixed standard. The language file
 carry `TODO: verify` on printer-specific values for the opposite reason — those
 are vendor behaviour, which no standard binds.
 
-Checked 2026-08, with the expiring rates re-checked 2026-08-14. Rates and
-thresholds change; a source list with a date on it is worth more than one without.
+Checked 2026-08, with the expiring rates re-checked 2026-08-14 and again on
+2026-08-17. Rates and thresholds change; a source list with a date on it is worth
+more than one without.
 
 ---
 
@@ -37,6 +38,11 @@ training were already exempt.
 - [DFDL — Extension of the Reduced 8% VAT Rate to 31 December 2026](https://www.dfdl.com/insights/legal-and-tax-updates/vietnam-extension-of-the-reduced-8-vat-rate-to-31-december-2026/)
 - [Vietnam Briefing — 2% VAT Reduction till End of 2026](https://www.vietnam-briefing.com/news/vietnam-extends-vat-2-percent-reduction.html/)
 - [The Investor — VAT cut to 8% for July 2025–Dec 2026](https://theinvestor.vn/vat-in-vietnam-cut-to-8-for-july-2025-dec-2026-period-d16031.html)
+
+**Re-checked 2026-08-17 — unchanged.** No reporting of a further extension beyond
+2026-12-31 was found. Treat 2027-01-01 as a return to 10% until something says
+otherwise, and re-check in November 2026; the 2025 extension was passed in June
+for a July start, so an equivalent decision would be visible well before the date.
 
 → **Confirm against:** the text of Resolution 204/2025/QH15 and Decree
 174/2025/ND-CP, and the goods/services annexes that define coverage.
@@ -220,6 +226,14 @@ line.
 - [Forvis Mazars — Complete guide to VAT in Thailand](https://www.forvismazars.com/th/en/insights/doing-business-in-thailand/tax/value-added-tax-vat-in-thailand)
 - [Pagero / Thomson Reuters — Thailand e-invoicing compliance](https://www.pagero.com/us/compliance/regulatory-updates/thailand)
 
+**Re-checked 2026-08-17 — unchanged.** Sherrings' decree table still lists only
+Nos. 790 and 799, gazetted 2024-09-20 and 2025-09-14 and running to 2025-09-30 and
+2026-09-30 respectively. The most recent reporting still describes a draft royal
+decree approved *in principle* by cabinet, with no gazette publication mentioned.
+A Thai-language search returned Royal Gazette coverage of decree No. 799 only —
+that is the 2025 decree, not a new one. The extension remains expected and not in
+force.
+
 → **Confirm against:** the Royal Gazette for the decree covering 2026-10-01
 onward — this is the single open question in this file, and it should be
 answerable by mid-September 2026. The Revenue Department is the authority for
@@ -308,6 +322,89 @@ tabulated byte values, not the normative text.
 
 ---
 
+## Cyrillic
+
+Mostly standards-governed, like the Hebrew section, with one time-sensitive
+currency fact that is not.
+
+**Codepoint-level claims were checked against the Unicode Character Database**
+rather than against a description of it — the canonical decompositions of `Ё`,
+`Й`, `Ў` and `Ї`, the East Asian Width class of every character in the Cyrillic
+block, and the codepoint ordering that files `Ё` before `А` and `ё` after `я`.
+The check used the UCD as distributed with CPython (version 13.0.0), which is the
+Unicode Consortium's own data rather than a secondary account of it.
+
+**UAX #11 assigns Ambiguous width to U+0401, U+0410–U+044F and U+0451, and Narrow
+to the rest of the Cyrillic block.** Ambiguous characters are defined as those
+that "can be sometimes wide and sometimes narrow", rendering full-width in an East
+Asian font context. This is the authority's own publication.
+
+- [Unicode Standard Annex #11 — East Asian Width](https://www.unicode.org/reports/tr11/)
+
+**CLDR records a comma decimal separator and a space group separator for `ru`,
+`uk` and `kk`.** Also the authority's own publication.
+
+- [Unicode CLDR — Number Symbols by type](https://www.unicode.org/cldr/charts/47/by_type/numbers.symbols.html)
+
+**Code page coverage and layout.** Windows-1251 covers Russian, Ukrainian,
+Belarusian, Bulgarian, Serbian and Macedonian, with uppercase at 0xC0–0xDF and
+lowercase at 0xE0–0xFF, and does not cover Kazakh, Tatar, Mongolian, Tajik or
+Uzbek — Kazakhstan standardised its own altered variant, STRK1048. CP866 carries
+letters at 0x80–0xAF and 0xE0–0xEF with box-drawing characters at 0xB0–0xDF,
+covers Russian and Bulgarian fully and Ukrainian partially, and has Ukrainian and
+Belarusian variants in CP1125 and CP1131. KOI8-R orders its letters in a
+pseudo-Latin sequence rather than an alphabetical one, so stripping the high bit
+yields a rough Latin transliteration; KOI8-U adds Ukrainian.
+
+These are the source of the mojibake signature table in the file, which is derived
+from the byte layouts rather than reported by anyone.
+
+- [Windows-1251](https://en.wikipedia.org/wiki/Windows-1251)
+- [Code page 866](https://en.wikipedia.org/wiki/Code_page_866)
+- [KOI8-R](https://en.wikipedia.org/wiki/KOI8-R)
+
+**The ruble sign `₽` U+20BD was added in Unicode 7.0 (2014)**, after every code
+page above was fixed, which is why it is absent from all of them by construction.
+The som sign U+20C0 is absent from Unicode 13.0.
+
+- [Ruble sign](https://en.wikipedia.org/wiki/Ruble_sign)
+
+→ **Confirm against:** the Unicode Standard, CLDR, and the code page definitions
+themselves. The encyclopaedia links are convenience references for tabulated byte
+values, not the normative text. Every printer-dependent value in the Cyrillic file
+is marked `TODO: verify` and is not sourced here, because no published source can
+answer it.
+
+### Bulgaria — currency change, secondary only
+
+Not a language fact, but it reached the Cyrillic file's currency section because
+there is no Bulgaria country file.
+
+**Bulgaria adopted the euro on 2026-01-01** at a fixed rate of 1.95583 BGN to
+1 EUR. The European Commission's own market-access notice is the strongest source
+here; the changeover detail — lev and euro circulating together during January
+2026, the lev ceasing to be legal tender on 2026-02-01 — is secondary.
+
+- [European Commission, Access2Markets — Bulgaria adopts euro as of 1 January 2026](https://trade.ec.europa.eu/access-to-markets/en/news/bulgaria-adopts-euro-1-january-2026)
+- [Deutsche Bundesbank — Bulgaria introduces the euro](https://www.bundesbank.de/en/tasks/topics/bulgaria-introduces-the-euro-973616)
+
+**Mandatory dual lev/euro price display, and its end date — sources disagree.**
+The most recent reporting places the end at **2026-08-08**, after which the euro
+price is the payable one and any lev figure may appear only as information. A
+banking site gives **2026-06-30** instead, which may be describing the end of
+free bank exchange rather than of dual pricing. **This is unresolved here.**
+
+- [The Sofia Globe — Dual price display ends on August 8 2026](https://sofiaglobe.com/2026/08/06/bulgaria-and-the-euro-dual-price-display-ends-on-august-8-2026/)
+- [Novinite — Bulgaria ends dual pricing in leva and euro](https://www.novinite.com/articles/240002/Bulgaria+Ends+Dual+Pricing+in+Leva+and+Euro:+See+When)
+- [Fiscal Solutions — Bulgaria mandates dual pricing starting August 8](https://www.fiscal-requirements.com/news/4027)
+- [iBank.bg — Bulgaria and the euro, key dates](https://ibank.bg/en/bulgaria-and-the-euro) — the source giving 2026-06-30
+
+→ **Confirm against:** Българска народна банка and the Bulgarian consumer
+protection authority. Nothing above is a primary source for what a till must
+display today. Recorded as `CYRL-10` in the verification queue.
+
+---
+
 ## Still unsourced
 
 Nothing below has been checked. These remain open in
@@ -340,5 +437,15 @@ Nothing below has been checked. These remain open in
   sample print is still required but a Hebrew reader is not needed for that one
   test. Everything else about Israel — tax, invoicing, receipt content, payment
   habits — is entirely unresearched; there is no Israel country file.
+- **Cyrillic:** every printer-dependent value, including the two that are specific
+  to this script — which code page family the firmware implements, and whether the
+  ROM font renders the 33 Russian letters at one column or two. Neither is
+  answerable by research; both are answerable by one sample print. Beyond the
+  printer: no country file exists for any Cyrillic-script market, so tax rates,
+  fiscal-device requirements, invoicing rules and mandatory receipt content are
+  entirely unresearched — including whether a mandatory fiscal device owns the
+  receipt format, which would change the shape of the integration. Kazakhstan's
+  script transition status and Bulgaria's current price display rules are both
+  open.
 
 _Last updated: 2026-08_

@@ -5,6 +5,8 @@
   "status_values": [
     "open",
     "confirmed-secondary",
+    "confirmed-authority",
+    "partially-resolved",
     "confirmed",
     "corrected"
   ],
@@ -14,10 +16,14 @@
     "low": "Wrong value causes cosmetic or convenience issues."
   },
   "totals": {
-    "items": 186,
+    "recounted": "2026-08-17",
+    "recount_note": "These figures were stale before this pass: they declared 186 items against 194 actually present, omitted the Hebrew group entirely, undercounted PE by one, and listed only two of the four status values in use. Recomputed from the items array rather than adjusted.",
+    "items": 206,
     "by_status": {
       "confirmed-secondary": 12,
-      "open": 174
+      "confirmed-authority": 1,
+      "partially-resolved": 1,
+      "open": 192
     },
     "by_country_or_language": {
       "AU": 14,
@@ -25,14 +31,24 @@
       "KE": 22,
       "MY": 18,
       "NG": 16,
-      "PE": 22,
+      "PE": 23,
       "PH": 17,
       "TH": 15,
       "VN": 23,
       "ZA": 16,
-      "ar": 6
+      "ar": 6,
+      "he": 7,
+      "cyrl": 12
     }
   },
+  "known_defects": [
+    {
+      "defect": "duplicate id",
+      "id": "PE-FS-04",
+      "detail": "Two different items share the id PE-FS-04: one records the corrected reduced restaurant and hotel rate, the other asks whether the service charge is itself taxable. Found on 2026-08-17 and left in place rather than renumbered, because an id that has been published is a reference someone may already hold. Renumber deliberately, not as a side effect.",
+      "found": "2026-08-17"
+    }
+  ],
   "items": [
     {
       "id": "KE-01",
@@ -2809,6 +2825,180 @@
       "verify_against": "SARS",
       "priority": "high",
       "status": "open"
+    },
+    {
+      "id": "CYRL-01",
+      "language": "cyrl",
+      "editions": [
+        "en"
+      ],
+      "section": "Encoding on the wire",
+      "item": "Every ESC t code page number, against the specific printer's own command reference.",
+      "current_draft_value": "deliberately omitted",
+      "verify_against": "target printer command reference, confirmed by printing",
+      "priority": "high",
+      "status": "open",
+      "note": "Same reason as AR-01 and HE-01. Vendors renumber the code page table."
+    },
+    {
+      "id": "CYRL-02",
+      "language": "cyrl",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Encoding on the wire",
+      "item": "Whether the target printer has a Cyrillic ROM font at all, and which code page reaches it.",
+      "current_draft_value": null,
+      "verify_against": "print test on target hardware",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "CYRL-03",
+      "language": "cyrl",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Encoding on the wire",
+      "item": "Which Cyrillic code page family the firmware implements, DOS (CP866) or Windows (Windows-1251), and which it selects at power-on.",
+      "current_draft_value": null,
+      "verify_against": "target printer command reference and a print test",
+      "priority": "high",
+      "status": "open",
+      "note": "The first question for a Cyrillic printer and the equivalent of HE-03 for Hebrew. Two live traditions disagree across the whole range above 0x7F, so there is no safe default; an unconfigured printer is either right or completely wrong. Per-model, not discoverable at runtime, settled by one sample print."
+    },
+    {
+      "id": "CYRL-04",
+      "language": "cyrl",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Width",
+      "item": "Whether the printer's ROM font renders the 33 Russian letters at one column or two.",
+      "current_draft_value": null,
+      "verify_against": "print test on target hardware, measuring characters per line",
+      "priority": "high",
+      "status": "open",
+      "note": "UAX #11 classes exactly U+0401, U+0410-U+044F and U+0451 as Ambiguous width and the rest of the Cyrillic block as Narrow. A CJK-derived ROM font may render the Russian letters double-width with an entirely correct encoding, and may therefore produce mixed widths inside a single Ukrainian or Kazakh word. Common on hardware built for the Chinese domestic market and resold."
+    },
+    {
+      "id": "CYRL-05",
+      "language": "cyrl",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Whether the ruble sign U+20BD, tenge U+20B8, hryvnia U+20B4, som U+20C0 or tugrik U+20AE print from the target printer's ROM font.",
+      "current_draft_value": null,
+      "verify_against": "print test on target hardware",
+      "priority": "medium",
+      "status": "open",
+      "note": "The ruble sign was added in Unicode 7.0 (2014) and is absent from every legacy Cyrillic code page by construction, not by chance. The som sign is absent from Unicode 13.0. Fall back to the ISO code or the traditional written abbreviation."
+    },
+    {
+      "id": "CYRL-06",
+      "language": "cyrl",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Regional",
+      "item": "Whether the target market mandates a fiscal device that produces the receipt, and therefore owns its format, field order and encoding.",
+      "current_draft_value": null,
+      "verify_against": "the tax authority of each target market; the fiscal device specification",
+      "priority": "high",
+      "status": "open",
+      "note": "Several Cyrillic-script markets are understood to operate mandatory fiscal-device regimes. This repository has no country file for any of them, so the requirement is unresearched rather than answered. Where it applies, the code page question is decided by the device specification rather than by the integrator."
+    },
+    {
+      "id": "CYRL-07",
+      "language": "cyrl",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Conventional symbol position, decimal separator and group separator on retail documents in each target market.",
+      "current_draft_value": "CLDR records a comma decimal separator and a space group separator for ru, uk and kk",
+      "verify_against": "Unicode CLDR for the format; sample receipts from the target market for the convention",
+      "priority": "medium",
+      "status": "open",
+      "note": "The separator values were read from CLDR; symbol position and the choice between sign, ISO code and traditional abbreviation are market convention and were not established. Do not let a system default to the implementer's home convention, which is the opposite on both separators."
+    },
+    {
+      "id": "CYRL-08",
+      "language": "cyrl",
+      "editions": [
+        "en"
+      ],
+      "section": "Regional",
+      "item": "Whether any target market imposes legal requirements on receipt language, or on the script in which tax figures must appear.",
+      "current_draft_value": null,
+      "verify_against": "the tax authority of each target market",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "CYRL-09",
+      "language": "cyrl",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Digraphia",
+      "item": "The current status of Kazakhstan's Cyrillic-to-Latin transition and what it implies for stored product data.",
+      "current_draft_value": null,
+      "verify_against": "Kazakh government publications",
+      "priority": "medium",
+      "status": "open",
+      "note": "The timetable has moved more than once. The POS implication does not depend on the date: both scripts will be present in real data for years and search has to cross them. Plan for two name fields rather than a conversion."
+    },
+    {
+      "id": "CYRL-10",
+      "language": "cyrl",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Bulgaria's price display rules after euro adoption, and the exact end date of mandatory dual lev/euro display.",
+      "current_draft_value": "euro adopted 2026-01-01 at 1.95583 BGN to 1 EUR; lev ceased to be legal tender 2026-02-01; dual display from 2025-08-08 ending 2026-08-08",
+      "verify_against": "Bulgarian National Bank and the Bulgarian consumer protection authority",
+      "priority": "high",
+      "status": "open",
+      "note": "Secondary reporting only. Sources disagree on the end of dual display: 2026-08-08 in the most recent reporting, 2026-06-30 in another source, which may instead be the end of free bank exchange. Found during the 2026-08-17 pass. There is no Bulgaria country file in this repository, so this is recorded against the language file rather than a country file."
+    },
+    {
+      "id": "CYRL-11",
+      "language": "cyrl",
+      "editions": [
+        "en"
+      ],
+      "section": "Normalisation",
+      "item": "Whether any target market's document rules require the letter io (U+0401/U+0451) to be preserved rather than folded to e in personal or company names.",
+      "current_draft_value": null,
+      "verify_against": "the civil registry or tax authority of the target market",
+      "priority": "low",
+      "status": "open",
+      "note": "Search should fold on both sides of the comparison regardless; the question is whether stored data may be folded, and the file says it may not."
+    },
+    {
+      "id": "CYRL-12",
+      "language": "cyrl",
+      "editions": [
+        "en"
+      ],
+      "section": "Digraphia",
+      "item": "Whether Bulgarian and Serbian localized letterforms matter for labels and signage in the target market.",
+      "current_draft_value": null,
+      "verify_against": "sample printed material from the target market",
+      "priority": "low",
+      "status": "open",
+      "note": "Handled in real fonts by language-tagged alternates; a thermal printer ROM font carries one set, normally the Russian shapes. Affects labels and signage rather than receipt legibility."
     }
   ],
   "status_notes": {
