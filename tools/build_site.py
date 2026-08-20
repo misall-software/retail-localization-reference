@@ -17,7 +17,9 @@ import os
 import posixpath
 import re
 import shutil
+import subprocess
 import sys
+import datetime
 
 try:
     import markdown
@@ -49,6 +51,35 @@ REDIRECTS = {
     "en/index.html": "index.html",      # the English edition index is the site root
     "zh/README.html": "zh/index.html",  # zh/README.md builds to zh/index.html
 }
+
+
+def git_date(path):
+    """Date of the last commit to touch a path, as YYYY-MM-DD.
+
+    None outside a git checkout, or when the checkout is too shallow to hold a
+    commit for the path. The caller falls back to the build date, which errs
+    towards re-crawling rather than towards a page looking staler than it is.
+    """
+    try:
+        out = subprocess.check_output(["git", "log", "-1", "--format=%cs", "--", path],
+                                      cwd=ROOT, stderr=subprocess.PIPE)
+    except (OSError, subprocess.CalledProcessError):
+        return None
+    return out.decode("ascii").strip() or None
+
+
+BUILD_DATE = datetime.date.today().isoformat()
+
+# A page is stale when its own source changes and also when the template that
+# renders it changes, because a new canonical or a new nav link rewrites every
+# page on the site. lastmod is what a crawler uses to decide whether re-reading
+# a page is worth its time, so it has to answer both.
+TEMPLATE_DATE = git_date("tools/build_site.py")
+
+
+def lastmod(src):
+    known = [d for d in (git_date(src), TEMPLATE_DATE) if d]
+    return max(known) if known else BUILD_DATE
 
 
 def discover():
@@ -462,7 +493,7 @@ def main():
     clean_out()
     discover()
 
-    urls = [render(s, d, l) for s, d, l in PAGES]
+    urls = [(render(s, d, l), lastmod(s)) for s, d, l in PAGES]
 
     # data/ is served as-is so the JSON is fetchable at a stable URL.
     shutil.copytree(os.path.join(ROOT, "data"), os.path.join(OUT, "data"))
@@ -499,11 +530,11 @@ def main():
 
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for u in urls:
+    for u, lm in urls:
         # The edition indexes are the only URLs that end in a slash.
         pri = "1.0" if u.endswith("/") else "0.8"
-        sm.append("<url><loc>%s</loc><lastmod>2026-08-12</lastmod>"
-                  "<changefreq>monthly</changefreq><priority>%s</priority></url>" % (u, pri))
+        sm.append("<url><loc>%s</loc><lastmod>%s</lastmod>"
+                  "<changefreq>monthly</changefreq><priority>%s</priority></url>" % (u, lm, pri))
     sm.append("</urlset>")
     io.open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8", newline="\n").write("\n".join(sm))
 
@@ -523,8 +554,8 @@ def main():
     check_links()
 
     print("built %d pages -> %s" % (len(urls), OUT))
-    for u in urls:
-        print("  ", u)
+    for u, lm in urls:
+        print("  ", lm, u)
 
 
 if __name__ == "__main__":

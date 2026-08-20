@@ -19,7 +19,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Full history: the sitemap dates each page from the last commit to touch
+      # its source, and a shallow clone holds no such commit.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
