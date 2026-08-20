@@ -111,10 +111,37 @@ def counterpart(src, edition):
     return cand if os.path.exists(os.path.join(ROOT, cand)) else None
 
 
+# An edition index is served both as `index.html` and as the directory holding
+# it, and GitHub Pages, being static, cannot 301 one form to the other. The
+# directory form is the address the repository advertises and the one inbound
+# links use, so it is the canonical of the pair; `index.html` keeps working and
+# carries a canonical pointing at it.
+EDITION_INDEXES = {"index.html", "zh/index.html"}
+INDEX = "index.html"
+
+
+def canonical_url(dst):
+    """Absolute URL a built page is canonical at."""
+    if dst in EDITION_INDEXES:
+        return BASE + "/" + dst[:-len(INDEX)]
+    return BASE + "/" + dst
+
+
+def link_form(rel, dst):
+    """Relative link written the way canonical_url() writes the absolute one.
+
+    Only the edition indexes differ: `../../index.html` becomes `../../`, and a
+    link from the site root to itself becomes `./` rather than the empty string.
+    """
+    if dst not in EDITION_INDEXES:
+        return rel
+    return rel[:-len(INDEX)] or "./"
+
+
 def out_url(src):
     for s, d, _ in PAGES:
         if s == src:
-            return BASE + "/" + d
+            return canonical_url(d)
     return None
 
 
@@ -175,7 +202,7 @@ def rewrite_links(html, src, dst):
         # The fragment comes back out of already-escaped attribute text, so it
         # is written through unchanged rather than escaped a second time.
         rel = posixpath.relpath(out, outdir) if outdir else out
-        return '%s="%s"' % (attr, rel + hash_ + frag)
+        return '%s="%s"' % (attr, link_form(rel, out) + hash_ + frag)
 
     return re.sub(r'\b(href|src)="([^"]*)"', repl, html)
 
@@ -262,7 +289,7 @@ def render(src, dst, lang):
     text = io.open(os.path.join(ROOT, src), encoding="utf-8").read()
     title = first_heading(text)
     desc = description(text)
-    canonical = BASE + "/" + dst
+    canonical = canonical_url(dst)
     depth = dst.count("/")
     up = "../" * depth
 
@@ -289,7 +316,7 @@ def render(src, dst, lang):
                    % ("en" if lang == "en" else "zh-CN", canonical, other, cp_url))
 
     if lang == "en":
-        nav = '<a href="%sindex.html">Retail &amp; POS Localization Reference</a>' % up
+        nav = '<a href="%s">Retail &amp; POS Localization Reference</a>' % (up or "./")
         if src != "README.md":
             nav += ' &middot; <a href="%ssources.html">Sources</a>' % up
         if cp and out_url(cp):
@@ -299,7 +326,7 @@ def render(src, dst, lang):
                 'Documentation CC BY 4.0, data CC0. '
                 'Nothing here is confirmed against a primary source — verify before relying on it.')
     else:
-        nav = '<a href="%szh/index.html">海外开店收银系统参考资料</a>' % up
+        nav = '<a href="%szh/">海外开店收银系统参考资料</a>' % up
         if cp and out_url(cp):
             nav += ' &middot; <a href="%s" hreflang="en">English</a>' % out_url(cp)
         foot = ('由秘奥软件（MISAll）团队维护。'
@@ -347,8 +374,8 @@ NOT_FOUND_TPL = """<!doctype html>
 <h1>Page not found</h1>
 <p>That address does not exist on this site. The two edition indexes are:</p>
 <ul>
-<li><a href="{base}/index.html">Retail &amp; POS Localization Reference</a> &mdash; English edition</li>
-<li><a href="{base}/zh/index.html" hreflang="zh-CN">海外开店收银系统参考资料</a> &mdash; 中文版</li>
+<li><a href="{base}/">Retail &amp; POS Localization Reference</a> &mdash; English edition</li>
+<li><a href="{base}/zh/" hreflang="zh-CN">海外开店收银系统参考资料</a> &mdash; 中文版</li>
 </ul>
 <p>页面不存在。请从上面两个入口进入。</p>
 <p><a href="{base}/sitemap.xml">sitemap.xml</a> lists every page on the site.</p>
@@ -364,7 +391,7 @@ def write_redirects():
         rel = posixpath.relpath(to, posixpath.dirname(frm)) if posixpath.dirname(frm) else to
         built = io.open(os.path.join(OUT, to), encoding="utf-8").read()
         m = re.search(r"<title>(.*?)</title>", built, re.S)
-        page = REDIRECT_TPL.format(canonical=BASE + "/" + to, rel=rel,
+        page = REDIRECT_TPL.format(canonical=canonical_url(to), rel=link_form(rel, to),
                                    title=m.group(1).strip() if m else to)
         path = os.path.join(OUT, frm)
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -473,7 +500,8 @@ def main():
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
-        pri = "1.0" if u.endswith("/index.html") else "0.8"
+        # The edition indexes are the only URLs that end in a slash.
+        pri = "1.0" if u.endswith("/") else "0.8"
         sm.append("<url><loc>%s</loc><lastmod>2026-08-12</lastmod>"
                   "<changefreq>monthly</changefreq><priority>%s</priority></url>" % (u, pri))
     sm.append("</urlset>")
