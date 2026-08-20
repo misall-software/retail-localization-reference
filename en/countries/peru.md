@@ -318,4 +318,48 @@ _Last updated: 2026-08_
 
 ---
 
+## Correction — the 18% is right, its components are not
+
+Added 2026-08-20, after a scheduled re-check of the rates with an expiry date.
+
+This file states in two places that IGV 18% is composed of **16% IGV + 2% IPM**
+and that this is unchanged for 2026. **The total is correct. The split is the
+pre-2026 one.**
+
+**Ley N.º 32387**, published 2025-06-16 and in force from 2026-01-01, moves the
+municipal promotion component up and the IGV component down by the same amount
+each year, holding the combined figure at 18%:
+
+| Year | IGV | IPM | Combined |
+| --- | --- | --- | --- |
+| to 2025 | 16.0% | 2.0% | 18% |
+| 2026 | **15.5%** | **2.5%** | 18% |
+| 2027 | 15.0% | 3.0% | 18% |
+| 2028 | 14.5% | 3.5% | 18% |
+| 2029 | 14.0% | 4.0% | 18% |
+
+This resolves an open question this file already carried. The reduced food
+service rate is recorded here as 8% IGV + **2.5%** IPM for 2026 and 12% + **3%**
+for 2027, and an earlier revision flagged that IPM component as unusual enough to
+need re-confirmation. It is not unusual: it is the general IPM rate for those
+years under Ley 32387. **The food service figures were right, and the standard
+rate composition beside them was stale** — the two could not both be correct, and
+this is which way round it fell.
+
+**What this changes for an implementation.** Nothing, for a system that carries a
+single 18% figure — which is how the electronic voucher presents it. Everything,
+for a system that models IGV and IPM as separate ledgers or reports them
+separately, because both components move on 1 January of each year listed above
+while the customer-visible total does not. A rate table keyed only on the
+combined figure will not notice.
+
+`TODO: verify` against the published text of Ley N.º 32387 itself. The schedule
+above is from secondary tax-practice sources; SUNAT's own orientation pages cite
+the law by number for the food service rate but do not restate the general
+schedule. See `SOURCES.md`.
+
+_Last updated: 2026-08_
+
+---
+
 _Maintained by the MISAll team. Last updated: 2026-08_

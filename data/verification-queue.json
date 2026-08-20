@@ -16,14 +16,14 @@
     "low": "Wrong value causes cosmetic or convenience issues."
   },
   "totals": {
-    "recounted": "2026-08-17",
-    "recount_note": "These figures were stale before this pass: they declared 186 items against 194 actually present, omitted the Hebrew group entirely, undercounted PE by one, and listed only two of the four status values in use. Recomputed from the items array rather than adjusted.",
-    "items": 206,
+    "recounted": "2026-08-20",
+    "recount_note": "Recomputed from the items array after adding the Indic scripts group (13 items) and PE-15. The 2026-08-17 figures were correct as of that pass.",
+    "items": 220,
     "by_status": {
-      "confirmed-secondary": 12,
       "confirmed-authority": 1,
-      "partially-resolved": 1,
-      "open": 192
+      "confirmed-secondary": 13,
+      "open": 205,
+      "partially-resolved": 1
     },
     "by_country_or_language": {
       "AU": 14,
@@ -31,14 +31,15 @@
       "KE": 22,
       "MY": 18,
       "NG": 16,
-      "PE": 23,
+      "PE": 24,
       "PH": 17,
       "TH": 15,
       "VN": 23,
       "ZA": 16,
       "ar": 6,
+      "cyrl": 12,
       "he": 7,
-      "cyrl": 12
+      "indic": 13
     }
   },
   "known_defects": [
@@ -2999,6 +3000,211 @@
       "priority": "low",
       "status": "open",
       "note": "Handled in real fonts by language-tagged alternates; a thermal printer ROM font carries one set, normally the Russian shapes. Affects labels and signage rather than receipt legibility."
+    },
+    {
+      "id": "INDIC-01",
+      "language": "indic",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Printing",
+      "item": "Whether the target printer has a ROM font for the target Brahmic script at all.",
+      "current_draft_value": "assumed absent",
+      "verify_against": "target printer command reference and a sample print",
+      "priority": "high",
+      "status": "open",
+      "note": "A data sheet listing multilingual support is not an answer. The expected finding is that no such font exists, but the file does not assert it."
+    },
+    {
+      "id": "INDIC-02",
+      "language": "indic",
+      "editions": [
+        "en"
+      ],
+      "section": "Printing",
+      "item": "Whether any code page on the target printer claims to reach a Brahmic script, what it contains, and whether it can form conjuncts.",
+      "current_draft_value": "argued impossible from the nature of a code page",
+      "verify_against": "target printer command reference",
+      "priority": "high",
+      "status": "open",
+      "note": "Section 6 argues the mechanism cannot express context-dependent conjuncts. The argument is not a substitute for reading the specific reference."
+    },
+    {
+      "id": "INDIC-03",
+      "language": "indic",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Printing",
+      "item": "The printer raster image command, its maximum image width in dots, and whether it can print an image the full width of the paper.",
+      "current_draft_value": null,
+      "verify_against": "target printer command reference, confirmed by printing a full-width line",
+      "priority": "high",
+      "status": "open",
+      "note": "Becomes the critical path once the code page route is ruled out."
+    },
+    {
+      "id": "INDIC-04",
+      "language": "indic",
+      "editions": [
+        "en"
+      ],
+      "section": "Printing",
+      "item": "Which shaping engine the target platform provides, and whether it is present on the POS hardware rather than only on the development machine.",
+      "current_draft_value": null,
+      "verify_against": "the target device",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "INDIC-05",
+      "language": "indic",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Printing",
+      "item": "Whether the fonts installed on the target device cover the target script.",
+      "current_draft_value": null,
+      "verify_against": "the target device, judged by a native reader",
+      "priority": "high",
+      "status": "open",
+      "note": "Total absence prints empty boxes and is visible. Partial coverage prints a correct-looking line with two wrong syllables and is not. Most common late failure."
+    },
+    {
+      "id": "INDIC-06",
+      "language": "indic",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Number formatting",
+      "item": "Conventional decimal separator, group separator and currency symbol position on retail documents in each target market.",
+      "current_draft_value": null,
+      "verify_against": "CLDR, confirmed against sample receipts",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "INDIC-07",
+      "language": "indic",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Number formatting",
+      "item": "Whether the target market uses Indian 2-2-3 digit grouping or Western 3-3-3, per market and per document type.",
+      "current_draft_value": "not asserted for any market",
+      "verify_against": "sample receipts and the tax authority document specification",
+      "priority": "high",
+      "status": "open",
+      "note": "Grouping does not follow script. A wrongly grouped figure is correct in value and visibly wrong to a local reader."
+    },
+    {
+      "id": "INDIC-08",
+      "language": "indic",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Whether the rupee sign is required, permitted, or conventionally replaced by a Latin abbreviation on printed documents in the target market.",
+      "current_draft_value": null,
+      "verify_against": "sample receipts and any applicable document rules",
+      "priority": "medium",
+      "status": "open",
+      "note": "Several markets have a currency called rupee with different conventions."
+    },
+    {
+      "id": "INDIC-09",
+      "language": "indic",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Legal",
+      "item": "Whether the target market imposes a legal requirement on the language or script of a receipt, or on the script in which tax figures appear.",
+      "current_draft_value": null,
+      "verify_against": "the target market tax authority",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "INDIC-10",
+      "language": "indic",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Everything about tax for India, Nepal, Bangladesh and Sri Lanka: rates, invoice content rules, e-invoicing mandates, device registration.",
+      "current_draft_value": "entirely unresearched",
+      "verify_against": "a local accountant or tax agent in each market",
+      "priority": "high",
+      "status": "open",
+      "note": "This collection has no country file for any market where these scripts are primary. The language file covers text rendering only and says so."
+    },
+    {
+      "id": "INDIC-11",
+      "language": "indic",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Data import",
+      "item": "Whether product data arriving from local suppliers contains native-script digits, and whether the import path normalises them.",
+      "current_draft_value": null,
+      "verify_against": "supplier data samples and the import routine",
+      "priority": "medium",
+      "status": "open",
+      "note": "Native digits are not U+0030 to U+0039 and will not match a numeric search or parse."
+    },
+    {
+      "id": "INDIC-12",
+      "language": "indic",
+      "editions": [
+        "en"
+      ],
+      "section": "Data import",
+      "item": "Whether ZWJ (U+200D) and ZWNJ (U+200C) survive the path from the supplier file through the import routine to the database.",
+      "current_draft_value": null,
+      "verify_against": "the import routine, tested with a name containing each",
+      "priority": "medium",
+      "status": "open",
+      "note": "Both are invisible. A sanitiser stripping non-printing characters removes them and silently changes the printed word."
+    },
+    {
+      "id": "INDIC-13",
+      "language": "indic",
+      "editions": [
+        "en"
+      ],
+      "section": "Printing",
+      "item": "Whether the target printer renders Brahmic letters at one column or two.",
+      "current_draft_value": "assumed single width",
+      "verify_against": "a sample print",
+      "priority": "medium",
+      "status": "open",
+      "note": "Same risk the Cyrillic file records for Russian letters: a font derived from a CJK ROM may print them double-width."
+    },
+    {
+      "id": "PE-15",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "The composition of the standard 18% rate from 2026 onward under Ley N.º 32387.",
+      "current_draft_value": "16% IGV + 2% IPM, described as unchanged for 2026",
+      "verify_against": "the published text of Ley N.º 32387",
+      "priority": "high",
+      "status": "confirmed-secondary",
+      "finding": "Ley N.º 32387, published 2025-06-16 and in force from 2026-01-01, raises IPM and lowers IGV by the same amount each year while holding the combined figure at 18%: 2026 is 15.5% + 2.5%, 2027 is 15.0% + 3.0%, 2028 is 14.5% + 3.5%, 2029 is 14.0% + 4.0%. The 16% + 2% split recorded against PE-01 is the pre-2026 one.",
+      "still_needs_primary_source": true,
+      "note": "Resolves the open question left beside PE-FS-04: the 2.5% IPM component of the reduced food service rate is not unusual, it is the general IPM rate for 2026. The two figures in the country file could not both be right, and the food service one was. The combined 18% a customer sees is unaffected, so a system carrying a single rate is correct; a system with separate IGV and IPM ledgers files wrong figures and nothing in the receipt total reveals it."
     }
   ],
   "status_notes": {

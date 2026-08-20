@@ -85,10 +85,13 @@ Three of these are temporary rates with a known change date. A system with the
 rate compiled in produces silently wrong tax the day after, so they are worth
 tracking separately.
 
-**Last re-checked: 2026-08-17.** No change since the 2026-08-14 pass — Thailand's
-decree is still unenacted, Vietnam's resolution still ends on 2026-12-31 with no
-successor reported, and Peru's figures are unchanged. Two of the three had moved
-in the pass before that.
+**Last re-checked: 2026-08-20.** No change to any of the three rates below.
+Thailand's decree is still unenacted, Vietnam's resolution still ends on
+2026-12-31 with no successor reported, and Peru's food service figures are
+unchanged and were confirmed against SUNAT's own pages. The same pass did find
+that Peru's **standard** 18% is now composed differently — 15.5% IGV + 2.5% IPM
+rather than 16% + 2%, under Ley N.º 32387 — with the 18% total unaffected. See
+[Peru → Correction](en/countries/peru.md#correction-the-18-is-right-its-components-are-not).
 
 | Country | Rate | Changes on | Becomes | Scope |
 | --- | --- | --- | --- | --- |
@@ -126,6 +129,7 @@ a few have one of their own.
 | [Vietnamese](en/languages/vietnamese.md) | `vi` | Two diacritics on one vowel; **no single-byte code page covers it fully**, including CP1258 |
 | [Cyrillic](en/languages/cyrillic.md) | `ru` `uk` `be` `bg` `sr` `mk` `kk` `ky` `tg` `uz` `mn` | **Two live code page traditions and no default**; a dozen letters **visually identical to Latin ones**, so correct-looking data compares unequal |
 | [Accented Latin](en/languages/latin-accented.md) | `es` `pt` `fr` `de` `it` `tr` and Nordic | Code page selection and Unicode normalisation — fails **silently**, unlike the others |
+| [Indic scripts](en/languages/indic.md) | `hi` `mr` `ne` `bn` `ta` `te` `kn` `ml` `gu` `pa` `or` `si` | **Stored order is not printed order** — a vowel stored after a consonant prints before it, and several codepoints fuse into one glyph. **No code page can express this**, so raster rendering is the only route |
 
 `id` and `ms` use Latin script with no diacritics in normal commercial use and
 need no code page work at all.

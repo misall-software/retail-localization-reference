@@ -1358,6 +1358,305 @@
         "en": 12,
         "zh": 8
       }
+    },
+    {
+      "language": "Indic scripts",
+      "group": "Brahmic",
+      "covers": [
+        "hi",
+        "mr",
+        "ne",
+        "bn",
+        "as",
+        "ta",
+        "te",
+        "kn",
+        "ml",
+        "gu",
+        "pa",
+        "or",
+        "si"
+      ],
+      "doc_en": "en/languages/indic.md",
+      "doc_zh": "zh/languages/indic.md",
+      "script": {
+        "iso_15924": [
+          "Deva",
+          "Beng",
+          "Taml",
+          "Telu",
+          "Knda",
+          "Mlym",
+          "Gujr",
+          "Guru",
+          "Orya",
+          "Sinh"
+        ],
+        "direction": "ltr",
+        "has_case": false,
+        "whitespace_separated": true,
+        "requires_contextual_shaping": true,
+        "note": "Left to right, space separated, single width, caseless. The bidi, dictionary-wrapping and double-width problems of the Arabic, Thai and CJK files are all absent. The distinctive problem is that stored codepoint order and printed glyph order are different orders."
+      },
+      "reordering": {
+        "is_the_distinctive_brahmic_problem": true,
+        "note": "A prepended vowel sign is stored after the consonant it modifies and rendered before it. The reordering is performed by the shaping engine at render time and is not recorded in the stored string, so the start of a string does not predict the start of the printed line.",
+        "verified_against": "Unicode Character Database 13.0.0 as distributed with CPython",
+        "prepended_vowel_signs": [
+          {
+            "script": "Devanagari",
+            "codepoint": "U+093F",
+            "name": "DEVANAGARI VOWEL SIGN I",
+            "general_category": "Mc",
+            "combining_class": 0
+          },
+          {
+            "script": "Bengali",
+            "codepoint": "U+09BF",
+            "name": "BENGALI VOWEL SIGN I",
+            "general_category": "Mc",
+            "combining_class": 0
+          },
+          {
+            "script": "Tamil",
+            "codepoint": "U+0BBF",
+            "name": "TAMIL VOWEL SIGN I",
+            "general_category": "Mc",
+            "combining_class": 0
+          },
+          {
+            "script": "Sinhala",
+            "codepoint": "U+0DD9",
+            "name": "SINHALA VOWEL SIGN KOMBUVA",
+            "general_category": "Mc",
+            "combining_class": 0
+          }
+        ],
+        "two_part_vowels": {
+          "note": "One logical vowel sign decomposes into two marks that render on opposite sides of the base consonant. No position in the visual line corresponds to the vowel.",
+          "examples": [
+            {
+              "codepoint": "U+09CB",
+              "name": "BENGALI VOWEL SIGN O",
+              "decomposes_to": [
+                "U+09C7",
+                "U+09BE"
+              ]
+            },
+            {
+              "codepoint": "U+09CC",
+              "name": "BENGALI VOWEL SIGN AU",
+              "decomposes_to": [
+                "U+09C7",
+                "U+09D7"
+              ]
+            },
+            {
+              "codepoint": "U+0B4B",
+              "name": "ORIYA VOWEL SIGN O",
+              "decomposes_to": [
+                "U+0B47",
+                "U+0B3E"
+              ]
+            },
+            {
+              "codepoint": "U+0B4C",
+              "name": "ORIYA VOWEL SIGN AU",
+              "decomposes_to": [
+                "U+0B47",
+                "U+0B57"
+              ]
+            }
+          ]
+        }
+      },
+      "conjuncts": {
+        "note": "Consonant plus virama plus consonant forms one fused glyph that has no byte value of its own and often resembles neither part. Glyph count is not codepoint count.",
+        "verified_against": "Unicode Character Database 13.0.0 as distributed with CPython",
+        "virama_combining_class": 9,
+        "viramas": [
+          { "script": "Devanagari", "codepoint": "U+094D", "name": "DEVANAGARI SIGN VIRAMA" },
+          { "script": "Bengali", "codepoint": "U+09CD", "name": "BENGALI SIGN VIRAMA" },
+          { "script": "Tamil", "codepoint": "U+0BCD", "name": "TAMIL SIGN VIRAMA" },
+          { "script": "Telugu", "codepoint": "U+0C4D", "name": "TELUGU SIGN VIRAMA" },
+          { "script": "Kannada", "codepoint": "U+0CCD", "name": "KANNADA SIGN VIRAMA" },
+          { "script": "Malayalam", "codepoint": "U+0D4D", "name": "MALAYALAM SIGN VIRAMA" },
+          { "script": "Gurmukhi", "codepoint": "U+0A4D", "name": "GURMUKHI SIGN VIRAMA" },
+          { "script": "Gujarati", "codepoint": "U+0ACD", "name": "GUJARATI SIGN VIRAMA" },
+          { "script": "Odia", "codepoint": "U+0B4D", "name": "ORIYA SIGN VIRAMA" },
+          { "script": "Sinhala", "codepoint": "U+0DCA", "name": "SINHALA SIGN AL-LAKUNA" }
+        ],
+        "joiner_controls": {
+          "zwnj": "U+200C",
+          "zwj": "U+200D",
+          "note": "Invisible characters that suppress or request conjunct formation. A sanitiser stripping non-printing characters removes them and silently changes the printed word.",
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "counting": {
+        "note": "Bytes, codepoints, grapheme clusters and rendered width are four different numbers for the same text, all internally consistent and all disagreeing.",
+        "truncation_unit": "grapheme cluster (UAX #29)",
+        "measured_examples": [
+          {
+            "description": "Devanagari conjunct ksha",
+            "codepoints": 3,
+            "utf8_bytes": 9,
+            "printed_glyphs": 1
+          },
+          {
+            "description": "Devanagari cluster kshmee",
+            "codepoints": 6,
+            "utf8_bytes": 18,
+            "printed_glyphs": 1
+          },
+          {
+            "description": "Bengali syllable bo",
+            "codepoints": 2,
+            "utf8_bytes": 6,
+            "printed_glyphs": "parts on both sides of the base"
+          },
+          { "description": "Tamil syllable ni", "codepoints": 2, "utf8_bytes": 6, "printed_glyphs": 2 }
+        ],
+        "truncating_on_codepoints_changes_the_word": true
+      },
+      "normalisation": {
+        "form": "NFC",
+        "nfc_lengthens_these_strings": true,
+        "note": "The nukta letters are Unicode composition exclusions, so NFC decomposes them and does not recompose. Both spellings converge, which makes search work, but NFC adds codepoints rather than removing them. A column sized on the assumption that NFC never lengthens a string is an off-by-one.",
+        "verified_against": "Unicode Character Database 13.0.0 as distributed with CPython",
+        "composition_exclusions_checked": [
+          {
+            "precomposed": "U+0958",
+            "name": "DEVANAGARI LETTER QA",
+            "nfc_produces": [
+              "U+0915",
+              "U+093C"
+            ]
+          },
+          {
+            "precomposed": "U+0959",
+            "name": "DEVANAGARI LETTER KHHA",
+            "nfc_produces": [
+              "U+0916",
+              "U+093C"
+            ]
+          },
+          {
+            "precomposed": "U+095F",
+            "name": "DEVANAGARI LETTER YYA",
+            "nfc_produces": [
+              "U+092F",
+              "U+093C"
+            ]
+          },
+          {
+            "precomposed": "U+09DC",
+            "name": "BENGALI LETTER RRA",
+            "nfc_produces": [
+              "U+09A1",
+              "U+09BC"
+            ]
+          },
+          {
+            "precomposed": "U+09DF",
+            "name": "BENGALI LETTER YYA",
+            "nfc_produces": [
+              "U+09AF",
+              "U+09BC"
+            ]
+          },
+          {
+            "precomposed": "U+0A33",
+            "name": "GURMUKHI LETTER LLA",
+            "nfc_produces": [
+              "U+0A32",
+              "U+0A3C"
+            ]
+          },
+          {
+            "precomposed": "U+0A36",
+            "name": "GURMUKHI LETTER SHA",
+            "nfc_produces": [
+              "U+0A38",
+              "U+0A3C"
+            ]
+          },
+          {
+            "precomposed": "U+0B5C",
+            "name": "ORIYA LETTER RRA",
+            "nfc_produces": [
+              "U+0B21",
+              "U+0B3C"
+            ]
+          }
+        ]
+      },
+      "printing": {
+        "printers_accept_utf8": false,
+        "code_page_route_available": {
+          "value": false,
+          "reasoning": "A code page maps a byte value to a ROM glyph, which can only express a script where each character is one glyph independent of its neighbours. Conjunct formation is context dependent and the fused glyph has no byte value, so the mechanism cannot reach it even given a complete ROM font.",
+          "note": "This is an argument from the nature of a code page, not a survey of printers. Confirm against the target printer command reference.",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "raster_rendering_is_mandatory": true,
+        "rom_font_present": { "value": null, "source": "unverified", "todo_verify": true },
+        "raster_max_width_dots": { "value": null, "source": "unverified", "todo_verify": true },
+        "shaping_engine_present_on_device": { "value": null, "source": "unverified", "todo_verify": true },
+        "device_font_coverage": {
+          "value": null,
+          "note": "Total absence prints empty boxes and is visible. Partial coverage prints a correct-looking line with two wrong syllables and is not. Verify on the POS terminal, not the development machine.",
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "currency": {
+        "signs": [
+          { "codepoint": "U+20B9", "name": "INDIAN RUPEE SIGN" },
+          { "codepoint": "U+20A8", "name": "RUPEE SIGN" },
+          { "codepoint": "U+0BF9", "name": "TAMIL RUPEE SIGN" }
+        ],
+        "note": "Three distinct codepoints, not interchangeable. U+20B9 is absent from older fonts and from essentially every thermal printer ROM font. Several markets have a currency called rupee with different conventions; a shared name is not a shared symbol.",
+        "printed_form_expected": { "value": null, "source": "unverified", "todo_verify": true }
+      },
+      "digit_grouping": {
+        "indian_system_groups": "2-2-3",
+        "western_system_groups": "3-3-3",
+        "examples": [
+          { "value": 100000, "western": "100,000", "indian": "1,00,000" },
+          { "value": 1000000, "western": "1,000,000", "indian": "10,00,000" },
+          { "value": 12345678, "western": "12,345,678", "indian": "1,23,45,678" }
+        ],
+        "note": "Recorded in CLDR for the relevant locales. Most formatting libraries default to 3-3-3 and produce a correct-looking, wrongly grouped figure. Grouping convention does not follow script, and a tax authority may specify a format that differs from shop-floor convention.",
+        "applies_in_target_market": { "value": null, "source": "unverified", "todo_verify": true },
+        "native_digits_in_supplier_data": { "value": null, "source": "unverified", "todo_verify": true }
+      },
+      "family_is_not_uniform": {
+        "note": "Tamil forms far fewer conjuncts and is the most forgiving member; an implementation that passes Tamil can still fail Devanagari. Use Devanagari as the acceptance case.",
+        "do_not_use_as_acceptance_test": "Tamil",
+        "recommended_acceptance_test": "Devanagari"
+      },
+      "retail_regions": [
+        "IN",
+        "NP",
+        "BD",
+        "LK"
+      ],
+      "diaspora_regions_covered_elsewhere": [
+        "MY",
+        "ZA"
+      ],
+      "deployment_pattern": "Back office in one language, customer-facing receipt in another. Same pattern as the Arabic and Cyrillic files.",
+      "tax_coverage": {
+        "value": "none",
+        "note": "This collection has no country file for India, Nepal, Bangladesh or Sri Lanka. Nothing has been checked against GST rules, invoice content rules or any e-invoicing mandate. The file covers text rendering only.",
+        "source": "unverified",
+        "todo_verify": true
+      },
+      "acceptance_test_requires_native_reader": true,
+      "open_verification_items": { "en": 12, "zh": 9 }
     }
   ]
 }

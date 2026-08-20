@@ -147,6 +147,45 @@ scheduled ramp from 2019. Declared and paid monthly.
 SUNAT-hosted and are the closest thing here to a primary source; the QR field
 order should be read from them directly rather than from this summary.
 
+### Standard rate composition — corrected 2026-08-20
+
+**The 18% total is unchanged. Its split into IGV and IPM changed on 2026-01-01
+and this file recorded the old one.**
+
+`Ley N.º 32387`, published 2025-06-16 and in force from 2026-01-01, raises the
+municipal promotion component and lowers the IGV component by the same amount
+each year, holding the combined figure at 18%:
+
+| Year | IGV | IPM | Combined |
+| --- | --- | --- | --- |
+| to 2025 | 16.0% | 2.0% | 18% |
+| 2026 | 15.5% | 2.5% | 18% |
+| 2027 | 15.0% | 3.0% | 18% |
+| 2028 | 14.5% | 3.5% | 18% |
+| 2029 | 14.0% | 4.0% | 18% |
+
+This settles the doubt recorded in the 2026-08-14 correction above. The reduced
+food service rate carries a **2.5%** IPM component for 2026 and **3%** for 2027,
+which that note called unusual enough to need re-confirmation against the
+amending law. It is not unusual — those are the general IPM rates for those
+years. **The food service figures were right and the standard rate composition
+printed beside them was stale.**
+
+Read on 2026-08-20. SUNAT's own orientation pages cite `Ley N.º 32387` by number
+as the basis for the gradual IPM increment, which is the authority naming the
+instrument; the year-by-year schedule below it is from secondary tax-practice
+sources and is **not confirmed against the published law**.
+
+- [SUNAT Emprender — Reducción del IGV para restaurantes y hoteles](https://emprender.sunat.gob.pe/principales-impuestos/imp-general-las-ventas-igv/reduccion-igv-para-restaurantes-hoteles)
+- [RSM Perú — Reducción del IGV e incremento del IPM no alterará la carga fiscal ni tributaria](https://www.rsm.global/peru/es/news/reduccion-del-igv-e-incremento-del-ipm-no-alterara-la-carga-fiscal-ni-tributaria)
+- [Baker Tilly Perú — Ley N° 32387 modifica la distribución del IGV e IPM](https://www.bakertilly.pe/en/ley-n-32387-modifica-distribucion-del-igv-e-ipm/)
+- [Grant Thornton Perú — Modifican las tasas del IGV e IPM](https://www.grantthornton.pe/actualizaciones-relevantes/modifican-las-tasas-del-igv-e-ipm/)
+
+→ **Confirm against:** the published text of `Ley N.º 32387` in *El Peruano*. Two
+secondary sources agree on the schedule and a third states only the 2029
+endpoint; none of the three is the law.
+
+
 ## Indonesia
 
 **Statutory PPN 12%; effective 11% on non-luxury** via a tax base of 11/12 of the
@@ -404,6 +443,49 @@ protection authority. Nothing above is a primary source for what a till must
 display today. Recorded as `CYRL-10` in the verification queue.
 
 ---
+
+## Indic scripts
+
+Entirely standards-governed on the Unicode side and entirely unsourced on every
+other side, which the file states plainly.
+
+**Codepoint-level claims were checked against the Unicode Character Database**
+rather than against a description of it: the general category and canonical
+combining class of the prepended vowel signs U+093F, U+09BF, U+0BBF and U+0DD9;
+the canonical combining class of the ten viramas listed; the canonical
+decompositions of the two-part vowels U+09CB, U+09CC, U+0B4B and U+0B4C; and the
+composition-exclusion behaviour of the nukta letters. The check used the UCD as
+distributed with CPython (version 13.0.0), which is the Unicode Consortium's own
+data rather than a secondary account of it.
+
+**`NFC` decomposes the nukta letters and does not recompose them.** Verified by
+normalising both spellings and comparing, not read from a description. This is
+the file's least obvious claim and the one most likely to be doubted, so the
+method matters: `NFC` applied to U+0958 yields U+0915 U+093C, and both spellings
+converge on that form.
+
+- [Unicode Standard Annex #15 — Normalization Forms](https://www.unicode.org/reports/tr15/)
+- [Unicode Standard Annex #29 — Text Segmentation](https://www.unicode.org/reports/tr29/)
+
+**Codepoint and byte counts in the counting table were measured**, not estimated.
+
+**The Indian 2-2-3 digit grouping** is recorded in CLDR for the relevant locales.
+Cited as the authority's own publication; the individual market conventions built
+on it are not verified.
+
+- [Unicode CLDR — Number Symbols by type](https://www.unicode.org/cldr/charts/47/by_type/numbers.symbols.html)
+
+**Not sourced, and marked as such throughout the file:** every statement about
+printer behaviour, font coverage on target devices, market conventions for
+currency display and digit grouping, and anything with a legal character. The
+argument in section 6 that no code page can express conjuncts is reasoning from
+the definition of a code page, not a survey of printers, and the file says so.
+
+→ **Confirm against:** the target printer's own command reference, and a local
+accountant for anything touching tax. **This collection has no country file for
+India, Nepal, Bangladesh or Sri Lanka**, so nothing here has been checked against
+GST rules, invoice content requirements or e-invoicing mandates.
+
 
 ## Still unsourced
 
