@@ -1,6 +1,6 @@
 {
   "schema_version": "1.1.0",
-  "last_updated": "2026-08",
+  "last_updated": "2026-09",
   "note": "Every TODO: verify item across both editions and all ten countries, covering both retail and food service. Each item names what to check and the authority or instrument to check it against. The editions field lists which editions carry the item: most are shared, a few are specific to one. Nothing here has been confirmed against a primary source; items marked confirmed-secondary were researched in 2026-08 and cited in SOURCES.md, which is not the same thing.",
   "status_values": [
     "open",
@@ -16,14 +16,14 @@
     "low": "Wrong value causes cosmetic or convenience issues."
   },
   "totals": {
-    "recounted": "2026-08-20",
-    "recount_note": "Recomputed from the items array after adding the Indic scripts group (13 items) and PE-15. The 2026-08-17 figures were correct as of that pass.",
-    "items": 220,
+    "recounted": "2026-09-10",
+    "recount_note": "Recomputed from the items array after adding the Khmer/Lao/Burmese group (13 items) and resolving TH-01 against the Royal Gazette text of Royal Decree No. 807. The 2026-08-20 figures were correct as of that pass.",
+    "items": 233,
     "by_status": {
+      "confirmed": 1,
       "confirmed-authority": 1,
       "confirmed-secondary": 13,
-      "open": 205,
-      "partially-resolved": 1
+      "open": 218
     },
     "by_country_or_language": {
       "AU": 14,
@@ -39,7 +39,8 @@
       "ar": 6,
       "cyrl": 12,
       "he": 7,
-      "indic": 13
+      "indic": 13,
+      "khmer-lao-burmese": 13
     }
   },
   "known_defects": [
@@ -1199,11 +1200,12 @@
       "current_draft_value": "7% to 2026-09-30 under Royal Decree No. 799 B.E. 2568",
       "verify_against": "Royal Gazette; Revenue Department",
       "priority": "high",
-      "status": "partially-resolved",
-      "finding": "Cabinet approved a one-year extension to 2027-09-30 on 2026-07-27; a Revenue Department notice dated 2026-08-02 confirms it. No gazetted decree covering 2026-10-01 onward found as of 2026-08-14. Secondary sources only.",
-      "still_needs_primary_source": true,
-      "note": "Nearest expiry in the repository. A system going live now will cross it. Cabinet approval is not the operative instrument — the royal decree is, and until it is gazetted the statutory 10 percent is the legal fallback. The two preceding decrees were gazetted 2024-09-20 and 2025-09-14, so re-check in mid-September 2026.",
-      "recheck_after": "2026-09-10"
+      "status": "confirmed",
+      "finding": "Resolved 2026-09-10. Royal Decree under the Revenue Code on the reduction of value added tax (No. 807) B.E. 2569, given 2026-08-20 and published in the Royal Gazette vol. 143 part 50 Ko pp. 20-22 on 2026-08-23, in force from 2026-10-01, reduces the section 80 rate to 6.3 percent (7 percent with local tax) for supplies through 2027-09-30. Read from the decree text published by the Revenue Department, not from reporting about it.",
+      "still_needs_primary_source": false,
+      "note": "The extension pending at the 2026-08-14 and 2026-08-17 passes is enacted. The rate still expires, one year later. The gazette date is not fixed: this decree landed in the second half of August, the two preceding ones on 2024-09-20 and 2025-09-14, so the next check belongs in mid-2027 rather than late September 2027.",
+      "recheck_after": "2027-06-30",
+      "resolved_on": "2026-09-10"
     },
     {
       "id": "TH-02",
@@ -3204,7 +3206,200 @@
       "status": "confirmed-secondary",
       "finding": "Ley N.º 32387, published 2025-06-16 and in force from 2026-01-01, raises IPM and lowers IGV by the same amount each year while holding the combined figure at 18%: 2026 is 15.5% + 2.5%, 2027 is 15.0% + 3.0%, 2028 is 14.5% + 3.5%, 2029 is 14.0% + 4.0%. The 16% + 2% split recorded against PE-01 is the pre-2026 one.",
       "still_needs_primary_source": true,
-      "note": "Resolves the open question left beside PE-FS-04: the 2.5% IPM component of the reduced food service rate is not unusual, it is the general IPM rate for 2026. The two figures in the country file could not both be right, and the food service one was. The combined 18% a customer sees is unaffected, so a system carrying a single rate is correct; a system with separate IGV and IPM ledgers files wrong figures and nothing in the receipt total reveals it."
+      "note": "Resolves the open question left beside PE-FS-04: the 2.5% IPM component of the reduced food service rate is not unusual, it is the general IPM rate for 2026. The two figures in the country file could not both be right, and the food service one was. The combined 18% a customer sees is unaffected, so a system carrying a single rate is correct; a system with separate IGV and IPM ledgers files wrong figures and nothing in the receipt total reveals it. Re-checked 2026-09-10: SUNAT's own orientation page now states the components rather than only the totals, giving 8% IGV + 2.5% IPM = 10.50% for 2026 and 12% IGV + 3.0% IPM = 15% for 2027, which matches the schedule recorded here for those two years. 2028 and 2029 remain from secondary sources. Secondary tax-practice and e-invoicing vendor pages still in circulation give 2% IPM for both years, producing 10% and 14%; those apply the pre-Ley 32387 IPM and are not reconciled with the authority figures.",
+      "conflicting_sources_noted": "2026-09-10"
+    },
+    {
+      "id": "SEA-01",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Printing",
+      "item": "Whether the target printer has a ROM font for Khmer, Lao or Burmese at all.",
+      "current_draft_value": "assumed absent",
+      "verify_against": "target printer command reference and a sample print",
+      "priority": "high",
+      "status": "open",
+      "note": "A data sheet listing multilingual support is not an answer. The expected finding is that no such font exists, but the file does not assert it."
+    },
+    {
+      "id": "SEA-02",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Printing",
+      "item": "Whether any code page on the target printer claims to reach these three scripts, and what it actually contains.",
+      "current_draft_value": "argued absent from the published code page families",
+      "verify_against": "target printer command reference",
+      "priority": "high",
+      "status": "open",
+      "note": "Section 1 reads the absence from the published Windows code page identifier list and from ISO/IEC 8859. Neither is a survey of printer firmware, which may expose vendor-private pages."
+    },
+    {
+      "id": "SEA-03",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Printing",
+      "item": "The printer raster image command, its maximum image width in dots, and the time to print a full-width image receipt.",
+      "current_draft_value": null,
+      "verify_against": "target printer command reference, confirmed by printing a full-width line",
+      "priority": "high",
+      "status": "open",
+      "note": "Becomes the critical path once the code page route is ruled out. Throughput matters here because the whole receipt is an image."
+    },
+    {
+      "id": "SEA-04",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Printing",
+      "item": "Which shaping engine the POS hardware provides, and whether the shaping tables for these scripts are present on the till rather than only on the development machine.",
+      "current_draft_value": null,
+      "verify_against": "the target device",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "SEA-05",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Encoding",
+      "item": "Whether Burmese product and supplier data in a given deployment is Zawgyi, Unicode, or both mixed in one column.",
+      "current_draft_value": null,
+      "verify_against": "the catalogue of that deployment, using a statistical detector such as google/myanmar-tools",
+      "priority": "high",
+      "status": "open",
+      "note": "A question about the data of one shop, not about Myanmar. Both conventions are valid UTF-8 and neither is declared anywhere in the data."
+    },
+    {
+      "id": "SEA-06",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Encoding",
+      "item": "Whether the chosen Zawgyi detector misclassifies Shan and Mon text held in the same catalogue.",
+      "current_draft_value": null,
+      "verify_against": "a sample of known-Unicode Shan or Mon product names",
+      "priority": "medium",
+      "status": "open",
+      "note": "The correction path can itself corrupt good data. Rule-based detectors are documented as failing this case; model-based detection returns a probability, not a verdict."
+    },
+    {
+      "id": "SEA-07",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Line breaking",
+      "item": "Whether the ICU line break dictionaries for Khmer, Lao and Burmese are present in the ICU build on the POS hardware.",
+      "current_draft_value": "ICU documents dictionary support for all three",
+      "verify_against": "the target device",
+      "priority": "high",
+      "status": "open",
+      "note": "The dictionaries are data shipped with the build and are a normal thing to trim on embedded Android hardware."
+    },
+    {
+      "id": "SEA-08",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Digits",
+      "item": "Whether native digits or Western digits are expected on a printed receipt in Cambodia, Laos and Myanmar, and whether that is convention or requirement.",
+      "current_draft_value": null,
+      "verify_against": "local practice, and the relevant tax authority for any legal element",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "SEA-09",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Digits",
+      "item": "Whether the target font renders U+1040 MYANMAR DIGIT ZERO and U+101D MYANMAR LETTER WA identically.",
+      "current_draft_value": "conventionally described as homoglyphs",
+      "verify_against": "a sample print on the target device",
+      "priority": "medium",
+      "status": "open",
+      "note": "The code points are distinct, verified against the UCD. Whether they are visually distinguishable is a font question, and the substitution of the letter for the digit in typed data is reported by secondary sources only."
+    },
+    {
+      "id": "SEA-10",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "How the Myanmar kyat is written on a printed price: Latin abbreviation, Burmese word, or ISO code.",
+      "current_draft_value": null,
+      "verify_against": "local practice",
+      "priority": "medium",
+      "status": "open",
+      "note": "Unicode encodes no currency sign for the kyat. A search of every Sc character in the UCD returns riel U+17DB and kip U+20AD but nothing for the kyat, so a symbol-per-currency template has nothing to place."
+    },
+    {
+      "id": "SEA-11",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Dual-currency handling at the counter in Cambodia: whether USD and KHR both circulate in retail, how change is given, and who maintains the rate.",
+      "current_draft_value": null,
+      "verify_against": "a Cambodian accountant; the National Bank of Cambodia",
+      "priority": "high",
+      "status": "open",
+      "note": "Commonly described in secondary sources and not verified here. This is a country-file question and there is no Cambodia country file, so it is recorded rather than answered."
+    },
+    {
+      "id": "SEA-12",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax and receipts",
+      "item": "Every tax rate, price display rule, mandatory receipt field, taxpayer identifier format, device registration requirement and e-invoicing mandate in Cambodia, Laos and Myanmar.",
+      "current_draft_value": "none recorded",
+      "verify_against": "the tax authority of each country, and a local accountant",
+      "priority": "high",
+      "status": "open",
+      "note": "This collection has no country file for KH, LA or MM. Nothing has been researched. The language file states this rather than implying coverage it lacks."
+    },
+    {
+      "id": "SEA-13",
+      "language": "khmer-lao-burmese",
+      "editions": [
+        "zh"
+      ],
+      "section": "Layout",
+      "item": "Whether the back office language and the receipt language are independently configurable in the target system.",
+      "current_draft_value": null,
+      "verify_against": "the vendor, demonstrated rather than described",
+      "priority": "medium",
+      "status": "open",
+      "note": "Recorded in the Chinese edition, which documents the back-office-in-one-language, receipt-in-another pattern common to these markets."
     }
   ],
   "status_notes": {

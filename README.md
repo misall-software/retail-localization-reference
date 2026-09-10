@@ -76,7 +76,7 @@ inline `TODO: verify` notes where firmware varies between vendors.
 | Peru | PE | PEN — `S/` | IGV 18%; **10.5%** for small food service, stepping to 15% in 2027 | CPE electronic vouchers (SUNAT) | 11 | [en/countries/peru.md](en/countries/peru.md) |
 | Philippines | PH | PHP — `₱` | VAT 12% | BIR — **device accreditation required**; EIS | 8 | [en/countries/philippines.md](en/countries/philippines.md) |
 | South Africa | ZA | ZAR — `R` | VAT 15% | SARS; no retail clearance mandate identified | 7 | [en/countries/south-africa.md](en/countries/south-africa.md) |
-| Thailand | TH | THB — `฿` | VAT 7% — **decree expires 2026-09-30**, extension approved but not confirmed gazetted | Voluntary e-Tax Invoice (Revenue Department) | 6 | [en/countries/thailand.md](en/countries/thailand.md) |
+| Thailand | TH | THB — `฿` | VAT 7% — **extended to 2027-09-30** by Royal Decree No. 807, gazetted 2026-08-23 | Voluntary e-Tax Invoice (Revenue Department) | 5 | [en/countries/thailand.md](en/countries/thailand.md) |
 | Vietnam | VN | VND — `₫` | VAT 8% — **expires 2026-12-31** | Cash-register e-invoice (Ministry of Finance) | 10 | [en/countries/vietnam.md](en/countries/vietnam.md) |
 
 ### Rates with an expiry date
@@ -85,28 +85,33 @@ Three of these are temporary rates with a known change date. A system with the
 rate compiled in produces silently wrong tax the day after, so they are worth
 tracking separately.
 
-**Last re-checked: 2026-08-20.** No change to any of the three rates below.
-Thailand's decree is still unenacted, Vietnam's resolution still ends on
-2026-12-31 with no successor reported, and Peru's food service figures are
-unchanged and were confirmed against SUNAT's own pages. The same pass did find
-that Peru's **standard** 18% is now composed differently — 15.5% IGV + 2.5% IPM
-rather than 16% + 2%, under Ley N.º 32387 — with the 18% total unaffected. See
-[Peru → Correction](en/countries/peru.md#correction-the-18-is-right-its-components-are-not).
+**Last re-checked: 2026-09-10. One of the three moved.** Thailand's extension is
+**enacted**: Royal Decree No. 807 B.E. 2569 was gazetted on 2026-08-23 and runs
+the 7% rate to 2027-09-30, which was the open question at the previous pass and
+is now closed against the decree's own published text. Vietnam is unchanged, with
+no successor to Resolution 204/2025/QH15 reported. Peru is unchanged, and SUNAT's
+orientation page now states the rate's two components rather than only the total
+— though secondary sources still in circulation give a different IPM figure. See
+[Peru → Re-check](en/countries/peru.md#re-check-2026-09-10-sunat-now-states-the-split-and-secondary-sources-disagree).
+
+**Vietnam is now the nearest expiry in this repository**, at 2026-12-31.
 
 | Country | Rate | Changes on | Becomes | Scope |
 | --- | --- | --- | --- | --- |
-| Thailand | 7% | 2026-09-30 | **7% to 2027-09-30 if the decree is gazetted; otherwise 10% statutory** | All supplies |
+| Thailand | 7% | **2027-09-30** | 10% statutory, unless extended again | All supplies |
 | Vietnam | 8% | 2026-12-31 | 10% standard, unless extended | All supplies, minus excluded sectors |
 | Peru | 10.5% | 2026-12-31 | **15%** — a scheduled step, *not* a return to 18% | **Food service only** — micro and small restaurants, hotels and tourist lodging. See [Peru → Food service](en/countries/peru.md#food-service). |
 
 Two cautions this table exists to carry:
 
-**Thailand's extension is approved but not enacted.** Cabinet approved a further
-year on 2026-07-27 and the Revenue Department issued a confirming notice on
-2026-08-02, but the operative instrument is a royal decree and no gazetted decree
-covering 2026-10-01 onward has been confirmed here. The two preceding decrees
-were gazetted on 2024-09-20 and 2025-09-14, so the answer should exist by
-mid-September 2026. Treat the extension as expected, not as in force.
+**Thailand's extension is enacted, and the rate still expires.** The decree that
+was pending at the last two passes exists: No. 807 B.E. 2569, given on
+2026-08-20, gazetted 2026-08-23 in vol. 143 part 50 Ko, in force from
+2026-10-01, reducing the section 80 rate to 6.3% — 7% with local tax — through
+2027-09-30. A system carrying 7% across 1 October 2026 is now correct to do so.
+It is one decree per year, so the next re-check is **mid-2027**, and the gazette
+date is not fixed: this one landed in the second half of August, the two before
+it on 2024-09-20 and 2025-09-14.
 
 **Peru's rate steps rather than lapses.** The common failure is to treat 2027 as
 a return to the standard 18%. It is not — the scheduled 2027 value is 15%
@@ -130,6 +135,7 @@ a few have one of their own.
 | [Cyrillic](en/languages/cyrillic.md) | `ru` `uk` `be` `bg` `sr` `mk` `kk` `ky` `tg` `uz` `mn` | **Two live code page traditions and no default**; a dozen letters **visually identical to Latin ones**, so correct-looking data compares unequal |
 | [Accented Latin](en/languages/latin-accented.md) | `es` `pt` `fr` `de` `it` `tr` and Nordic | Code page selection and Unicode normalisation — fails **silently**, unlike the others |
 | [Indic scripts](en/languages/indic.md) | `hi` `mr` `ne` `bn` `ta` `te` `kn` `ml` `gu` `pa` `or` `si` | **Stored order is not printed order** — a vowel stored after a consonant prints before it, and several codepoints fuse into one glyph. **No code page can express this**, so raster rendering is the only route |
+| [Khmer, Lao and Burmese](en/languages/khmer-lao-burmese.md) | `km` `lo` `my` | **No code page exists for any of the three**, on any platform — so there is no legacy route and no wrong-code-page diagnosis. Burmese additionally has **two conventions sharing one set of codepoints** (Zawgyi), both valid UTF-8, neither declared in the data |
 
 `id` and `ms` use Latin script with no diacritics in normal commercial use and
 need no code page work at all.
@@ -157,7 +163,15 @@ correctly and still be wrong: UAX #11 classes exactly the 33 Russian letters as
 Ambiguous width, so a CJK-derived ROM font may print them double-width while the
 Ukrainian and Kazakh letters beside them stay single-width.
 
-**Planned:** Indic scripts.
+**Khmer, Lao and Burmese are the file where the group does not hold together.**
+UAX #14 puts all three in the same line break class as Thai, and everything the
+Thai file says about dictionary wrapping carries over. Below that they split, and
+not along the border anyone expects: Lao stores its pre-posed vowels the way Thai
+does, so nothing is reordered at render time, while Khmer and Burmese store them
+the way Devanagari does and reorder. A team arriving from a working Thai
+deployment has already solved Lao's rendering; a team arriving from a working
+Devanagari deployment has already solved Khmer's reordering. Neither has touched
+Burmese's encoding ambiguity, which is the file's real subject.
 
 ---
 

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "last_updated": "2026-08",
+  "last_updated": "2026-09",
   "verification_state": "unverified-draft",
   "note": "Shared by both editions. Unicode behaviour recorded here is specified in the standard and stable. Printer-specific values are vendor-dependent and carry todo_verify.",
   "editions": {
@@ -1657,6 +1657,357 @@
       },
       "acceptance_test_requires_native_reader": true,
       "open_verification_items": { "en": 12, "zh": 9 }
+    },
+    {
+      "language": "Khmer, Lao and Burmese",
+      "group": "Mainland Southeast Asian, Brahmic-derived",
+      "covers": [
+        "km",
+        "lo",
+        "my",
+        "shn",
+        "mnw"
+      ],
+      "doc_en": "en/languages/khmer-lao-burmese.md",
+      "doc_zh": "zh/languages/khmer-lao-burmese.md",
+      "script": {
+        "iso_15924": [
+          "Khmr",
+          "Laoo",
+          "Mymr"
+        ],
+        "direction": "ltr",
+        "has_case": false,
+        "whitespace_separated": false,
+        "requires_contextual_shaping": true,
+        "note": "Left to right, single width, caseless, and written without spaces between words. The bidi and double-width problems of the Arabic and CJK files are absent. The distinctive problem is that no legacy byte encoding exists for any of the three, and that one of them carries a second, undeclared convention over the same code points."
+      },
+      "grouped_with_thai_by": {
+        "standard": "Unicode Standard Annex #14, revision 55, 2025-09-05",
+        "line_break_class": "SA",
+        "class_definition": "Complex-context dependent. Runs of these characters require morphological analysis to determine break opportunities.",
+        "blocks_in_class_sa": [
+          "0E00..0E7F Thai",
+          "0E80..0EFF Lao",
+          "1000..109F Myanmar",
+          "1780..17FF Khmer",
+          "1950..197F Tai Le",
+          "1980..19DF New Tai Lue",
+          "1A20..1AAF Tai Tham",
+          "A9E0..A9FF Myanmar Extended-B",
+          "AA60..AA7F Myanmar Extended-A",
+          "AA80..AADF Tai Viet",
+          "11700..1173F Ahom"
+        ],
+        "fallback_recommended_by_the_report": "treat as AL (alphabetic), which finds only emergency breaks",
+        "source": "official-authority",
+        "blocks_relevant_to_this_file": [
+          "0E00..0E7F Thai",
+          "0E80..0EFF Lao",
+          "1000..109F Myanmar",
+          "1780..17FF Khmer"
+        ]
+      },
+      "code_page_route_available": {
+        "value": false,
+        "reasoning": "No code page has ever been assigned to any of the three scripts in any of the published families. This is a different argument from the Indic one: there the mechanism cannot express the script, here the mechanism was never pointed at it.",
+        "checked_against": "the published Windows code page identifier list, and ISO/IEC 8859",
+        "comparison": {
+          "thai": [
+            "874 windows-874",
+            "10021 x-mac-thai",
+            "20838 IBM-Thai"
+          ],
+          "vietnamese": [
+            "1258 windows-1258"
+          ],
+          "indic": [
+            "57002-57011 ISCII, ten pages covering nine scripts"
+          ],
+          "khmer": [],
+          "lao": [],
+          "burmese": []
+        },
+        "lao_is_the_notable_case": "Lao is structurally close to Thai - base consonant, marks above and below, pre-posed vowels stored in visual order, no conjunct formation - so a single-byte code page would work for it about as well as windows-874 works for Thai. None was ever standardised.",
+        "source": "public-regulation",
+        "printer_firmware_not_surveyed": {
+          "value": null,
+          "note": "Vendor-private pages are not covered by the check above. Confirm against the target printer command reference.",
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "raster_rendering_is_mandatory": true,
+      "burmese_encoding_ambiguity": {
+        "name": "Zawgyi",
+        "what_it_is": "A font and input convention that uses code points from the Myanmar block U+1000-U+109F with meanings that differ from the Unicode standard.",
+        "both_are_valid_utf8": true,
+        "declared_anywhere_in_the_data": false,
+        "failure_mode": "Burmese-looking output with the wrong letters, in both directions. Not boxes, not replacement characters, no decoder error.",
+        "detection": {
+          "deterministic": false,
+          "method": "statistical, model-based",
+          "reference_implementation": "google/myanmar-tools",
+          "reference_implementation_status": "states that it is not an official Google product",
+          "rule_based_detectors_fail_on": [
+            "Shan",
+            "Mon"
+          ],
+          "reason": "Those languages legitimately use code points that Zawgyi reuses. U+1050 to U+105F alone holds Pali, Sanskrit and Mon letters, verified against the UCD.",
+          "source": "unverified"
+        },
+        "conversion_rules": {
+          "published_in": "CLDR",
+          "form": "transliteration rules",
+          "source": "official-authority"
+        },
+        "enters_the_system_through": "the product catalogue - supplier spreadsheets, names typed by staff, menus carried over from a previous system",
+        "handle_at": "import time, recording which convention the source used",
+        "deployment_data_convention": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "storage_order": {
+        "is_the_distinctive_split": true,
+        "note": "A pre-posed vowel is written to the left of the consonant it follows phonetically. All four scripts in this group have them and they are not stored the same way. General category is the tell: Lo is an independent letter stored in visual order, Mc is a spacing combining mark stored in logical order and moved by the shaping engine. The split does not follow geography.",
+        "verified_against": "Unicode Character Database 13.0.0 as distributed with CPython",
+        "pre_posed_vowels": [
+          {
+            "script": "Thai",
+            "codepoints": "U+0E40-U+0E44",
+            "general_category": "Lo",
+            "renderer_reorders": false
+          },
+          {
+            "script": "Lao",
+            "codepoints": "U+0EC0-U+0EC4",
+            "general_category": "Lo",
+            "renderer_reorders": false
+          },
+          {
+            "script": "Khmer",
+            "codepoints": "U+17C1-U+17C3",
+            "general_category": "Mc",
+            "renderer_reorders": true
+          },
+          {
+            "script": "Burmese",
+            "codepoints": "U+1031",
+            "general_category": "Mc",
+            "renderer_reorders": true
+          }
+        ],
+        "consequences": [
+          "truncating at a code point boundary in Khmer or Burmese can remove the base and leave the mark",
+          "cursor movement and backspace follow stored order, which is not screen order in Khmer and Burmese",
+          "code point sort order is wrong in all four, for two different reasons",
+          "a port from a working Thai deployment covers Lao rendering and neither of the other two"
+        ],
+        "truncation_unit": "grapheme cluster (UAX #29)"
+      },
+      "khmer_subscript_stacking": {
+        "stacking_character": {
+          "codepoint": "U+17D2",
+          "name": "KHMER SIGN COENG",
+          "general_category": "Mn",
+          "combining_class": 9,
+          "has_own_glyph": false,
+          "note": "Same combining class as the viramas in the Indic file. Consumed by the shaping engine; invisible to a reviewer reading the string."
+        },
+        "verified_against": "Unicode Character Database 13.0.0 as distributed with CPython",
+        "direction": "downward, beneath the base",
+        "measured_examples": [
+          {
+            "sequence": "U+179F U+17D2 U+178F",
+            "codepoints": 3,
+            "utf8_bytes": 9,
+            "printed_columns": 1
+          },
+          {
+            "sequence": "U+179F U+17D2 U+178F U+17D2 U+179A",
+            "codepoints": 5,
+            "utf8_bytes": 15,
+            "printed_columns": 1
+          },
+          {
+            "sequence": "U+1781 U+17D2 U+1789 U+17BB U+17C6",
+            "codepoints": 5,
+            "utf8_bytes": 15,
+            "printed_columns": 1
+          }
+        ],
+        "invisible_characters_that_must_survive_sanitising": [
+          {
+            "codepoint": "U+17D2",
+            "carries": "subscript stacking"
+          },
+          {
+            "codepoint": "U+200B",
+            "carries": "word boundaries for line breaking"
+          }
+        ],
+        "two_part_vowels": {
+          "codepoints": [
+            "U+17C4",
+            "U+17C5"
+          ],
+          "general_category": "Mc",
+          "canonical_decomposition": null,
+          "note": "Render material on both sides of the base. Unlike the Bengali and Odia two-part vowels in the Indic file these have no canonical decomposition, so no normalisation step exposes the two halves."
+        }
+      },
+      "normalisation": {
+        "nfc_and_nfd_are_no_ops_on_these_clusters": true,
+        "verified_against": "Unicode Character Database 13.0.0 as distributed with CPython",
+        "note": "Sample clusters in all four scripts are unchanged by NFC and NFD. These are not composed forms with alternative spellings, so the normalise-and-compare fix that resolves the accented Latin and Indic search problems has nothing to act on."
+      },
+      "line_breaking": {
+        "whitespace_wrapping_is_wrong": true,
+        "dictionary_required": true,
+        "icu_dictionary_languages": [
+          "Chinese",
+          "Japanese",
+          "Thai",
+          "Lao",
+          "Khmer",
+          "Burmese"
+        ],
+        "icu_use_is_automatic": true,
+        "source": "official-authority",
+        "raster_does_not_fix_wrapping": "Wrapping happens before rendering. A raster path with no dictionary breaks in the wrong places and renders those breaks perfectly.",
+        "dictionaries_present_on_target_device": {
+          "value": null,
+          "note": "The dictionary is data shipped with the ICU build and is a normal thing to trim on embedded Android hardware.",
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "digits": {
+        "verified_against": "Unicode Character Database 13.0.0 as distributed with CPython",
+        "sets": [
+          {
+            "script": "Khmer",
+            "range": "U+17E0-U+17E9",
+            "general_category": "Nd"
+          },
+          {
+            "script": "Lao",
+            "range": "U+0ED0-U+0ED9",
+            "general_category": "Nd"
+          },
+          {
+            "script": "Myanmar",
+            "range": "U+1040-U+1049",
+            "general_category": "Nd"
+          },
+          {
+            "script": "Myanmar, Shan",
+            "range": "U+1090-U+1099",
+            "general_category": "Nd"
+          }
+        ],
+        "homoglyph_pair": {
+          "codepoints": [
+            "U+1040",
+            "U+101D"
+          ],
+          "names": [
+            "MYANMAR DIGIT ZERO",
+            "MYANMAR LETTER WA"
+          ],
+          "general_categories": [
+            "Nd",
+            "Lo"
+          ],
+          "distinct_codepoints": true,
+          "look_alike": {
+            "value": null,
+            "note": "Conventionally described as homoglyphs, with the letter substituted for the digit in typed data. Whether a given font renders them identically is a font question.",
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "printed_form_expected": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "currency": {
+        "verified_against": "Unicode Character Database 13.0.0 as distributed with CPython",
+        "method": "every character of general category Sc in the UCD was enumerated",
+        "signs": [
+          {
+            "codepoint": "U+17DB",
+            "name": "KHMER CURRENCY SYMBOL RIEL",
+            "currency": "KHR"
+          },
+          {
+            "codepoint": "U+20AD",
+            "name": "KIP SIGN",
+            "currency": "LAK"
+          }
+        ],
+        "no_sign_exists_for": {
+          "currency": "MMK",
+          "name": "Myanmar kyat",
+          "note": "No code point in Unicode carries that name. A price template that expects a symbol per currency has nothing to place in the Myanmar slot."
+        },
+        "printed_form_expected": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "cambodia_dual_currency": {
+          "value": null,
+          "note": "Commonly described as USD circulating alongside KHR in retail, with direct consequences for a till. A country-file question, and there is no Cambodia country file. Recorded, not answered.",
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "printing": {
+        "printers_accept_utf8": false,
+        "rom_font_present": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "raster_max_width_dots": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "shaping_engine_present_on_device": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "wrong_code_page_is_not_a_possible_diagnosis": "There is no code page to select, so text printing as the wrong letters means a missing font, an absent shaping engine, or the Burmese encoding ambiguity."
+      },
+      "family_is_not_uniform": {
+        "note": "Lao groups with Thai on rendering and with Khmer and Burmese on encoding. An implementation that passes Lao says nothing about Khmer or Burmese.",
+        "do_not_use_as_acceptance_test": "Lao",
+        "recommended_acceptance_test": "Khmer for stacking, Burmese for encoding"
+      },
+      "retail_regions": [
+        "KH",
+        "LA",
+        "MM"
+      ],
+      "deployment_pattern": "Back office in one language, customer-facing receipt in another. Same pattern as the Arabic, Cyrillic and Indic files.",
+      "tax_coverage": {
+        "value": "none",
+        "note": "This collection has no country file for Cambodia, Laos or Myanmar. Nothing has been checked against consumption tax rates, price display rules, mandatory receipt fields, taxpayer identifier formats, device registration or any e-invoicing mandate. The file covers text rendering only.",
+        "source": "unverified",
+        "todo_verify": true
+      },
+      "acceptance_test_requires_native_reader": true,
+      "open_verification_items": {
+        "en": 8,
+        "zh": 7
+      }
     }
   ]
 }

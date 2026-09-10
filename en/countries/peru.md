@@ -362,4 +362,36 @@ _Last updated: 2026-08_
 
 ---
 
+## Re-check, 2026-09-10 — SUNAT now states the split, and secondary sources disagree
+
+The reduced food service rate is unchanged: **10.5% through 31 December 2026,
+then 15% for calendar year 2027.** Two things about the re-check are worth
+recording.
+
+**SUNAT's own orientation page now gives the components, not just the totals.**
+It states 8% IGV plus 2.5% IPM for 2026, giving 10.50%, and 12% IGV plus 3.0%
+IPM for 2027, giving 15%. The [Correction](#correction-the-18-is-right-its-components-are-not)
+section above noted that SUNAT cited the law by number but did not restate the
+schedule. It does now, and the figures match what this file already carried. The
+`source` for the reduced-rate row is confirmed at `official-authority` rather
+than inferred.
+
+**Secondary sources still in circulation give 2% IPM, not 2.5%.** Tax-practice
+and e-invoicing vendor pages describing the same regime state 8% + 2% = 10% for
+2026 and 12% + 2% = 14% for 2027. Those figures are the pre-Ley 32387 IPM applied
+to the post-reform IGV, and they are wrong by 0.5 and 1.0 points respectively.
+**They are not reconciled here and should not be averaged with the SUNAT
+figures** — one of the two is stale, and the one published by the tax authority
+is the one to follow. Recorded rather than smoothed over, because a search on
+this rate returns both numbers and the difference is small enough to look like a
+rounding disagreement.
+
+Still open: the general IPM/IGV schedule for 2028 and 2029 in the Correction
+table remains from secondary tax-practice sources. SUNAT's page covers 2026 and
+2027 only.
+
+_Last updated: 2026-09_
+
+---
+
 _Maintained by the MISAll team. Last updated: 2026-08_

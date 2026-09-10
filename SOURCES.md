@@ -185,6 +185,27 @@ sources and is **not confirmed against the published law**.
 secondary sources agree on the schedule and a third states only the 2029
 endpoint; none of the three is the law.
 
+### Re-checked 2026-09-10 — the authority now states the split
+
+SUNAT's own orientation page for the reduced restaurant, hotel and tourist
+lodging rate now gives the **components** rather than only the combined figure:
+**8% IGV + 2.5% IPM = 10.50% for 2026**, and **12% IGV + 3.0% IPM = 15% for
+2027**. Those are the figures this repository already carried, and the source
+type for that row is confirmed at `official-authority` rather than inferred from
+the Ley 32387 schedule.
+
+- [SUNAT Orientación — Reducción del IGV para restaurantes, hoteles y alojamientos turísticos](https://orientacion.sunat.gob.pe/reduccion-del-igv-para-restaurantes-hoteles-y-alojamiento-turisticos-1)
+
+**Secondary sources still in circulation disagree, and are not reconciled here.**
+Tax-practice and e-invoicing vendor pages describing the same regime give 2% IPM
+rather than 2.5%, producing 10% for 2026 and 14% for 2027. Those figures apply
+the pre-Ley 32387 IPM to the post-reform IGV. The disagreement is recorded
+deliberately: a search on this rate returns both, and a 0.5-point gap reads like
+a rounding dispute rather than a stale number.
+
+**Still secondary:** the 2028 and 2029 rows of the Ley 32387 schedule. SUNAT's
+page covers 2026 and 2027 only.
+
 
 ## Indonesia
 
@@ -277,6 +298,43 @@ force.
 onward — this is the single open question in this file, and it should be
 answerable by mid-September 2026. The Revenue Department is the authority for
 everything else here.
+
+### 7% rate — resolved 2026-09-10, primary source
+
+The open question above is answered. The decree exists.
+
+**Royal Decree issued under the Revenue Code on the reduction of value added tax
+(No. 807) B.E. 2569.** Given 20 August 2026. Published in the *Royal Gazette*,
+**volume 143, part 50 Ko, pages 20–22, 23 August 2026**. In force from
+1 October 2026. Reduces the section 80 rate to **6.3%** — 7% including local tax
+— for supplies through **30 September 2027**.
+
+**Read from the decree, not from reporting about it.** The Revenue Department
+publishes the gazetted text as a PDF from its own new-legislation index, and the
+citation above is transcribed from the page footer of that PDF, which carries the
+volume, part, page and date in Thai numerals. The operative rate is written out
+in Thai words rather than digits, which is why the figure does not appear as
+"6.3" in the document text.
+
+- [Revenue Department — new legislation index](https://www.rd.go.th/21221.html) —
+  lists the decree as DC 807, dated 24 August 2026
+- [Revenue Department — decree text (PDF)](https://www.rd.go.th/fileadmin/user_upload/kormor/newlaw/dc807.pdf)
+- [Thai PBS — Royal Gazette announcement, 23 August 2026](https://www.thaipbs.or.th/news/content/509779)
+
+**One discrepancy, recorded rather than resolved.** The gazette page footer in
+the decree PDF reads 23 August 2026; the Revenue Department's index page dates
+the entry 24 August 2026. Most likely a gazette date against a listing date. It
+does not affect the operative dates — in force 1 October 2026, running to
+30 September 2027 — and no attempt has been made here to reconcile it.
+
+**What this closes and what it does not.** It closes `TH-01`, which was the
+single open question in this file, against a primary source. It does not change
+the shape of the problem: the rate is still temporary, still one decree per year,
+and the gazette date is not fixed — 2024-09-20, 2025-09-14, then 2026-08-23. The
+next check belongs in **mid-2027**.
+
+→ **Confirm against:** the *Royal Gazette* itself if a citation of record is
+needed; the PDF above is the Revenue Department's copy of it.
 
 ## South Africa
 
@@ -487,6 +545,73 @@ India, Nepal, Bangladesh or Sri Lanka**, so nothing here has been checked agains
 GST rules, invoice content requirements or e-invoicing mandates.
 
 
+## Khmer, Lao and Burmese
+
+Standards-governed on the Unicode side, vendor-dependent on the printer side, and
+entirely unresearched on the tax side, which the file states plainly.
+
+**Code point claims were checked against the Unicode Character Database** rather
+than against a description of it, using the UCD as distributed with CPython
+(version 13.0.0): the general category of the pre-posed vowels in all four
+scripts of the group — U+0E40–U+0E44, U+0EC0–U+0EC4, U+17C1–U+17C3 and U+1031 —
+which is what separates Lao from Khmer and Burmese; the category and combining
+class of U+17D2 KHMER SIGN COENG; the absence of a canonical decomposition on
+U+17C4 and U+17C5; the four digit ranges; the distinctness and categories of
+U+1040 and U+101D; and the contents of U+1050–U+105F.
+
+**The claim that Unicode encodes no currency sign for the Myanmar kyat was
+established by enumeration**, not by failing to find one: every character of
+general category `Sc` in the UCD was listed and searched. Riel (U+17DB) and kip
+(U+20AD) are present; nothing carries the kyat's name.
+
+**Code point and byte counts in the stacking table were measured**, and NFC/NFD
+were applied to the sample clusters and compared, not read from a description.
+
+- [Unicode Standard Annex #14 — Line Breaking](https://www.unicode.org/reports/tr14/) —
+  revision 55, 2025-09-05. Source for line break class `SA`, its definition, the
+  four blocks in it, and the recommendation to fall back to `AL`.
+- [Unicode Standard Annex #29 — Text Segmentation](https://www.unicode.org/reports/tr29/) —
+  grapheme cluster boundaries, the truncation unit.
+- [ICU User Guide — Boundary Analysis](https://unicode-org.github.io/icu/userguide/boundaryanalysis/) —
+  quoted for the list of dictionary languages and for use being automatic.
+
+**The absence of a code page** is read from a published list, not inferred:
+
+- [Microsoft — Code Page Identifiers](https://learn.microsoft.com/en-us/windows/win32/intl/code-page-identifiers)
+
+Thai appears three times in that list, Vietnamese once and the Indic scripts as
+ten ISCII pages; Khmer, Lao and Burmese appear nowhere in it. This is vendor
+documentation and authoritative for that vendor's platforms rather than for
+printer firmware, which the file says. ISO/IEC 8859 has no part for any of the
+three, which is a property of the standard's published parts.
+
+**Zawgyi.** The structural facts — that it reuses Myanmar-block code points with
+different meanings, that both conventions are well-formed UTF-8, that rule-based
+detection misclassifies Shan and Mon, and that conversion follows the CLDR
+transliteration rules — are taken from the project that implements the detection:
+
+- [google/myanmar-tools](https://github.com/google/myanmar-tools) — states that it
+  is **not an official Google product**, and cited at that level. The conversion
+  rules it follows are published in CLDR, which is the Unicode Consortium's own
+  publication; the two are cited separately and not merged.
+
+No claim is made here about how widespread Zawgyi is today. The file says text
+created under it is still in circulation and stops there, because the prevalence
+figures available are secondary and dated.
+
+**Not sourced, and marked as such throughout the file:** every statement about
+printer behaviour, ROM fonts, raster width, shaping engines on target devices,
+whether ICU dictionaries survive on the till, market conventions for digits and
+for writing the kyat, whether a given font renders U+1040 and U+101D alike, and
+Cambodia's dual-currency handling at the counter.
+
+→ **Confirm against:** the target printer's own command reference, a sample print
+on the target hardware read by someone who reads the language, and a local
+accountant for anything touching tax. **This collection has no country file for
+Cambodia, Laos or Myanmar**, so nothing here has been checked against any of
+their tax rules, receipt content requirements or e-invoicing mandates.
+
+
 ## Still unsourced
 
 Nothing below has been checked. These remain open in
@@ -506,10 +631,12 @@ Nothing below has been checked. These remain open in
   against the published law); full mandatory field list per document type;
   transmission routes and intermediary obligations; selective consumption tax
   applicability and rates; wallet interoperability scope.
-- **Thailand:** whether a royal decree extending the 7% VAT rate beyond
-  2026-09-30 has been gazetted. Cabinet approval and a Revenue Department notice
-  are confirmed by secondary reporting; the operative instrument is not. Re-check
-  the Royal Gazette in mid-September 2026.
+- **Thailand:** the gazette question is **closed** — Royal Decree No. 807 B.E.
+  2569, gazetted 2026-08-23, runs 7% to 2027-09-30; see the Thailand section
+  above. Still open: whether tax-inclusive consumer price display is a legal
+  requirement, the mandatory field list for a simple retail receipt as distinct
+  from a tax invoice, whether Buddhist Era dating is required or customary, and
+  the VAT registration threshold.
 - **Arabic:** every printer-dependent value. These cannot be resolved by research
   — they need a sample print on the target hardware, read by someone who reads
   Arabic.
@@ -529,5 +656,13 @@ Nothing below has been checked. These remain open in
   receipt format, which would change the shape of the integration. Kazakhstan's
   script transition status and Bulgaria's current price display rules are both
   open.
+- **Khmer, Lao and Burmese:** every printer-dependent value, plus two that are
+  specific to this group — whether the ICU line break dictionaries survive in the
+  ICU build on the till, and which encoding convention a given deployment's
+  Burmese catalogue actually uses. The second is a question about one shop's
+  data and cannot be answered by research at all. Beyond the printer: no country
+  file exists for Cambodia, Laos or Myanmar, so tax rates, receipt content,
+  device registration and e-invoicing are entirely unresearched, and so is
+  Cambodia's dual-currency handling at the counter.
 
-_Last updated: 2026-08_
+_Last updated: 2026-09_

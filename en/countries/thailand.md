@@ -243,4 +243,50 @@ _Last updated: 2026-08_
 
 ---
 
+## Update — the extension is enacted (2026-09-10)
+
+Added after a scheduled re-check of the rates with an expiry date. **This file's
+Tax section above is now out of date on one point, and the point is the important
+one.**
+
+The open item at the top of this file — whether a royal decree extending the 7%
+rate beyond 30 September 2026 had been gazetted — is **resolved**. It has been.
+
+| Field | Value |
+| --- | --- |
+| Instrument | Royal Decree issued under the Revenue Code on the reduction of value added tax **(No. 807) B.E. 2569** |
+| Given on | 20 August 2026 |
+| Gazetted | **23 August 2026** — Royal Gazette vol. 143, part 50 Ko, pp. 20–22 |
+| In force from | 1 October 2026 |
+| Rate | **6.3%** under section 80 of the Revenue Code — **7% including local tax**, the figure a customer sees |
+| Runs to | **30 September 2027** |
+
+Read from the decree's own text as published by the Revenue Department, not from
+reporting about it. The gazette citation above is transcribed from the page
+footer of that PDF. See `SOURCES.md`.
+
+**What this changes.** The Tax table above records the post-2026-10-01 rate as
+`unverified` with the statutory 10% as the operative fallback. That was correct
+when written and is not correct now: 7% continues without interruption to
+30 September 2027, and the source type for that row is now `public-regulation`.
+The decree table above ends with a "Not confirmed" row; that row is No. 807.
+
+**What this does not change.** The rate still expires, one year later. The
+prediction in this file held — the gazette date fell in the second half of
+August rather than September, a little earlier than the two preceding decrees at
+2024-09-20 and 2025-09-14, but the pattern of one decree per year is intact.
+Everything the Tax section says about carrying VAT as a dated, editable record
+stands unchanged, and the next re-check date is **mid-2027**, not 2027-09-30 —
+by then the decree either exists or a system needs to be ready for 10%.
+
+**One correction to the file's own framing.** The introduction calls this "the
+nearest expiry of any rate in this repository". With No. 807 gazetted, that is no
+longer true: Thailand now runs to 2027-09-30, and **Vietnam's 8%, expiring
+2026-12-31, is the nearest.** The introduction has been left as written; this
+note is the correction.
+
+_Last updated: 2026-09_
+
+---
+
 _Maintained by the MISAll team. Last updated: 2026-08_
