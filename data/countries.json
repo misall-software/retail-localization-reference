@@ -290,6 +290,454 @@
       }
     },
     {
+      "country": "Cambodia",
+      "iso_3166_1_alpha_2": "KH",
+      "iso_3166_1_alpha_3": "KHM",
+      "doc_en": "en/countries/cambodia.md",
+      "doc_zh": "zh/countries/cambodia.md",
+      "currency": {
+        "iso_4217": {
+          "value": "KHR",
+          "numeric": "116",
+          "source": "official-authority"
+        },
+        "symbol": {
+          "value": "៛",
+          "codepoint": "U+17DB",
+          "note": "Whether shops print the sign, KHR, or the Khmer word is a convention not verified.",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "symbol_position": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "decimal_places": {
+          "value": 0,
+          "note": "No subdivision circulates; KHQR accepts riel amounts as whole numbers only. ISO 4217 minor unit not confirmed here.",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "thousands_separator": {
+          "value": ",",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "decimal_separator": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "typical_price_magnitude": {
+          "value": "1000 - 500000",
+          "usd_equivalent": "0.50 - 100",
+          "note": "Order of magnitude only, for field sizing. Not price data.",
+          "source": "unverified"
+        },
+        "second_currency_in_retail": {
+          "value": "USD",
+          "numeric": "840",
+          "note": "Commonly described as dominating retail pricing and cash, with riel used for change below one dollar. Descriptive, not a legal status.",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "change_in_riel_below_one_dollar": {
+          "value": true,
+          "note": "Described practice; the counter rate is set by the shop. Whether any rule governs it is open.",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "smallest_practical_note_khr": {
+          "value": 100,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "price_tags_in_riel_required": {
+          "value": true,
+          "instrument": "Prakas No. 172 MOC, 2017-07-07, amending Prakas No. 047",
+          "foreign_currency_pricing": "permitted on approval, valid one year",
+          "reported_2023_reiteration": "riel price above or before any approved foreign-currency price; instrument number not found",
+          "enforcement_note": "Press reporting describes enforcement as weak.",
+          "source": "public-regulation",
+          "verified_secondary": "2026-09-24",
+          "todo_verify": true
+        },
+        "authority_to_confirm": "National Bank of Cambodia"
+      },
+      "tax": {
+        "standard_vat_rate_percent": {
+          "value": 10,
+          "source": "public-regulation",
+          "verified_secondary": "2026-09-24",
+          "todo_verify": true
+        },
+        "reduced_rates_percent": {
+          "value": [
+            0
+          ],
+          "note": "Zero rate for exports and specified supplies; separate exempt list.",
+          "source": "public-regulation",
+          "verified_secondary": "2026-09-24",
+          "todo_verify": true
+        },
+        "rates_must_be_date_effective": true,
+        "price_display": {
+          "value": null,
+          "note": "Commercial invoice to an end user shows a total inclusive of all taxes. Whether inclusive shelf display is required is open.",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "other_taxes_on_invoice": {
+          "value": [
+            {
+              "name": "Specific Tax",
+              "rate_percent": null
+            },
+            {
+              "name": "Public Lighting Tax",
+              "rate_percent": 5,
+              "applies_to": "alcohol and tobacco"
+            },
+            {
+              "name": "Accommodation Tax",
+              "rate_percent": 2,
+              "applies_to": "accommodation fee"
+            }
+          ],
+          "note": "Each has its own line on a tax invoice. Which a retailer or restaurant must charge, rather than pay within its purchase price, is open.",
+          "source": "public-regulation",
+          "verified_secondary": "2026-09-24",
+          "todo_verify": true
+        },
+        "invoice_riel_disclosure": {
+          "value": true,
+          "rule": "Invoice total disclosed in KHR at the National Bank of Cambodia daily exchange rate; previous day's rate permitted on non-working days or before working hours.",
+          "instrument": "Prakas No. 723 MEF, 2019-08-14; GDT Notification No. 3218, 2020-02-06",
+          "applies_to_commercial_invoices": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "source": "public-regulation",
+          "verified_secondary": "2026-09-24"
+        },
+        "fiscal_system": {
+          "value": "CamInvoice (Cambodia E-Invoicing System)",
+          "instrument": "Prakas No. 075 MEF, 2025-01-22",
+          "circulars": [
+            "No. 003 MEF, 2025-01-22",
+            "No. 012 MEF, 2025-07-14",
+            "No. 017 MEF, 2025-11-20"
+          ],
+          "format": "UBL XML",
+          "model": "centralised clearance",
+          "scope": {
+            "b2g": "mandatory",
+            "b2b": "voluntary",
+            "b2c": "out of scope"
+          },
+          "operator": {
+            "value": "General Department of Digital Economy",
+            "note": "Per a legal database summary of Prakas 075. Secondary sources also name the GDT. Unresolved.",
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "pos_device_registration": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "source": "public-regulation",
+          "verified_secondary": "2026-09-24"
+        },
+        "authority": "General Department of Taxation, Ministry of Economy and Finance"
+      },
+      "receipt": {
+        "mandatory_fields_confirmed": false,
+        "invoice_types": {
+          "tax_invoice": {
+            "issued_by": "medium and large taxpayers",
+            "issued_to": "registered taxpayers",
+            "fields_draft": [
+              "seller name, address and TIN",
+              "sequential invoice number and date",
+              "buyer name, address and TIN",
+              "description, quantity and price",
+              "total exclusive of taxes",
+              "Specific Tax, Public Lighting Tax, Accommodation Tax and VAT, each on its own line",
+              "signature and name",
+              "total in KHR at the NBC daily rate"
+            ]
+          },
+          "commercial_invoice": {
+            "issued_by": "all registered taxpayers; the only type small taxpayers may issue",
+            "issued_to": "end users, and any buyer of a small taxpayer",
+            "fields_draft": [
+              "seller name, address and TIN",
+              "sequential invoice number and date",
+              "buyer name and address",
+              "description, quantity and price",
+              "total inclusive of all taxes",
+              "seller signature and name"
+            ]
+          },
+          "source": "public-regulation",
+          "verified_secondary": "2026-09-24",
+          "todo_verify": true
+        },
+        "pos_slip_is_commercial_invoice": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "no_input_credit_from_small_taxpayers": {
+          "value": true,
+          "source": "public-regulation",
+          "verified_secondary": "2026-09-24"
+        },
+        "invoice_language": {
+          "value": "km",
+          "rule": "Khmer; any foreign language below the Khmer text.",
+          "instruments": [
+            "GDT Instruction No. 1127, 2016-01-26",
+            "GDT Notification No. 3218, 2020-02-06"
+          ],
+          "english_for_technical_terms_allowance": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "source": "public-regulation",
+          "verified_secondary": "2026-09-24"
+        },
+        "numbering": {
+          "value": "sequential per year; separate series per branch and head office; separate series for tax and commercial invoices; letter prefixes allowed for branches only; stated to apply to POS users",
+          "series_key": [
+            "branch",
+            "invoice_type",
+            "year"
+          ],
+          "terminals_share_series": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "source": "public-regulation",
+          "verified_secondary": "2026-09-24"
+        },
+        "retention_years": {
+          "value": {
+            "medium_and_large": 10,
+            "small": 3
+          },
+          "source": "public-regulation",
+          "verified_secondary": "2026-09-24",
+          "todo_verify": true
+        },
+        "qr_code_required": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "common_paper_widths_mm": [
+          80,
+          58
+        ]
+      },
+      "languages": {
+        "official": [
+          "km"
+        ],
+        "retail_print_default": "km",
+        "invoice_secondary_language_position": "below Khmer",
+        "common_split_deployment": {
+          "back_office": "zh",
+          "till": "km or en",
+          "invoice": "km with en or zh below"
+        },
+        "script": "Khmer",
+        "language_file": "en/languages/khmer-lao-burmese.md",
+        "printer_encoding_risk": "high",
+        "encoding_notes": {
+          "code_page_exists": false,
+          "recommended_print_path": "raster"
+        },
+        "product_needs_dual_name_field": true,
+        "receipt_digits": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "payment_methods": [
+        "cash-usd",
+        "cash-khr",
+        "khqr",
+        "cards"
+      ],
+      "payment_notes": {
+        "qr_standard": {
+          "value": "KHQR",
+          "administered_by": "National Bank of Cambodia (Bakong)",
+          "basis": "EMVCo QR",
+          "currencies": [
+            "KHR",
+            "USD"
+          ],
+          "one_code_across_operators": true,
+          "source": "official-authority",
+          "verified_authority": "2026-09-24"
+        },
+        "khqr_amount_rules": {
+          "value": "KHR whole numbers; USD two decimals",
+          "source": "unverified",
+          "todo_verify": true
+        },
+        "tender_currency_must_be_recorded": true,
+        "split_tender_across_currencies": true,
+        "confirmation_is_visual_at_counter": true,
+        "tender_reference_required": true,
+        "merchant_requirements": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "connectivity": {
+        "offline_selling_required": true,
+        "local_conditions": {
+          "value": null,
+          "source": "unverified",
+          "todo_verify": true
+        }
+      },
+      "timezone": "Asia/Phnom_Penh",
+      "utc_offset": "+07:00",
+      "observes_dst": false,
+      "open_verification_items": {
+        "en": 16,
+        "zh": 14
+      },
+      "food_service": {
+        "tax_treatment": {
+          "dine_in_takeaway_delivery_differ": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "small_business_reduced_rate": {
+            "value": null,
+            "note": "No reduced VAT rate for food service identified.",
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "alcohol_taxed_separately": {
+            "value": "Public Lighting Tax 5% on alcohol and tobacco; whether charged on a restaurant bill is open",
+            "source": "public-regulation",
+            "verified_secondary": "2026-09-24",
+            "todo_verify": true
+          }
+        },
+        "service_charge_and_tips": {
+          "service_charge_customary": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_rate_percent": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_taxable": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "tips_through_pos_and_recorded": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "service_charge_own_receipt_line": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "receipt": {
+          "must_distinguish_dine_in_and_takeaway": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "must_itemise_menu_items": {
+            "value": true,
+            "note": "Implied by the commercial invoice field list.",
+            "source": "public-regulation",
+            "verified_secondary": "2026-09-24",
+            "todo_verify": true
+          },
+          "table_number_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "guest_count_mandatory": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          }
+        },
+        "operating_conventions": {
+          "business_day_crosses_midnight": {
+            "value": true,
+            "note": "Also decides which NBC rate date applies to the riel disclosure; record the rate date independently of the business day.",
+            "source": "unverified"
+          },
+          "accounting_date_rule_after_midnight": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "typical_trading_hours": {
+            "value": null,
+            "source": "unverified",
+            "todo_verify": true
+          },
+          "kitchen_ticket_language_independent": {
+            "value": true,
+            "note": "Deployment pattern, not a legal requirement. No language rule for kitchen tickets identified.",
+            "source": "unverified"
+          }
+        },
+        "capabilities_required": [
+          {
+            "name": "floor plan and table state",
+            "note": "A sale is attached to a table rather than opened and closed in one pass."
+          },
+          {
+            "name": "tab allocation",
+            "note": "Split by item and split evenly are different operations; in Cambodia each part may also be paid in a different currency."
+          },
+          {
+            "name": "guest count",
+            "note": "Needed for per-head reporting."
+          },
+          {
+            "name": "tip adjustment",
+            "note": "The tip is often added after card authorisation, so the amount must be adjustable post-authorisation."
+          }
+        ]
+      }
+    },
+    {
       "country": "Indonesia",
       "iso_3166_1_alpha_2": "ID",
       "iso_3166_1_alpha_3": "IDN",

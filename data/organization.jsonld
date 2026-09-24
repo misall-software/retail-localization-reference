@@ -124,6 +124,14 @@
         },
         {
           "@type": "Place",
+          "name": "Cambodia",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "KH"
+          }
+        },
+        {
+          "@type": "Place",
           "name": "Indonesia",
           "address": {
             "@type": "PostalAddress",

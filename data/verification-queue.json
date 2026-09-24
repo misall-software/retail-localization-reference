@@ -16,22 +16,24 @@
     "low": "Wrong value causes cosmetic or convenience issues."
   },
   "totals": {
-    "recounted": "2026-09-10",
-    "recount_note": "Recomputed from the items array after adding the Khmer/Lao/Burmese group (13 items) and resolving TH-01 against the Royal Gazette text of Royal Decree No. 807. The 2026-08-20 figures were correct as of that pass.",
-    "items": 233,
+    "recounted": "2026-09-24",
+    "recount_note": "Recomputed from the items array after adding Cambodia (16 retail + 12 food service items) and PE-16/PE-17 from the 2026-09-24 re-check of expiring rates. The 2026-09-10 figures were correct as of that pass.",
+    "items": 263,
     "by_status": {
       "confirmed": 1,
       "confirmed-authority": 1,
-      "confirmed-secondary": 13,
-      "open": 218
+      "confirmed-secondary": 20,
+      "open": 240,
+      "partially-resolved": 1
     },
     "by_country_or_language": {
       "AU": 14,
       "ID": 17,
       "KE": 22,
+      "KH": 28,
       "MY": 18,
       "NG": 16,
-      "PE": 24,
+      "PE": 26,
       "PH": 17,
       "TH": 15,
       "VN": 23,
@@ -3400,6 +3402,445 @@
       "priority": "medium",
       "status": "open",
       "note": "Recorded in the Chinese edition, which documents the back-office-in-one-language, receipt-in-another pattern common to these markets."
+    },
+    {
+      "id": "KH-01",
+      "country": "KH",
+      "editions": [
+        "en"
+      ],
+      "section": "Tax",
+      "item": "Standard VAT rate and the zero-rated and exempt lists.",
+      "current_draft_value": "10%; zero rate for exports and specified supplies",
+      "verify_against": "Law on Taxation; GDT",
+      "priority": "high",
+      "finding": "VAT 10%. Per PwC Worldwide Tax Summaries (reviewed 2026-04-02) and Acclime.",
+      "status": "confirmed-secondary",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "KH-02",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Whether a POS slip handed to a walk-in customer is a commercial invoice under Prakas 723, and if so how the buyer name and address and the seller signature are satisfied for an anonymous sale.",
+      "current_draft_value": null,
+      "verify_against": "General Department of Taxation (GDT); text of Prakas No. 723 MEF and GDT Notification No. 3218",
+      "priority": "high",
+      "note": "The practical question for any retail counter. The field list requires buyer name and address and a signature; neither fits a walk-in sale.",
+      "status": "open"
+    },
+    {
+      "id": "KH-03",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Complete mandatory field list for the tax invoice and the commercial invoice.",
+      "current_draft_value": "see receipt.invoice_types in countries.json",
+      "verify_against": "General Department of Taxation (GDT); text of Prakas No. 723 MEF and GDT Notification No. 3218",
+      "priority": "high",
+      "finding": "Field lists transcribed from KPMG Cambodia's February 2020 technical update on Notification 3218.",
+      "status": "confirmed-secondary",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "KH-04",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether the KHR disclosure of the invoice total at the NBC daily rate applies to commercial invoices as well as tax invoices, and which rate date governs a sale made before that day's rate is published.",
+      "current_draft_value": "applies to invoices generally; previous day's rate before working hours",
+      "verify_against": "General Department of Taxation (GDT); text of Prakas No. 723 MEF and GDT Notification No. 3218; National Bank of Cambodia",
+      "priority": "high",
+      "finding": "KPMG summary states the rule for invoices without distinguishing type, and permits the previous day's rate on non-working days or before working hours.",
+      "status": "confirmed-secondary",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "KH-05",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Whether Prakas No. 172 MOC (2017) is the operative price-tag instrument, the number and date of the reported 2023 reiteration, and current enforcement.",
+      "current_draft_value": "price tags in riel required; foreign-currency pricing by one-year permit",
+      "verify_against": "Ministry of Commerce",
+      "priority": "medium",
+      "finding": "Prakas 172 read as a legal database summary (Open Development Cambodia). 2023 reiteration known only from press reporting.",
+      "status": "confirmed-secondary",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "KH-06",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Currency",
+      "item": "Whether any rule governs the exchange rate a shop uses to give riel change on a dollar sale.",
+      "current_draft_value": "shop's own counter rate, by described practice",
+      "verify_against": "National Bank of Cambodia; a Cambodian accountant",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-07",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether any private-sector business-to-business CamInvoice mandate took effect in 2026, and when consumer or point-of-sale invoices come into scope.",
+      "current_draft_value": "B2G mandatory; B2B voluntary; B2C out of scope",
+      "verify_against": "Ministry of Economy and Finance; CamInvoice",
+      "priority": "high",
+      "finding": "Prakas 075 MEF (2025-01-22); Circulars 003, 012, 017. No 2026 private-sector mandate found as of 2026-09-24.",
+      "status": "confirmed-secondary",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "KH-08",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Which body operates CamInvoice.",
+      "current_draft_value": "General Department of Digital Economy",
+      "verify_against": "Ministry of Economy and Finance",
+      "priority": "low",
+      "note": "Legal database summary of Prakas 075 names the General Department of Digital Economy; some secondary sources name the GDT. Recorded as a conflict, not resolved.",
+      "status": "open"
+    },
+    {
+      "id": "KH-09",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Taxpayer identification number (TIN / VATTIN) format and validation rules.",
+      "current_draft_value": null,
+      "verify_against": "GDT",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-10",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Thresholds classifying a taxpayer as small, medium or large, which decide whether tax invoices may be issued.",
+      "current_draft_value": null,
+      "verify_against": "GDT; the prakas on taxpayer classification",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KH-11",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "VAT registration thresholds.",
+      "current_draft_value": "KHR 125 million goods / KHR 60 million services over three consecutive months",
+      "verify_against": "GDT",
+      "priority": "medium",
+      "finding": "Per Acclime; not checked against the instrument.",
+      "status": "confirmed-secondary",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "KH-12",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether displayed consumer prices are legally required to be tax-inclusive.",
+      "current_draft_value": "commercial invoice shows a tax-inclusive total",
+      "verify_against": "Law on Taxation; Ministry of Commerce",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-13",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Tax",
+      "item": "Whether a retailer or restaurant reselling alcohol or tobacco must charge Public Lighting Tax on its own invoice, and on what base.",
+      "current_draft_value": "5%, applied upstream and on further supply per PwC",
+      "verify_against": "GDT; Law on Taxation",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-14",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Receipt requirements",
+      "item": "Invoice retention periods.",
+      "current_draft_value": "10 years medium and large; 3 years small",
+      "verify_against": "GDT",
+      "priority": "low",
+      "finding": "Per KPMG summary of Notification 3218.",
+      "status": "confirmed-secondary",
+      "still_needs_primary_source": true
+    },
+    {
+      "id": "KH-15",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Languages",
+      "item": "Whether receipts are expected to carry Khmer digits or Western digits, and whether that is convention or requirement.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a sample of local receipts",
+      "priority": "low",
+      "note": "Overlaps SEA-10, which asks the same question for all three countries of the language file.",
+      "status": "open"
+    },
+    {
+      "id": "KH-16",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Payment methods",
+      "item": "What the National Bank of Cambodia requires of a merchant to accept KHQR, and the amount rules for each currency.",
+      "current_draft_value": "KHR whole numbers; USD two decimals",
+      "verify_against": "National Bank of Cambodia; KHQR SDK implementation guideline",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-01",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether dine-in, takeaway and delivery are taxed differently.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-02",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether any reduced rate or registration threshold applies to small food businesses.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-03",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether Public Lighting Tax on alcohol is charged on a restaurant bill or only upstream.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-04",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge",
+      "item": "Whether a service charge is customary, at what rate, and whether it is mandatory.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-05",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge",
+      "item": "Whether the service charge itself is subject to VAT.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "high",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-06",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge",
+      "item": "Whether tips go through the POS and must be recorded.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-07",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Service charge",
+      "item": "Whether the service charge must be shown as its own receipt line.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-08",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt",
+      "item": "Whether dine-in and takeaway must be distinguished on the document.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-09",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt",
+      "item": "Whether individual menu items must be itemised.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-10",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Receipt",
+      "item": "Whether table number and guest count are mandatory fields.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "low",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-11",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "Accounting date of a sale after midnight, and which NBC rate date applies to its riel disclosure.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "medium",
+      "status": "open"
+    },
+    {
+      "id": "KH-FS-12",
+      "country": "KH",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Operating conventions",
+      "item": "Typical trading hours for the intended segment.",
+      "current_draft_value": null,
+      "verify_against": "GDT; a Cambodian accountant",
+      "priority": "low",
+      "status": "open"
+    },
+    {
+      "id": "PE-16",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Full eligibility conditions for the reduced restaurant and hotel rate, including the exclusion for businesses economically linked to other companies or economic groups, and how that exclusion applies to a restaurant owned within a family group of companies.",
+      "current_draft_value": "1,700 UIT; 70% of income; micro or small enterprise subject to IGV per art. 5 D.S. 013-2013-PRODUCE; no economic link per art. 4 D.S. 008-2008-TR; loss and return of the rate by month",
+      "verify_against": "SUNAT; D.S. 008-2008-TR art. 4; a Peruvian accountant",
+      "priority": "high",
+      "status": "partially-resolved",
+      "finding": "Read from SUNAT's own orientation page on 2026-09-24. The conditions are stated there; how the economic-link exclusion applies to a particular ownership structure is not.",
+      "note": "Contradicts PE-FS-04, which is marked confirmed-authority with a finding listing only two conditions. Recorded here rather than editing PE-FS-04."
+    },
+    {
+      "id": "PE-17",
+      "country": "PE",
+      "editions": [
+        "en",
+        "zh"
+      ],
+      "section": "Food service / Tax treatment",
+      "item": "Whether SUNAT has issued letters (esquelas inductivas) to small restaurants seeking IGV at the general rate for periods from 2025, and on what eligibility ground.",
+      "current_draft_value": null,
+      "verify_against": "SUNAT",
+      "priority": "medium",
+      "status": "open",
+      "note": "Known only from one press report (Diario UNO, 2026-09-23) describing trade association complaints. No SUNAT statement found. Does not change the rate."
     }
   ],
   "status_notes": {

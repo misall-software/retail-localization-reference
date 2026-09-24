@@ -394,4 +394,54 @@ _Last updated: 2026-09_
 
 ---
 
+## Re-check, 2026-09-24 — two conditions this file does not carry, and a dispute over back periods
+
+The reduced food service rate is unchanged: **10.5% (8% IGV + 2.5% IPM) through
+31 December 2026, then 15% (12% IGV + 3% IPM) for calendar year 2027**, re-read
+from SUNAT's orientation page on 2026-09-24. No extension, repeal or amendment
+was found.
+
+**SUNAT's page lists eligibility conditions this file does not.** The
+[Tax](#tax) and [Food service](#food-service) sections give two: annual sales at
+or below 1,700 UIT, and the qualifying activity at least 70% of income. SUNAT's
+page, quoted:
+
+- Only micro and small enterprises subject to IGV, as defined in article 5 of
+  Decreto Supremo 013-2013-PRODUCE.
+- *"No están comprendidas los que tengan vinculación económica con otras empresas
+  o grupos económicos nacionales o extranjeros"* — businesses with an economic
+  link to other companies or to domestic or foreign economic groups are
+  excluded, as defined in article 4 of D.S. N.º 008-2008-TR.
+
+**This contradicts a status recorded elsewhere, and it is flagged rather than
+edited away.** `data/verification-queue.json` item PE-FS-04 is marked
+`confirmed-authority` with a finding that lists two conditions. Read against the
+same authority page, that finding is incomplete. The exclusion for economically
+linked businesses is the one most likely to catch a Chinese-owned restaurant that
+belongs to a family group of companies, or that shares owners with an import
+business. New item PE-16 records it.
+
+**Losing and regaining the rate is monthly, and SUNAT states how.** Per the same
+page, a business that falls outside the maximum or minimum limits loses the
+special rate and applies **18%** from the second month after the last month used
+for the check; it may return to the special rate from the first calendar day of
+the second following month. The rate is therefore a **per-month status of the
+business**, not a setting chosen once. A POS configured with a single fixed rate
+for the site cannot follow it.
+
+**Reported dispute over back periods.** On 2026-09-23 a Peruvian news outlet
+reported that SUNAT has sent large numbers of *esquelas inductivas* — letters
+inviting taxpayers to regularise — to small restaurants, seeking IGV at the
+general rate for periods from 2025 onward, and that trade associations call this
+unlawful and have asked for the letters to be withdrawn. **This is press
+reporting of one side's complaint. No SUNAT statement, resolution or court
+decision was found**, and it is recorded as `unverified`. It does not change the
+rate. What it suggests, if accurate, is that SUNAT is testing eligibility
+retrospectively — which makes it more important to keep evidence of the
+conditions above for each month. `TODO: verify` against SUNAT (PE-17).
+
+_Last updated: 2026-09_
+
+---
+
 _Maintained by the MISAll team. Last updated: 2026-08_

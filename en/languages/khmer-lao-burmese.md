@@ -389,4 +389,28 @@ machine.
 
 ---
 
+## Update, 2026-09-24 — Cambodia now has a country file
+
+Sections 5 and 9 above say there is no Cambodia country file. There is one now:
+[Cambodia](../countries/cambodia.md). Those sections are left as written, and
+this note records what changed.
+
+Two things it establishes bear directly on this file, both from secondary
+sources and `TODO: verify` there:
+
+- **Khmer is required on invoices, with any foreign language below it** — GDT
+  Instruction No. 1127 (2016), restated in Notification No. 3218 (2020). Combined
+  with section 1 of this file — no code page for Khmer on any platform — this
+  makes raster rendering a legal requirement in practice, not an engineering
+  preference, for any invoice a Cambodian POS prints.
+- **Dual-currency handling at the counter** (item SEA-11) is now addressed in the
+  country file, including the NBC-rate riel disclosure on the invoice total.
+
+Laos and Myanmar still have no country file, and nothing in section 9 has changed
+for them.
+
+_Last updated: 2026-09_
+
+---
+
 _Maintained by the MISAll team. Last updated: 2026-08_

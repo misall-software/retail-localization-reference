@@ -69,6 +69,7 @@ inline `TODO: verify` notes where firmware varies between vendors.
 | Country | ISO | Currency | Headline consumption tax | Fiscal / e-invoice system | Open items | File |
 | --- | --- | --- | --- | --- | --- | --- |
 | Australia | AU | AUD — `$` | GST 10%, flat | None for retail; ATO, tax invoice on request | 5 | [en/countries/australia.md](en/countries/australia.md) |
+| Cambodia | KH | KHR — `៛`; **USD used alongside in retail** | VAT 10% | CamInvoice (MEF) — business-to-government only; **consumer invoices out of scope**. Invoices in Khmer, total also shown in riel at the NBC daily rate | 16 | [en/countries/cambodia.md](en/countries/cambodia.md) |
 | Indonesia | ID | IDR — `Rp` | PPN 12% statutory, **11% effective** via base adjustment | e-Faktur (Directorate General of Taxes) | 8 | [en/countries/indonesia.md](en/countries/indonesia.md) |
 | Kenya | KE | KES — `KSh` | VAT 16% | eTIMS (Kenya Revenue Authority) | 11 | [en/countries/kenya.md](en/countries/kenya.md) |
 | Malaysia | MY | MYR — `RM` | **SST**, not VAT | MyInvois (LHDN), phase 4 live 2026-01 | 8 | [en/countries/malaysia.md](en/countries/malaysia.md) |
@@ -93,6 +94,13 @@ no successor to Resolution 204/2025/QH15 reported. Peru is unchanged, and SUNAT'
 orientation page now states the rate's two components rather than only the total
 — though secondary sources still in circulation give a different IPM figure. See
 [Peru → Re-check](en/countries/peru.md#re-check-2026-09-10-sunat-now-states-the-split-and-secondary-sources-disagree).
+
+**Re-checked again 2026-09-24. No rate moved.** Vietnam: still no successor to
+Resolution 204/2025/QH15. Peru: 10.5% and 15% unchanged on SUNAT's own page — but
+that page lists two eligibility conditions this repository did not carry, one of
+which excludes businesses economically linked to other companies or groups, and a
+press report describes SUNAT pursuing small restaurants for back periods. See
+[Peru → Re-check, 2026-09-24](en/countries/peru.md#re-check-2026-09-24-two-conditions-this-file-does-not-carry-and-a-dispute-over-back-periods).
 
 **Vietnam is now the nearest expiry in this repository**, at 2026-12-31.
 

@@ -55,6 +55,7 @@
 | 马来西亚 | 林吉特（MYR） | **SST，不是增值税** | 电子发票分批推进，2026-01 轮到第四批 | [countries/malaysia.md](countries/malaysia.md) |
 | 菲律宾 | 比索（PHP） | 增值税 12% | **收银机要先登记才能营业**；老人残障折扣是免税的 | [countries/philippines.md](countries/philippines.md) |
 | 泰国 | 泰铢（THB） | **7%，已确认延到 2027-09-30**（第 807 号法令，2026-08-23 公布） | 泰文不空格、符号叠加，排版最难 | [countries/thailand.md](countries/thailand.md) |
+| 柬埔寨 | 瑞尔（KHR），**零售普遍用美元** | 增值税 10% | **一单两种钱**：美元标价、瑞尔找零；发票必须高棉文在上，总额还要按央行汇率折成瑞尔 | [countries/cambodia.md](countries/cambodia.md) |
 | 南非 | 兰特（ZAR） | 增值税 15% | **停电是常态**，收银必须能离线；Layby 受法律约束 | [countries/south-africa.md](countries/south-africa.md) |
 | 尼日利亚 | 奈拉（NGN） | 增值税 7.5% | 先审核后开票；对账全靠转账参考号 | [countries/nigeria.md](countries/nigeria.md) |
 | 澳洲 | 澳元（AUD） | 商品服务税 10% | **Layby 必须有书面协议**；跨时区且有夏令时 | [countries/australia.md](countries/australia.md) |
@@ -71,6 +72,12 @@
 但秘鲁税务局自己的页面现在把税率的两部分写清楚了 ——
 而网上还有一批二手来源给的数字和它对不上，
 见 [秘鲁 → 2026-09-10 重新核对](countries/peru.md)。
+
+**2026-09-24 又核对了一次，三个税率都没动。** 越南仍然没查到 2027 年继续延的消息。
+秘鲁的 10.5% 和 15% 在税务局页面上没变 —— **但页面上的资格条件比本资料原来写的多两条**，
+其中一条是"和其他公司、企业集团有经济关联的不能享受"，一家人名下几家公司的华人餐馆要特别留意；
+另外有新闻报道说税务局在找小餐馆补缴过去的税。
+见 [秘鲁 → 2026-09-24 重新核对](countries/peru.md)。
 
 **现在最近到期的是越南**，2026-12-31。
 

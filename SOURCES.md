@@ -612,6 +612,112 @@ Cambodia, Laos or Myanmar**, so nothing here has been checked against any of
 their tax rules, receipt content requirements or e-invoicing mandates.
 
 
+## Expiring rates — re-checked 2026-09-24
+
+**Thailand** — not re-searched. Royal Decree No. 807 runs 7% to 2027-09-30; see
+the Thailand section. Nothing is due until mid-2027.
+
+**Vietnam** — unchanged. A search in English and Vietnamese found no successor to
+Resolution 204/2025/QH15 and no published proposal to extend the 8% rate beyond
+2026-12-31. Commentary found still treats 2026-12-31 as the end date and calls
+for the end to be announced early. The National Assembly's autumn session is where
+an extension would appear; re-check in November 2026, as already planned.
+
+**Peru** — rate unchanged, eligibility conditions incomplete in this repository,
+and one press report of an enforcement dispute.
+
+- [SUNAT — Orientación: Reducción del IGV para micro y pequeñas empresas de las actividades de restaurantes, hoteles y alojamientos turísticos](https://orientacion.sunat.gob.pe/reduccion-del-igv-para-restaurantes-hoteles-y-alojamiento-turisticos-1) —
+  **authority's own page**, read 2026-09-24. Rates: 2026 8% IGV + 2.5% IPM =
+  10.50%; 2027 12% + 3.0% = 15%. Conditions: 1,700 UIT sales ceiling; 70% of
+  income from the qualifying activity; micro and small enterprises subject to IGV
+  per article 5 of D.S. 013-2013-PRODUCE; **businesses with an economic link to
+  other companies or economic groups excluded, per article 4 of D.S. N.º
+  008-2008-TR**; loss of the rate from the second month after the last month
+  checked, with return from the first day of the second following month. The last
+  three are not in the country file's earlier sections or in PE-FS-04's finding.
+- [Diario UNO — "¡Jaque Mate a la gastronomía! Mypes denuncian que SUNAT quiere cobro retroactivo del IGV pese a Ley Vigente", 2026-09-23](https://diariouno.pe/2026/09/23/jaque-mate-a-la-gastronomia-mypes-denuncian-que-sunat-quiere-cobro-retroactivo-del-igv-pese-a-ley-vigente/) —
+  **press, reporting one side's complaint.** States SUNAT has issued mass
+  *esquelas inductivas* seeking IGV back to 2025, which trade associations call
+  unlawful. No SUNAT statement found. Recorded as `unverified`.
+
+## Cambodia
+
+Researched 2026-09-24. **Secondary sources throughout, with one exception**: the
+KHQR items, read from the National Bank of Cambodia's Bakong site. Nothing below
+was read in the Khmer text of the governing instrument.
+
+**Invoice rules — Prakas No. 723 MEF (2019-08-14), implemented by GDT
+Notification No. 3218 (2020-02-06), effective 2020-01-01.** Tax invoice to
+registered buyers and commercial invoice to end users for medium and large
+taxpayers; commercial invoices only for small taxpayers. Field lists for each.
+Khmer required, any foreign language below it. Sequential numbering per year, per
+branch, per invoice type, stated to apply to POS users. Riel disclosure of the
+invoice total at the NBC daily rate, previous day's rate permitted on non-working
+days or before working hours. Retention 10 years for medium and large taxpayers,
+3 for small. No input VAT credit for medium or large buyers on purchases from
+small taxpayers.
+
+- [KPMG Cambodia — Technical Update, February 2020: Rules for Use of Invoice (Notification No. 3218 GDT)](https://assets.kpmg.com/content/dam/kpmg/kh/pdf/technical-update/2020/prakas-no-723-prk-instruction-no-3033-feb-2020-kpmg-kh.pdf) —
+  tax-practice summary. The field lists in the country file are transcribed from
+  this, not from the prakas.
+
+**Khmer language on invoices, 2016** — GDT Instruction No. 1127, 2016-01-26:
+Khmer, or Khmer and English with the English below.
+
+- [DFDL — Cambodia Tax Alert: Tax Invoice Update](https://www.dfdl.com/insights/legal-and-tax-updates/cambodia-tax-alert-tax-invoice-update/) — 2016-01-28.
+- [Mondaq — Cambodia Tax Technical Update: Tax Invoices](https://www.mondaq.com/sales-taxes-vat-gst/488790/cambodia-tax-technical-update-tax-invoices) —
+  seen in search results only, for the reported allowance to use English for
+  technical terms. Not opened; the allowance is `TODO: verify`.
+
+**VAT rate, other taxes.** VAT 10%; Public Lighting Tax 5% on alcohol and
+tobacco; Accommodation Tax 2%.
+
+- [PwC Worldwide Tax Summaries — Cambodia, Other taxes](https://taxsummaries.pwc.com/cambodia/corporate/other-taxes) — last reviewed 2026-04-02.
+- [Acclime Cambodia — Value-added tax (VAT) in Cambodia](https://cambodia.acclime.com/guides/value-added-tax/) —
+  rate, zero-rated and exempt lists, registration thresholds (KHR 125 million
+  goods / KHR 60 million services over three months), filing by the 20th.
+
+**Riel price tags — Prakas No. 172 MOC, 2017-07-07, amending Prakas No. 047.**
+
+- [Open Development Cambodia — Prakas no. 172 on the revision of Prakas no. 047 on adding price tags to all products and services](https://data.opendevelopmentcambodia.net/laws_record/moc-sm2013) —
+  legal database record with an English summary of a Khmer-language instrument.
+  Cited at that level: the summary was read, the instrument was not.
+- The reported 2023 reiteration (dated 2023-03-22 in press reporting, with the
+  riel price placed above or before any foreign price) is from search result
+  summaries of Phnom Penh Post and Asia News Network articles; the Phnom Penh Post
+  page returned 403. No instrument number found. `TODO: verify`.
+
+**KHQR — authority's own site.**
+
+- [National Bank of Cambodia — Bakong](https://bakong.nbc.gov.kh/en/) — KHQR as
+  the national EMV-based QR standard, one code across payment service operators,
+  Khmer Riel and US Dollar as the two currencies.
+- [NBC — KHQR SDK implementation guideline](https://bakong.nbc.gov.kh/en/download/KHQR%20SDK.pdf) —
+  listed, not read. The rule that riel amounts are whole numbers and dollar
+  amounts take two decimals is from third-party SDK documentation seen in search
+  results, and is consistent with the currency having no circulating
+  subdivision. `TODO: verify` against this document.
+
+**CamInvoice.** Prakas No. 075 MEF, 2025-01-22, launching the Cambodia
+E-Invoicing System; Circulars No. 003 (2025-01-22), 012 (2025-07-14) and 017
+(2025-11-20) extending the business-to-government mandate. Business-to-business
+voluntary; consumer invoices out of scope; UBL XML.
+
+- [Open Development Cambodia — Prakas no. 075 on the Launch of Cambodia E-Invoicing System](https://data.opendevelopmentcambodia.net/laws_record/prakas-no-075-on-the-launching-of-cambodia-e-invoicing-system) —
+  names the **General Department of Digital Economy** as implementing body.
+- [KPMG — Cambodia: Mandatory e-invoicing expanded to six ministries](https://kpmg.com/us/en/taxnewsflash/news/2025/11/cambodia-mandatory-e-invoicing-expanded-six-ministries.html)
+- [VATupdate — Briefing Document: E-Invoicing and E-Reporting in Cambodia](https://www.vatupdate.com/2026/01/04/briefing-document-podcast-e-invoicing-and-e-reporting-in-cambodia/) —
+  2026-01-04; circular numbers and dates, scope. **Names the operator
+  inconsistently with the prakas summary** — recorded as open item 8 in the
+  country file rather than resolved.
+
+**Not sourced, and marked as such in the country file:** everything about how
+change is given at the counter and at what rate, the smallest note in practical
+use, symbol and separator conventions, service charge and tips, whether a POS
+slip is a commercial invoice, TIN format, taxpayer size thresholds, and any
+private-sector CamInvoice mandate in 2026.
+
+
 ## Still unsourced
 
 Nothing below has been checked. These remain open in
@@ -664,5 +770,14 @@ Nothing below has been checked. These remain open in
   file exists for Cambodia, Laos or Myanmar, so tax rates, receipt content,
   device registration and e-invoicing are entirely unresearched, and so is
   Cambodia's dual-currency handling at the counter.
+
+- **Cambodia:** the country file is new and every item in it is secondary except
+  KHQR. Open: whether a POS slip is a commercial invoice under Prakas 723; the
+  full field lists from the prakas text; whether the riel disclosure reaches
+  commercial invoices; the counter exchange rate; taxpayer size thresholds; TIN
+  format; any 2026 private-sector CamInvoice mandate; and every food-service item.
+- **Peru, added 2026-09-24:** how "economic link" (vinculación económica) is
+  applied to a restaurant owned within a family group of companies, and whether
+  SUNAT has issued anything official on the reported back-period letters.
 
 _Last updated: 2026-09_
